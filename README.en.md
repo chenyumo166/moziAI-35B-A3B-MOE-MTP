@@ -21,7 +21,7 @@ pipeline_tag: text-generation
 
 # MoziAI-35B-A3B-MOE - Financial Vertical Domain LLM - V3.6
 
-English | [中文](README.md)
+[中文](README.md) | English | [日本語](README.ja.md) | [한국어](README.ko.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Русский](README.ru.md) | [हिन्दी](README.hi.md) | [繁體中文](README.zh-hant.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md)
 
 ## Model Overview
 
