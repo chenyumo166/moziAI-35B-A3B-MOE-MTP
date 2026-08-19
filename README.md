@@ -266,6 +266,7 @@ MoziAI 基于 deepreinforce-ai/Ornith-1.0-35B 底座微调、蒸馏与二次开�
 | -------------- | ------------------------------------------------------------------------------------------------------- |
 | HuggingFace    | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
 | ModelScope（魔搭） | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
+| GitHub         | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
 
 > 💡 **下载提示**：请点击上方链接进入 HuggingFace 仓库，在 **"Files and versions"** 标签页下载 V3.6 目录下的所有文件（主模型、视觉投影、聊天模板），确保三个文件放在同一目录下。
 
