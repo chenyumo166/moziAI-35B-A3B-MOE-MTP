@@ -17,25 +17,6 @@ tags:
 - vision
 library_name: llama-cpp
 pipeline_tag: text-generation
-model-index:
-- name: moziAI-35B-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored
-  results:
-  - task:
-      type: text-generation
-      name: Text Generation
-    dataset:
-      name: Custom
-      type: other
-    metrics:
-    - type: perplexity
-      value: 2.7446
-      name: PPL
-    - type: size
-      value: 15.5GB
-      name: Model Size
-    - type: architecture
-      value: MoE-35B-A3B
-      name: Architecture
 ---
 
 # MoziAI-35B-A3B-MOE（墨子AI）AI大模型 V3.6

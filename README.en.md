@@ -17,25 +17,6 @@ tags:
 - vision
 library_name: llama-cpp
 pipeline_tag: text-generation
-model-index:
-- name: moziAI-35B-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored
-  results:
-  - task:
-      type: text-generation
-      name: Text Generation
-    dataset:
-      name: Custom
-      type: other
-    metrics:
-    - type: perplexity
-      value: 2.7446
-      name: PPL
-    - type: size
-      value: 15.5GB
-      name: Model Size
-    - type: architecture
-      value: MoE-35B-A3B
-      name: Architecture
 ---
 
 # MoziAI-35B-A3B-MOE - Financial Vertical Domain LLM - V3.6
@@ -266,6 +247,7 @@ Due to the large model size (~15.5 GB), weights are hosted on multiple community
 |----------|-----|
 | HuggingFace | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
 | ModelScope | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
+| GitHub | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
 
 > 💡 **Download Tip**: Click the link above to go to the HuggingFace repository, then go to the **"Files and versions"** tab to download all files under the V3.6 directory (main model, vision projection, chat template). Make sure all three files are placed in the same directory.
 
