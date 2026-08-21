@@ -21,29 +21,33 @@ pipeline_tag: text-generation
 
 # MoziAI-35B-A3B-MOE - Financial Vertical Domain LLM - V3.6
 
-[中文](README.md) | English | [日本語](README.ja.md) | [한국어](README.ko.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Русский](README.ru.md) | [हिन्दी](README.hi.md) | [繁體中文](README.zh-hant.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md)
+Language / 语言选择  
+English | [简体中文](README.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
 
 ## Model Overview
 
-MoziAI-35B-A3B-MOE is a local open-source financial AI multimodal LLM (supports vision and tool calling) developed by Chinese finance influencer Chen Yumo's team, fine-tuned/distilled from the Ornith-1.0-35B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** architecture, MIT licensed) foundation model. Through the self-developed **MoziSmartBit Intelligent Quantization** technology, the 35B-parameter MoE model is compressed to approximately **15.5 GB**, achieving an optimal balance between precision and size with near-lossless ~99% precision quality.
+MoziAI-35B-A3B-MOE is a local open-source multimodal AI large language model developed by Chinese finance influencer Chen Yumo's team (focuses on financial domain, supports vision, tool calling, complex long tasks, consumer GPU local deployment). It is fine-tuned/distilled from the Ornith-1.0-35B-A3B (**Qwen3.5-35B-A3B/Qwen3.6-35B-A3B** architecture, MIT licensed) foundation model.
 
-In addition to retaining general AI capabilities, this model focuses on optimizing financial vertical domain applications, including financial Q&A, quantitative programming, tool calling, and general programming.
+Our team's mission is to bring powerful local AI large models to thousands of households and small-medium enterprises, eliminating the need for expensive AI hardware costs or cloud API costs. Through the self-developed **MoziSmartBit Intelligent Quantization** technology, the 35B-parameter MoE model is compressed to approximately **15.5 GB**, achieving an optimal balance between precision and size with near-lossless ~99% precision quality. Although the model has 35 billion parameters in total, it uses MOE sparse expert technology that only activates 3 billion parameters per token and supports MTP speculative decoding for accelerated inference. Practical testing shows it can be deployed locally on a consumer GPU with 20GB VRAM and achieves 140+ tokens/s inference speed, outperforming many cloud-based paid AI large models.
 
-The model developer Chen Yumo frequently uses this model for local financial data analysis, quantitative strategy R&D, market research, article writing, overall project advancement, general programming, and 256K context tasks via openclaw/hermes. It can be deployed locally on consumer-grade GPUs, saving substantial cloud token costs, achieving 7X24 token freedom while ensuring local data privacy and security.
-
-Supports llama.cpp, Ollama, LM Studio and other mainstream inference frameworks.
+In addition to retaining general AI capabilities, this model focuses on optimizing financial vertical domain applications, including financial Q&A, quantitative programming, general programming, tool calling, and improving success rate for 256K complex long context tasks. It can be deployed locally for free on consumer-grade GPUs, saving substantial cloud token costs, achieving 7X24 token freedom while ensuring local data privacy and security.
 
 **Release Date: 2026-08-20** | **Version: V3.6**
 
 ## Model Features
 
+<br />
+
+- **MoziSmartBit Intelligent Quantization**: Self-developed smart quantization, best balance of precision and size, nearly lossless compressed to approximately **15.5 GB**
+- **Complex Long Task Capability**: Trained with intelligent loop mechanism that allows the agent to automatically plan tasks, handle stuck points and self-reflect, enabling automatic execution and self-adjustment for complex tasks, eliminating the need for users to continuously optimize prompts manually.
+- **Small Model, Big Capability**: Outperforms other models within 350 billion parameters on complex tasks, even outperforms some larger models with multiple times the parameters.
+- **MOE+MTP Speed Advantage**: Although the model has 35 billion parameters in total, it only activates 30 billion parameters (8+1 experts) per token, resulting in faster inference speed. Perfect for local deployment on consumer GPUs with 20GB or 24GB VRAM, delivering 140+ tokens/s inference speed.
 - **Financial Vertical Focus**: Deep optimization for financial Q&A, quantitative programming, and tool calling
-- **MoziSmartBit Intelligent Quantization**: Self-developed smart quantization, best balance of precision and size, compressed to approximately **15.5 GB**
 - **Consumer-grade Deployment**: Deployable on consumer GPUs with 20GB or 24GB+ VRAM, supports 256K long context
 - **Multilingual Support**: 201 languages and dialects, with enhanced Chinese capabilities, covering English/Japanese/Korean/German/French/Spanish/Portuguese and more
 - **General Programming**: Full-stack development, code debugging, architecture design, script writing, covering Python/JS/TS/Go/Rust and other mainstream languages
 - **Article Writing**: High-quality multi-genre writing including research reports, analysis articles, technical documentation, creative content
-- **Vision Understanding**: Supports multimodal vision, local screenshot input, image comprehension
+- **Vision Understanding**: Supports multimodal vision by loading vision file in inference framework, local screenshot can be directly pasted into chat window for image comprehension
 - **Uncensored Free Output**: No content censorship, free discussion on any topic without safety restrictions
 - **Enhanced Reasoning**: Chain-of-thought training for improved reasoning quality
 - **Multi-Framework Support**: Compatible with llama.cpp, Ollama, LM Studio, Jan
@@ -162,7 +166,7 @@ Since user GPU configurations vary widely, here are recommended parameters for d
 
 | VRAM | Recommended Context | KV Cache | Vision Support | Notes |
 |------|---------------------|----------|----------------|-------|
-| 20 GB | 150K | q4_0 | Supported | Model+vision ~16.4GB, actual test shows 200K+vision uses ~19.5GB VRAM |
+| 20 GB | 128K | q4_0 | Supported | Model+vision ~16.4GB, actual test shows 200K+vision uses ~19.5GB VRAM |
 | 24 GB | 256K full | q4_0 | Full support | Vision+256K long context, uses ~20.4GB VRAM, ~3.6GB headroom |
 | 32 GB+ | 256K full | q4_0 | Full support | Vision+256K long context, sufficient headroom ~10GB, best config |
 
