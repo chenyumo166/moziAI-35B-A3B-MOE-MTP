@@ -19,35 +19,31 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-35B-A3B-MOE - 금융 수직 영역 LLM - V3.6
+# MoziAI-35B-A3B-MOE - 금융 수직 영역 LLM - V3.7
 
-Language / 언어 선택  
-[简体中文](README.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | 한국어 | [हिन्दी](README.hi.md) | [English](README.en.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+한국어 | [中文](README.md) | [English](README.en.md)
 
 ## 모델 개요
 
-MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(陳雨墨) 팀이 개발한 로컬 오픈소스 멀티모달 AI 대형 언어 모델입니다 (금융 영역 강화, 비전 지원, 도구 호출, 복잡한 긴 작업 지원, 소비자 GPU 로컬 배포). Ornith-1.0-35B-A3B(**Qwen3.5-35B-A3B/Qwen3.6-35B-A3B** 아키텍처, MIT 라이선스) 기반 모델에서 파인튜닝/증류되었습니다.
+MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(陳雨墨) 팀이 개발한 로컬 오픈소스 금융 AI 멀티모달 LLM(비전 및 도구 호출 지원)으로, Ornith-1.5-35B-A3B(**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** 아키텍처, MIT 라이선스) 기반 모델에서 파인튜닝/증류되었습니다. 자체 개발한 **MoziSmartBit 지능 양자화** 기술을 통해 35B 파라미터 MoE 모델을 약 **15.5 GB**로 압축하여, 손실 수준 ~99% 정밀도 품질로 정밀도와 크기 간 최적의 균형을 달성했습니다.
 
-우리 팀의 미션은 강력한 로컬 AI 대형 모델을 수많은 가정과 중소기업에 가져다주는 것이며, 더 이상 비싼 AI 하드웨어 비용이나 클라우드 API 비용을 지불할 필요가 없습니다. 자체 개발한 **MoziSmartBit 지능 양자화** 기술을 통해 350억 파라미터 MoE 모델을 약 **15.5 GB**로 압축하여, 모델 정밀도와 크기 간 최적의 균형을 달성했으며, FP16의 약 99% 정밀도 품질을实现했습니다. 모델은 총 350억 파라미터를 가지고 있지만, MOE 희소 전문가 기술을 사용하여 토큰당 30억 파라미터만 활성화하고 MTP 추측 디코딩을 지원하여 추론을 가속화합니다. 실제 테스트 결과 20GB VRAM을 가진 소비자 GPU에서 로컬로 배포할 수 있으며 140+ tokens/s의 추론 속도를 달성하여 많은 유료 클라우드 AI 대형 모델보다 빠릅니다.
+일반 AI 기능을 유지하는 것 외에도, 이 모델은 금융 Q&A, 양적 프로그래밍, 도구 호출 및 일반 프로그래밍을 포함한 금융 수직 영역 애플리케이션 최적화에 중점을 둡니다.
 
-일반 AI 기능을 유지하는 것 외에도, 이 모델은 금융 수직 영역의 애플리케이션, 금융 Q&A, 양적 프로그래밍, 일반 프로그래밍, 도구 호출, 256K 복잡한 긴 컨텍스트 작업의 성공률 등 AI 대형 모델의 핵심 기능에 중점을 두고 최적화했습니다. 소비자 등급 GPU에서 무료로 로컬 배포할 수 있으며, 상당한 클라우드 토큰 비용을 절약하고 로컬 데이터 프라이버시와 보안을 보장하면서 7X24 토큰 자유를 달성합니다.
+모델 개발자 천위모는 이 모델을 로컬 금융 데이터 분석, 양적 전략 R&D, 시장 조사, 기사 작성, 전체 프로젝트 진행, 일반 프로그래밍 및 openclaw/hermes를 통한 256K 컨텍스트 작업에 자주 사용합니다. 소비자 등급 GPU에서 로컬 배포 가능하며, 상당한 클라우드 토큰 비용을 절약하고 로컬 데이터 프라이버시와 보안을 보장하면서 7X24 토큰 자유를 달성합니다.
 
-**출시일: 2026-08-20** | **버전: V3.6**
+llama.cpp, Ollama, LM Studio 및 기타 주류 추론 프레임워크를 지원합니다.
+
+**출시일: 2026-08-21** | **버전: V3.7**
 
 ## 모델 특징
 
-<br />
-
-- **MoziSmartBit 지능 양자화**: 자체 개발 스마트 양자화, 정밀도와 크기의 최적 균형, 거의 무손실로 약 **15.5 GB**로 압축
-- **복잡한 긴 작업 능력**: 모델 에이전트가 작업을 자동으로 계획하고, 막힌 지점을 처리하고 자기 성찰하는 지능형 순환 메커니즘으로 훈련되어, 복잡한 작업의 자동 실행과 자기 조정을 가능하게 하여, 사용자가 지속적으로 프롬프트를 최적화해야 하는 번거로움을 없앱니다.
-- **작은 모델, 큰 능력**: 복잡한 작업에서 350억 파라미터 이내의 다른 모델보다 성능이 뛰어나며, 심지어 파라미터가 몇 배 더 큰 일부 모델보다도 성능이 우수합니다.
-- **MOE+MTP 속도 이점**: 모델은 총 350억 파라미터를 가지고 있지만, 토큰당 8+1 전문가의 30억 파라미터만 활성화하므로 추론 속도가 더 빠릅니다. 20GB 또는 24GB VRAM을 가진 소비자 GPU에서 로컬 배포하기에 완벽하며 140+ tokens/s의 추론 속도를 제공합니다.
 - **금융 수직 영역 특화**: 금융 Q&A, 양적 프로그래밍 및 도구 호출에 대한 심층 최적화
+- **MoziSmartBit 지능 양자화**: 자체 개발 스마트 양자화, 정밀도와 크기의 최적 균형, 약 **15.5 GB**로 압축
 - **소비자 등급 배포**: 20GB 또는 24GB+ VRAM의 소비자 GPU에서 배포 가능, 256K 긴 컨텍스트 지원
 - **다국어 지원**: 201개 언어 및 방언, 향상된 중국어 능력, 영어/일본어/한국어/독일어/프랑스어/스페인어/포르투갈어 등 지원
 - **일반 프로그래밍**: 풀스택 개발, 코드 디버깅, 아키텍처 설계, 스크립트 작성, Python/JS/TS/Go/Rust 및 기타 주류 언어 지원
 - **기사 작성**: 연구 보고서, 분석 기사, 기술 문서, 창의적 콘텐츠를 포함한 고품질 다장르 글쓰기
-- **비전 이해**: 추론 프레임워크에서 비전 파일을 로드하여 멀티모달 비전을 지원하며, 로컬 스크린샷을 채팅 창에 직접 붙여넣어 이미지 이해 가능
+- **비전 이해**: 멀티모달 비전 지원, 로컬 스크린샷 입력, 이미지 이해
 - **검열 없는 자유 출력**: 콘텐츠 검열 없음, 안전 제한 없이 모든 주제에 대해 자유롭게 논의
 - **향상된 추론**: 사고의 사슬(Chain-of-thought) 훈련으로 추론 품질 향상
 - **다중 프레임워크 지원**: llama.cpp, Ollama, LM Studio, Jan 호환
@@ -55,7 +51,7 @@ MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(陳雨墨) 팀이 
 
 ## 검열 없는 출력의 장점
 
-이 모델은 Ornith-1.0-35B 기본 모델의 **Uncensored** 기능을 계승하며, 다음과 같은 장점이 있습니다:
+이 모델은 Ornith-1.5-35B-A3B 기본 모델의 **Uncensored** 기능을 계승하며, 다음과 같은 장점이 있습니다:
 
 | 장점 | 설명 |
 |------|------|
@@ -81,7 +77,7 @@ MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(陳雨墨) 팀이 
 
 | 항목 | 사양 |
 |------|------|
-| 기본 모델 | Ornith-1.0-35B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT 라이선스) |
+| 기본 모델 | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT 라이선스) |
 | 파라미터 | 35B MoE (256개 라우팅 전문가 + 1개 공유 전문가, 토큰당 8개 활성) |
 | 양자화 | 자체 개발 MoziSmartBit 지능 양자화 + GGUF 표준 형식 |
 | 컨텍스트 길이 | 256K (262,144 토큰) |
@@ -102,7 +98,7 @@ MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(陳雨墨) 팀이 
 | Q6_K | ~28.5 GB | ~99.5% | 거의 무손실 |
 | Q8_0 | ~36.9 GB | ~100% | 무손실 |
 
-> MoziAI V3.6은 MoziSmartBit 지능 양자화를 사용하여 ~99% 정밀도를 유지하면서 35B 파라미터 MoE 모델을 ~15.5 GB(~4.5배 압축율)로 압축하며, 추론 품질과 소비자 GPU 배포 간소화의 균형을 맞추고 있습니다.
+> MoziAI V3.7은 MoziSmartBit 지능 양자화를 사용하여 ~99% 정밀도를 유지하면서 35B 파라미터 MoE 모델을 ~15.5 GB(~4.5배 압축율)로 압축하며, 추론 품질과 소비자 GPU 배포 간소화의 균형을 맞추고 있습니다.
 
 ## MoziSmartBit 지능 양자화
 
@@ -130,7 +126,7 @@ MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(陳雨墨) 팀이 
 |----------|------|------|
 | temperature | 0.6 | 창의성과 정확도 간 균형 |
 | top_p | 0.95 | 뉴클리어스 샘플링 임계값 |
-| top_k | 20 | 잘라내기 샘플링 (V3.6 최적화) |
+| top_k | 20 | 잘라내기 샘플링 (V3.7 최적화) |
 | repeat_penalty | 1.05 | 반복 페널티 |
 | presence_penalty | 0 | presence 페널티 없음 |
 | context_length | 262144 | 256K 긴 컨텍스트 |
@@ -148,9 +144,9 @@ MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(陳雨墨) 팀이 
 
 ```bash
 llama-server \
-  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
-  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
+  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
@@ -166,7 +162,7 @@ llama-server \
 
 | VRAM | 권장 컨텍스트 | KV 캐시 | 비전 지원 | 비고 |
 |------|---------------|---------|-----------|------|
-| 20 GB | 128K | q4_0 | 지원 | 모델+비전 ~16.4GB, 실제 테스트 시 200K+비전 사용 시 ~19.5GB VRAM 소요 |
+| 20 GB | 150K | q4_0 | 지원 | 모델+비전 ~16.4GB, 실제 테스트 시 200K+비전 사용 시 ~19.5GB VRAM 소요 |
 | 24 GB | 256K 풀 | q4_0 | 완전 지원 | 비전+256K 긴 컨텍스트, ~20.4GB VRAM 소요, ~3.6GB 여유 |
 | 32 GB+ | 256K 풀 | q4_0 | 완전 지원 | 비전+256K 긴 컨텍스트, ~10GB 충분한 여유, 최적 구성 |
 
@@ -208,7 +204,7 @@ llama-server \
 
 ```bash
 # Modelfile 생성
-FROM ./moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
+FROM ./moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
 
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
@@ -227,7 +223,7 @@ LM Studio 또는 Jan에서 `moziAI-35B`를 검색하고, MoziSmartBit 양자화 
 
 ## 벤치마크 평가
 
-MoziAI는 **deepreinforce-ai/Ornith-1.0-35B**에서 파인튜닝되었습니다. MoziAI는 기본 모델 위에서 금융 수직 영역에 최적화되어, 금융 Q&A, 양적 프로그래밍 및 도구 호출 시나리오에서 우수한 성능을 제공합니다. MoziAI-35B의 일반 기능은 Ornith-1.0-35B 기본 모델과 일치합니다.
+MoziAI는 **deepreinforce-ai/Ornith-1.5-35B-A3B**에서 파인튜닝되었습니다. MoziAI는 기본 모델 위에서 금융 수직 영역에 최적화되어, 금융 Q&A, 양적 프로그래밍 및 도구 호출 시나리오에서 우수한 성능을 제공합니다. MoziAI-35B의 일반 기능은 Ornith-1.5-35B-A3B 기본 모델과 일치합니다.
 
 | 벤치마크 | MoziAI-35B (이 모델) | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | 설명 |
 |----------|----------------------|-------------|------------|------------|-------------|------|
@@ -241,7 +237,7 @@ MoziAI는 **deepreinforce-ai/Ornith-1.0-35B**에서 파인튜닝되었습니다.
 | GPQA Diamond | 88.4 | 87.8 | 84.3 | 82.3 | - | 과학적 추론 |
 | AIME 2026 Math | 93.3 | 94.1 | 89.2 | 88.3 | - | 수학 추론 |
 
-> MoziAI-35B의 일반 벤치마크 점수는 Ornith-1.0-35B 기본 모델과 일치합니다. 금융 수직 영역은 MoziAI의 핵심 최적화 방향으로, 재무제표 분석, 양적 전략, 리스크 및 컴플라이언스, 에이전트 도구 호출 시나리오에서 일반 모델을 크게 능가합니다. Gemma4 및 Qwen3.6 데이터는 공식 공개 결과에서 가져왔습니다.
+> MoziAI-35B의 일반 벤치마크 점수는 Ornith-1.5-35B-A3B 기본 모델과 일치합니다. 금융 수직 영역은 MoziAI의 핵심 최적화 방향으로, 재무제표 분석, 양적 전략, 리스크 및 컴플라이언스, 에이전트 도구 호출 시나리오에서 일반 모델을 크게 능가합니다. Gemma4 및 Qwen3.6 데이터는 공식 공개 결과에서 가져왔습니다.
 
 ## 모델 다운로드
 
@@ -253,19 +249,19 @@ MoziAI는 **deepreinforce-ai/Ornith-1.0-35B**에서 파인튜닝되었습니다.
 | ModelScope | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
 | GitHub | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
 
-> 💡 **다운로드 팁**: 위 링크를 클릭하여 HuggingFace 저장소로 이동한 다음, **"Files and versions"** 탭에서 V3.6 디렉토리 아래의 모든 파일(메인 모델, 비전 프로젝션, 채팅 템플릿)을 다운로드하세요. 세 파일 모두 동일한 디렉토리에 배치해야 합니다.
+> 💡 **다운로드 팁**: 위 링크를 클릭하여 HuggingFace 저장소로 이동한 다음, **"Files and versions"** 탭에서 V3.7 디렉토리 아래의 모든 파일(메인 모델, 비전 프로젝션, 채팅 템플릿)을 다운로드하세요. 세 파일 모두 동일한 디렉토리에 배치해야 합니다.
 
 ### ⚠️ 중요: 비전 기능에는 mmproj 파일이 필요합니다
 
 이 모델은 멀티모달 비전을 지원합니다. **비전 프로젝션 파일(mmproj)**은 버전 디렉토리에 포함되어 있습니다:
 
-- **비전 파일**: `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16 정밀도)
+- **비전 파일**: `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16 정밀도)
 - **배치 위치**: GGUF 모델 파일과 동일한 버전 디렉토리
 - **로딩**: llama-server 시작 시 `--mmproj` 플래그로 로드
 
 ```bash
-llama-server -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf
+llama-server -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 ```
 
 > 비전 파일 없이는 모델의 **이미지 이해 능력이 손실**되며 텍스트 전용 대화만 유지됩니다.
@@ -274,13 +270,13 @@ llama-server -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Unce
 
 ### 1. 모델 파일 다운로드
 
-HuggingFace / ModelScope에서 V3.6 디렉토리의 모든 파일을 다운로드합니다:
+HuggingFace / ModelScope에서 V3.7 디렉토리의 모든 파일을 다운로드합니다:
 
 ```
-V3.6/
-├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # 메인 모델 (필수)
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # 비전 프로젝션 (선택)
-└── moziAI-V3.6-35B-chat-template.jinja                  # 채팅 템플릿 (권장)
+V3.7/
+├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # 메인 모델 (필수)
+├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # 비전 프로젝션 (선택)
+└── moziAI-V3.7-35B-chat-template.jinja                  # 채팅 템플릿 (권장)
 ```
 
 ### 2. 추론 서버 시작
@@ -291,12 +287,12 @@ V3.6/
 
 ```bash
 llama-server \
-  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
+  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99
 ```
 
-> 비전 기능을 위해 `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`를 추가하세요.
+> 비전 기능을 위해 `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`를 추가하세요.
 
 ### 3. 사용 시작
 
@@ -309,18 +305,18 @@ moziAI-35B/
 ├── README.md              # 중국어 버전
 ├── README.en.md           # 이 파일 (영어)
 ├── LICENSE                # 라이선스
-├── V3.6/                  # V3.6 버전 (자체 포함)
+├── V3.7/                  # V3.7 버전 (자체 포함)
 │   ├── RELEASE_NOTES.md                       # 릴리스 노트
-│   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # 메인 모델
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # 비전 프로젝션
-│   └── moziAI-V3.6-35B-chat-template.jinja   # 채팅 템플릿
+│   ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # 메인 모델
+│   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # 비전 프로젝션
+│   └── moziAI-V3.7-35B-chat-template.jinja   # 채팅 템플릿
 ```
 
 향후 업그레이드 계획은 [未来升级计划.md](未来升级计划.md)를 참조하세요.
 
 ## SEO 키워드
 
-financial AI LLM, 로컬 오픈소스 모델, 엔드사이드 모델, 양적 프로그래밍, MoziSmartBit, 지능 양자화, GGUF 양자화, MoE 모델, 로컬 오픈소스 LLM, 로컬 배포, 금융 AI, 도구 호출, Agent, llama.cpp, Ollama, GGUF, Uncensored, 검열 없음, 자유 출력, 제한 없음, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.0-35B, Qwen3.5, Qwen3.6, 금융 수직 영역, 오픈소스 모델
+financial AI LLM, 로컬 오픈소스 모델, 엔드사이드 모델, 양적 프로그래밍, MoziSmartBit, 지능 양자화, GGUF 양자화, MoE 모델, 로컬 오픈소스 LLM, 로컬 배포, 금융 AI, 도구 호출, Agent, llama.cpp, Ollama, GGUF, Uncensored, 검열 없음, 자유 출력, 제한 없음, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.5-35B-A3B, Qwen3.5, Qwen3.6, 금융 수직 영역, 오픈소스 모델
 
 ## 라이선스 (중요)
 

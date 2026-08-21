@@ -18,38 +18,39 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-35B-A3B-MOE - Financieel Vertaaldomein LLM - V3.6
+# MoziAI-35B-A3B-MOE - Financieel Vertaaldomein LLM - V3.7
 
-Language / Taalkeuze  
-[简体中文](README.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | Nederlands | [Italiano](README.it.md) | [Русский](README.ru.md)
+Nederlands | [English](README.en.md) | [中文](README.md)
 
 ## Modeloverzicht
 
-MoziAI-35B-A3B-MOE is een groot lokaal open-source multimodaal AI-taalmodel ontwikkeld door het team van de Chinese financiële invloedspersoon Chen Yumo (geoptimaliseerd voor de financiële sector, ondersteunt visie, tool calling, complexe lange taken, lokale implementatie op consumenten-GPU's). Het is fijn-afgestemd/gedistilleerd vanuit het basismodel Ornith-1.0-35B-A3B (**Qwen3.5-35B-A3B/Qwen3.6-35B-A3B** architectuur, MIT-licentie).
+MoziAI-35B-A3B-MOE is een lokaal open-source financieel AI multimodaal LLM (ondersteunt visie en tool calling) ontwikkeld door het team van de Chinese financiële invloedspersoon Chen Yumo, fijn-afgestemd/gedistilleerd vanuit het Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** architectuur, MIT-licentie) basismodel. Door middel van de zelf ontwikkelde **MoziSmartBit Intelligente Kwantisatie**-techniek wordt het 35B-parameter MoE-model gecomprimeerd tot ongeveer **15,5 GB**, waarbij een optimaal evenwicht tussen precisie en grootte wordt bereikt met verliesvrije ~99% precisiekwaliteit.
 
-De missie van ons team is om krachtige lokale AI-grote modellen toegankelijk te maken voor huishoudens en het MKB, waardoor de noodzaak van dure AI-hardwarekosten of cloud API-kosten wordt geëlimineerd. Door middel van de zelf ontwikkelde **MoziSmartBit Intelligente Kwantisatie**-techniek wordt het 350 miljard parameter MoE-model gecomprimeerd tot ongeveer **15,5 GB**, waarbij een optimaal evenwicht tussen modelprecisie en grootte wordt bereikt, met ~99% van de FP16-precisiekwaliteit. Hoewel het model in totaal 350 miljard parameters heeft, gebruikt het MOE sparse expert-technologie die slechts 3 miljard parameters per token activeert en ondersteunt MTP speculatieve decodering voor versnelde inferentie. Praktische tests tonen aan dat het lokaal kan worden geïmplementeerd op een consumenten-GPU met 20 GB VRAM en een inferentiesnelheid van 140+ tokens/s behaalt, waardoor veel betaalde cloud AI-grote modellen worden overtroffen.
+Naast het behouden van algemene AI-mogelijkheden, richt dit model zich op het optimaliseren van toepassingen in het financiële vertaaldomein, waaronder financiële Q&A, kwantitatieve programmering, tool calling en algemene programmering.
 
-Naast het behouden van algemene AI-mogelijkheden, richt dit model zich op de optimalisatie van kernmogelijkheden van grote AI-modellen in het financiële verticale domein, inclusief financiële Q&A, kwantitatieve programmering, algemene programmering, tool calling, en het succespercentage van 256K complexe lange context taken. Het kan gratis lokaal worden geïmplementeerd op consumenten-GPU's, bespaart aanzienlijke cloud-tokenkosten, bereikt 7X24 token-vrijheid waarborgt lokale gegevensprivacy en -beveiliging.
+De modelontwikkelaar Chen Yumo gebruikt dit model regelmatig voor lokale financiële gegevensanalyse, kwantitatieve strategie-ontwikkeling, marktonderzoek, artikelen schrijven, algemene projectvoortgang, algemene programmering en 256K context-taken via openclaw/hermes. Het kan lokaal worden gedeployeerd op consumentengrade GPUs, waardoor aanzienlijke cloud-tokenkosten worden bespaard en 7X24 token-vrijheid wordt gerealiseerd terwijl de lokale gegevensprivacy en -beveiliging worden gewaarborgd.
 
-**Releasedatum: 2026-08-20** | **Versie: V3.6**
+Ondersteunt llama.cpp, Ollama, LM Studio en andere mainstream inferentieframeworks.
+
+**Releasedatum: 2026-08-21** | **Versie: V3.7**
 
 ## Modelfuncties
 
-<br />
-
-- **MoziSmartBit Intelligente Kwantisatie**: Zelf ontwikkelde slimme kwantisatie, beste balans tussen precisie en grootte, bijna verliesloos gecomprimeerd tot ongeveer **15,5 GB**
-- **Complexe Lange Taken Capaciteit**: Getraind met een intelligent cyclisch mechanisme waarmee de agent automatisch taken plant, vastgelopen punten verwerkt en zelfreflecteert, waardoor automatische uitvoering en zelfaanpassing voor complexe taken mogelijk wordt, waardoor gebruikers worden verlost van de moeite om constant prompts te optimaliseren.
-- **Klein Model, Groot Vermogen**: Overtreft andere modellen met minder dan 350 miljard parameters op complexe taken, overtreft zelfs sommige grotere modellen met meerdere keren meer parameters.
-- **MOE+MTP Snelheidsvoordeel**: Hoewel het model in totaal 350 miljard parameters heeft, worden slechts 3 miljard parameters (8+1 experts) per token geactiveerd, wat resulteert in een snellere inferentiesnelheid. Perfect voor lokale implementatie op consumenten-GPU's met 20 GB of 24 GB VRAM, levert een inferentiesnelheid van 140+ tokens/s.
 - **Financieel Vertaaldomein Focus**: Diepe optimalisatie voor financiële Q&A, kwantitatieve programmering en tool calling
-- **Consumentengrade Implementatie**: Implementeerbaar op consumenten-GPU's met 20GB of 24GB+ VRAM, ondersteunt 256K lange context
-- **Meertalige Ondersteuning**: 201 talen en dialecten, met verbeterde Chinese vaardigheden, dekkend Chinees/Engels/Japans/Koreaans/Duits/Frans/Spaans/Portugees en meer
+- **MoziSmartBit Intelligente Kwantisatie**: Zelf ontwikkelde slimme kwantisatie, beste balans tussen precisie en grootte, gecomprimeerd tot ongeveer **15,5 GB**
+- **Consumentengrade Deployment**: Deployable op consumenten-GPU's met 20GB of 24GB+ VRAM, ondersteunt 256K lange context
+- **Meertalige Ondersteuning**: 201 talen en dialecten, met verbeterde Chinese vaardigheden, dekkend Engels/Japans/Koreaans/Duits/Frans/Spaans/Portugees en meer
 - **Algemene Programmering**: Full-stack ontwikkeling, code debugging, architectuurontwerp, scriptwriting, dekkend Python/JS/TS/Go/Rust en andere mainstream talen
-- **Artikelschrijven**: Hoogwaardig meergenre schrijven inclusief onderzoeksrapp
+- **Artikelenschrijven**: Hoogwaardig meergenre schrijven inclusief onderzoeksrapporten, analyseartikelen, technische documentatie, creatieve content
+- **Visiebegrip**: Ondersteunt multimodale visie, lokale screenshot-invoer, afbeeldingsbegrip
+- **Ongecensureerde Vrije Output**: Geen inhoudscensuur, vrij discussiëren over elk onderwerp zonder beveiligingsbeperkingen
+- **Verbeten Redeneren**: Chain-of-thought training voor verbeterde redeneerkwaliteit
+- **Multi-Framework Ondersteuning**: Compatibel met llama.cpp, Ollama, LM Studio, Jan
+- **Multi-Agent Platform Ondersteuning**: Diepe integratie met OpenClaw, Hermes, OpenCode, Cursor, Windsurf, Claude Code, Codex en andere mainstream AI IDE's en Agent-frameworks, ondersteunt native tool calling en multi-turn taakorkestratie, direct gebruiksklaar
 
 ## Ongecensureerde Voordelen
 
-Dit model erft de **Uncensored**-functie van het Ornith-1.0-35B basismodel, met de volgende voordelen:
+Dit model erft de **Uncensored**-functie van het Ornith-1.5-35B-A3B basismodel, met de volgende voordelen:
 
 | Voordeel | Beschrijving |
 |----------|-------------|
@@ -75,7 +76,7 @@ Dit model erft de **Uncensored**-functie van het Ornith-1.0-35B basismodel, met 
 
 | Item | Specificatie |
 |------|-------------|
-| Basismodel | Ornith-1.0-35B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT-licentie) |
+| Basismodel | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT-licentie) |
 | Parameters | 35B MoE (256 gerouteerde experts + 1 gedeelde expert, 8 actief per token) |
 | Kwantisatie | Zelf ontwikkelde MoziSmartBit Intelligente Kwantisatie + GGUF standaardformaat |
 | Contextlengte | 256K (262.144 tokens) |
@@ -96,7 +97,7 @@ Dit model erft de **Uncensored**-functie van het Ornith-1.0-35B basismodel, met 
 | Q6_K | ~28,5 GB | ~99,5% | Bijna verliesvrij |
 | Q8_0 | ~36,9 GB | ~100% | Verliesvrij |
 
-> MoziAI V3.6 gebruikt MoziSmartBit Intelligente Kwantisatie, handhaaft ~99% precisie terwijl het 35B-parameter MoE-model wordt gecomprimeerd tot ~15,5 GB (~4,5x compressieverhouding), waarbij inferentiekwaliteit en deployment-toegankelijkheid voor consumenten-GPU's in evenwicht worden gebracht.
+> MoziAI V3.7 gebruikt MoziSmartBit Intelligente Kwantisatie, handhaaft ~99% precisie terwijl het 35B-parameter MoE-model wordt gecomprimeerd tot ~15,5 GB (~4,5x compressieverhouding), waarbij inferentiekwaliteit en deployment-toegankelijkheid voor consumenten-GPU's in evenwicht worden gebracht.
 
 ## MoziSmartBit Intelligente Kwantisatie
 
@@ -124,7 +125,7 @@ Gebaseerd op lokale productieconfiguratie (AMD Radeon AI PRO R9700 32GB):
 |-----------|--------|-------------|
 | temperature | 0,6 | Balans creativiteit vs nauwkeurigheid |
 | top_p | 0,95 | Nucleus sampling drempel |
-| top_k | 20 | Truncatie sampling (V3.6 geoptimaliseerd) |
+| top_k | 20 | Truncatie sampling (V3.7 geoptimaliseerd) |
 | repeat_penalty | 1,05 | Herhalingsstraf |
 | presence_penalty | 0 | Geen aanwezigheidsstraf |
 | context_length | 262144 | 256K lange context |
@@ -142,9 +143,9 @@ Gebaseerd op lokale productieconfiguratie (AMD Radeon AI PRO R9700 32GB):
 
 ```bash
 llama-server \
-  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
-  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
+  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
@@ -160,7 +161,7 @@ Aangezien de GPU-configuraties van gebruikers sterk uiteenlopen, volgen hier aan
 
 | VRAM | Aanbevolen Context | KV Cache | Visieondersteuning | Opmerkingen |
 |------|-------------------|----------|-------------------|-------------|
-| 20 GB | 128K | q4_0 | Ondersteund | Model+visie ~16,4GB, praktijktest toont 200K+visie gebruikt ~19,5GB VRAM |
+| 20 GB | 150K | q4_0 | Ondersteund | Model+visie ~16,4GB, praktijktest toont 200K+visie gebruikt ~19,5GB VRAM |
 | 24 GB | 256K volledig | q4_0 | Volledige ondersteuning | Visie+256K lange context, gebruikt ~20,4GB VRAM, ~3,6GB marge |
 | 32 GB+ | 256K volledig | q4_0 | Volledige ondersteuning | Visie+256K lange context, voldoende marge ~10GB, beste configuratie |
 
@@ -202,7 +203,7 @@ Aangezien de GPU-configuraties van gebruikers sterk uiteenlopen, volgen hier aan
 
 ```bash
 # Maak Modelfile aan
-FROM ./moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
+FROM ./moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
 
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
@@ -221,7 +222,7 @@ Zoek `moziAI-35B` in LM Studio of Jan, download de MoziSmartBit-kwantversie.
 
 ## Benchmarkbeoordeling
 
-MoziAI is fijn-afgestemd vanuit **deepreinforce-ai/Ornith-1.0-35B**. MoziAI is geoptimaliseerd voor financiële vertaaldomeinen bovenop het basismodel en levert uitstekende prestaties in financiële Q&A, kwantitatieve programmering en tool calling-scenario's. MoziAI-35B algemene mogelijkheden komen overeen met het Ornith-1.0-35B basismodel.
+MoziAI is fijn-afgestemd vanuit **deepreinforce-ai/Ornith-1.5-35B-A3B**. MoziAI is geoptimaliseerd voor financiële vertaaldomeinen bovenop het basismodel en levert uitstekende prestaties in financiële Q&A, kwantitatieve programmering en tool calling-scenario's. MoziAI-35B algemene mogelijkheden komen overeen met het Ornith-1.5-35B-A3B basismodel.
 
 | Benchmark | MoziAI-35B (dit model) | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | Beschrijving |
 |-----------|----------------------|-------------|------------|------------|-------------|-------------|
@@ -235,7 +236,7 @@ MoziAI is fijn-afgestemd vanuit **deepreinforce-ai/Ornith-1.0-35B**. MoziAI is g
 | GPQA Diamond | 88,4 | 87,8 | 84,3 | 82,3 | - | Wetenschappelijk redeneren |
 | AIME 2026 Math | 93,3 | 94,1 | 89,2 | 88,3 | - | Wiskundig redeneren |
 
-> MoziAI-35B algemene benchmarkscores komen overeen met het Ornith-1.0-35B basismodel. Het financiële vertaaldomein is de kernoptimalisatierichting van MoziAI, met aanzienlijk betere prestaties dan algemene modellen in scenario's zoals financiële rapportanalyse, kwantitatieve strategie, risico & compliance en agent-tool calling. Gemma4- en Qwen3.6-gegevens afkomstig van officiële openbare resultaten.
+> MoziAI-35B algemene benchmarkscores komen overeen met het Ornith-1.5-35B-A3B basismodel. Het financiële vertaaldomein is de kernoptimalisatierichting van MoziAI, met aanzienlijk betere prestaties dan algemene modellen in scenario's zoals financiële rapportanalyse, kwantitatieve strategie, risico & compliance en agent-tool calling. Gemma4- en Qwen3.6-gegevens afkomstig van officiële openbare resultaten.
 
 ## Model Download
 
@@ -247,19 +248,19 @@ Vanwege de grote modelgrootte (~15,5 GB) worden gewichten gehost op meerdere gem
 | ModelScope | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
 | GitHub | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
 
-> 💡 **Downloadtip**: Klik op de bovenstaande link naar de HuggingFace-repository, ga vervolgens naar het tabblad **"Files and versions"** om alle bestanden onder de V3.6-map te downloaden (hoofdmodel, visieprojectie, chatsjabloon). Zorg ervoor dat alle drie de bestanden in dezelfde map worden geplaatst.
+> 💡 **Downloadtip**: Klik op de bovenstaande link naar de HuggingFace-repository, ga vervolgens naar het tabblad **"Files and versions"** om alle bestanden onder de V3.7-map te downloaden (hoofdmodel, visieprojectie, chatsjabloon). Zorg ervoor dat alle drie de bestanden in dezelfde map worden geplaatst.
 
 ### ⚠️ Belangrijk: Visiemogelijkheid Vereist mmproj-bestand
 
 Dit model ondersteunt multimodale visie. Het **visieprojectiebestand (mmproj)** is opgenomen in de versiemap:
 
-- **Visiebestand**: `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16-precisie)
+- **Visiebestand**: `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16-precisie)
 - **Plaatsing**: Dezelfde versiemap als het GGUF-modelfbestand
 - **Laden**: Laad met de `--mmproj`-vlag bij het starten van llama-server
 
 ```bash
-llama-server -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf
+llama-server -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 ```
 
 > Zonder het visiebestand verliest het model de **afbeeldingsbegripsmogelijkheid** en behoudt het alleen tekstgebaseerde gesprekken.
@@ -268,13 +269,13 @@ llama-server -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Unce
 
 ### 1. Download Modelfbestanden
 
-Download alle bestanden onder de V3.6-map van HuggingFace / ModelScope:
+Download alle bestanden onder de V3.7-map van HuggingFace / ModelScope:
 
 ```
-V3.6/
-├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Hoofdmodel (vereist)
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # Visieprojectie (optioneel)
-└── moziAI-V3.6-35B-chat-template.jinja                  # Chatsjabloon (aanbevolen)
+V3.7/
+├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Hoofdmodel (vereist)
+├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Visieprojectie (optioneel)
+└── moziAI-V3.7-35B-chat-template.jinja                  # Chatsjabloon (aanbevolen)
 ```
 
 ### 2. Start Inferentieserver
@@ -285,12 +286,12 @@ Minimale start (alleen kerndata):
 
 ```bash
 llama-server \
-  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
+  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99
 ```
 
-> Voeg `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` toe voor visiemogelijkheden.
+> Voeg `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` toe voor visiemogelijkheden.
 
 ### 3. Begin met Gebruiken
 
@@ -304,18 +305,18 @@ moziAI-35B/
 ├── README.en.md           # Engelse versie
 ├── README.nl.md           # Dit bestand (Nederlands)
 ├── LICENSE                # Licentie
-├── V3.6/                  # V3.6 versie (zelfstandig)
+├── V3.7/                  # V3.7 versie (zelfstandig)
 │   ├── RELEASE_NOTES.md                       # Releasenotities
-│   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Hoofdmodel
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Visieprojectie
-│   └── moziAI-V3.6-35B-chat-template.jinja   # Chatsjabloon
+│   ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Hoofdmodel
+│   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Visieprojectie
+│   └── moziAI-V3.7-35B-chat-template.jinja   # Chatsjabloon
 ```
 
 Voor het toekomstige upgradeplan, zie [未来升级计划.md](未来升级计划.md).
 
 ## SEO Trefwoorden
 
-financieel AI LLM, lokaal open-source model, eindapparaatmodel, kwant programmering, MoziSmartBit, intelligente kwantisatie, GGUF kwantisatie, MoE-model, lokaal open-source LLM, lokale deployment, financieel AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, geen censuur, vrije output, onbeperkt, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.0-35B, Qwen3.5, Qwen3.6, financieel vertaaldomein, open-source model
+financieel AI LLM, lokaal open-source model, eindapparaatmodel, kwant programmering, MoziSmartBit, intelligente kwantisatie, GGUF kwantisatie, MoE-model, lokaal open-source LLM, lokale deployment, financieel AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, geen censuur, vrije output, onbeperkt, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.5-35B-A3B, Qwen3.5, Qwen3.6, financieel vertaaldomein, open-source model
 
 ## Licentie (Belangrijk)
 

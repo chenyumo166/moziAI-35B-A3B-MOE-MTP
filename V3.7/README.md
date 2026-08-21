@@ -19,22 +19,23 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-35B-A3B-MOE（墨子AI）AI大模型 V3.6
+# MoziAI-35B-A3B-MOE（墨子AI）AI大模型 V3.7
 
-Language / 语言选择  
-[简体中文](README.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+[English](README.en.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Русский](README.ru.md) | [हिन्दी](README.hi.md) | [繁體中文](README.zh-hant.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | 中文
 
 ## 模型简介
 
-MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多模态AI大模型（强化金融领域、支持视觉、工具调用、复杂长任务能力、消费级显卡本地部署），基于 Ornith-1.0-35B-A3B（**Qwen3.5-35B-A3B/Qwen3.6-35B-A3B** 架构）底座进行二次开发/微调/蒸馏。
+MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多模态AI大模型（强化金融领域、支持视觉、工具调用、复杂长任务能力、消费级显卡本地部署），基于 Ornith-1.5-35B-A3B（**Qwen3.5-35B-A3B/Qwen3.6-35B-A3B** 架构）底座进行二次开发/微调/蒸馏。
 
-本模型研发团队的理念就是让综合能力强大的本地AI大模型智能体可走入千家万户与中小企业，不再需要支付高昂的AI硬件成本或云端API成本。通过自研的 **MoziSmartBit 智能量化** 技术，将 350 亿参数 MoE 模型压缩至约 **15.5 GB**，在模型精度与体积间取得最优平衡，实现几乎≈FP16的99%的精度质量。本模型具有350亿参数，但是采用MOE稀疏专家技术而获得只调用30亿参数并支持MTP推测解码的加速推理能力，实测可在20G显存的家用消费级显卡完成本地免费部署也可拥有140+ token/s的推理速度，推理速度优于众多云端收费AI大模型。
+本模型研发团队的理念就是让综合能力强大的本地AI大模型智能体可走入千家万户与中小企业，不再需要支付高昂的AI硬件成本或云端API成本。通过自研的 **MoziSmartBit 智能量化** 技术，将 350 亿参数 MoE 模型压缩至约 **15.5 GB**，在模型精度与体积间取得最优平衡，实现几乎≈FP16的99%的精度质量。本模型具有350亿参数，但是采用MOE稀疏专家技术而获得只调用30亿参数并支持MTP推测解码的加速推理能力，实测可在20G显存的家用消费级显卡完成本地免费部署，也可拥有140+ token/s的推理速度，推理速度优于众多云端收费AI大模型。
 
 本模型除了保留通用AI大模型的能力，重点优化：金融垂直领域的应用，金融问答、量化编程、通用编程、工具调用、256K复杂长上下文任务的成功率等AI大模型关键能力。可在本地消费级显卡免费部署使用，节约大量云端token成本，实现7X24小时token自由并且确保本地数据隐私与安全。
 
-**发布日期：2026-08-20** | **版本：V3.6**
+**发布日期：2026-08-22** | **版本：V3.7**
 
 ## 模型特色
+
+<br />
 
 - **MoziSmartBit 智能量化**：自研的智能量化技术，精度与体积最佳平衡，模型几乎无损压缩至约 **15.5 GB**
 - **复杂长任务能力**：训练让模型智能体为任务自动规划的智能循环处理卡点与自我思考机制，实现复杂任务的自动执行与自我调整，摆脱人类用户不断给智能体优化提示词的麻烦。
@@ -53,7 +54,7 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 
 ## 去审核（Uncensored）优势
 
-本模型继承底座 Ornith-1.0-35B-A3B 的 Uncensored（去审核）特性，具有以下优势：
+本模型继承底座 Ornith-1.5-35B-A3B 的 Uncensored（去审核）特性，具有以下优势：
 
 | 优势    | 说明                    |
 | ----- | --------------------- |
@@ -79,7 +80,7 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 
 | 项目     | 参数                                                                                 |
 | ------ | ---------------------------------------------------------------------------------- |
-| 底座模型   | Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架构，MIT 许可）                    |
+| 底座模型   | Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架构，MIT 许可）                    |
 | 参数规模   | 350亿（35B）MoE 架构，256 个路由专家 + 1 个共享专家，每 token 激活 8 个专家                               |
 | 量化方式   | 采用自研 MoziSmartBit 智能量化算法 + GGUF 标准格式                                               |
 | 上下文长度  | 256K（262,144 tokens）                                                               |
@@ -100,7 +101,7 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 | Q6\_K            | \~28.5 GB     | \~99.5%   | 近无损               |
 | Q8\_0            | \~36.9 GB     | \~100%    | 无损失               |
 
-> MoziAI V3.6 采用 MoziSmartBit 智能量化方案，在保持约 99% 精度的同时，将 350 亿参数 MoE 模型压缩至约 15.5 GB，压缩比约 4.5x，兼顾推理质量与部署门槛，更适合消费级显卡本地部署。
+> MoziAI V3.7 采用 MoziSmartBit 智能量化方案，在保持约 99% 精度的同时，将 350 亿参数 MoE 模型压缩至约 15.5 GB，压缩比约 4.5x，兼顾推理质量与部署门槛，更适合消费级显卡本地部署。
 
 ## MoziSmartBit 智能量化技术
 
@@ -118,7 +119,7 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 
 **vs Q4\_K\_M（\~21.2 GB）**：体积减少约 27%（\~15.5 GB），精度比 Q4\_K\_M **更高**，显存门槛更低，中端消费级显卡（20GB）即可流畅部署。
 
-**vs 原始 FP16（\~70 GB）**：体积压缩约 4.5 倍，训练有效 + 量化精度损失极小（训练增益 > 量化损失），从需要专业级显卡（64GB+）降低到消费级显卡即可本地运行 256K 长上下文。
+**vs 原始 FP16（\~70 GB）**：体积压缩约 4.5 倍，训练有效 + 量化精度损失极小（训练增益 > 量化损失），从需要专业级显卡（64GB+）降低到消费级显卡（20GB+）即可本地运行 256K 长上下文。
 
 ## 推荐推理参数
 
@@ -146,9 +147,9 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 
 ```bash
 llama-server \
-  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
-  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
+  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
@@ -206,7 +207,7 @@ llama-server \
 
 ```bash
 # 创建 Modelfile
-FROM ./moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
+FROM ./moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
 
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
@@ -225,7 +226,7 @@ ollama run moziAI-35B
 
 ## 基准评测
 
-MoziAI 基于 deepreinforce-ai/Ornith-1.0-35B 底座微调、蒸馏与二次开发。MoziAI 在底座基础上针对金融垂直领域优化，在金融问答、量化编程、工具调用等场景下表现更出色。以下为多模型对比（MoziAI-35B 通用能力与底座 Ornith-1.0-35B 一致）：
+MoziAI 基于 deepreinforce-ai/Ornith-1.5-35B-A3B 底座微调、蒸馏与二次开发。MoziAI 在底座基础上针对金融垂直领域优化，在金融问答、量化编程、工具调用等场景下表现更出色。以下为多模型对比（MoziAI-35B 通用能力与底座 Ornith-1.5-35B-A3B 一致）：
 
 | 基准测试                         | MoziAI-35B (本模型) | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | 说明             |
 | ---------------------------- | ---------------- | ----------- | ---------- | ---------- | ----------- | -------------- |
@@ -239,31 +240,31 @@ MoziAI 基于 deepreinforce-ai/Ornith-1.0-35B 底座微调、蒸馏与二次开�
 | GPQA Diamond                 | 88.4             | 87.8        | 84.3       | 82.3       | -           | 科学推理           |
 | AIME 2026 数学                 | 93.3             | 94.1        | 89.2       | 88.3       | -           | 数学推理           |
 
-> MoziAI-35B 通用能力基准分数与底座 Ornith-1.0-35B 一致。金融垂直领域为 MoziAI 的核心优化方向，在财报解读、量化策略、风控合规、agent管理工具调用等场景下表现显著优于通用模型。Gemma4 和 Qwen3.6 数据为官方公开评测结果。
+> MoziAI-35B 通用能力基准分数与底座 Ornith-1.5-35B-A3B 一致。金融垂直领域为 MoziAI 的核心优化方向，在财报解读、量化策略、风控合规、agent管理工具调用等场景下表现显著优于通用模型。Gemma4 和 Qwen3.6 数据为官方公开评测结果。
 
 ## 模型下载
 
 由于模型文件较大（\~15.5 GB），模型权重托管于多个社区平台：
 
-| 平台             | 地址                                                                                                      |
-| -------------- | ------------------------------------------------------------------------------------------------------- |
-| HuggingFace    | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
+| 平台             | 地址                                                                                                                    |
+| -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| HuggingFace    | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith)       |
 | ModelScope（魔搭） | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-| GitHub         | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
+| GitHub         | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith)     |
 
-> 💡 **下载提示**：请点击上方链接进入 HuggingFace 仓库，在 **"Files and versions"** 标签页下载 V3.6 目录下的所有文件（主模型、视觉投影、聊天模板），确保三个文件放在同一目录下。
+> 💡 **下载提示**：请点击上方链接进入 HuggingFace 仓库，在 **"Files and versions"** 标签页下载 V3.7 目录下的所有文件（主模型、视觉投影、聊天模板），确保三个文件放在同一目录下。
 
 ⚠️ **重要：视觉能力需要额外加载 mmproj 文件**
 
 本模型支持多模态视觉，视觉投影文件（mmproj）已包含在版本目录中：
 
-- **视觉文件**：`moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`（约 903 MB，BF16 精度）
+- **视觉文件**：`moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`（约 903 MB，BF16 精度）
 - **放置位置**：与 GGUF 模型文件放在同一版本目录下
 - **加载方式**：启动 llama-server 时通过 `--mmproj` 参数加载
 
 ```bash
-llama-server -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf
+llama-server -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 ```
 
 > 不加载视觉文件将丧失图像理解能力，仅保留纯文本对话能力。
@@ -272,13 +273,13 @@ llama-server -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Unce
 
 ### 1. 下载模型文件
 
-从 HuggingFace / ModelScope 下载 V3.6 目录下的所有文件到本地：
+从 HuggingFace / ModelScope 下载 V3.7 目录下的所有文件到本地：
 
 ```
-V3.6/
-├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # 主模型（必选）
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # 视觉投影（可选）
-└── moziAI-V3.6-35B-chat-template.jinja                  # 聊天模板（推荐）
+V3.7/
+├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # 主模型（必选）
+├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # 视觉投影（可选）
+└── moziAI-V3.7-35B-chat-template.jinja                  # 聊天模板（推荐）
 ```
 
 ### 2. 启动推理服务
@@ -289,12 +290,12 @@ V3.6/
 
 ```bash
 llama-server \
-  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
+  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99
 ```
 
-> 需要视觉能力时加上 `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`
+> 需要视觉能力时加上 `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`
 
 ### 3. 开始使用
 
@@ -307,18 +308,18 @@ moziAI-35B/
 ├── README.md              # 本文件（中文说明书）
 ├── README.en.md           # 说明书的英文版本
 ├── LICENSE                # 许可证
-├── V3.6/                  # V3.6 版本（版本自包含）
+├── V3.7/                  # V3.7 版本（版本自包含）
 │   ├── RELEASE_NOTES.md                       # 版本更新说明
-│   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # 主模型
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # 视觉投影
-│   └── moziAI-V3.6-35B-chat-template.jinja   # 聊天模板
+│   ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # 主模型
+│   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # 视觉投影
+│   └── moziAI-V3.7-35B-chat-template.jinja   # 聊天模板
 ```
 
 未来升级计划详见 [未来升级计划.md](未来升级计划.md)。
 
 ## SEO 关键词
 
-金融AI大模型、AI大模型、本地开源模型、端侧模型、量化编程、MoziSmartBit、智能量化、GGUF量化、MoE模型、本地开源大模型、本地部署、金融AI、工具调用、Agent、llama.cpp、Ollama、GGUF、Uncensored（去审核）、无审查、免审核、自由输出、Q3\_K\_M、Q4\_K\_M、Q5\_K\_M、Q6\_K、Q8\_0、Ornith-1.0-35B、Qwen3.5-35B-A3B、Qwen3.6-35B-A3B、金融垂直领域、开源模型
+金融AI大模型、AI大模型、本地开源模型、端侧模型、量化编程、MoziSmartBit、智能量化、GGUF量化、MoE模型、本地开源大模型、本地部署、金融AI、工具调用、Agent、llama.cpp、Ollama、GGUF、Uncensored（去审核）、无审查、免审核、自由输出、Q3\_K\_M、Q4\_K\_M、Q5\_K\_M、Q6\_K、Q8\_0、Ornith-1.5-35B-A3B、Qwen3.5-35B-A3B、Qwen3.6-35B-A3B、金融垂直领域、开源模型
 
 ## 许可证（重要）
 
