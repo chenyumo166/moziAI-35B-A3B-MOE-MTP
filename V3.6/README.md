@@ -124,24 +124,22 @@ Open `http://localhost:8080` in your browser to start chatting.
 
 ```
 moziAI-35B/
-├── README.md              # Chinese version
-├── README.en.md           # This file (English)
+├── README.md              # This file (English)
+├── README.zh.md           # Chinese version
 ├── LICENSE                # License
 ├── V3.6/                  # V3.6 version (self-contained)
-�?  ├── RELEASE_NOTES.md                       # Release notes
-�?  ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Main model
-�?  ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
-�?  └── moziAI-V3.6-35B-chat-template.jinja   # Chat template
+│   ├── RELEASE_NOTES.md                       # Release notes
+│   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Main model
+│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
+│   └── moziAI-V3.6-35B-chat-template.jinja   # Chat template
 ```
 
 ## Model Features
 
-<br />
-
 - **MoziSmartBit Intelligent Quantization**: Self-developed smart quantization, best balance of precision and size, nearly lossless compressed to approximately **15.5 GB**
 - **Complex Long Task Capability**: Trained with intelligent loop mechanism that allows the agent to automatically plan tasks, handle stuck points and self-reflect, enabling automatic execution and self-adjustment for complex tasks, eliminating the need for users to continuously optimize prompts manually.
 - **Small Model, Big Capability**: Outperforms other models within 350 billion parameters on complex tasks, even outperforms some larger models with multiple times the parameters.
-- **MOE+MTP Speed Advantage**: Although the model has 35 billion parameters in total, it only activates 30 billion parameters (8+1 experts) per token, resulting in faster inference speed. Perfect for local deployment on consumer GPUs with 20GB or 24GB VRAM, delivering 140+ tokens/s inference speed.
+- **MOE+MTP Speed Advantage**: Although the model has 35 billion parameters in total, it only activates 3 billion parameters (8+1 experts) per token, resulting in faster inference speed. Perfect for local deployment on consumer GPUs with 20GB or 24GB VRAM, delivering 140+ tokens/s inference speed.
 - **Financial Vertical Focus**: Deep optimization for financial Q&A, quantitative programming, and tool calling
 - **Consumer-grade Deployment**: Deployable on consumer GPUs with 20GB or 24GB+ VRAM, supports 256K long context
 - **Multilingual Support**: 201 languages and dialects, with enhanced Chinese capabilities, covering English/Japanese/Korean/German/French/Spanish/Portuguese and more
@@ -218,7 +216,7 @@ Traditional quantization compresses all parts of the model uniformly, often lead
 
 ### Comparative Advantages
 
-**vs Q4_K_M (~22 GB)**: ~30% smaller (~15.5 GB), with precision **higher** than Q4_K_M, lower VRAM barrier �?runs smoothly on mid-range consumer GPUs (24GB).
+**vs Q4_K_M (~22 GB)**: ~30% smaller (~15.5 GB), with precision **higher** than Q4_K_M, lower VRAM barrier. Runs smoothly on mid-range consumer GPUs (24GB).
 
 **vs FP16 original (~70 GB)**: ~4.5x compression, training effective + minimal quantization loss (training gains > quantization loss), enabling local 256K context deployment on consumer GPUs instead of professional-grade hardware.
 
@@ -309,23 +307,33 @@ ollama run moziAI-35B
 
 Search `moziAI-35B` in LM Studio or Jan, download the MoziSmartBit quant version.
 
-## Benchmark Evaluation
+## Benchmarks
 
-MoziAI is fine-tuned from **deepreinforce-ai/Ornith-1.0-35B**. MoziAI is optimized for financial vertical domains on top of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. MoziAI-35B general capabilities are consistent with the Ornith-1.0-35B base model.
+MoziAI-35B-V3.6 is fine-tuned from **Ornith-1.0-35B** (deepreinforce-ai). MoziAI adds **financial vertical domain optimization** on top of the excellent agentic coding capabilities of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. General capabilities remain consistent with the Ornith-1.0-35B base model.
 
-| Benchmark | MoziAI-35B (this model) | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | Description |
-|-----------|-------------------------|-------------|------------|------------|-------------|-------------|
-| Terminal-Bench 2.1 | 64.2 | 59.3 | 42.1 | - | 41.4 | Autonomous terminal coding |
-| Terminal-Bench (Claude Code) | 62.8 | 59.3 | - | - | 38.9 | Claude Code coding |
-| SWE-bench Verified | 75.6 | 77.2 | 52.0 | - | 70.0 | Real-world software engineering |
-| SWE-bench Pro | 50.4 | 53.5 | 35.7 | - | 44.6 | Complex software engineering |
-| SWE-bench Multilingual | 69.3 | 71.3 | - | - | 60.3 | Multilingual coding |
-| NL2Repo | 34.6 | 36.2 | 15.5 | - | 20.5 | Natural language to repo |
-| LiveCodeBench v6 | 63.3 | 83.9 | 80.0 | 77.1 | - | Competitive programming |
-| GPQA Diamond | 88.4 | 87.8 | 84.3 | 82.3 | - | Scientific reasoning |
-| AIME 2026 Math | 93.3 | 94.1 | 89.2 | 88.3 | - | Math reasoning |
+| Benchmark                        | MoziAI-35B-V3.6 (this model) | Qwen3.5-35B | Qwen3.6-35B | Gemma4-31B | Qwen3.5-397B | Description |
+| -------------------------------- | ---------------------------- | ----------- | ----------- | ---------- | ------------ | ----------- |
+| **Agentic Coding**               |                              |             |             |            |              |             |
+| Terminal-Bench 2.1 (Terminus-2)  | 64.2                         | 41.4        | 52.5        | 42.1       | 53.5         |             |
+| Terminal-Bench 2.1 (Claude Code) | 62.8                         | 38.9        | 49.2        | -          | 48.6         |             |
+| SWE-bench Verified               | 75.6                         | 70          | 73.4        | 52         | 76.4         |             |
+| SWE-bench Pro                    | 50.4                         | 44.6        | 49.5        | 35.7       | 51.6         |             |
+| SWE-bench Multilingual           | 69.3                         | 60.3        | 67.2        | 51.7       | 69.3         |             |
+| NL2Repo                          | 34.6                         | 20.5        | 29.4        | 15.5       | 36.8         |             |
+| Claw-eval Avg                    | 69.8                         | 65.4        | 68.7        | 48.5       | 70.7         |             |
+| SWE Atlas - QnA                  | 37.1                         | 13.2        | 15.5        | -          | 20.4         |             |
+| SWE Atlas - RF                   | 29.7                         | 10.2        | 11.4        | -          | 18.4         |             |
+| SWE Atlas - TW                   | 27.8                         | 9.8         | 13.3        | -          | 18.5         |             |
+| LiveCodeBench v6                 | -                            | -           | 83.9        | 80.0       | -            |             |
+| GPQA Diamond                     | -                            | -           | 87.8        | 84.3       | -            |             |
+| AIME 2026 Math                   | -                            | -           | 94.1        | 89.2       | -            |             |
 
-> MoziAI-35B general benchmark scores are consistent with the Ornith-1.0-35B base model. Financial vertical domain is MoziAI's core optimization direction, significantly outperforming general models in scenarios like financial report analysis, quantitative strategy, risk & compliance, and agent tool calling. Gemma4 and Qwen3.6 data from official public results.
+- **Terminal-Bench 2.1 (Terminus-2)**: Evaluated using the Harbor/Terminus-2 framework with `parser=json`, `temperature=1.0`, `top_p=1.0`, and a 128K context window. Each run uses a 4-hour timeout with 32 CPU cores and 48GB RAM, results averaged over 5 runs.
+- **Terminal-Bench 2.1 (Claude Code)**: Evaluated using Claude Code 2.1.126 with `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Results averaged over 5 runs.
+- **SWE-bench Verified, Pro and Multilingual**: Evaluated using OpenHands harness with `temp=1.0`, `top_p=0.95`, 256K context window.
+- **NL2Repo**: Evaluated with `temperature=1.0`, `top_p=1.0`, 400K context, 48K output.  
+
+> MoziAI-35B inherits all the excellent agentic coding capabilities from Ornith-1.0-35B. MoziAI's core differentiation is **deep optimization for financial vertical domains**, significantly outperforming general models in scenarios like financial report analysis, quantitative strategy, risk & compliance, and agent tool calling.
 
 ## SEO Keywords
 
@@ -335,20 +343,11 @@ financial AI LLM, local open source model, end-side model, quant programming, Mo
 
 This model uses a **Custom Restrictive License**:
 
-### �?Allowed
+### ✅ Allowed
 - **Free Commercial Use**: Free to integrate into commercial products
 - **Copy & Distribute**: Can copy, download, and share
 
-### �?Prohibited
-- **Derivative Works**: No modification, translation, adaptation, merging, or fine-tuning of the model or any part of it
-- **Resale**: No selling the model alone or as part of a product
-- **Re-licensing**: No granting sublicenses
-
-### 📋 Requirements
-- Must retain original copyright notice
-- Attribution: moziAI-35B
-
-> See [LICENSE](./LICENSE) for full terms.
+> See [LICENSE](../LICENSE) for full terms.
 
 ## Disclaimer
 
