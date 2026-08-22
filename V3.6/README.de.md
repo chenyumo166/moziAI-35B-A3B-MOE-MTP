@@ -18,10 +18,10 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-35B-A3B-MOE - Finanzieller vertikaler Domänen-LLM - V3.6
+# MoziAI-V3.6-35B-A3B-MOE - Kostenlos lokal einsetzbares kleines leistungsstarkes multimodales AI
 
 Language / Sprache auswählen  
-[中文](README.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | Deutsch | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+[中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | Deutsch | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
 
 ## Modellübersicht
 
@@ -32,6 +32,106 @@ Die Mission unseres Teams ist es, leistungsfähige lokale KI-Modelle für Hausha
 Neben der Beibehaltung allgemeiner KI-Fähigkeiten konzentriert sich dieses Modell auf die Optimierung von Kernfähigkeiten großer KI-Modelle im vertikalen Finanzbereich, einschließlich Finanz-Fragen-Antwort, quantitativer Programmierung, allgemeiner Programmierung, Tool-Aufruf und Erfolgsrate bei 256K komplexen langen Kontextaufgaben. Es kann kostenlos lokal auf Consumer-GPUs bereitgestellt werden, spart erhebliche Cloud-Token-Kosten und erreicht 7×24 Token-Freiheit bei gleichzeitiger Gewährleistung der lokalen Datendatenprivatsphäre und -sicherheit.
 
 **Veröffentlichungsdatum: 2026-08-20** | **Version: V3.6**
+
+## Modell-Download
+
+Aufgrund der großen Modellgröße (~15,5 GB) werden die Gewichte auf mehreren Community-Plattformen gehostet:
+
+| Plattform | URL |
+|-----------|-----|
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+
+
+> 💡 **LM Studio**: Sie können das Modell direkt in [LM Studio](https://lmstudio.ai) suchen und herunterladen. Suchen Sie nach `moziAI` und klicken Sie auf Download.
+> 💡 **Download-Hinweis**: Klicken Sie auf den obigen Link, um zum HuggingFace-Repository zu gelangen, und navigieren Sie dann zum Tab **„Files and versions"**, um alle Dateien im V3.6-Verzeichnis herunterzuladen (Hauptmodell, Vision-Projektion, Chat-Template). Stellen Sie sicher, dass sich alle drei Dateien im selben Verzeichnis befinden.
+
+### ⚠️ Wichtig: Vision-Fähigkeit erfordert mmproj-Datei
+
+Dieses Modell unterstützt multimodale Vision. Die **Vision-Projektionsdatei (mmproj)** ist im Versionsverzeichnis enthalten:
+
+- **Vision-Datei**: `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16-Präzision)
+- **Ablage**: Im selben Versionsverzeichnis wie die GGUF-Modelldatei
+- **Laden**: Mit `--mmproj`-Flag beim Starten von llama-server laden
+
+> Ohne die Vision-Datei verliert das Modell die **Bildverständnisfähigkeit** und behält nur textbasierte Konversation bei.
+
+### ⚠️ Wichtig: Chat-Template-Datei muss geladen werden
+
+Dieses Modell verwendet eine eigene Chat-Vorlage. **Ohne diese kommt es zu Formatfehlern im Dialog, unterbrochenen Argumentationsketten und verminderter Antwortqualität.** Die Vorlagendatei ist im Versionsverzeichnis enthalten:
+
+- **Vorlagendatei**: `moziAI-V3.6-35B-chat-template.jinja` (wenige KB, Jinja-Format)
+- **Speicherort**: Im selben Versionsverzeichnis wie die GGUF-Modelldatei ablegen
+- **Laden**: Mit Parameter `--chat-template-file` beim Start von llama-server laden
+
+> Ohne Chat-Template erkennt das Modell System-Prompts, Benutzernachrichten und Denkblöcke möglicherweise nicht korrekt, was zu verstümmelter Ausgabe oder verminderter Argumentation führt.
+
+### llama.cpp Startbefehl (Empfohlene Konfiguration für 20GB+ GPUs mit 256K Kontext)
+
+> Hinweis: Wenn der VRAM unter 20 GB liegt, reduzieren Sie den Kontextgrößenparameter `-c 262144`.
+
+```bash
+llama-server \
+  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
+  -c 262144 -ngl 99 -t 28 \
+  --batch-size 2048 --ubatch-size 512 \
+  --flash-attn auto \
+  --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
+  --poll 0 --reasoning on --reasoning-budget 400 \
+  --host 0.0.0.0 --port 8080 \
+  --temp 0.6 --top-p 0.95 --top-k 20
+```
+
+## Schnellstart
+
+### 1. Modelldateien herunterladen
+
+Laden Sie alle Dateien im V3.6-Verzeichnis von HuggingFace / ModelScope herunter:
+
+```
+V3.6/
+├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Hauptmodell (erforderlich)
+├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision-Projektion (optional)
+└── moziAI-V3.6-35B-chat-template.jinja                  # Chat-Template (ERFORDERLICH! Fehlt dies, treten Dialogformatfehler auf)
+```
+
+> ⚠️ **Das Chat-Template ist eine Pflichtdatei**, keine Option. Dieses Modell hat ein eigenes Dialogformat (einschließlich Argumentationskette / Denkblöcke). Ohne die Vorlage ist die Modellausgabe verstümmelt und die Argumentation funktioniert nicht. Bitte unbedingt herunterladen und beim Start laden.
+
+### 2. Inferenzdienst starten
+
+Den vollständigen Startbefehl mit empfohlener Konfiguration finden Sie im Kapitel **llama.cpp Startbefehl** oben.
+
+Minimaler Start (nur Kernparameter):
+
+```bash
+llama-server \
+  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
+  -c 262144 -ngl 99
+```
+
+> Fügen Sie `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` für Vision-Fähigkeit hinzu.
+
+### 3. Nutzung starten
+
+Öffnen Sie `http://localhost:8080` in Ihrem Browser, um zu chatten.
+
+### Verzeichnisstruktur
+
+```
+moziAI-35B/
+├── README.md              # Chinesische Version
+├── README.de.md           # Deutsche Version (diese Datei)
+├── LICENSE                # Lizenz
+├── V3.6/                  # V3.6-Version (eigenständig)
+�?  ├── RELEASE_NOTES.md                       # Veröffentlichungshinweise
+�?  ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Hauptmodell
+�?  ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Vision-Projektion
+�?  └── moziAI-V3.6-35B-chat-template.jinja   # Chat-Template
+```
 
 ## Modellfunktionen
 
@@ -92,7 +192,7 @@ Dieses Modell erbt die **Uncensored**-Funktion des Ornith-1.0-35B-Basismodells m
 |--------------|-------------|-----------|----------|
 | **FP16 (Original)** | ~70 GB | 100% | Original 16bit |
 | **MoziSmartBit** | **~15,5 GB** | **~99%** | **Von MoziAI verwendet, optimales Quantisierungsschema** |
-| Q4_K_M | ~21,2 GB | ~98% | GGUF-Standard 4bit |
+| Q4_K_M | ~22 GB | ~98% | GGUF-Standard 4bit |
 | Q5_K_M | ~24,7 GB | ~99% | Höhere Qualität |
 | Q6_K | ~28,5 GB | ~99,5% | Nahezu verlustfrei |
 | Q8_0 | ~36,9 GB | ~100% | Verlustfrei |
@@ -113,7 +213,7 @@ Herkömmliche Quantisierung komprimiert alle Teile des Modells gleichmäßig, wa
 
 ### Vergleichsvorteile
 
-**vs Q4_K_M (~21,2 GB)**: ~27% kleiner (~15,5 GB), mit **höherer** Präzision als Q4_K_M, niedrigere VRAM-Hürde — läuft reibungslos auf mittelklasse verbrauchertauglichen GPUs (24 GB).
+**vs Q4_K_M (~22 GB)**: ~30% kleiner (~15,5 GB), mit **höherer** Präzision als Q4_K_M, niedrigere VRAM-Hürde �?läuft reibungslos auf mittelklasse verbrauchertauglichen GPUs (24 GB).
 
 **vs FP16-Original (~70 GB)**: ~4,5x Komprimierung, Trainingseffektivität + minimaler Quantisierungsverlust (Trainingsergebnis > Quantisierungsverlust), Ermöglichung lokaler 256K-Kontextbereitstellung auf verbrauchertauglichen GPUs statt High-End-Hardware.
 
@@ -138,22 +238,6 @@ Basierend auf lokaler Produktionskonfiguration (AMD Radeon AI PRO R9700 32GB):
 | reasoning_budget | 400 | Reasoning-Budget in Tokens |
 | reasoning_format | deepseek-legacy | Reasoning-Format |
 | samplers | top_k;top_p;temperature;typ_p | Sampler-Reihenfolge |
-
-### llama.cpp Startbefehl
-
-```bash
-llama-server \
-  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
-  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
-  -c 262144 -ngl 99 -t 28 \
-  --batch-size 2048 --ubatch-size 512 \
-  --flash-attn auto \
-  --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
-  --poll 0 --reasoning on --reasoning-budget 400 \
-  --host 0.0.0.0 --port 8080 \
-  --temp 0,6 --top-p 0,95 --top-k 20
-```
 
 ### VRAM-Konfigurationsempfehlungen
 
@@ -238,82 +322,6 @@ MoziAI ist feinabgestimmt von **deepreinforce-ai/Ornith-1.0-35B**. MoziAI ist au
 
 > Die allgemeinen Benchmark-Ergebnisse von MoziAI-35B stimmen mit dem Ornith-1.0-35B-Basismodell überein. Die finanzielle vertikale Domäne ist MoziAI's Hauptoptimierungsrichtung, die in Szenarien wie Finanzberichtsanalyse, Quantitative Strategie, Risiko & Compliance und Agent-Tool-Calling deutlich überlegen gegenüber allgemeinen Modellen abschneidet. Gemma4- und Qwen3.6-Daten aus offiziellen öffentlichen Ergebnissen.
 
-## Modell-Download
-
-Aufgrund der großen Modellgröße (~15,5 GB) werden die Gewichte auf mehreren Community-Plattformen gehostet:
-
-| Plattform | URL |
-|-----------|-----|
-| HuggingFace | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-| ModelScope | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-| GitHub | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-
-> 💡 **Download-Hinweis**: Klicken Sie auf den obigen Link, um zum HuggingFace-Repository zu gelangen, und navigieren Sie dann zum Tab **„Files and versions"**, um alle Dateien im V3.6-Verzeichnis herunterzuladen (Hauptmodell, Vision-Projektion, Chat-Template). Stellen Sie sicher, dass sich alle drei Dateien im selben Verzeichnis befinden.
-
-### ⚠️ Wichtig: Vision-Fähigkeit erfordert mmproj-Datei
-
-Dieses Modell unterstützt multimodale Vision. Die **Vision-Projektionsdatei (mmproj)** ist im Versionsverzeichnis enthalten:
-
-- **Vision-Datei**: `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16-Präzision)
-- **Ablage**: Im selben Versionsverzeichnis wie die GGUF-Modelldatei
-- **Laden**: Mit `--mmproj`-Flag beim Starten von llama-server laden
-
-```bash
-llama-server -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf
-```
-
-> Ohne die Vision-Datei verliert das Modell die **Bildverständnisfähigkeit** und behält nur textbasierte Konversation bei.
-
-## Schnellstart
-
-### 1. Modelldateien herunterladen
-
-Laden Sie alle Dateien im V3.6-Verzeichnis von HuggingFace / ModelScope herunter:
-
-```
-V3.6/
-├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Hauptmodell (erforderlich)
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision-Projektion (optional)
-└── moziAI-V3.6-35B-chat-template.jinja                  # Chat-Template (empfohlen)
-```
-
-### 2. Inferenzserver starten
-
-Für die vollständige empfohlene Konfiguration siehe [llama.cpp Startbefehl](#llamacpp-startbefehl) oben.
-
-Minimaler Start (nur Kernparameter):
-
-```bash
-llama-server \
-  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
-  -c 262144 -ngl 99
-```
-
-> Fügen Sie `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` für Vision-Fähigkeit hinzu.
-
-### 3. Nutzung starten
-
-Öffnen Sie `http://localhost:8080` in Ihrem Browser, um zu chatten.
-
-### Verzeichnisstruktur
-
-```
-moziAI-35B/
-├── README.md              # Chinesische Version
-├── README.en.md           # Englische Version
-├── README.de.md           # Deutsche Version (diese Datei)
-├── LICENSE                # Lizenz
-├── V3.6/                  # V3.6-Version (eigenständig)
-│   ├── RELEASE_NOTES.md                       # Veröffentlichungshinweise
-│   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Hauptmodell
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Vision-Projektion
-│   └── moziAI-V3.6-35B-chat-template.jinja   # Chat-Template
-```
-
-Zukünftige Upgrade-Pläne siehe [未来升级计划.md](未来升级计划.md).
-
 ## SEO-Stichwörter
 
 Finanzielle KI LLM, lokales Open-Source-Modell, Endgerät-Modell, Quantitative Programmierung, MoziSmartBit, intelligente Quantisierung, GGUF-Quantisierung, MoE-Modell, lokales Open-Source-LLM, lokale Bereitstellung, finanzielle KI, Tool Calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, keine Zensur, freie Ausgabe, uneingeschränkt, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.0-35B, Qwen3.5, Qwen3.6, finanzielle vertikale Domäne, Open-Source-Modell
@@ -322,11 +330,11 @@ Finanzielle KI LLM, lokales Open-Source-Modell, Endgerät-Modell, Quantitative P
 
 Dieses Modell verwendet eine **Eingeschränkte benutzerdefinierte Lizenz**:
 
-### ✅ Erlaubt
+### �?Erlaubt
 - **Freie kommerzielle Nutzung**: Frei integrierbar in kommerzielle Produkte
 - **Kopieren & Verteilen**: Kann kopiert, heruntergeladen und geteilt werden
 
-### ❌ Verboten
+### �?Verboten
 - **Derivative Werke**: Keine Modifikation, Übersetzung, Anpassung, Zusammenführung oder Feinabstimmung des Modells oder eines Teils davon
 - **Weiterverkauf**: Kein Verkauf des Modells allein oder als Teil eines Produkts
 - **Weiterlizensierung**: Keine Erteilung von Unterlizenzen

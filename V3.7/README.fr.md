@@ -18,7 +18,7 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-35B-A3B-MOE - LLM financier vertical de domaine - V3.7
+# MoziAI-V3.7-35B-A3B-MOE - IA multimodale puissante et compacte, déployable gratuitement en local
 
 Français | [中文](README.md) | [English](README.en.md)
 
@@ -113,7 +113,7 @@ La quantification traditionnelle comprime toutes les parties du modèle de mani�
 
 ### Avantages comparatifs
 
-**vs Q4_K_M (~21,2 Go)** : ~27% plus petit (~15,5 Go), avec une précision **supérieure** à Q4_K_M, seuil de VRAM plus bas — fonctionne de manière fluide sur des GPUs grand public milieu de gamme (24 Go).
+**vs Q4_K_M (~21,2 Go)** : ~30% plus petit (~15,5 Go), avec une précision **supérieure** à Q4_K_M, seuil de VRAM plus bas �?fonctionne de manière fluide sur des GPUs grand public milieu de gamme (24 Go).
 
 **vs FP16 original (~70 Go)** : ~4,5x compression, efficacité d'entraînement + perte de quantification minimale (gain d'entraînement > perte de quantification), permettant le déploiement local de contexte 256K sur des GPUs grand public au lieu de matériel haut de gamme professionnel.
 
@@ -244,9 +244,11 @@ En raison de la grande taille du modèle (~15,5 Go), les poids sont hébergés s
 
 | Plateforme | URL |
 |------------|-----|
-| HuggingFace | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-| ModelScope | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-| GitHub | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+
+> 💡 **LM Studio** : Vous pouvez rechercher et télécharger directement dans [LM Studio](https://lmstudio.ai). Recherchez `moziAI` et cliquez sur Télécharger.
 
 > 💡 **Astuce de téléchargement** : Cliquez sur le lien ci-dessus pour accéder au dépôt HuggingFace, puis naviguez vers l'onglet **« Files and versions »** pour télécharger tous les fichiers sous le répertoire V3.7 (modèle principal, projection visuelle, modèle de chat). Assurez-vous que les trois fichiers se trouvent dans le même répertoire.
 
@@ -306,10 +308,10 @@ moziAI-35B/
 ├── README.fr.md           # Version française (ce fichier)
 ├── LICENSE                # Licence
 ├── V3.7/                  # Version V3.7 (autonome)
-│   ├── RELEASE_NOTES.md                       # Notes de version
-│   ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Modèle principal
-│   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Projection visuelle
-│   └── moziAI-V3.7-35B-chat-template.jinja   # Modèle de chat
+�?  ├── RELEASE_NOTES.md                       # Notes de version
+�?  ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Modèle principal
+�?  ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Projection visuelle
+�?  └── moziAI-V3.7-35B-chat-template.jinja   # Modèle de chat
 ```
 
 Pour le plan de mise à jour futur, voir [未来升级计划.md](未来升级计划.md).
@@ -322,11 +324,11 @@ LLM IA financière, modèle open-source local, modèle de bord, programmation qu
 
 Ce modèle utilise une **Licence restrictive personnalisée** :
 
-### ✅ Autorisé
+### �?Autorisé
 - **Utilisation commerciale libre** : Libre d'intégrer dans des produits commerciaux
 - **Copie & Distribution** : Peut être copié, téléchargé et partagé
 
-### ❌ Interdit
+### �?Interdit
 - **Œuvres dérivées** : Aucune modification, traduction, adaptation, fusion ou affinage du modèle ou d'une partie de celui-ci
 - **Revente** : Pas de vente du modèle seul ou dans le cadre d'un produit
 - **Relicenciement** : Pas de concession de sous-licences

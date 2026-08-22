@@ -8,7 +8,7 @@
 - **Active Parameters**: ~3B
 - **Version**: V3.6
 - **Release Date**: 2026-08
-- **Developed by**: 陈雨墨团队
+- **Developed by**: 陈雨墨团�?
 - **License**: Apache License 2.0
 - **Format**: GGUF (quantized)
 

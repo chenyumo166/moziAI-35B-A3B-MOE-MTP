@@ -18,10 +18,10 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-35B-A3B-MOE - Finanzieller vertikaler Domänen-LLM - V3.6
+# MoziAI-V3.6-35B-A3B-MOE - Kostenlos lokal einsetzbares kleines leistungsstarkes multimodales AI
 
 Language / Sprache auswählen  
-[中文](README.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | Deutsch | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+[中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | Deutsch | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
 
 ## Modellübersicht
 
@@ -92,7 +92,7 @@ Dieses Modell erbt die **Uncensored**-Funktion des Ornith-1.0-35B-Basismodells m
 |--------------|-------------|-----------|----------|
 | **FP16 (Original)** | ~70 GB | 100% | Original 16bit |
 | **MoziSmartBit** | **~15,5 GB** | **~99%** | **Von MoziAI verwendet, optimales Quantisierungsschema** |
-| Q4_K_M | ~21,2 GB | ~98% | GGUF-Standard 4bit |
+| Q4_K_M | ~22 GB | ~98% | GGUF-Standard 4bit |
 | Q5_K_M | ~24,7 GB | ~99% | Höhere Qualität |
 | Q6_K | ~28,5 GB | ~99,5% | Nahezu verlustfrei |
 | Q8_0 | ~36,9 GB | ~100% | Verlustfrei |
@@ -113,7 +113,7 @@ Herkömmliche Quantisierung komprimiert alle Teile des Modells gleichmäßig, wa
 
 ### Vergleichsvorteile
 
-**vs Q4_K_M (~21,2 GB)**: ~27% kleiner (~15,5 GB), mit **höherer** Präzision als Q4_K_M, niedrigere VRAM-Hürde — läuft reibungslos auf mittelklasse verbrauchertauglichen GPUs (24 GB).
+**vs Q4_K_M (~22 GB)**: ~30% kleiner (~15,5 GB), mit **höherer** Präzision als Q4_K_M, niedrigere VRAM-Hürde �?läuft reibungslos auf mittelklasse verbrauchertauglichen GPUs (24 GB).
 
 **vs FP16-Original (~70 GB)**: ~4,5x Komprimierung, Trainingseffektivität + minimaler Quantisierungsverlust (Trainingsergebnis > Quantisierungsverlust), Ermöglichung lokaler 256K-Kontextbereitstellung auf verbrauchertauglichen GPUs statt High-End-Hardware.
 
@@ -244,10 +244,12 @@ Aufgrund der großen Modellgröße (~15,5 GB) werden die Gewichte auf mehreren C
 
 | Plattform | URL |
 |-----------|-----|
-| HuggingFace | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-| ModelScope | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-| GitHub | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 
+
+> 💡 **LM Studio**: Sie können das Modell direkt in [LM Studio](https://lmstudio.ai) suchen und herunterladen. Suchen Sie nach `moziAI` und klicken Sie auf Download.
 > 💡 **Download-Hinweis**: Klicken Sie auf den obigen Link, um zum HuggingFace-Repository zu gelangen, und navigieren Sie dann zum Tab **„Files and versions"**, um alle Dateien im V3.6-Verzeichnis herunterzuladen (Hauptmodell, Vision-Projektion, Chat-Template). Stellen Sie sicher, dass sich alle drei Dateien im selben Verzeichnis befinden.
 
 ### ⚠️ Wichtig: Vision-Fähigkeit erfordert mmproj-Datei
@@ -306,10 +308,10 @@ moziAI-35B/
 ├── README.de.md           # Deutsche Version (diese Datei)
 ├── LICENSE                # Lizenz
 ├── V3.6/                  # V3.6-Version (eigenständig)
-│   ├── RELEASE_NOTES.md                       # Veröffentlichungshinweise
-│   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Hauptmodell
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Vision-Projektion
-│   └── moziAI-V3.6-35B-chat-template.jinja   # Chat-Template
+�?  ├── RELEASE_NOTES.md                       # Veröffentlichungshinweise
+�?  ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Hauptmodell
+�?  ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Vision-Projektion
+�?  └── moziAI-V3.6-35B-chat-template.jinja   # Chat-Template
 ```
 
 Zukünftige Upgrade-Pläne siehe [未来升级计划.md](未来升级计划.md).
@@ -322,11 +324,11 @@ Finanzielle KI LLM, lokales Open-Source-Modell, Endgerät-Modell, Quantitative P
 
 Dieses Modell verwendet eine **Eingeschränkte benutzerdefinierte Lizenz**:
 
-### ✅ Erlaubt
+### �?Erlaubt
 - **Freie kommerzielle Nutzung**: Frei integrierbar in kommerzielle Produkte
 - **Kopieren & Verteilen**: Kann kopiert, heruntergeladen und geteilt werden
 
-### ❌ Verboten
+### �?Verboten
 - **Derivative Werke**: Keine Modifikation, Übersetzung, Anpassung, Zusammenführung oder Feinabstimmung des Modells oder eines Teils davon
 - **Weiterverkauf**: Kein Verkauf des Modells allein oder als Teil eines Produkts
 - **Weiterlizensierung**: Keine Erteilung von Unterlizenzen

@@ -66,7 +66,7 @@ This model inherits the **Uncensored** feature from the Ornith-1.0-35B base mode
 | Q6_K | 28.5 GB | ~99.5% | Near lossless |
 | Q8_0 | 36.9 GB | ~100% | Lossless |
 
-> MoziAI uses self-developed ternary quantization, compressing the 35B parameter MoE model to **under 10GB** (7x compression) while maintaining 96-97% precision ‚Äî the smallest size among similar models.
+> MoziAI uses self-developed ternary quantization, compressing the 35B parameter MoE model to **under 10GB** (7x compression) while maintaining 96-97% precision ‚Ä?the smallest size among similar models.
 
 ## Ternary Quantization Technology
 
@@ -81,7 +81,7 @@ Traditional 4bit quantization maps weights to 16 discrete values (-8 to +7), whi
 | Compression ratio | ~4x | **~7x** |
 | Precision retention | ~98% | **~96-97%** |
 
-The core idea of ternary quantization: **zero out weights with small absolute values, keeping only significant non-zero weights**, then use compensation algorithms to correct errors from zeroing. This strategy is naturally suited for MoE architectures ‚Äî MoE models inherently have many weights close to zero, making ternary quantization highly compatible.
+The core idea of ternary quantization: **zero out weights with small absolute values, keeping only significant non-zero weights**, then use compensation algorithms to correct errors from zeroing. This strategy is naturally suited for MoE architectures ‚Ä?MoE models inherently have many weights close to zero, making ternary quantization highly compatible.
 
 ### Why Precision Loss is Minimal?
 
@@ -210,11 +210,11 @@ model = AutoModelForCausalLM.from_pretrained(model_dir, trust_remote_code=True)
 
 This model uses a **Custom Restrictive License**:
 
-### ‚úÖ Allowed
+### ‚ú?Allowed
 - **Free Commercial Use**: Free to integrate into commercial products
 - **Copy & Distribute**: Can copy, download, and share
 
-### ‚ùå Prohibited
+### ‚ù?Prohibited
 - **Derivative Works**: No modification, translation, adaptation, fine-tuning
 - **Resale**: No selling the model alone or as part of a product
 - **Re-licensing**: No granting sublicenses

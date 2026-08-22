@@ -18,7 +18,7 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-35B-A3B-MOE - Financieel Vertaaldomein LLM - V3.7
+# MoziAI-V3.7-35B-A3B-MOE - Gratis lokaal deploybaar compact krachtig multimodaal AI
 
 Nederlands | [English](README.en.md) | [中文](README.md)
 
@@ -92,7 +92,7 @@ Dit model erft de **Uncensored**-functie van het Ornith-1.5-35B-A3B basismodel, 
 |---------------|-------------|----------|-------------|
 | **FP16 (origineel)** | ~70 GB | 100% | Origineel 16bit |
 | **MoziSmartBit** | **~15,5 GB** | **~99%** | **Gebruikt door MoziAI, optimale kwantisatieoplossing** |
-| Q4_K_M | ~21,2 GB | ~98% | GGUF standaard 4bit |
+| Q4_K_M | ~22 GB | ~98% | GGUF standaard 4bit |
 | Q5_K_M | ~24,7 GB | ~99% | Hogere kwaliteit |
 | Q6_K | ~28,5 GB | ~99,5% | Bijna verliesvrij |
 | Q8_0 | ~36,9 GB | ~100% | Verliesvrij |
@@ -109,11 +109,11 @@ Traditionele kwantisatie comprimeert alle delen van het model uniform, wat vaak 
 
 - **Minimaal Kwantisatieverlies**: Trainingswinst > kwantisatieverlies. Het getrainde MoziAI-35B bereikt betere PPL op financieel domeintekst dan het pre-training bf16 basismodel, waardoor hallucinatie en perplexiteit worden verminderd in vergelijking met vergelijkbare AI-modellen
 - **~4,5x Groottereductie**: Gecomprimeerd van ~70 GB (FP16) tot ~15,5 GB, ook aanzienlijk kleiner dan Q4_K_M (~21 GB), waardoor VRAM- en opslagvereisten aanzienlijk worden verlaagd
-- **Consumenten-GPU Vriendelijk**: Een 35B MoE-model dat voorheen高-end GPU's vereiste, kan nu soepel draaien op 20GB~24GB VRAM
+- **Consumenten-GPU Vriendelijk**: Een 35B MoE-model dat voorheen�?end GPU's vereiste, kan nu soepel draaien op 20GB~24GB VRAM
 
 ### Vergelijkende Voordelen
 
-**vs Q4_K_M (~21,2 GB)**: ~27% kleiner (~15,5 GB), met precisie **hoger** dan Q4_K_M, lagere VRAM-drempel — draait soepel op mid-range consumenten-GPU's (24GB).
+**vs Q4_K_M (~22 GB)**: ~30% kleiner (~15,5 GB), met precisie **hoger** dan Q4_K_M, lagere VRAM-drempel �?draait soepel op mid-range consumenten-GPU's (24GB).
 
 **vs FP16 origineel (~70 GB)**: ~4,5x compressie, trainings-effectief + minimaal kwantisatieverlies (trainingswinst > kwantisatieverlies), waardoor lokale 256K context-deployment op consumenten-GPU's mogelijk wordt in plaats van professioneel materiaal.
 
@@ -244,10 +244,12 @@ Vanwege de grote modelgrootte (~15,5 GB) worden gewichten gehost op meerdere gem
 
 | Platform | URL |
 |----------|-----|
-| HuggingFace | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-| ModelScope | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
-| GitHub | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 
+
+> 💡 **LM Studio**: U kunt het model ook direct zoeken en downloaden in [LM Studio](https://lmstudio.ai). Zoek naar `moziAI` en klik op Download.
 > 💡 **Downloadtip**: Klik op de bovenstaande link naar de HuggingFace-repository, ga vervolgens naar het tabblad **"Files and versions"** om alle bestanden onder de V3.7-map te downloaden (hoofdmodel, visieprojectie, chatsjabloon). Zorg ervoor dat alle drie de bestanden in dezelfde map worden geplaatst.
 
 ### ⚠️ Belangrijk: Visiemogelijkheid Vereist mmproj-bestand
@@ -306,10 +308,10 @@ moziAI-35B/
 ├── README.nl.md           # Dit bestand (Nederlands)
 ├── LICENSE                # Licentie
 ├── V3.7/                  # V3.7 versie (zelfstandig)
-│   ├── RELEASE_NOTES.md                       # Releasenotities
-│   ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Hoofdmodel
-│   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Visieprojectie
-│   └── moziAI-V3.7-35B-chat-template.jinja   # Chatsjabloon
+�?  ├── RELEASE_NOTES.md                       # Releasenotities
+�?  ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Hoofdmodel
+�?  ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Visieprojectie
+�?  └── moziAI-V3.7-35B-chat-template.jinja   # Chatsjabloon
 ```
 
 Voor het toekomstige upgradeplan, zie [未来升级计划.md](未来升级计划.md).
@@ -322,11 +324,11 @@ financieel AI LLM, lokaal open-source model, eindapparaatmodel, kwant programmer
 
 Dit model gebruikt een **Aangepaste Beperkte Licentie**:
 
-### ✅ Toegestaan
+### �?Toegestaan
 - **Vrij Commercieel Gebruik**: Vrij te integreren in commerciële producten
 - **Kopiëren & Verspreiden**: Kan gekopieerd, gedownload en gedeeld worden
 
-### ❌ Verboden
+### �?Verboden
 - **Afgeleide Werken**: Geen modificatie, vertaling, aanpassing, samenvoeging of fijne afstemming van het model of enig deel ervan
 - **Doorverkoop**: Geen verkoop van het model alleen of als onderdeel van een product
 - **Herlicentiëring**: Geen sublicenties verlenen

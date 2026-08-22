@@ -19,13 +19,13 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-V3.7-35B-A3B-MOE - Free Locally Deployable Small Yet Powerful Multimodal AI
+# MoziAI-35B-A3B-MOE - Financial Vertical Domain LLM - V3.6
 
-English | [中文](README.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Русский](README.ru.md) | [हिन्दी](README.hi.md) | [繁體中文](README.zh-hant.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md)
+English | [中文](README.md)
 
 ## Model Overview
 
-MoziAI-35B-A3B-MOE is a local open-source financial AI multimodal LLM (supports vision and tool calling) developed by Chinese finance influencer Chen Yumo's team, fine-tuned/distilled from the Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** architecture, MIT licensed) foundation model. Through the self-developed **MoziSmartBit Intelligent Quantization** technology, the 35B-parameter MoE model is compressed to approximately **15.5 GB**, achieving an optimal balance between precision and size with near-lossless ~99% precision quality.
+MoziAI-35B-A3B-MOE is a local open-source financial AI multimodal LLM (supports vision and tool calling) developed by Chinese finance influencer Chen Yumo's team, fine-tuned/distilled from the Ornith-1.0-35B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** architecture, MIT licensed) foundation model. Through the self-developed **MoziSmartBit Intelligent Quantization** technology, the 35B-parameter MoE model is compressed to approximately **15.5 GB**, achieving an optimal balance between precision and size with near-lossless ~99% precision quality.
 
 In addition to retaining general AI capabilities, this model focuses on optimizing financial vertical domain applications, including financial Q&A, quantitative programming, tool calling, and general programming.
 
@@ -33,7 +33,7 @@ The model developer Chen Yumo frequently uses this model for local financial dat
 
 Supports llama.cpp, Ollama, LM Studio and other mainstream inference frameworks.
 
-**Release Date: 2026-08-21** | **Version: V3.7**
+**Release Date: 2026-08-20** | **Version: V3.6**
 
 ## Model Features
 
@@ -51,7 +51,7 @@ Supports llama.cpp, Ollama, LM Studio and other mainstream inference frameworks.
 
 ## Uncensored Advantages
 
-This model inherits the **Uncensored** feature from the Ornith-1.5-35B-A3B base model, with the following advantages:
+This model inherits the **Uncensored** feature from the Ornith-1.0-35B base model, with the following advantages:
 
 | Advantage | Description |
 |-----------|-------------|
@@ -77,7 +77,7 @@ This model inherits the **Uncensored** feature from the Ornith-1.5-35B-A3B base 
 
 | Item | Specification |
 |------|---------------|
-| Base Model | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT licensed) |
+| Base Model | Ornith-1.0-35B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT licensed) |
 | Parameters | 35B MoE (256 routed experts + 1 shared expert, 8 active per token) |
 | Quantization | Self-developed MoziSmartBit Intelligent Quantization + GGUF standard format |
 | Context Length | 256K (262,144 tokens) |
@@ -93,12 +93,12 @@ This model inherits the **Uncensored** feature from the Ornith-1.5-35B-A3B base 
 |--------------|------------|-----------|-------|
 | **FP16 (original)** | ~70 GB | 100% | Original 16bit |
 | **MoziSmartBit** | **~15.5 GB** | **~99%** | **Used by MoziAI, optimal quantization scheme** |
-| Q4_K_M | ~22 GB | ~98% | GGUF standard 4bit |
+| Q4_K_M | ~21.2 GB | ~98% | GGUF standard 4bit |
 | Q5_K_M | ~24.7 GB | ~99% | Higher quality |
 | Q6_K | ~28.5 GB | ~99.5% | Near lossless |
 | Q8_0 | ~36.9 GB | ~100% | Lossless |
 
-> MoziAI V3.7 uses MoziSmartBit Intelligent Quantization, maintaining ~99% precision while compressing the 35B parameter MoE model to ~15.5 GB (~4.5x compression ratio), balancing inference quality with deployment accessibility for consumer GPUs.
+> MoziAI V3.6 uses MoziSmartBit Intelligent Quantization, maintaining ~99% precision while compressing the 35B parameter MoE model to ~15.5 GB (~4.5x compression ratio), balancing inference quality with deployment accessibility for consumer GPUs.
 
 ## MoziSmartBit Intelligent Quantization
 
@@ -114,7 +114,7 @@ Traditional quantization compresses all parts of the model uniformly, often lead
 
 ### Comparative Advantages
 
-**vs Q4_K_M (~22 GB)**: ~30% smaller (~15.5 GB), with precision **higher** than Q4_K_M, lower VRAM barrier �?runs smoothly on mid-range consumer GPUs (24GB).
+**vs Q4_K_M (~21.2 GB)**: ~27% smaller (~15.5 GB), with precision **higher** than Q4_K_M, lower VRAM barrier — runs smoothly on mid-range consumer GPUs (24GB).
 
 **vs FP16 original (~70 GB)**: ~4.5x compression, training effective + minimal quantization loss (training gains > quantization loss), enabling local 256K context deployment on consumer GPUs instead of professional-grade hardware.
 
@@ -126,7 +126,7 @@ Based on local production config (AMD Radeon AI PRO R9700 32GB):
 |-----------|-------|-------------|
 | temperature | 0.6 | Balance creativity vs accuracy |
 | top_p | 0.95 | Nucleus sampling threshold |
-| top_k | 20 | Truncation sampling (V3.7 optimized) |
+| top_k | 20 | Truncation sampling (V3.6 optimized) |
 | repeat_penalty | 1.05 | Repetition penalty |
 | presence_penalty | 0 | No presence penalty |
 | context_length | 262144 | 256K long context |
@@ -144,9 +144,9 @@ Based on local production config (AMD Radeon AI PRO R9700 32GB):
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
-  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
+  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
@@ -204,7 +204,7 @@ Since user GPU configurations vary widely, here are recommended parameters for d
 
 ```bash
 # Create Modelfile
-FROM ./moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
+FROM ./moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
 
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
@@ -223,7 +223,7 @@ Search `moziAI-35B` in LM Studio or Jan, download the MoziSmartBit quant version
 
 ## Benchmark Evaluation
 
-MoziAI is fine-tuned from **deepreinforce-ai/Ornith-1.5-35B-A3B**. MoziAI is optimized for financial vertical domains on top of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. MoziAI-35B general capabilities are consistent with the Ornith-1.5-35B-A3B base model.
+MoziAI is fine-tuned from **deepreinforce-ai/Ornith-1.0-35B**. MoziAI is optimized for financial vertical domains on top of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. MoziAI-35B general capabilities are consistent with the Ornith-1.0-35B base model.
 
 | Benchmark | MoziAI-35B (this model) | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | Description |
 |-----------|-------------------------|-------------|------------|------------|-------------|-------------|
@@ -237,7 +237,7 @@ MoziAI is fine-tuned from **deepreinforce-ai/Ornith-1.5-35B-A3B**. MoziAI is opt
 | GPQA Diamond | 88.4 | 87.8 | 84.3 | 82.3 | - | Scientific reasoning |
 | AIME 2026 Math | 93.3 | 94.1 | 89.2 | 88.3 | - | Math reasoning |
 
-> MoziAI-35B general benchmark scores are consistent with the Ornith-1.5-35B-A3B base model. Financial vertical domain is MoziAI's core optimization direction, significantly outperforming general models in scenarios like financial report analysis, quantitative strategy, risk & compliance, and agent tool calling. Gemma4 and Qwen3.6 data from official public results.
+> MoziAI-35B general benchmark scores are consistent with the Ornith-1.0-35B base model. Financial vertical domain is MoziAI's core optimization direction, significantly outperforming general models in scenarios like financial report analysis, quantitative strategy, risk & compliance, and agent tool calling. Gemma4 and Qwen3.6 data from official public results.
 
 ## Model Download
 
@@ -245,25 +245,23 @@ Due to the large model size (~15.5 GB), weights are hosted on multiple community
 
 | Platform | URL |
 |----------|-----|
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| HuggingFace | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
+| ModelScope | [chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://modelscope.cn/models/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
+| GitHub | [chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith](https://github.com/chenyumo166/moziAI-35B-Qwen3.6-35B-A3B-Ornith) |
 
-
-> 💡 **LM Studio**: You can also search and download directly in [LM Studio](https://lmstudio.ai). Search `moziAI` in the Discover tab and click Download.
-> 💡 **Download Tip**: Click the link above to go to the HuggingFace repository, then go to the **"Files and versions"** tab to download all files under the V3.7 directory (main model, vision projection, chat template). Make sure all three files are placed in the same directory.
+> 💡 **Download Tip**: Click the link above to go to the HuggingFace repository, then go to the **"Files and versions"** tab to download all files under the V3.6 directory (main model, vision projection, chat template). Make sure all three files are placed in the same directory.
 
 ### ⚠️ Important: Vision Capability Requires mmproj File
 
 This model supports multimodal vision. The **vision projection file (mmproj)** is included in the version directory:
 
-- **Vision file**: `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16 precision)
+- **Vision file**: `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16 precision)
 - **Placement**: Same version directory as the GGUF model file
 - **Loading**: Load with `--mmproj` flag when starting llama-server
 
 ```bash
-llama-server -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+llama-server -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf
 ```
 
 > Without the vision file, the model will **lose image understanding capability** and only retain text-only conversation.
@@ -272,13 +270,13 @@ llama-server -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Unce
 
 ### 1. Download Model Files
 
-Download all files under the V3.7 directory from HuggingFace / ModelScope:
+Download all files under the V3.6 directory from HuggingFace / ModelScope:
 
 ```
-V3.7/
-├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Main model (required)
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision projection (optional)
-└── moziAI-V3.7-35B-chat-template.jinja                  # Chat template (recommended)
+V3.6/
+├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Main model (required)
+├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision projection (optional)
+└── moziAI-V3.6-35B-chat-template.jinja                  # Chat template (recommended)
 ```
 
 ### 2. Start Inference Server
@@ -289,12 +287,12 @@ Minimal launch (core params only):
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
+  -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
   -c 262144 -ngl 99
 ```
 
-> Add `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` for vision capability.
+> Add `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` for vision capability.
 
 ### 3. Start Using
 
@@ -307,28 +305,28 @@ moziAI-35B/
 ├── README.md              # Chinese version
 ├── README.en.md           # This file (English)
 ├── LICENSE                # License
-├── V3.7/                  # V3.7 version (self-contained)
-�?  ├── RELEASE_NOTES.md                       # Release notes
-�?  ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Main model
-�?  ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
-�?  └── moziAI-V3.7-35B-chat-template.jinja   # Chat template
+├── V3.6/                  # V3.6 version (self-contained)
+│   ├── RELEASE_NOTES.md                       # Release notes
+│   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Main model
+│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
+│   └── moziAI-V3.6-35B-chat-template.jinja   # Chat template
 ```
 
 For the future upgrade plan, see [未来升级计划.md](未来升级计划.md).
 
 ## SEO Keywords
 
-financial AI LLM, local open source model, end-side model, quant programming, MoziSmartBit, intelligent quantization, GGUF quantization, MoE model, local open source LLM, local deployment, financial AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, no censorship, free output, unrestricted, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.5-35B-A3B, Qwen3.5, Qwen3.6, financial vertical domain, open source model
+financial AI LLM, local open source model, end-side model, quant programming, MoziSmartBit, intelligent quantization, GGUF quantization, MoE model, local open source LLM, local deployment, financial AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, no censorship, free output, unrestricted, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.0-35B, Qwen3.5, Qwen3.6, financial vertical domain, open source model
 
 ## License (Important)
 
 This model uses a **Custom Restrictive License**:
 
-### �?Allowed
+### ✅ Allowed
 - **Free Commercial Use**: Free to integrate into commercial products
 - **Copy & Distribute**: Can copy, download, and share
 
-### �?Prohibited
+### ❌ Prohibited
 - **Derivative Works**: No modification, translation, adaptation, merging, or fine-tuning of the model or any part of it
 - **Resale**: No selling the model alone or as part of a product
 - **Re-licensing**: No granting sublicenses
