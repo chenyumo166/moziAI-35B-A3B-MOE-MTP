@@ -129,7 +129,7 @@ The model excels at:
   title={MoziAI-35B: A Financial Domain MoE Large Language Model},
   author={陈雨墨团队},
   year={2026},
-  howpublished={\url{https://github.com/chenyumo/moziAI-GGUF}}
+  howpublished={\url{https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored}}
 }
 ```
 
