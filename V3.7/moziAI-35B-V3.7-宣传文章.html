@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ==================== SEO 元信息 ==================== -->
+<title>MoziAI-35B-V3.7 发布：可免费本地部署的金融多模态大模型，15.5GB 跑 35B MoE，256K 上下文</title>
+<meta name="description" content="MoziAI-35B-V3.7 开源发布：基于 Ornith-1.5-35B-A3B 底座二次开发，MoziSmartBit 智能量化将 350 亿参数压缩至 15.5GB，支持 256K 上下文、视觉理解、工具调用，20GB 消费级显卡即可本地部署，金融垂直领域深度优化。">
+<meta name="keywords" content="MoziAI,35B大模型,本地部署,金融大模型,MoE,GGUF,MoziSmartBit,量化,256K上下文,开源AI,多模态,Uncensored,金融AI,量化交易,金字塔PEL,llama.cpp,Ollama,LM Studio">
+<meta name="author" content="陈雨墨团队">
+<meta property="og:title" content="MoziAI-35B-V3.7：免费本地部署的金融大模型，15.5GB 跑满 35B MoE">
+<meta property="og:description" content="金融垂直领域深度优化的 35B MoE 大模型，MoziSmartBit 量化压缩至 15.5GB，20GB 显卡可跑，256K 长上下文 + 视觉 + 工具调用。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="assets/moziAI-V3.7-cover.png">
+<meta property="og:url" content="https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MoziAI-35B-V3.7：免费本地部署的金融大模型">
+<meta name="twitter:description" content="15.5GB 跑 35B MoE，256K 上下文，金融垂直优化">
+<meta name="twitter:image" content="assets/moziAI-V3.7-cover.png">
+
+<!-- ==================== 文章结构数据（SEO 增强） ==================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "MoziAI-35B-V3.7 发布：可免费本地部署的金融多模态大模型",
+  "description": "基于 Ornith-1.5-35B-A3B 底座二次开发，MoziSmartBit 量化压缩至 15.5GB，20GB 显卡本地部署，256K 上下文",
+  "author": {"@type": "Person", "name": "陈雨墨团队"},
+  "datePublished": "2026-08-21",
+  "publisher": {"@type": "Organization", "name": "MoziAI"},
+  "mainEntityOfPage": "https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored"
+}
+</script>
+
+<style>
+/* ==================== 基础样式 ==================== */
+:root {
+  --gold: #d4af37;
+  --gold-light: #f0dca0;
+  --dark: #0a0a0f;
+  --dark-2: #12121a;
+  --dark-3: #1a1a24;
+  --text: #e8e8ee;
+  --text-dim: #a0a0b0;
+  --accent: #4a9eff;
+  --card-bg: #16161f;
+  --border: #2a2a38;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* ==================== 封面 ==================== */
+.cover {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==================== 容器 ==================== */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+/* ==================== 文章头部 ==================== */
+.article-header { text-align: center; padding: 30px 0 20px; }
+.article-header h1 {
+  font-size: 2.1em;
+  line-height: 1.4;
+  color: var(--gold-light);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.article-header .subtitle {
+  font-size: 1.15em;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
+.tag {
+  background: rgba(212,175,55,0.12);
+  border: 1px solid rgba(212,175,55,0.4);
+  color: var(--gold-light);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.85em;
+}
+.meta {
+  display: flex; justify-content: center; gap: 24px;
+  color: var(--text-dim); font-size: 0.9em;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+/* ==================== 摘要框 ==================== */
+.summary-box {
+  background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(74,158,255,0.05));
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+.summary-box .label { color: var(--gold); font-weight: 700; font-size: 0.9em; margin-bottom: 8px; letter-spacing: 2px; }
+.summary-box p { font-size: 1.05em; }
+
+/* ==================== 章节 ==================== */
+h2 {
+  font-size: 1.5em;
+  color: var(--gold-light);
+  margin: 42px 0 18px;
+  padding-left: 14px;
+  border-left: 4px solid var(--gold);
+}
+h3 { font-size: 1.2em; color: var(--text); margin: 26px 0 12px; }
+p { margin-bottom: 16px; }
+strong { color: var(--gold-light); }
+
+/* ==================== 亮点卡片 ==================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--gold); }
+.card .icon { font-size: 1.6em; margin-bottom: 8px; }
+.card h4 { color: var(--gold-light); font-size: 1.05em; margin-bottom: 8px; }
+.card p { color: var(--text-dim); font-size: 0.92em; margin: 0; }
+
+/* ==================== 数据表格 ==================== */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.92em;
+}
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--dark-3); color: var(--gold-light); font-weight: 600; white-space: nowrap; }
+tr:hover td { background: rgba(212,175,55,0.05); }
+
+/* ==================== 引用块 ==================== */
+blockquote {
+  border-left: 3px solid var(--accent);
+  background: rgba(74,158,255,0.06);
+  padding: 14px 18px;
+  margin: 18px 0;
+  border-radius: 0 8px 8px 0;
+  color: var(--text-dim);
+}
+
+/* ==================== 代码块 ==================== */
+pre {
+  background: var(--dark-3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 0.88em;
+  font-family: "Consolas", "Courier New", monospace;
+  margin: 16px 0;
+  line-height: 1.6;
+}
+code { font-family: "Consolas", "Courier New", monospace; }
+
+/* ==================== CTA 按钮 ==================== */
+.cta {
+  display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+  margin: 30px 0;
+}
+.cta a {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.cta .primary {
+  background: linear-gradient(135deg, var(--gold), #b8942f);
+  color: #000;
+}
+.cta .primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,175,55,0.3); }
+.cta .secondary {
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+}
+.cta .secondary:hover { background: rgba(212,175,55,0.1); }
+
+/* ==================== 平台写作风格差异（微博短句） ==================== */
+.weibo-takeaway {
+  background: rgba(74,158,255,0.08);
+  border: 1px solid rgba(74,158,255,0.3);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 24px 0;
+}
+.weibo-takeaway .label { color: var(--accent); font-weight: 700; font-size: 0.85em; margin-bottom: 10px; }
+.weibo-takeaway p { margin: 6px 0; font-size: 0.98em; color: var(--text); }
+
+/* ==================== 页脚 ==================== */
+.footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.85em;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  margin-top: 50px;
+}
+.footer .hashtags { color: var(--gold); margin-bottom: 12px; }
+</style>
+</head>
+
+<body>
+
+<!-- ==================== 封面图 ==================== -->
+<img class="cover" src="assets/moziAI-V3.7-cover.png" alt="MoziAI-35B-V3.7 可免费本地部署的金融多模态大模型封面">
+
+<div class="container">
+
+<!-- ==================== 文章头部 ==================== -->
+<header class="article-header">
+  <h1>35B 大模型免费本地跑！MoziAI-V3.7 发布：15.5GB 塞下 350 亿参数，金融从业者的 AI 利器</h1>
+  <p class="subtitle">基于 Ornith-1.5-35B-A3B 底座 · MoziSmartBit 智能量化 · 256K 超长上下文 · 视觉 + 工具调用</p>
+  <div class="tags">
+    <span class="tag"># 本地部署</span>
+    <span class="tag"># 金融大模型</span>
+    <span class="tag"># 开源AI</span>
+    <span class="tag"># 量化交易</span>
+    <span class="tag"># MoE</span>
+  </div>
+  <div class="meta">
+    <span>👤 陈雨墨团队</span>
+    <span>📅 2026-08-21</span>
+    <span>📦 V3.7</span>
+    <span>💡 开源免费</span>
+  </div>
+</header>
+
+<!-- ==================== 摘要 ==================== -->
+<div class="summary-box">
+  <div class="label">📌 本文摘要</div>
+  <p><strong>MoziAI-35B-V3.7</strong> 正式发布！这是面向<strong>金融垂直领域</strong>深度优化的 35B MoE 多模态大模型：通过自研 <strong>MoziSmartBit 智能量化</strong>，将 350 亿参数压缩至 <strong>15.5GB</strong>（约 4.5 倍压缩比），保持 <strong>≈99% FP16 精度</strong>——只需 <strong>20GB 显存</strong>的消费级显卡即可本地运行，支持 <strong>256K 超长上下文</strong>、<strong>视觉理解</strong>、<strong>工具调用</strong>与<strong>思维链推理</strong>，数据完全私有，免费使用。</p>
+</div>
+
+<!-- ==================== 引言（公众号风格） ==================== -->
+<h2>为什么你需要一个本地大模型？</h2>
+<p>在金融行业，数据就是生命。把研报、财报、策略代码交给云端大模型，意味着你的<strong>核心数据在别人手里</strong>——API 调用费像流水一样花出去，还要担心数据泄露风险。</p>
+<p>MoziAI 的答案很简单：<strong>把强大的 AI 装进你的电脑</strong>。V3.7 版本做到了「小体积、高精度、真免费」——这是为金融从业者、量化研究员、独立开发者量身打造的本地 AI 助手。</p>
+
+<!-- ==================== 核心亮点（头条风格快速抓重点） ==================== -->
+<h2>V3.7 五大核心亮点</h2>
+<div class="grid">
+  <div class="card">
+    <div class="icon">⚡</div>
+    <h4>15.5GB 跑 35B MoE</h4>
+    <p>MoziSmartBit 智能量化，4.5 倍压缩，精度 ≈99% FP16，效果远超同体积模型</p>
+  </div>
+  <div class="card">
+    <div class="icon">🧠</div>
+    <h4>256K 超长上下文</h4>
+    <p>一次读完整份研报、整本财报、全年策略回测日志，长文档分析无压力</p>
+  </div>
+  <div class="card">
+    <div class="icon">👁️</div>
+    <h4>多模态视觉理解</h4>
+    <p>直接截图 K 线图、财报表格、研报图表进对话窗口，模型能看懂图片内容</p>
+  </div>
+  <div class="card">
+    <div class="icon">🛠️</div>
+    <h4>工具调用 + Agent</h4>
+    <p>原生支持 Function Calling，适配 OpenClaw、Hermes、Cursor、Claude Code 等主流 Agent 框架</p>
+  </div>
+  <div class="card">
+    <div class="icon">🔒</div>
+    <h4>本地部署数据私有</h4>
+    <p>24 小时 Token 自由，数据不出电脑，Uncensored 无审查，完全由你掌控</p>
+  </div>
+</div>
+
+<!-- ==================== 金融垂直能力 ==================== -->
+<h2>金融垂直领域：不只是「能用」，而是「好用」</h2>
+<p>V3.7 在通用能力与底座 Ornith-1.5-35B-A3B 保持一致的基础上，针对金融场景做了深度优化：</p>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>能力领域</th><th>说明</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>市场分析</strong></td><td>宏观/微观经济解读，A 股/港股/美股/商品/加密货币行情与逻辑梳理</td></tr>
+    <tr><td><strong>财务与研报</strong></td><td>财报关键指标解读、研报摘要提取、估值与盈利预测辅助</td></tr>
+    <tr><td><strong>风控与合规</strong></td><td>产品风险评估、投资建议合规提示、金融监管政策解读</td></tr>
+    <tr><td><strong>量化与策略</strong></td><td>量化策略思路设计、金字塔（Pyramid/PEL）量化、回测逻辑、因子构建与工具调用</td></tr>
+    <tr><td><strong>工具调用</strong></td><td>可接入实时行情、数据库、研报检索等金融数据源</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ==================== 技术规格 ==================== -->
+<h2>技术规格一览</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>项目</th><th>规格</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>底座模型</td><td>Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架构，MIT 许可证）</td></tr>
+    <tr><td>参数规模</td><td>350 亿（35B）MoE 架构，256 个路由专家 + 1 个共享专家，激活 8 个/token</td></tr>
+    <tr><td>量化方式</td><td>自研 MoziSmartBit 智能量化 + GGUF 标准格式</td></tr>
+    <tr><td>上下文长度</td><td>256K（262,144 tokens）</td></tr>
+    <tr><td>模型体积</td><td>≈15.5 GB（MoziSmartBit Uncensored 版）</td></tr>
+    <tr><td>最低显存</td><td>20GB 消费级显卡（RTX 4060 Ti 16G 等需搭配 CPU 卸载）</td></tr>
+    <tr><td>推理框架</td><td>llama.cpp / Ollama / LM Studio / Jan</td></tr>
+    <tr><td>推理速度</td><td>AMD R9700 显卡可达 140+ token/s，AMD MAX+395 核显 70+ token/s</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ==================== 量化对比 ==================== -->
+<h2>MoziSmartBit 量化：为什么「又小又强」？</h2>
+<p>传统量化对所有层统一压缩，精度损失明显。MoziSmartBit 针对 MoE 模型结构特点，采用<strong>智能差异化量化策略</strong>，在体积与精度间取得最优平衡：</p>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>量化格式</th><th>模型体积</th><th>精度保持</th><th>说明</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>FP16（原始）</td><td>≈70 GB</td><td>100%</td><td>原始 16bit 精度</td></tr>
+    <tr><td><strong>MoziSmartBit</strong></td><td><strong>≈15.5 GB</strong></td><td><strong>≈99%</strong></td><td><strong>本模型采用，最优性价比</strong></td></tr>
+    <tr><td>Q4_K_M</td><td>≈22 GB</td><td>≈98%</td><td>GGUF 标准 4bit</td></tr>
+    <tr><td>Q5_K_M</td><td>≈24.7 GB</td><td>≈99%</td><td>更高精度</td></tr>
+    <tr><td>Q8_0</td><td>≈36.9 GB</td><td>≈100%</td><td>无损</td></tr>
+  </tbody>
+</table>
+</div>
+<p>关键优势：训练增益 &gt; 量化损失——训练后的 MoziAI-35B 在金融领域文本上 PPL 甚至优于训练前的 bf16 底座，幻觉与困惑更少。</p>
+
+<!-- ==================== 基准评测（SEO 关键词丰富） ==================== -->
+<h2>能力基准评测：编程、推理、代理式全面领先</h2>
+<p>在 17 项国际基准测试中，MoziAI-13.7-35B-A3B 展现了卓越的 Agentic Coding 能力：</p>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>Benchmark</th><th>moziAI-13.7</th><th>Ornith-1.0</th><th>Qwen3.6-35B</th><th>Gemma-4-31B</th><th>Muse-Glimmer</th><th>Qwen3.5-397B</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>编程</strong></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>Terminal-Bench 2.1 (Terminus-2)</td><td><strong>67.8</strong></td><td>64.2</td><td>52.5</td><td>42.1</td><td>51.7</td><td>53.5</td></tr>
+    <tr><td>SWE-bench Verified</td><td><strong>79</strong></td><td>75.6</td><td>73.4</td><td>52</td><td>76</td><td>76.4</td></tr>
+    <tr><td>SWE-bench Pro</td><td><strong>59.6</strong></td><td>50.4</td><td>49.5</td><td>35.7</td><td>51.2</td><td>51.6</td></tr>
+    <tr><td>NL2Repo</td><td><strong>46.2</strong></td><td>34.6</td><td>29.4</td><td>15.5</td><td>-</td><td>36.8</td></tr>
+    <tr><td><strong>推理</strong></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>HLE (no tools)</td><td>25.6</td><td>20.8</td><td>21.4</td><td>19.5</td><td>22</td><td>28.7</td></tr>
+    <tr><td>GPQA Diamond</td><td><strong>89.2</strong></td><td>86.2</td><td>86</td><td>84.3</td><td>83.5</td><td>88.4</td></tr>
+    <tr><td><strong>代理式</strong></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>MCP-Atlas</td><td>70.2</td><td>64.4</td><td>62.8</td><td>55</td><td>75.5</td><td>72.3</td></tr>
+    <tr><td>WideSearch</td><td>67.8</td><td>63.4</td><td>60.1</td><td>54.2</td><td>-</td><td>74</td></tr>
+    <tr><td>ClawEval</td><td><strong>72.5</strong></td><td>69.8</td><td>68.7</td><td>48.5</td><td>-</td><td>70.7</td></tr>
+  </tbody>
+</table>
+</div>
+<blockquote>金融垂直领域是 MoziAI 的核心优化方向，在财报解读、量化策略、风控合规、Agent 工具调用等场景下表现显著优于通用模型。</blockquote>
+
+<!-- ==================== 快速上手 ==================== -->
+<h2>三步上手：今天就能用上</h2>
+<h3>① 下载模型</h3>
+<p>前往 HuggingFace / ModelScope / GitHub 下载 V3.7 目录下三个文件：主模型 GGUF + mmproj 视觉投影 + chat-template 模板。</p>
+
+<h3>② llama.cpp 启动</h3>
+<pre><code>llama-server \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
+  -c 262144 -ngl 99 -t 28 \
+  --flash-attn auto --poll 0 \
+  --reasoning on --reasoning-budget 1000 \
+  --host 0.0.0.0 --port 8080 \
+  --temp 0.6 --top-p 0.95 --top-k 20</code></pre>
+
+<h3>③ 打开对话</h3>
+<p>浏览器访问 <code>http://localhost:8080</code>，开始你的本地金融 AI 之旅。也支持 Ollama / LM Studio 一键部署。</p>
+
+<!-- ==================== 微博风格短句 ==================== -->
+<div class="weibo-takeaway">
+  <div class="label">📱 一句话安利（微博/朋友圈版）</div>
+  <p>🔥 35B 大模型免费本地跑！MoziAI-V3.7 来了</p>
+  <p>📦 15.5GB 塞下 350 亿参数，20GB 显卡就能跑</p>
+  <p>📈 金融垂直优化：研报分析、量化策略、K线截图识别</p>
+  <p>🧠 256K 长上下文 + 视觉 + 工具调用 + Uncensored</p>
+  <p>💯 免费开源，数据私有，Token 自由！</p>
+  <p style="margin-top:12px;"><strong>#MoziAI #大模型 #本地部署 #金融AI #量化交易 #开源 #35B #MoE #GGUF</strong></p>
+</div>
+
+<!-- ==================== 平台下载 CTA ==================== -->
+<h2>立即获取</h2>
+<div class="cta">
+  <a class="primary" href="https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored" target="_blank">🤗 HuggingFace 下载</a>
+  <a class="secondary" href="https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored" target="_blank">🐳 ModelScope 魔搭下载</a>
+  <a class="secondary" href="https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored" target="_blank">🐙 GitHub 仓库</a>
+</div>
+
+<!-- ==================== 结尾（公众号风格收尾） ==================== -->
+<h2>写在最后</h2>
+<p>MoziAI 团队的理念，是让综合能力强大的本地 AI 大模型智能体走进千家万户与中小企业——不再需要支付高昂的 AI 硬件成本或云端 API 费用。</p>
+<p>V3.7 只是开始。后续我们将持续迭代：更多量化等级、更小体积、更强的金融场景能力，以及 27B 轻量版。欢迎在 HuggingFace / GitHub 提交 Issues，你的反馈将帮助我们做得更好。</p>
+<blockquote>⚠️ 免责声明：模型输出仅供参考学习，不构成任何投资建议。实盘交易风险自担，请遵守相关法律法规。</blockquote>
+
+<!-- ==================== 页脚 ==================== -->
+<footer class="footer">
+  <div class="hashtags">#MoziAI #金融大模型 #本地部署 #开源AI #MoE #GGUF #量化交易 #多模态 #35B #256K上下文</div>
+  <p>MoziAI-35B-V3.7 · Copyright © 2026 陈雨墨 (chenyumo166) · All rights reserved</p>
+  <p>底座：Ornith-1.5-35B-A3B（Qwen3.5/Qwen3.6 架构，MIT 许可证）</p>
+</footer>
+
+</div>
+</body>
+</html>
