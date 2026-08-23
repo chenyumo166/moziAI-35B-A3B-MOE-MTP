@@ -324,7 +324,6 @@ moziAI-35B/
 │   └── moziAI-V3.7-35B-chat-template.jinja   # Chat template
 ```
 
-For the future upgrade plan, see [未来升级计划.md](未来升级计划.md).
 
 ## SEO Keywords
 

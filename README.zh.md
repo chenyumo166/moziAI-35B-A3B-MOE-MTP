@@ -418,7 +418,6 @@ moziAI-35B-A3B-MOE-MTP-Uncensored/
 │   └── moziAI-V3.6-35B-chat-template.jinja   # 聊天模板
 ```
 
-未来升级计划详见 [未来升级计划.md](V3.6/未来升级计划.md)。
 
 ## SEO 关键词
 

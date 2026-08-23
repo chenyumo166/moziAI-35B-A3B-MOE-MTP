@@ -133,7 +133,6 @@ moziAI-35B-A3B-MOE-MTP-Uncensored/
 │   └── moziAI-V3.7-35B-chat-template.jinja   # Chat template
 ```
 
-Future upgrade plans see [Future Upgrade Plans.md](未来升级计划.md).
 
 ## Model Features
 
