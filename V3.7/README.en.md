@@ -84,7 +84,7 @@ This model inherits the **Uncensored** feature from the Ornith-1.5-35B-A3B base 
 | Model Size | ~15.5 GB (MoziSmartBit Uncensored version) |
 | Min VRAM | Consumer GPUs with 20GB+ VRAM (e.g., RTX 4060 Ti 16G with CPU offload), 24 GB recommended (with vision + long context) |
 | Inference Framework | llama.cpp / Ollama / LM Studio / Jan |
-| Inference Speed | Algorithm-optimized: 140+ token/s on AMD R700 GPUs, 70+ token/s on AMD MAX+395 CPU iGPU, local token freedom |
+| Inference Speed | Algorithm-optimized: 140+ token/s on AMD R9700 GPUs, 70+ token/s on AMD MAX+395 CPU iGPU, local token freedom |
 | Team | Chen Yumo Team |
 
 ## Quantization Format & Model Size Comparison
@@ -138,20 +138,20 @@ Based on local production config (AMD Radeon AI PRO R9700 32GB):
 | reasoning | on | Enable reasoning chain (chain of thought) |
 | reasoning_budget | 400 | Reasoning budget in tokens |
 | reasoning_format | deepseek-legacy | Reasoning format |
-| samplers | top_k;top_p;temperature;typ_p | Sampler order |
+| samplers | top_k;top_p;min_p;temperature;dry;typ_p | Sampler order |
 
 ### llama.cpp Launch Command
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
   --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
-  --poll 0 --reasoning on --reasoning-budget 400 \
+  --poll 0 --reasoning on --reasoning-budget 1000 \
   --host 0.0.0.0 --port 8080 \
   --temp 0.6 --top-p 0.95 --top-k 20
 ```
@@ -204,7 +204,7 @@ Since user GPU configurations vary widely, here are recommended parameters for d
 
 ```bash
 # Create Modelfile
-FROM ./moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
 
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
@@ -272,7 +272,7 @@ This model supports multimodal vision. The **vision projection file (mmproj)** i
 - **Loading**: Load with `--mmproj` flag when starting llama-server
 
 ```bash
-llama-server -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 ```
 
@@ -286,7 +286,7 @@ Download all files under the V3.7 directory from HuggingFace / ModelScope:
 
 ```
 V3.7/
-├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Main model (required)
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # Main model (required)
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision projection (optional)
 └── moziAI-V3.7-35B-chat-template.jinja                  # Chat template (recommended)
 ```
@@ -299,7 +299,7 @@ Minimal launch (core params only):
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99
 ```
@@ -319,7 +319,7 @@ moziAI-35B/
 ├── LICENSE                # License
 ├── V3.7/                  # V3.7 version (self-contained)
 │   ├── RELEASE_NOTES.md                       # Release notes
-│   ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Main model
+│   ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # Main model
 │   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
 │   └── moziAI-V3.7-35B-chat-template.jinja   # Chat template
 ```

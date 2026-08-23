@@ -73,14 +73,14 @@ This model uses a dedicated chat template, **failure to load will result in inco
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
   --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
-  --poll 0 --reasoning on --reasoning-budget 400 \
+  --poll 0 --reasoning on --reasoning-budget 1000 \
   --host 0.0.0.0 --port 8080 \
   --temp 0.6 --top-p 0.95 --top-k 20
 ```
@@ -93,7 +93,7 @@ Download all files from the V3.7 directory to your local machine from HuggingFac
 
 ```
 V3.7/
-├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Main model (required)
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # Main model (required)
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision projection (optional, download if you need vision)
 └── moziAI-V3.7-35B-chat-template.jinja                  # Chat template (required! Missing template causes format errors)
 ```
@@ -108,7 +108,7 @@ Minimal startup (core parameters only):
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99
 ```
@@ -128,7 +128,7 @@ moziAI-35B-A3B-MOE-MTP-Uncensored/
 ├── LICENSE                # License
 ├── V3.7/                  # V3.7 version (self-contained)
 │   ├── RELEASE_NOTES.md                       # Release notes
-│   ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Main model
+│   ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # Main model
 │   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
 │   └── moziAI-V3.7-35B-chat-template.jinja   # Chat template
 ```
@@ -143,7 +143,7 @@ Future upgrade plans see [Future Upgrade Plans.md](未来升级计划.md).
 - **MOE+MTP Speed Advantage**: Although the model has 35 billion parameters overall, it actually only calls 8+1 experts, totaling 3 billion parameters, inference is faster, very suitable for consumer GPUs with 20GB~24GB VRAM for local deployment, enjoying 140+ tokens/s inference speed
 - **Financial Vertical Deep Cultivation**: Deeply strengthened financial Q&A, quantitative programming, tool calling capabilities
 - **Consumer-Grade Deployment**: Consumer GPUs with 20GB~24GB VRAM or more can be deployed locally, supporting up to 256K long context inference
-- **Multilingual Support**: Supports 201 languages and dialects, with special optimization for Chinese, while兼顾 English, Japanese, Korean, German, French, Portuguese and other mainstream languages
+- **Multilingual Support**: Supports 201 languages and dialects, with special optimization for Chinese, 同时支持 English, Japanese, Korean, German, French, Portuguese and other mainstream languages
 - **General Programming Capability**: Supports full-stack development, code debugging, architecture design, script writing, covering mainstream languages such as Python/JS/TS/Go/Rust
 - **Article Writing Capability**: Supports high-quality writing in multiple genres, including research reports, analysis articles, technical documents, creative content, etc.
 - **Visual Understanding**: Load the vision file in the inference framework to support multimodal vision, you can locally paste screenshots into the chat window, the model can understand the information in the image
@@ -187,7 +187,7 @@ This model inherits the Uncensored characteristics from the base model Ornith-1.
 | Model Size | ~15.5 GB (MoziSmartBit Uncensored version) |
 | Minimum VRAM Requirement | Consumer GPU with 20GB VRAM or more (e.g., RTX 3060 12G requires CPU offloading, RTX 4060 Ti 16G, etc.), recommended 24 GB (including vision + long context) |
 | Inference Framework | llama.cpp / Ollama / LM Studio / Jan |
-| Inference Speed | Through algorithm optimization, AMD R700 GPU can reach 140+ tokens/s / AMD MAX+395 CPU iGPU can reach 70+ tokens/s, enabling local token free output |
+| Inference Speed | Through algorithm optimization, AMD R9700 GPU can reach 140+ tokens/s / AMD MAX+395 CPU iGPU can reach 70+ tokens/s, enabling local token free output |
 | Development Team | Chen Yumo Team |
 
 ## Quantization Format and Model Size Comparison
@@ -241,7 +241,7 @@ Based on local operation configuration (AMD Radeon AI PRO R9700 32GB), the follo
 | reasoning | on | Enable reasoning chain (chain-of-thought) |
 | reasoning_budget | 400 | Reasoning budget token count |
 | reasoning_format | deepseek-legacy | Reasoning format |
-| samplers | top_k;top_p;temperature;typ_p | Sampler order |
+| samplers | top_k;top_p;min_p;temperature;dry;typ_p | Sampler order |
 
 ### Recommended Configuration for Different VRAM
 
@@ -291,7 +291,7 @@ Due to differences in user graphics card configurations, the following are recom
 
 ```bash
 # Create Modelfile
-FROM ./moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
 
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95

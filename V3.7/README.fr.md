@@ -18,163 +18,163 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-V3.7-35B-A3B-MOE - IA multimodale puissante et compacte, déployable gratuitement en local
+# MoziAI-V3.7-35B-A3B-MOE - IA multimodale puissante et compacte, dÃ©ployable gratuitement en local
 
-Français | [中文](README.md) | [English](README.en.md)
+FranÃ§ais | [ä¸­æ](README.md) | [English](README.en.md)
 
-## Présentation du modèle
+## PrÃ©sentation du modÃ¨le
 
-MoziAI-35B-A3B-MOE est un LLM multimodal financier open-source local (supportant la vision et le tool calling), développé par l'équipe de l'influenceur financier chinois Chen Yumo, affiné/distillé à partir du modèle de base Ornith-1.5-35B-A3B (**architectures Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, licence MIT). Grâce à la technologie **MoziSmartBit Intelligent Quantization** développée en interne, le modèle MoE à 35B de paramètres est compressé à environ **15,5 Go**, atteignant un équilibre optimal entre précision et taille avec une qualité de précision quasi intacte de ~99%.
+MoziAI-35B-A3B-MOE est un LLM multimodal financier open-source local (supportant la vision et le tool calling), dÃ©veloppÃ© par l'Ã©quipe de l'influenceur financier chinois Chen Yumo, affinÃ©/distillÃ© Ã  partir du modÃ¨le de base Ornith-1.5-35B-A3B (**architectures Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, licence MIT). GrÃ¢ce Ã  la technologie **MoziSmartBit Intelligent Quantization** dÃ©veloppÃ©e en interne, le modÃ¨le MoE Ã  35B de paramÃ¨tres est compressÃ© Ã  environ **15,5 Go**, atteignant un Ã©quilibre optimal entre prÃ©cision et taille avec une qualitÃ© de prÃ©cision quasi intacte de ~99%.
 
-En plus de conserver les capacités générales de l'IA, ce modèle se concentre sur l'optimisation des applications verticales dans le domaine financier, y compris les questions-réponses financières, la programmation quantitative, le tool calling et la programmation générale.
+En plus de conserver les capacitÃ©s gÃ©nÃ©rales de l'IA, ce modÃ¨le se concentre sur l'optimisation des applications verticales dans le domaine financier, y compris les questions-rÃ©ponses financiÃ¨res, la programmation quantitative, le tool calling et la programmation gÃ©nÃ©rale.
 
-Le développeur du modèle Chen Yumo utilise fréquemment ce modèle pour l'analyse locale de données financières, le R&D de stratégies quantitatives, la recherche de marché, la rédaction d'articles, l'avancement global des projets, la programmation générale et les tâches avec contexte 256K via OpenClaw/Hermes. Il peut être déployé localement sur des GPUs grand public, générant des économies substantielles de coûts de tokens cloud, atteignant la liberté de tokens 7j/24h tout en garantissant la confidentialité et la sécurité des données locales.
+Le dÃ©veloppeur du modÃ¨le Chen Yumo utilise frÃ©quemment ce modÃ¨le pour l'analyse locale de donnÃ©es financiÃ¨res, le R&D de stratÃ©gies quantitatives, la recherche de marchÃ©, la rÃ©daction d'articles, l'avancement global des projets, la programmation gÃ©nÃ©rale et les tÃ¢ches avec contexte 256K via OpenClaw/Hermes. Il peut Ãªtre dÃ©ployÃ© localement sur des GPUs grand public, gÃ©nÃ©rant des Ã©conomies substantielles de coÃ»ts de tokens cloud, atteignant la libertÃ© de tokens 7j/24h tout en garantissant la confidentialitÃ© et la sÃ©curitÃ© des donnÃ©es locales.
 
-Supporte llama.cpp, Ollama, LM Studio et d'autres frameworks d'inférence grand public.
+Supporte llama.cpp, Ollama, LM Studio et d'autres frameworks d'infÃ©rence grand public.
 
 **Date de publication : 2026-08-21** | **Version : V3.7**
 
-## Caractéristiques du modèle
+## CaractÃ©ristiques du modÃ¨le
 
-- **Focus financier vertical** : Optimisation approfondie pour les questions-réponses financières, la programmation quantitative et le tool calling
-- **MoziSmartBit Intelligent Quantization** : Quantification intelligente développée en interne, meilleur équilibre précision/taille, compressé à environ **15,5 Go**
-- **Déploiement grand public** : Déployable sur des GPUs grand public avec 20 Go ou 24 Go+ de VRAM, supporte les contextes longs de 256K
-- **Support multilingue** : 201 langues et dialectes, avec des capacités renforcées en chinois, couvrant l'anglais/japonais/coréen/allemand/français/espagnol/portugais et plus
-- **Programmation générale** : Développement full-stack, débogage de code, conception d'architecture, écriture de scripts, couvrant Python/JS/TS/Go/Rust et d'autres langages grand public
-- **Rédaction d'articles** : Rédaction multi-genres de haute qualité incluant des rapports de recherche, des articles d'analyse, de la documentation technique, du contenu créatif
-- **Compréhension visuelle** : Supporte la vision multimodale, la capture d'écran locale, la compréhension d'images
+- **Focus financier vertical** : Optimisation approfondie pour les questions-rÃ©ponses financiÃ¨res, la programmation quantitative et le tool calling
+- **MoziSmartBit Intelligent Quantization** : Quantification intelligente dÃ©veloppÃ©e en interne, meilleur Ã©quilibre prÃ©cision/taille, compressÃ© Ã  environ **15,5 Go**
+- **DÃ©ploiement grand public** : DÃ©ployable sur des GPUs grand public avec 20 Go ou 24 Go+ de VRAM, supporte les contextes longs de 256K
+- **Support multilingue** : 201 langues et dialectes, avec des capacitÃ©s renforcÃ©es en chinois, couvrant l'anglais/japonais/corÃ©en/allemand/franÃ§ais/espagnol/portugais et plus
+- **Programmation gÃ©nÃ©rale** : DÃ©veloppement full-stack, dÃ©bogage de code, conception d'architecture, Ã©criture de scripts, couvrant Python/JS/TS/Go/Rust et d'autres langages grand public
+- **RÃ©daction d'articles** : RÃ©daction multi-genres de haute qualitÃ© incluant des rapports de recherche, des articles d'analyse, de la documentation technique, du contenu crÃ©atif
+- **ComprÃ©hension visuelle** : Supporte la vision multimodale, la capture d'Ã©cran locale, la comprÃ©hension d'images
 - **Sortie uncensored libre** : Pas de censure de contenu, discussion libre sur tout sujet sans restrictions
-- **Raisonnement amélioré** : Enchaînement de raisonnement pour une qualité de raisonnement améliorée
+- **Raisonnement amÃ©liorÃ©** : EnchaÃ®nement de raisonnement pour une qualitÃ© de raisonnement amÃ©liorÃ©e
 - **Support multi-framework** : Compatible avec llama.cpp, Ollama, LM Studio, Jan
-- **Support multi-plateforme Agent** : Intégration profonde avec OpenClaw, Hermes, OpenCode, Cursor, Windsurf, Claude Code, Codex et d'autres IDE et frameworks Agent grand public, support natif du tool calling et de l'orchestration multi-tours de tâches, prêt à l'emploi
+- **Support multi-plateforme Agent** : IntÃ©gration profonde avec OpenClaw, Hermes, OpenCode, Cursor, Windsurf, Claude Code, Codex et d'autres IDE et frameworks Agent grand public, support natif du tool calling et de l'orchestration multi-tours de tÃ¢ches, prÃªt Ã  l'emploi
 
 ## Avantages Uncensored
 
-Ce modèle hérite de la fonctionnalité **Uncensored** du modèle de base Ornith-1.5-35B-A3B, avec les avantages suivants :
+Ce modÃ¨le hÃ©rite de la fonctionnalitÃ© **Uncensored** du modÃ¨le de base Ornith-1.5-35B-A3B, avec les avantages suivants :
 
 | Avantage | Description |
 |----------|-------------|
-| **Pas de censure** | Ne refusera aucun sujet, y compris les contenus sensibles ou controversés |
-| **Sortie libre** | Non soumis aux politiques de sécurité, peut générer n'importe quel type de réponse |
-| **Informations complètes** | Fournit des informations complètes non filtrées, adaptées à la recherche et à l'analyse |
-| **Confidentialité locale** | Le déploiement local signifie que les données sont totalement privées et à l'abri de la censure cloud |
+| **Pas de censure** | Ne refusera aucun sujet, y compris les contenus sensibles ou controversÃ©s |
+| **Sortie libre** | Non soumis aux politiques de sÃ©curitÃ©, peut gÃ©nÃ©rer n'importe quel type de rÃ©ponse |
+| **Informations complÃ¨tes** | Fournit des informations complÃ¨tes non filtrÃ©es, adaptÃ©es Ã  la recherche et Ã  l'analyse |
+| **ConfidentialitÃ© locale** | Le dÃ©ploiement local signifie que les donnÃ©es sont totalement privÃ©es et Ã  l'abri de la censure cloud |
 
-> **Cas d'utilisation** : Recherche académique, analyse approfondie, discussion libre, conversation IA sans restriction.
-> **Remarque** : Il s'agit d'un modèle déployé localement, le contenu de sortie est entièrement contrôlé par l'utilisateur, aucune responsabilité de modération du contenu.
+> **Cas d'utilisation** : Recherche acadÃ©mique, analyse approfondie, discussion libre, conversation IA sans restriction.
+> **Remarque** : Il s'agit d'un modÃ¨le dÃ©ployÃ© localement, le contenu de sortie est entiÃ¨rement contrÃ´lÃ© par l'utilisateur, aucune responsabilitÃ© de modÃ©ration du contenu.
 
-## Capacités principales
+## CapacitÃ©s principales
 
-| Domaine de capacité | Description |
+| Domaine de capacitÃ© | Description |
 |---------------------|-------------|
-| Analyse de marché | Interprétation macro/microéconomique, logique des marchés actions A/HK/US/matieres premieres/crypto |
-| Rapports financiers | Interprétation des indicateurs financiers clés, résumé de rapports de recherche, aide à l'évaluation et aux prévisions de résultats |
-| Risque & Conformité | Évaluation des risques produits, conformité des conseils d'investissement, interprétation des politiques de réglementation financière |
-| Quant & Stratégie | Conception de stratégies quantitatives, quantification Pyramid (PEL), logique de backtesting, construction de facteurs et tool calling |
-| Tool Calling | Intégration avec les cotations en temps réel, les bases de données, la récupération de rapports de recherche et d'autres sources de données financières |
+| Analyse de marchÃ© | InterprÃ©tation macro/microÃ©conomique, logique des marchÃ©s actions A/HK/US/matieres premieres/crypto |
+| Rapports financiers | InterprÃ©tation des indicateurs financiers clÃ©s, rÃ©sumÃ© de rapports de recherche, aide Ã  l'Ã©valuation et aux prÃ©visions de rÃ©sultats |
+| Risque & ConformitÃ© | Ãvaluation des risques produits, conformitÃ© des conseils d'investissement, interprÃ©tation des politiques de rÃ©glementation financiÃ¨re |
+| Quant & StratÃ©gie | Conception de stratÃ©gies quantitatives, quantification Pyramid (PEL), logique de backtesting, construction de facteurs et tool calling |
+| Tool Calling | IntÃ©gration avec les cotations en temps rÃ©el, les bases de donnÃ©es, la rÃ©cupÃ©ration de rapports de recherche et d'autres sources de donnÃ©es financiÃ¨res |
 
-## Spécifications techniques
+## SpÃ©cifications techniques
 
-| Élément | Spécification |
+| ÃlÃ©ment | SpÃ©cification |
 |---------|---------------|
-| Modèle de base | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, licence MIT) |
-| Paramètres | 35B MoE (256 experts routés + 1 expert partagé, 8 actifs par token) |
-| Quantification | MoziSmartBit Intelligent Quantization développé en interne + format standard GGUF |
+| ModÃ¨le de base | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, licence MIT) |
+| ParamÃ¨tres | 35B MoE (256 experts routÃ©s + 1 expert partagÃ©, 8 actifs par token) |
+| Quantification | MoziSmartBit Intelligent Quantization dÃ©veloppÃ© en interne + format standard GGUF |
 | Longueur de contexte | 256K (262 144 tokens) |
-| Taille du modèle | ~15,5 Go (version MoziSmartBit Uncensored) |
-| VRAM minimum | GPUs grand public avec 20 Go+ de VRAM (ex. : RTX 4060 Ti 16G avec CPU offload), 24 Go recommandés (avec vision + long contexte) |
-| Framework d'inférence | llama.cpp / Ollama / LM Studio / Jan |
-| Vitesse d'inférence | Optimisation algorithmique : 140+ tokens/s sur GPU AMD R700, 70+ tokens/s sur iGPU AMD MAX+395 CPU, liberté de tokens locale |
-| Équipe | Équipe Chen Yumo |
+| Taille du modÃ¨le | ~15,5 Go (version MoziSmartBit Uncensored) |
+| VRAM minimum | GPUs grand public avec 20 Go+ de VRAM (ex. : RTX 4060 Ti 16G avec CPU offload), 24 Go recommandÃ©s (avec vision + long contexte) |
+| Framework d'infÃ©rence | llama.cpp / Ollama / LM Studio / Jan |
+| Vitesse d'infÃ©rence | Optimisation algorithmique : 140+ tokens/s sur GPU AMD R9700, 70+ tokens/s sur iGPU AMD MAX+395 CPU, libertÃ© de tokens locale |
+| Ãquipe | Ãquipe Chen Yumo |
 
-## Comparaison des formats de quantification et tailles de modèle
+## Comparaison des formats de quantification et tailles de modÃ¨le
 
-| Format de quantification | Taille du modèle | Précision | Notes |
+| Format de quantification | Taille du modÃ¨le | PrÃ©cision | Notes |
 |--------------------------|-------------------|-----------|-------|
 | **FP16 (original)** | ~70 Go | 100% | Original 16bit |
-| **MoziSmartBit** | **~15,5 Go** | **~99%** | **Utilisé par MoziAI, schéma de quantification optimal** |
+| **MoziSmartBit** | **~15,5 Go** | **~99%** | **UtilisÃ© par MoziAI, schÃ©ma de quantification optimal** |
 | Q4_K_M | ~21,2 Go | ~98% | Standard GGUF 4bit |
-| Q5_K_M | ~24,7 Go | ~99% | Qualité supérieure |
+| Q5_K_M | ~24,7 Go | ~99% | QualitÃ© supÃ©rieure |
 | Q6_K | ~28,5 Go | ~99,5% | Quasi sans perte |
 | Q8_0 | ~36,9 Go | ~100% | Sans perte |
 
-> MoziAI V3.7 utilise MoziSmartBit Intelligent Quantization, maintenant ~99% de précision tout en compressant le modèle MoE à 35B paramètres à ~15,5 Go (~4,5x ratio de compression), équilibrant la qualité d'inférence et l'accessibilité du déploiement pour les GPUs grand public.
+> MoziAI V3.7 utilise MoziSmartBit Intelligent Quantization, maintenant ~99% de prÃ©cision tout en compressant le modÃ¨le MoE Ã  35B paramÃ¨tres Ã  ~15,5 Go (~4,5x ratio de compression), Ã©quilibrant la qualitÃ© d'infÃ©rence et l'accessibilitÃ© du dÃ©ploiement pour les GPUs grand public.
 
 ## MoziSmartBit Intelligent Quantization
 
-La quantification traditionnelle utilise une précision uniforme sur toutes les couches. **MoziSmartBit Intelligent Quantization** applique des stratégies de quantification différenciées pour un équilibre optimal taille-précision.
+La quantification traditionnelle utilise une prÃ©cision uniforme sur toutes les couches. **MoziSmartBit Intelligent Quantization** applique des stratÃ©gies de quantification diffÃ©renciÃ©es pour un Ã©quilibre optimal taille-prÃ©cision.
 
 ### Effet de compression
 
-La quantification traditionnelle comprime toutes les parties du modèle de manière uniforme, entraînant souvent une perte significative de précision. MoziSmartBit Intelligent Quantization utilise une stratégie de compression intelligente développée en interne qui **réduit considérablement la taille avec une perte de précision minimale** :
+La quantification traditionnelle comprime toutes les parties du modÃ¨le de maniÃ¨re uniforme, entraÃ®nant souvent une perte significative de prÃ©cision. MoziSmartBit Intelligent Quantization utilise une stratÃ©gie de compression intelligente dÃ©veloppÃ©e en interne qui **rÃ©duit considÃ©rablement la taille avec une perte de prÃ©cision minimale** :
 
-- **Perte de quantification minimale** : Gain d'entraînement > perte de quantification. Le MoziAI-35B entraîné atteint un meilleur PPL sur les textes du domaine financier que le modèle de base bf16 pré-entraîné, réduisant les hallucinations et la perplexité par rapport aux modèles d'IA similaires
-- **Réduction de taille ~4,5x** : Compressé de ~70 Go (FP16) à ~15,5 Go, également nettement plus petit que Q4_K_M (~21 Go), réduisant considérablement les exigences de VRAM et de stockage
-- **Compatible GPU grand public** : Un modèle MoE à 35B qui nécessitait auparavant des GPU haut de gamme peut désormais fonctionner fluide sur 20 Go~24 Go de VRAM
+- **Perte de quantification minimale** : Gain d'entraÃ®nement > perte de quantification. Le MoziAI-35B entraÃ®nÃ© atteint un meilleur PPL sur les textes du domaine financier que le modÃ¨le de base bf16 prÃ©-entraÃ®nÃ©, rÃ©duisant les hallucinations et la perplexitÃ© par rapport aux modÃ¨les d'IA similaires
+- **RÃ©duction de taille ~4,5x** : CompressÃ© de ~70 Go (FP16) Ã  ~15,5 Go, Ã©galement nettement plus petit que Q4_K_M (~21 Go), rÃ©duisant considÃ©rablement les exigences de VRAM et de stockage
+- **Compatible GPU grand public** : Un modÃ¨le MoE Ã  35B qui nÃ©cessitait auparavant des GPU haut de gamme peut dÃ©sormais fonctionner fluide sur 20 Go~24 Go de VRAM
 
 ### Avantages comparatifs
 
-**vs Q4_K_M (~21,2 Go)** : ~30% plus petit (~15,5 Go), avec une précision **supérieure** à Q4_K_M, seuil de VRAM plus bas �?fonctionne de manière fluide sur des GPUs grand public milieu de gamme (24 Go).
+**vs Q4_K_M (~21,2 Go)** : ~30% plus petit (~15,5 Go), avec une prÃ©cision **supÃ©rieure** Ã  Q4_K_M, seuil de VRAM plus bas â?fonctionne de maniÃ¨re fluide sur des GPUs grand public milieu de gamme (24 Go).
 
-**vs FP16 original (~70 Go)** : ~4,5x compression, efficacité d'entraînement + perte de quantification minimale (gain d'entraînement > perte de quantification), permettant le déploiement local de contexte 256K sur des GPUs grand public au lieu de matériel haut de gamme professionnel.
+**vs FP16 original (~70 Go)** : ~4,5x compression, efficacitÃ© d'entraÃ®nement + perte de quantification minimale (gain d'entraÃ®nement > perte de quantification), permettant le dÃ©ploiement local de contexte 256K sur des GPUs grand public au lieu de matÃ©riel haut de gamme professionnel.
 
-## Paramètres d'inférence recommandés
+## ParamÃ¨tres d'infÃ©rence recommandÃ©s
 
-Basés sur la configuration de production locale (AMD Radeon AI PRO R9700 32GB) :
+BasÃ©s sur la configuration de production locale (AMD Radeon AI PRO R9700 32GB) :
 
-| Paramètre | Valeur | Description |
+| ParamÃ¨tre | Valeur | Description |
 |-----------|--------|-------------|
-| temperature | 0,6 | Équilibre créativité vs précision |
-| top_p | 0,95 | Seuil d'échantillonnage nucleus |
-| top_k | 20 | Échantillonnage de troncature (optimisé V3.7) |
-| repeat_penalty | 1,05 | Pénalité de répétition |
-| presence_penalty | 0 | Pas de pénalité de présence |
+| temperature | 0,6 | Ãquilibre crÃ©ativitÃ© vs prÃ©cision |
+| top_p | 0,95 | Seuil d'Ã©chantillonnage nucleus |
+| top_k | 20 | Ãchantillonnage de troncature (optimisÃ© V3.7) |
+| repeat_penalty | 1,05 | PÃ©nalitÃ© de rÃ©pÃ©tition |
+| presence_penalty | 0 | Pas de pÃ©nalitÃ© de prÃ©sence |
 | context_length | 262144 | Contexte long 256K |
 | batch_size | 2048 | Taille de lot |
 | ubatch_size | 512 | Taille de micro-lot |
 | flash_attention | auto | Auto Flash Attention |
 | kv_cache | q4_0 | Quantification du cache KV (kv-unified) |
-| poll | 0 | Pas de polling GPU au ralenti, économe en énergie |
-| reasoning | on | Activer la chaîne de raisonnement (chain of thought) |
+| poll | 0 | Pas de polling GPU au ralenti, Ã©conome en Ã©nergie |
+| reasoning | on | Activer la chaÃ®ne de raisonnement (chain of thought) |
 | reasoning_budget | 400 | Budget de raisonnement en tokens |
 | reasoning_format | deepseek-legacy | Format de raisonnement |
-| samplers | top_k;top_p;temperature;typ_p | Ordre des échantillonneurs |
+| samplers | top_k;top_p;min_p;temperature;dry;typ_p | Ordre des Ã©chantillonneurs |
 
 ### Commande de lancement llama.cpp
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
   --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
-  --poll 0 --reasoning on --reasoning-budget 400 \
+  --poll 0 --reasoning on --reasoning-budget 1000 \
   --host 0.0.0.0 --port 8080 \
   --temp 0,6 --top-p 0,95 --top-k 20
 ```
 
 ### Recommandations de configuration VRAM
 
-Étant donné que les configurations GPU des utilisateurs varient considérablement, voici les paramètres recommandés pour différentes tailles de VRAM (tous pour la version MoziSmartBit) :
+Ãtant donnÃ© que les configurations GPU des utilisateurs varient considÃ©rablement, voici les paramÃ¨tres recommandÃ©s pour diffÃ©rentes tailles de VRAM (tous pour la version MoziSmartBit) :
 
-| VRAM | Contexte recommandé | KV Cache | Support de la vision | Notes |
+| VRAM | Contexte recommandÃ© | KV Cache | Support de la vision | Notes |
 |------|---------------------|----------|----------------------|-------|
-| 20 Go | 150K | q4_0 | Supporté | Modèle+vision ~16,4 Go, tests montrent 200K+vision utilise ~19,5 Go de VRAM |
+| 20 Go | 150K | q4_0 | SupportÃ© | ModÃ¨le+vision ~16,4 Go, tests montrent 200K+vision utilise ~19,5 Go de VRAM |
 | 24 Go | 256K complet | q4_0 | Support total | Vision+contexte long 256K, utilise ~20,4 Go de VRAM, ~3,6 Go de marge |
 | 32 Go+ | 256K complet | q4_0 | Support total | Vision+contexte long 256K, marge suffisante ~10 Go, meilleure configuration |
 
 **NVIDIA**
 
-| VRAM | Modèle GPU |
+| VRAM | ModÃ¨le GPU |
 |------|------------|
 | 24 Go | RTX 4090 / RTX 3090 Ti |
 | 32 Go | RTX 5090 |
 
 **AMD**
 
-| VRAM | Modèle GPU |
+| VRAM | ModÃ¨le GPU |
 |------|------------|
 | 20 Go | RX 7900 XT |
 | 24 Go | RX 7900 XTX |
@@ -182,28 +182,28 @@ llama-server \
 
 **Intel**
 
-| VRAM | Modèle GPU |
+| VRAM | ModÃ¨le GPU |
 |------|------------|
 | 32 Go | Arc Pro B70 / Arc Pro B65 |
 | 24 Go | Arc Pro B60 |
-| 16 Go | Arc Pro B50 (nécessite CPU offload) |
+| 16 Go | Arc Pro B50 (nÃ©cessite CPU offload) |
 
-**Mémoire partagée iGPUs**
+**MÃ©moire partagÃ©e iGPUs**
 
 | VRAM | Processeur |
 |------|------------|
 | 128 Go | AMD Ryzen AI Max+ 395 (iGPU Radeon 8060S) |
 | 128 Go | NVIDIA RTX Spark (GPU Blackwell RTX) |
 
-> 💡 **Astuce** : Tant que votre VRAM satisfait les exigences ci-dessus, cela fonctionne. Aucune restriction de marque ou de modèle. Supporte les GPUs dédiés NVIDIA / AMD / Intel, ainsi que les iGPUs à mémoire unifiée 128 Go listés ci-dessus.
+> ð¡ **Astuce** : Tant que votre VRAM satisfait les exigences ci-dessus, cela fonctionne. Aucune restriction de marque ou de modÃ¨le. Supporte les GPUs dÃ©diÃ©s NVIDIA / AMD / Intel, ainsi que les iGPUs Ã  mÃ©moire unifiÃ©e 128 Go listÃ©s ci-dessus.
 
-> 💡 **Astuce** : Un contexte plus long utilise plus de VRAM. Si vous rencontrez un OOM (out of memory), réduisez progressivement la valeur `-c`. Utilisez `--fit on` pour que llama.cpp ajuste automatiquement les couches à votre VRAM.
+> ð¡ **Astuce** : Un contexte plus long utilise plus de VRAM. Si vous rencontrez un OOM (out of memory), rÃ©duisez progressivement la valeur `-c`. Utilisez `--fit on` pour que llama.cpp ajuste automatiquement les couches Ã  votre VRAM.
 
-### Déploiement Ollama
+### DÃ©ploiement Ollama
 
 ```bash
-# Créer le Modelfile
-FROM ./moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf
+# CrÃ©er le Modelfile
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
 
 PARAMETER temperature 0,6
 PARAMETER top_p 0,95
@@ -211,36 +211,36 @@ PARAMETER top_k 20
 PARAMETER num_ctx 262144
 PARAMETER num_gpu 99
 
-# Construire et exécuter
+# Construire et exÃ©cuter
 ollama create moziAI-35B -f Modelfile
 ollama run moziAI-35B
 ```
 
-### Déploiement LM Studio / Jan
+### DÃ©ploiement LM Studio / Jan
 
-Recherchez `moziAI-35B` dans LM Studio ou Jan, téléchargez la version quant MoziSmartBit.
+Recherchez `moziAI-35B` dans LM Studio ou Jan, tÃ©lÃ©chargez la version quant MoziSmartBit.
 
-## Évaluation Benchmark
+## Ãvaluation Benchmark
 
-MoziAI est affiné à partir de **deepreinforce-ai/Ornith-1.5-35B-A3B**. MoziAI est optimisé pour les domaines financiers verticaux au-dessus du modèle de base, offrant des performances supérieures dans les scénarios de questions-réponses financières, de programmation quantitative et de tool calling. Les capacités générales de MoziAI-35B sont cohérentes avec le modèle de base Ornith-1.5-35B-A3B.
+MoziAI est affinÃ© Ã  partir de **deepreinforce-ai/Ornith-1.5-35B-A3B**. MoziAI est optimisÃ© pour les domaines financiers verticaux au-dessus du modÃ¨le de base, offrant des performances supÃ©rieures dans les scÃ©narios de questions-rÃ©ponses financiÃ¨res, de programmation quantitative et de tool calling. Les capacitÃ©s gÃ©nÃ©rales de MoziAI-35B sont cohÃ©rentes avec le modÃ¨le de base Ornith-1.5-35B-A3B.
 
-| Benchmark | MoziAI-35B (ce modèle) | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | Description |
+| Benchmark | MoziAI-35B (ce modÃ¨le) | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | Description |
 |-----------|------------------------|-------------|------------|------------|-------------|-------------|
 | Terminal-Bench 2.1 | 64,2 | 59,3 | 42,1 | - | 41,4 | Codage terminal autonome |
 | Terminal-Bench (Claude Code) | 62,8 | 59,3 | - | - | 38,9 | Codage Claude Code |
-| SWE-bench Verified | 75,6 | 77,2 | 52,0 | - | 70,0 | Ingénierie logicielle en conditions réelles |
-| SWE-bench Pro | 50,4 | 53,5 | 35,7 | - | 44,6 | Ingénierie logicielle complexe |
+| SWE-bench Verified | 75,6 | 77,2 | 52,0 | - | 70,0 | IngÃ©nierie logicielle en conditions rÃ©elles |
+| SWE-bench Pro | 50,4 | 53,5 | 35,7 | - | 44,6 | IngÃ©nierie logicielle complexe |
 | SWE-bench Multilingual | 69,3 | 71,3 | - | - | 60,3 | Codage multilingue |
-| NL2Repo | 34,6 | 36,2 | 15,5 | - | 20,5 | Langage naturel vers dépôt |
-| LiveCodeBench v6 | 63,3 | 83,9 | 80,0 | 77,1 | - | Programmation compétitive |
+| NL2Repo | 34,6 | 36,2 | 15,5 | - | 20,5 | Langage naturel vers dÃ©pÃ´t |
+| LiveCodeBench v6 | 63,3 | 83,9 | 80,0 | 77,1 | - | Programmation compÃ©titive |
 | GPQA Diamond | 88,4 | 87,8 | 84,3 | 82,3 | - | Raisonnement scientifique |
-| AIME 2026 Math | 93,3 | 94,1 | 89,2 | 88,3 | - | Raisonnement mathématique |
+| AIME 2026 Math | 93,3 | 94,1 | 89,2 | 88,3 | - | Raisonnement mathÃ©matique |
 
-> Les scores benchmarks généraux de MoziAI-35B sont cohérents avec le modèle de base Ornith-1.5-35B-A3B. Le domaine financier vertical est la principale direction d'optimisation de MoziAI, surpassant significativement les modèles généraux dans des scénarios tels que l'analyse de rapports financiers, la stratégie quantitative, le risque & conformité et le tool calling d'agents. Données Gemma4 et Qwen3.6 issues de résultats publics officiels.
+> Les scores benchmarks gÃ©nÃ©raux de MoziAI-35B sont cohÃ©rents avec le modÃ¨le de base Ornith-1.5-35B-A3B. Le domaine financier vertical est la principale direction d'optimisation de MoziAI, surpassant significativement les modÃ¨les gÃ©nÃ©raux dans des scÃ©narios tels que l'analyse de rapports financiers, la stratÃ©gie quantitative, le risque & conformitÃ© et le tool calling d'agents. DonnÃ©es Gemma4 et Qwen3.6 issues de rÃ©sultats publics officiels.
 
-## Téléchargement du modèle
+## TÃ©lÃ©chargement du modÃ¨le
 
-En raison de la grande taille du modèle (~15,5 Go), les poids sont hébergés sur plusieurs plateformes communautaires :
+En raison de la grande taille du modÃ¨le (~15,5 Go), les poids sont hÃ©bergÃ©s sur plusieurs plateformes communautaires :
 
 | Plateforme | URL |
 |------------|-----|
@@ -248,100 +248,100 @@ En raison de la grande taille du modèle (~15,5 Go), les poids sont hébergés s
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 
-> 💡 **LM Studio** : Vous pouvez rechercher et télécharger directement dans [LM Studio](https://lmstudio.ai). Recherchez `moziAI` et cliquez sur Télécharger.
+> ð¡ **LM Studio** : Vous pouvez rechercher et tÃ©lÃ©charger directement dans [LM Studio](https://lmstudio.ai). Recherchez `moziAI` et cliquez sur TÃ©lÃ©charger.
 
-> 💡 **Astuce de téléchargement** : Cliquez sur le lien ci-dessus pour accéder au dépôt HuggingFace, puis naviguez vers l'onglet **« Files and versions »** pour télécharger tous les fichiers sous le répertoire V3.7 (modèle principal, projection visuelle, modèle de chat). Assurez-vous que les trois fichiers se trouvent dans le même répertoire.
+> ð¡ **Astuce de tÃ©lÃ©chargement** : Cliquez sur le lien ci-dessus pour accÃ©der au dÃ©pÃ´t HuggingFace, puis naviguez vers l'onglet **Â« Files and versions Â»** pour tÃ©lÃ©charger tous les fichiers sous le rÃ©pertoire V3.7 (modÃ¨le principal, projection visuelle, modÃ¨le de chat). Assurez-vous que les trois fichiers se trouvent dans le mÃªme rÃ©pertoire.
 
-### ⚠️ Important : La capacité visuelle nécessite le fichier mmproj
+### â ï¸ Important : La capacitÃ© visuelle nÃ©cessite le fichier mmproj
 
-Ce modèle supporte la vision multimodale. Le **fichier de projection visuelle (mmproj)** est inclus dans le répertoire de version :
+Ce modÃ¨le supporte la vision multimodale. Le **fichier de projection visuelle (mmproj)** est inclus dans le rÃ©pertoire de version :
 
-- **Fichier vision** : `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 Mo, précision BF16)
-- **Placement** : Dans le même répertoire de version que le fichier modèle GGUF
-- **Chargement** : Charger avec le drapeau `--mmproj` lors du démarrage de llama-server
+- **Fichier vision** : `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 Mo, prÃ©cision BF16)
+- **Placement** : Dans le mÃªme rÃ©pertoire de version que le fichier modÃ¨le GGUF
+- **Chargement** : Charger avec le drapeau `--mmproj` lors du dÃ©marrage de llama-server
 
 ```bash
-llama-server -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 ```
 
-> Sans le fichier vision, le modèle **perdra la capacité de compréhension d'images** et ne conservera que la conversation textuelle.
+> Sans le fichier vision, le modÃ¨le **perdra la capacitÃ© de comprÃ©hension d'images** et ne conservera que la conversation textuelle.
 
-## Démarrage rapide
+## DÃ©marrage rapide
 
-### 1. Télécharger les fichiers du modèle
+### 1. TÃ©lÃ©charger les fichiers du modÃ¨le
 
-Téléchargez tous les fichiers du répertoire V3.7 depuis HuggingFace / ModelScope :
+TÃ©lÃ©chargez tous les fichiers du rÃ©pertoire V3.7 depuis HuggingFace / ModelScope :
 
 ```
 V3.7/
-├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Modèle principal (requis)
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Projection visuelle (optionnel)
-└── moziAI-V3.7-35B-chat-template.jinja                  # Modèle de chat (recommandé)
+âââ moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # ModÃ¨le principal (requis)
+âââ moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Projection visuelle (optionnel)
+âââ moziAI-V3.7-35B-chat-template.jinja                  # ModÃ¨le de chat (recommandÃ©)
 ```
 
-### 2. Démarrer le serveur d'inférence
+### 2. DÃ©marrer le serveur d'infÃ©rence
 
-Pour la configuration complète recommandée, voir [Commande de lancement llama.cpp](#commande-de-lancement-llamacpp) ci-dessus.
+Pour la configuration complÃ¨te recommandÃ©e, voir [Commande de lancement llama.cpp](#commande-de-lancement-llamacpp) ci-dessus.
 
-Lancement minimal (paramètres principaux uniquement) :
+Lancement minimal (paramÃ¨tres principaux uniquement) :
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99
 ```
 
-> Ajoutez `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` pour la capacité visuelle.
+> Ajoutez `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` pour la capacitÃ© visuelle.
 
-### 3. Commencer à utiliser
+### 3. Commencer Ã  utiliser
 
-Ouvrez `http://localhost:8080` dans votre navigateur pour commencer à discuter.
+Ouvrez `http://localhost:8080` dans votre navigateur pour commencer Ã  discuter.
 
-### Structure du répertoire
+### Structure du rÃ©pertoire
 
 ```
 moziAI-35B/
-├── README.md              # Version chinoise
-├── README.en.md           # Version anglaise
-├── README.fr.md           # Version française (ce fichier)
-├── LICENSE                # Licence
-├── V3.7/                  # Version V3.7 (autonome)
-�?  ├── RELEASE_NOTES.md                       # Notes de version
-�?  ├── moziAI-V3.7-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Modèle principal
-�?  ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Projection visuelle
-�?  └── moziAI-V3.7-35B-chat-template.jinja   # Modèle de chat
+âââ README.md              # Version chinoise
+âââ README.en.md           # Version anglaise
+âââ README.fr.md           # Version franÃ§aise (ce fichier)
+âââ LICENSE                # Licence
+âââ V3.7/                  # Version V3.7 (autonome)
+â?  âââ RELEASE_NOTES.md                       # Notes de version
+â?  âââ moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # ModÃ¨le principal
+â?  âââ moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Projection visuelle
+â?  âââ moziAI-V3.7-35B-chat-template.jinja   # ModÃ¨le de chat
 ```
 
-Pour le plan de mise à jour futur, voir [未来升级计划.md](未来升级计划.md).
+Pour le plan de mise Ã  jour futur, voir [æªæ¥åçº§è®¡å.md](æªæ¥åçº§è®¡å.md).
 
-## Mots-clés SEO
+## Mots-clÃ©s SEO
 
-LLM IA financière, modèle open-source local, modèle de bord, programmation quantitative, MoziSmartBit, quantification intelligente, quantification GGUF, modèle MoE, LLM open-source local, déploiement local, IA financière, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, pas de censure, sortie libre, sans restriction, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.5-35B-A3B, Qwen3.5, Qwen3.6, domaine financier vertical, modèle open-source
+LLM IA financiÃ¨re, modÃ¨le open-source local, modÃ¨le de bord, programmation quantitative, MoziSmartBit, quantification intelligente, quantification GGUF, modÃ¨le MoE, LLM open-source local, dÃ©ploiement local, IA financiÃ¨re, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, pas de censure, sortie libre, sans restriction, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.5-35B-A3B, Qwen3.5, Qwen3.6, domaine financier vertical, modÃ¨le open-source
 
 ## Licence (Important)
 
-Ce modèle utilise une **Licence restrictive personnalisée** :
+Ce modÃ¨le utilise une **Licence restrictive personnalisÃ©e** :
 
-### �?Autorisé
-- **Utilisation commerciale libre** : Libre d'intégrer dans des produits commerciaux
-- **Copie & Distribution** : Peut être copié, téléchargé et partagé
+### â?AutorisÃ©
+- **Utilisation commerciale libre** : Libre d'intÃ©grer dans des produits commerciaux
+- **Copie & Distribution** : Peut Ãªtre copiÃ©, tÃ©lÃ©chargÃ© et partagÃ©
 
-### �?Interdit
-- **Œuvres dérivées** : Aucune modification, traduction, adaptation, fusion ou affinage du modèle ou d'une partie de celui-ci
-- **Revente** : Pas de vente du modèle seul ou dans le cadre d'un produit
+### â?Interdit
+- **Åuvres dÃ©rivÃ©es** : Aucune modification, traduction, adaptation, fusion ou affinage du modÃ¨le ou d'une partie de celui-ci
+- **Revente** : Pas de vente du modÃ¨le seul ou dans le cadre d'un produit
 - **Relicenciement** : Pas de concession de sous-licences
 
-### 📋 Exigences
+### ð Exigences
 - Doit conserver la mention de copyright originale
 - Attribution : moziAI-35B
 
-> Voir [LICENSE](./LICENSE) pour les conditions complètes.
+> Voir [LICENSE](./LICENSE) pour les conditions complÃ¨tes.
 
 ## Avertissement
 
-Fourni « en l'état » sans garantie. La sortie du modèle est uniquement à titre indicatif, pas un conseil en investissement. Les utilisateurs assument tous les risques.
+Fourni Â« en l'Ã©tat Â» sans garantie. La sortie du modÃ¨le est uniquement Ã  titre indicatif, pas un conseil en investissement. Les utilisateurs assument tous les risques.
 
 ## Contact
 
@@ -352,4 +352,4 @@ Fourni « en l'état » sans garantie. La sortie du modèle est uniquement à ti
 
 ---
 
-Copyright (c) 2026 Chen Yumo / chenyumo166. Tous droits réservés.
+Copyright (c) 2026 Chen Yumo / chenyumo166. Tous droits rÃ©servÃ©s.
