@@ -493,29 +493,20 @@ llama-server \
 
 ```
 
+```
 moziAI-35B/
-
-├── README.md              # 本文件（中文说明書）
-
-├── README.en.md           # 说明書的英文版本
-
+├── README.md              # 本文件（英文说明书）
+├── README.zh.md           # 中文说明书
 ├── LICENSE                # 许可证
-
-├── V3.7/                  # V3.7 版本（版本自包含在
-
-├  ├── RELEASE_NOTES.md                       # 版本更新说明
-
-├  ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # 主模型
-
-├  ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # 视觉投影
-
-├  └── moziAI-V3.7-35B-chat-template.jinja   # 聊天模板
-
+├── V3.7/                  # V3.7 版本（版本自包含）
+│   ├── RELEASE_NOTES.md                       # 版本更新说明
+│   ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # 主模型
+│   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # 视觉投影
+│   └── moziAI-V3.7-35B-chat-template.jinja   # 聊天模板
 ```
 
 
 
-未来升级计劃详见 [未来升级计劃.md](未来升级计劃.md）。
 
 
 

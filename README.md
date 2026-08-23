@@ -307,8 +307,8 @@ Open `http://localhost:8080` in your browser to start chatting.
 
 ```
 moziAI-35B/
-├── README.md              # Chinese version
-├── README.en.md           # This file (English)
+├── README.md              # This file (English)
+├── README.zh.md           # Chinese version
 ├── LICENSE                # License
 ├── V3.7/                  # V3.7 version (self-contained)
 │   ├── RELEASE_NOTES.md                       # Release notes
