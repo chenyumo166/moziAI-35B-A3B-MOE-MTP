@@ -29,7 +29,7 @@ pipeline_tag: text-generation
 # MoziAI-35B-A3B-MOE-MTP-Uncensored - 可免费本地部署的小而强的多模态AI模型
 
 Language / 语言选择  
-[English](README.md) | 简体中文 | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+[English](README.md) | 简体中文（当前页）
 
 ## 模型简介
 

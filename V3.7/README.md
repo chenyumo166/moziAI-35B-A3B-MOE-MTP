@@ -22,7 +22,7 @@ pipeline_tag: text-generation
 # MoziAI-35B-V3.7-A3B-MOE-MTP-Uncensored - Free Locally Deployable Small Yet Powerful Multimodal AI
 
 Language / 语言选择  
-[English](README.en.md) | 简体中文 | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+[English](README.en.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
 
 ## Model Introduction
 
