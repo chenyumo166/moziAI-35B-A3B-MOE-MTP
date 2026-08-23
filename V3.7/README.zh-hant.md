@@ -44,7 +44,7 @@ pipeline_tag: text-generation
 
 
 
-[English](README.en.md) | 中文
+[English](README.en.md) | [简体中文](README.zh.md) | 繁體中文 | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
 
 
 
@@ -52,7 +52,7 @@ pipeline_tag: text-generation
 
 
 
-MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多模態AI大模型（強化金融領域、支持視覺、工具調用、消費級顯卡本地部署），基於 Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** 架構）底座進行二次開發/微調/蒸餾。透過自研的**MoziSmartBit 智能量化** 技術，不350 億參數MoE 模型壓縮至約 **15.5 GB**，在精度與體積間取得最優平衡，實現幾乎≈FP16 的 99%的精度質量化
+MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多模態AI大模型（強化金融領域、支持視覺、工具調用、消費級顯卡本地部署），基於 Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** 架構）底座進行二次開發/微調/蒸餾。透過自研的**MoziSmartBit 智能量化** 技術，不350 億參數MoE 模型壓縮至約 **15.5 GB**，在精度與體積間取得最優平衡，實現幾乎≈FP16 的 99%的精度質量化
 
 
 
@@ -104,7 +104,7 @@ MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多
 
 
 
-本模型繼承底座Ornith-1.5-35B-A3B 的 Uncensored（去審核）特性，具有以下優勢：| 優勢    | 說明                    |
+本模型繼承底座Ornith-1.0-35B-A3B 的 Uncensored（去審核）特性，具有以下優勢：| 優勢    | 說明                    |
 
 | ----- | --------------------- |
 
@@ -152,7 +152,7 @@ MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多
 
 | ------ | ---------------------------------------------------------------------------------- |
 
-| 底座模型   | Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架構，MIT 許可證                       |
+| 底座模型   | Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架構，MIT 許可證                       |
 
 | 參數規模   | 350億（35B）MoE 架構建56 個路由專家+ 1 個共享專家，不token 激活 8 個專家                              |
 
@@ -280,7 +280,7 @@ MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
 
@@ -396,7 +396,7 @@ llama-server \
 
 # 建立 Modelfile
 
-FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf
 
 
 
@@ -434,35 +434,33 @@ ollama run moziAI-35B
 
 
 
-MoziAI 基於 deepreinforce-ai/Ornith-1.5-35B-A3B 底座微調、蒸餾與二次開發。MoziAI 在底座基礎上針對金融垂直領域優化，在金融問答、量化程式編寫、工具調用等場景下表現更出色。以下為多模型對比（MoziAI-35B 通用能力與底座Ornith-1.5-35B-A3B 一致）底
+MoziAI 基於 deepreinforce-ai/Ornith-1.0-35B-A3B 底座微調、蒸餾與二次開發。MoziAI 在底座基礎上針對金融垂直領域優化，在金融問答、量化程式編寫、工具調用等場景下表現更出色。以下為多模型對比（MoziAI-35B 通用能力與底座Ornith-1.0-35B-A3B 一致）底
 
 
 
-| 基準測試                         | MoziAI-35B (本模型 | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | 說明             |
-
-| ---------------------------- | ---------------- | ----------- | ---------- | ---------- | ----------- | -------------- |
-
-| Terminal-Bench 2.1           | 64.2             | 59.3        | 42.1       | -          | 41.4        | 自主終端編碼         |
-
-| Terminal-Bench (Claude Code) | 62.8             | 59.3        | -          | -          | 38.9        | Claude Code 編碼 |
-
-| SWE-bench Verified           | 75.6             | 77.2        | 52.0       | -          | 70.0        | 真實軟體工程         |
-
-| SWE-bench Pro                | 50.4             | 53.5        | 35.7       | -          | 44.6        | 複雜軟體工程         |
-
-| SWE-bench Multilingual       | 69.3             | 71.3        | -          | -          | 60.3        | 多語言編碼          |
-
-| NL2Repo                      | 34.6             | 36.2        | 15.5       | -          | 20.5        | 自然語言到倉庫        |
-
-| LiveCodeBench v6             | 63.3             | 83.9        | 80.0       | 77.1       | -           | 競賽編程           |
-
-| GPQA Diamond                 | 88.4             | 87.8        | 84.3       | 82.3       | -           | 科學推理           |
-
-| AIME 2026 數學                 | 93.3             | 94.1        | 89.2       | 88.3       | -           | 數學推理           |
-
-
-
-> MoziAI-35B 通用能力基準分數與底座Ornith-1.5-35B-A3B 一致。金融垂直領域為 MoziAI 的核心優化方向，在財報解讀、量化策略、風控合規、agent管理工具調用等場景下表現顯著優於通用模型。Gemma4 / Qwen3.6 數據為官方公開評測結果取
+| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+|---|---|---|---|---|---|---|
+| **程式設計** |  |  |  |  |  |  |
+| Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
+| Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
+| SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
+| SWE-bench Pro | 59.6 | 50.4 | 49.5 | 35.7 | 51.2 | 51.6 |
+| SWE-bench Multilingual | 71.4 | 69.3 | 67.2 | 51.7 | - | 69.3 |
+| DeepSWE | 22 | 0 | 0 | - | - | 1 |
+| Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
+| NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
+| SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
+| **推理** |  |  |  |  |  |  |
+| HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
+| HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
+| GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
+| **代理式** |  |  |  |  |  |  |
+| MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
+| Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
+| WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
+| BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
+| ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
+> MoziAI-35B 通用能力基準分數與底座Ornith-1.0-35B-A3B 一致。金融垂直領域為 MoziAI 的核心優化方向，在財報解讀、量化策略、風控合規、agent管理工具調用等場景下表現顯著優於通用模型。Gemma4 / Qwen3.6 數據為官方公開評測結果取
 
 
 
@@ -512,7 +510,7 @@ MoziAI 基於 deepreinforce-ai/Ornith-1.5-35B-A3B 底座微調、蒸餾與二次
 
 ```bash
 
-llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 
@@ -540,7 +538,7 @@ llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-O
 
 V3.7/
 
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # 主模型（必選擇
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf      # 主模型（必選擇
 
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # 視覺投影（可選）
 
@@ -566,7 +564,7 @@ V3.7/
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
@@ -606,7 +604,7 @@ moziAI-35B/
 
 ├  ├── RELEASE_NOTES.md                       # 版本更新說明
 
-├  ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # 主模型
+├  ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf    # 主模型
 
 ├  ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # 視覺投影
 
@@ -624,7 +622,7 @@ moziAI-35B/
 
 
 
-金融AI大模型、AI大模型、本地開源模型、端側模型、量化程式編寫、MoziSmartBit、智能量化、GGUF量化、MoE模型、本地開源大模型、本地部署、金融AI、工具調用、Agent、llama.cpp、Ollama、GGUF、Uncensored（去審核）、無審查、免審核、自由輸出、Q3\_K\_M、Q4\_K\_M、Q5\_K\_M、Q6\_K、Q8\_0、Ornith-1.5-35B-A3B、Qwen3.5-35B-A3B、Qwen3.6-35B-A3B、金融垂直領域、開源模型
+金融AI大模型、AI大模型、本地開源模型、端側模型、量化程式編寫、MoziSmartBit、智能量化、GGUF量化、MoE模型、本地開源大模型、本地部署、金融AI、工具調用、Agent、llama.cpp、Ollama、GGUF、Uncensored（去審核）、無審查、免審核、自由輸出、Q3\_K\_M、Q4\_K\_M、Q5\_K\_M、Q6\_K、Q8\_0、Ornith-1.0-35B-A3B、Qwen3.5-35B-A3B、Qwen3.6-35B-A3B、金融垂直領域、開源模型
 
 
 

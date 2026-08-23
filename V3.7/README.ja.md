@@ -42,7 +42,7 @@ pipeline_tag: text-generation
 
 
 
-[English](README.en.md) | [中文](README.md)
+[English](README.en.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | 日本語 | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
 
 
 
@@ -50,7 +50,7 @@ pipeline_tag: text-generation
 
 
 
-MoziAI-35B-A3B-MOEは、中国の金融インフルエンサー陳雨墨（Chen Yumo）のチームが開発した、ローカルオープンソース金融AIマルチモーダルLLM（visionおよびtool callingをサポート）です。Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** アーキテクチャ、MITライセンス）ベースモデルからファインチューニング/蒸留されています。自社開発の**MoziSmartBit Intelligent Quantization**技術により、5BパラメータのMoEモデルを実*15.5 GB**に圧縮し、ほぼロスレスなど9%の精度品質を維持しながら、精度とサイズの最適バランスを実現しています。
+MoziAI-35B-A3B-MOEは、中国の金融インフルエンサー陳雨墨（Chen Yumo）のチームが開発した、ローカルオープンソース金融AIマルチモーダルLLM（visionおよびtool callingをサポート）です。Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** アーキテクチャ、MITライセンス）ベースモデルからファインチューニング/蒸留されています。自社開発の**MoziSmartBit Intelligent Quantization**技術により、5BパラメータのMoEモデルを実*15.5 GB**に圧縮し、ほぼロスレスなど9%の精度品質を維持しながら、精度とサイズの最適バランスを実現しています。
 
 
 
@@ -102,7 +102,7 @@ llama.cpp、Ollama、LM Studioなど、主要な推論フレームワークを�
 
 
 
-このモデルはOrnith-1.5-35B-A3Bベースモデルから**Uncensored**機能を継承しており、以下の利点があります：
+このモデルはOrnith-1.0-35B-A3Bベースモデルから**Uncensored**機能を継承しており、以下の利点があります：
 
 
 
@@ -154,7 +154,7 @@ llama.cpp、Ollama、LM Studioなど、主要な推論フレームワークを�
 
 |------|------|
 
-| ベースモデル | Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**、MITライセンス） |
+| ベースモデル | Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**、MITライセンス） |
 
 | パラメータ数 | 35B MoE（256個のルーティングエキスパート + 1個の共有エキスパート、トークンあたり8個がアクティブ） |
 
@@ -288,7 +288,7 @@ llama.cpp、Ollama、LM Studioなど、主要な推論フレームワークを�
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
 
@@ -408,7 +408,7 @@ llama-server \
 
 # Modelfileを作成
 
-FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf
 
 
 
@@ -446,35 +446,33 @@ LM StudioまたはJanで`moziAI-35B`を検索し、MoziSmartBit量子化版を�
 
 
 
-MoziAIは**deepreinforce-ai/Ornith-1.5-35B-A3B**からファインチューニングされています。MoziAIはベースモデルの上で金融垂直ドメインの最適化が施されており、金融Q&A、クオンツプログラミング、tool callingシナリオにおいて優れた性能を発揮します。MoziAI-35Bの汎用能力はOrnith-1.5-35B-A3Bベースモデルと一致しています。
+MoziAIは**deepreinforce-ai/Ornith-1.0-35B-A3B**からファインチューニングされています。MoziAIはベースモデルの上で金融垂直ドメインの最適化が施されており、金融Q&A、クオンツプログラミング、tool callingシナリオにおいて優れた性能を発揮します。MoziAI-35Bの汎用能力はOrnith-1.0-35B-A3Bベースモデルと一致しています。
 
 
 
-| ベンチマーク | MoziAI-35B（本モデル） | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | 説明 |
-
-|-------------|------------------------|-------------|------------|------------|-------------|------|
-
-| Terminal-Bench 2.1 | 64.2 | 59.3 | 42.1 | - | 41.4 | 自律ターミナルコーディンテ|
-
-| Terminal-Bench（Claude Code）| 62.8 | 59.3 | - | - | 38.9 | Claude Codeコーディング |
-
-| SWE-bench Verified | 75.6 | 77.2 | 52.0 | - | 70.0 | 実世界ソフトウェアエンジニアリンテ|
-
-| SWE-bench Pro | 50.4 | 53.5 | 35.7 | - | 44.6 | 複雑なソフトウェアエンジニアリンテ|
-
-| SWE-bench Multilingual | 69.3 | 71.3 | - | - | 60.3 | 多言語コーディンテ|
-
-| NL2Repo | 34.6 | 36.2 | 15.5 | - | 20.5 | 自然言語からリポジトリ生成 |
-
-| LiveCodeBench v6 | 63.3 | 83.9 | 80.0 | 77.1 | - | 競プロプログラミング |
-
-| GPQA Diamond | 88.4 | 87.8 | 84.3 | 82.3 | - | 科学的推論|
-
-| AIME 2026 Math | 93.3 | 94.1 | 89.2 | 88.3 | - | 数学的推論|
-
-
-
-> MoziAI-35Bの汎用ベンチマークスコアはOrnith-1.5-35B-A3Bベースモデルと一致しています。金融垂直ドメインはMoziAIのコア最適化方向であり、財務報告分析、クオンツ戦略、リスク＆コンプライアンス、エージェントtool callingなどのシナリオで汎用モデルを大幅に上回ります。Gemma4およびQwen3.6のデータは公式公開結果からの引用です。
+| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+|---|---|---|---|---|---|---|
+| **コーディング** |  |  |  |  |  |  |
+| Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
+| Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
+| SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
+| SWE-bench Pro | 59.6 | 50.4 | 49.5 | 35.7 | 51.2 | 51.6 |
+| SWE-bench Multilingual | 71.4 | 69.3 | 67.2 | 51.7 | - | 69.3 |
+| DeepSWE | 22 | 0 | 0 | - | - | 1 |
+| Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
+| NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
+| SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
+| **推論** |  |  |  |  |  |  |
+| HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
+| HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
+| GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
+| **エージェント** |  |  |  |  |  |  |
+| MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
+| Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
+| WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
+| BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
+| ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
+> MoziAI-35Bの汎用ベンチマークスコアはOrnith-1.0-35B-A3Bベースモデルと一致しています。金融垂直ドメインはMoziAIのコア最適化方向であり、財務報告分析、クオンツ戦略、リスク＆コンプライアンス、エージェントtool callingなどのシナリオで汎用モデルを大幅に上回ります。Gemma4およびQwen3.6のデータは公式公開結果からの引用です。
 
 
 
@@ -524,7 +522,7 @@ MoziAIは**deepreinforce-ai/Ornith-1.5-35B-A3B**からファインチューニ�
 
 ```bash
 
-llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 
@@ -552,7 +550,7 @@ HuggingFace / ModelScopeからV3.7ディレクトリ配下のすべてのファ�
 
 V3.7/
 
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # メインモデル（必須）
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf      # メインモデル（必須）
 
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision射影（オプションテ
 
@@ -578,7 +576,7 @@ V3.7/
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
@@ -620,7 +618,7 @@ moziAI-35B/
 
 ├── RELEASE_NOTES.md                       # リリースノーマ
 
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # メインモデル
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf    # メインモデル
 
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision射影
 
@@ -638,7 +636,7 @@ moziAI-35B/
 
 
 
-financial AI LLM, ローカルオープンソースモデル, エッジサイドモデル クオンツプログラミンテ MoziSmartBit, インテリジェント量子化 GGUF量子化 MoEモデル ローカルオープンソースLLM, ローカルデプロイ, 金融AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, 検閲なし, 自由出力, 制限なし, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.5-35B-A3B, Qwen3.5, Qwen3.6, 金融垂直ドメイン, オープンソースモデル
+financial AI LLM, ローカルオープンソースモデル, エッジサイドモデル クオンツプログラミンテ MoziSmartBit, インテリジェント量子化 GGUF量子化 MoEモデル ローカルオープンソースLLM, ローカルデプロイ, 金融AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, 検閲なし, 自由出力, 制限なし, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.0-35B-A3B, Qwen3.5, Qwen3.6, 金融垂直ドメイン, オープンソースモデル
 
 
 

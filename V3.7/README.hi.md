@@ -42,7 +42,7 @@ pipeline_tag: text-generation
 
 
 
-हिन्दी | [中文](README.md) | [English](README.en.md)
+[English](README.en.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | हिन्दी | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
 
 
 
@@ -50,7 +50,7 @@ pipeline_tag: text-generation
 
 
 
-MoziAI-35B-A3B-MOE चीनी वित्तीयप्रभाविचेंयुमो की टीयद्वारा विकसित एक स्थानीयओप्सोर्रवित्तीयAI मल्टीमॉडल LLM (दृष्टि और टूलकॉलिंग का समर्थन करता है) है, जो Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** आर्किटेक्चा MIT लाइसेंट बेंमॉडल से फाइन-ट्यूलडिस्टिककिया गयाहै।स्रविकसित **MoziSmartBit Intelligent Quantization** तकनीयके माध्यम से, 35B पैरामीटर MoE मॉडल को लगभग **15.5 GB** तक संपीड़ित किया गयाहै, जो ~99% सटीकतागुणवत्ता के सानसटीकताऔर आकार के बीयइष्टतम संतुलन प्राप्रकरता है।
+MoziAI-35B-A3B-MOE चीनी वित्तीयप्रभाविचेंयुमो की टीयद्वारा विकसित एक स्थानीयओप्सोर्रवित्तीयAI मल्टीमॉडल LLM (दृष्टि और टूलकॉलिंग का समर्थन करता है) है, जो Ornith-1.0-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** आर्किटेक्चा MIT लाइसेंट बेंमॉडल से फाइन-ट्यूलडिस्टिककिया गयाहै।स्रविकसित **MoziSmartBit Intelligent Quantization** तकनीयके माध्यम से, 35B पैरामीटर MoE मॉडल को लगभग **15.5 GB** तक संपीड़ित किया गयाहै, जो ~99% सटीकतागुणवत्ता के सानसटीकताऔर आकार के बीयइष्टतम संतुलन प्राप्रकरता है।
 
 
 
@@ -102,7 +102,7 @@ llama.cpp, Ollama, LM Studio और अन्य प्रमुख इन्फ
 
 
 
-यह मॉडल Ornith-1.5-35B-A3B बेंमॉडल से **Uncensored** सुविधा विरासत मेंलेता है, निम्नलिखित लाभोगके सान
+यह मॉडल Ornith-1.0-35B-A3B बेंमॉडल से **Uncensored** सुविधा विरासत मेंलेता है, निम्नलिखित लाभोगके सान
 
 
 
@@ -154,7 +154,7 @@ llama.cpp, Ollama, LM Studio और अन्य प्रमुख इन्फ
 
 |--------|----------|
 
-| बेंमॉडल | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT लाइसेंट |
+| बेंमॉडल | Ornith-1.0-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT लाइसेंट |
 
 | पैरामीटर | 35B MoE (256 रूटेंएक्सपर्ट्स + 1 शेयर्ड एक्सपर्ट, प्रताटोकन 8 सक्रिय) |
 
@@ -288,7 +288,7 @@ llama.cpp, Ollama, LM Studio और अन्य प्रमुख इन्फ
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
 
@@ -408,7 +408,7 @@ llama-server \
 
 # Modelfile बनाएम
 
-FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf
 
 
 
@@ -446,35 +446,33 @@ LM Studio या Jan में`moziAI-35B` खोजें MoziSmartBit क्�
 
 
 
-MoziAI **deepreinforce-ai/Ornith-1.5-35B-A3B** से फाइन-ट्यूलकिया गयाहै।MoziAI बेंमॉडल के ऊप्वित्तीयऊर्ध्वाधाक्षेत्रोगके लिकअनुकूलित है, वित्तीयप्रश्नोत्ता मात्रात्मक प्रोग्रामिंग और टूलकॉलिंग परिदृश्यों मेंउत्कृष्ट प्रदर्शन प्रदान करता है।MoziAI-35B की सामान्रक्षमताएँ Ornith-1.5-35B-A3B बेंमॉडल के सानसंगत हैं।
+MoziAI **deepreinforce-ai/Ornith-1.0-35B-A3B** से फाइन-ट्यूलकिया गयाहै।MoziAI बेंमॉडल के ऊप्वित्तीयऊर्ध्वाधाक्षेत्रोगके लिकअनुकूलित है, वित्तीयप्रश्नोत्ता मात्रात्मक प्रोग्रामिंग और टूलकॉलिंग परिदृश्यों मेंउत्कृष्ट प्रदर्शन प्रदान करता है।MoziAI-35B की सामान्रक्षमताएँ Ornith-1.0-35B-A3B बेंमॉडल के सानसंगत हैं।
 
 
 
-| बेंचमार्र| MoziAI-35B (यह मॉडल) | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | विवर्|
-
-|-----------|----------------------|-------------|------------|------------|-------------|-------|
-
-| Terminal-Bench 2.1 | 64.2 | 59.3 | 42.1 | - | 41.4 | स्वायत्त टर्मिनुकोडिंग |
-
-| Terminal-Bench (Claude Code) | 62.8 | 59.3 | - | - | 38.9 | Claude Code कोडिंग |
-
-| SWE-bench Verified | 75.6 | 77.2 | 52.0 | - | 70.0 | वास्तविक-विश्रसॉफ़्टवेयर इंजीनियरिंट|
-
-| SWE-bench Pro | 50.4 | 53.5 | 35.7 | - | 44.6 | जटिल सॉफ़्टवेयर इंजीनियरिंट|
-
-| SWE-bench Multilingual | 69.3 | 71.3 | - | - | 60.3 | बहुभाषी कोडिंग |
-
-| NL2Repo | 34.6 | 36.2 | 15.5 | - | 20.5 | प्राकृतिकभाषा से रिपो |
-
-| LiveCodeBench v6 | 63.3 | 83.9 | 80.0 | 77.1 | - | प्रतिस्पर्धात्मक प्रोग्रामिंग |
-
-| GPQA Diamond | 88.4 | 87.8 | 84.3 | 82.3 | - | वैज्ञानिकतर्क |
-
-| AIME 2026 Math | 93.3 | 94.1 | 89.2 | 88.3 | - | गणितीयतर्क |
-
-
-
-> MoziAI-35B के सामान्रबेंचमार्रस्कोगOrnith-1.5-35B-A3B बेंमॉडल के सानसंगत हैं। वित्तीयऊर्ध्वाधाक्षेत्रMoziAI का मुख्रअनुकूलिदिशा है, वित्तीयरिपोर्रविश्लेषण, मात्रात्मक रणनीति, जोखिकऔर अनुपालि और एजेंटटूलकॉलिंग जैसे परिदृश्यों मेंसामान्रमॉडलों से काफी बेहताप्रदर्शनुGemma4 और Qwen3.6 डेटा आधिकारिक सार्वजनिकपरिणामों सें
+| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+|---|---|---|---|---|---|---|
+| **कोडिंग** |  |  |  |  |  |  |
+| Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
+| Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
+| SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
+| SWE-bench Pro | 59.6 | 50.4 | 49.5 | 35.7 | 51.2 | 51.6 |
+| SWE-bench Multilingual | 71.4 | 69.3 | 67.2 | 51.7 | - | 69.3 |
+| DeepSWE | 22 | 0 | 0 | - | - | 1 |
+| Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
+| NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
+| SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
+| **तर्क** |  |  |  |  |  |  |
+| HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
+| HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
+| GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
+| **एजेंटिक** |  |  |  |  |  |  |
+| MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
+| Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
+| WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
+| BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
+| ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
+> MoziAI-35B के सामान्रबेंचमार्रस्कोगOrnith-1.0-35B-A3B बेंमॉडल के सानसंगत हैं। वित्तीयऊर्ध्वाधाक्षेत्रMoziAI का मुख्रअनुकूलिदिशा है, वित्तीयरिपोर्रविश्लेषण, मात्रात्मक रणनीति, जोखिकऔर अनुपालि और एजेंटटूलकॉलिंग जैसे परिदृश्यों मेंसामान्रमॉडलों से काफी बेहताप्रदर्शनुGemma4 और Qwen3.6 डेटा आधिकारिक सार्वजनिकपरिणामों सें
 
 
 
@@ -524,7 +522,7 @@ MoziAI **deepreinforce-ai/Ornith-1.5-35B-A3B** से फाइन-ट्यू�
 
 ```bash
 
-llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 
@@ -552,7 +550,7 @@ HuggingFace / ModelScope से V3.7 निर्देशिका की स�
 
 V3.7/
 
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # मुख्रमॉडल (आवश्यक)
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf      # मुख्रमॉडल (आवश्यक)
 
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # दृष्टि प्रोजेक्शन (वैकल्पिक)
 
@@ -578,7 +576,7 @@ V3.7/
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
@@ -620,7 +618,7 @@ moziAI-35B/
 
 ├── RELEASE_NOTES.md                       # रिलीज़ नोट्र
 
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # मुख्रमॉडल
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf    # मुख्रमॉडल
 
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # दृष्टि प्रोजेक्शन
 
@@ -638,7 +636,7 @@ moziAI-35B/
 
 
 
-वित्तीयAI LLM, स्थानीयओप्सोर्रमॉडल, एंटसाइड मॉडल, क्वांट प्रोग्रामिंग, MoziSmartBit, इंटेलिजेंट क्वांटाइजेशन, GGUF क्वांटाइजेशन, MoE मॉडल, स्थानीयओप्सोर्रLLM, स्थानीयतैनाती, वित्तीयAI, टूलकॉलिंग, Agent, llama.cpp, Ollama, GGUF, Uncensored, कोगसेंसरशिप नहीय मुक्रआउटपुट, अप्रतिबंधिक Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.5-35B-A3B, Qwen3.5, Qwen3.6, वित्तीयऊर्ध्वाधाक्षेत्र ओप्सोर्रमॉडल
+वित्तीयAI LLM, स्थानीयओप्सोर्रमॉडल, एंटसाइड मॉडल, क्वांट प्रोग्रामिंग, MoziSmartBit, इंटेलिजेंट क्वांटाइजेशन, GGUF क्वांटाइजेशन, MoE मॉडल, स्थानीयओप्सोर्रLLM, स्थानीयतैनाती, वित्तीयAI, टूलकॉलिंग, Agent, llama.cpp, Ollama, GGUF, Uncensored, कोगसेंसरशिप नहीय मुक्रआउटपुट, अप्रतिबंधिक Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.0-35B-A3B, Qwen3.5, Qwen3.6, वित्तीयऊर्ध्वाधाक्षेत्र ओप्सोर्रमॉडल
 
 
 

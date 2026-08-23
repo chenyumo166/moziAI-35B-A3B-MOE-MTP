@@ -19,14 +19,14 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-35B-V3.7-A3B-MOE-MTP-Uncensored - Free Locally Deployable Small Yet Powerful Multimodal AI
+# moziAI-13.7-35B-A3B-A3B-MOE-MTP-Uncensored - Free Locally Deployable Small Yet Powerful Multimodal AI
 
 Language / 语言选择  
 [English](README.en.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
 
 ## Model Introduction
 
-MoziAI-35B-A3B-MOE is a locally deployable open-source multimodal large language model developed by the Chen Yumo team (a Chinese financial KOL), focusing on financial domain enhancement, supporting vision, tool calling, complex long-task capabilities, and consumer GPU deployment. It is fine-tuned based on the Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B/Qwen3.6-35B-A3B** architecture) base model.
+MoziAI-35B-A3B-MOE is a locally deployable open-source multimodal large language model developed by the Chen Yumo team (a Chinese financial KOL), focusing on financial domain enhancement, supporting vision, tool calling, complex long-task capabilities, and consumer GPU deployment. It is fine-tuned based on the Ornith-1.0-35B-A3B (**Qwen3.5-35B-A3B/Qwen3.6-35B-A3B** architecture) base model.
 
 The R&D team's philosophy is to enable powerful local AI large models and agents to enter thousands of households and small and medium-sized enterprises, eliminating the need for expensive AI hardware costs or cloud API costs. Through our self-developed **MoziSmartBit intelligent quantization** technology, we compress the 35B parameter MoE model to approximately **15.5 GB**, achieving an optimal balance between model accuracy and size, with almost 99% accuracy compared to FP16. Although the model has 35 billion parameters overall, it actually only activates 30 billion parameters via MoE sparse expert technology and supports MTP speculative decoding for accelerated inference. Testing shows it can complete local free deployment on a consumer GPU with 20GB VRAM and achieve 140+ tokens/s inference speed, outperforming many cloud-charged AI large models in speed.
 
@@ -73,7 +73,7 @@ This model uses a dedicated chat template, **failure to load will result in inco
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
@@ -93,7 +93,7 @@ Download all files from the V3.7 directory to your local machine from HuggingFac
 
 ```
 V3.7/
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # Main model (required)
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf      # Main model (required)
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision projection (optional, download if you need vision)
 └── moziAI-V3.7-35B-chat-template.jinja                  # Chat template (required! Missing template causes format errors)
 ```
@@ -108,7 +108,7 @@ Minimal startup (core parameters only):
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99
 ```
@@ -128,7 +128,7 @@ moziAI-35B-A3B-MOE-MTP-Uncensored/
 ├── LICENSE                # License
 ├── V3.7/                  # V3.7 version (self-contained)
 │   ├── RELEASE_NOTES.md                       # Release notes
-│   ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # Main model
+│   ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf    # Main model
 │   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
 │   └── moziAI-V3.7-35B-chat-template.jinja   # Chat template
 ```
@@ -153,7 +153,7 @@ moziAI-35B-A3B-MOE-MTP-Uncensored/
 
 ## Uncensored Advantages
 
-This model inherits the Uncensored characteristics from the base model Ornith-1.5-35B-A3B, with the following advantages:
+This model inherits the Uncensored characteristics from the base model Ornith-1.0-35B-A3B, with the following advantages:
 
 | Advantage | Description |
 | ----- | --------------------- |
@@ -179,7 +179,7 @@ This model inherits the Uncensored characteristics from the base model Ornith-1.
 
 | Item | Parameters |
 | ------ | ---------------------------------------------------------------------------------- |
-| Base Model | Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MIT license) |
+| Base Model | Ornith-1.0-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MIT license) |
 | Parameter Size | 35 billion (35B) MoE architecture, 256 routed experts + 1 shared expert, 8 active per token |
 | Quantization Method | Self-developed MoziSmartBit intelligent quantization algorithm + GGUF standard format |
 | Context Length | 256K (262,144 tokens) |
@@ -290,7 +290,7 @@ Due to differences in user graphics card configurations, the following are recom
 
 ```bash
 # Create Modelfile
-FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf
 
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
@@ -309,35 +309,40 @@ Search for `moziAI-35B` directly in LM Studio or Jan, select the MoziSmartBit qu
 
 ## Benchmarks
 
-MoziAI-35B-V3.7 is fine-tuned from **Ornith-1.5-35B-A3B** (deepreinforce-ai). MoziAI adds **financial vertical domain optimization** on top of the excellent agentic coding capabilities of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. General capabilities remain consistent with the Ornith-1.5-35B-A3B base model.
+moziAI-13.7-35B-A3B is fine-tuned from **Ornith-1.0-35B-A3B** (deepreinforce-ai). MoziAI adds **financial vertical domain optimization** on top of the excellent agentic coding capabilities of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. General capabilities remain consistent with the Ornith-1.0-35B-A3B base model.
 
-| Benchmark                        | MoziAI-35B-V3.7 (this model) | Qwen3.5-35B | Qwen3.6-35B | Gemma4-31B | Qwen3.5-397B | Description |
-| -------------------------------- | ---------------------------- | ----------- | ----------- | ---------- | ------------ | ----------- |
-| **Agentic Coding**               |                              |             |             |            |              |             |
-| Terminal-Bench 2.1 (Terminus-2)  | 64.2                         | 41.4        | 52.5        | 42.1       | 53.5         |             |
-| Terminal-Bench 2.1 (Claude Code) | 62.8                         | 38.9        | 49.2        | -          | 48.6         |             |
-| SWE-bench Verified               | 75.6                         | 70          | 73.4        | 52         | 76.4         |             |
-| SWE-bench Pro                    | 50.4                         | 44.6        | 49.5        | 35.7       | 51.6         |             |
-| SWE-bench Multilingual           | 69.3                         | 60.3        | 67.2        | 51.7       | 69.3         |             |
-| NL2Repo                          | 34.6                         | 20.5        | 29.4        | 15.5       | 36.8         |             |
-| Claw-eval Avg                    | 69.8                         | 65.4        | 68.7        | 48.5       | 70.7         |             |
-| SWE Atlas - QnA                  | 37.1                         | 13.2        | 15.5        | -          | 20.4         |             |
-| SWE Atlas - RF                   | 29.7                         | 10.2        | 11.4        | -          | 18.4         |             |
-| SWE Atlas - TW                   | 27.8                         | 9.8         | 13.3        | -          | 18.5         |             |
-| LiveCodeBench v6                 | -                            | -           | 83.9        | 80.0       | -            |             |
-| GPQA Diamond                     | -                            | -           | 87.8        | 84.3       | -            |             |
-| AIME 2026 Math                   | -                            | -           | 94.1        | 89.2       | -            |             |
-
+| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+|---|---|---|---|---|---|---|
+| **Coding** |  |  |  |  |  |  |
+| Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
+| Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
+| SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
+| SWE-bench Pro | 59.6 | 50.4 | 49.5 | 35.7 | 51.2 | 51.6 |
+| SWE-bench Multilingual | 71.4 | 69.3 | 67.2 | 51.7 | - | 69.3 |
+| DeepSWE | 22 | 0 | 0 | - | - | 1 |
+| Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
+| NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
+| SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
+| **Reasoning** |  |  |  |  |  |  |
+| HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
+| HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
+| GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
+| **Agentic** |  |  |  |  |  |  |
+| MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
+| Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
+| WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
+| BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
+| ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
 \* **Terminal-Bench 2.1 (Terminus-2)**: Evaluated using the Harbor/Terminus-2 framework with `parser=json`, `temperature=1.0`, `top_p=1.0`, and a 128K context window. Each run uses a 4-hour timeout with 32 CPU cores and 48GB RAM, results averaged over 5 runs.  
 \* **Terminal-Bench 2.1 (Claude Code)**: Evaluated using Claude Code 2.1.126 with `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Results averaged over 5 runs.  
 \* **SWE-bench Verified, Pro and Multilingual**: Evaluated using OpenHands harness with `temp=1.0`, `top_p=0.95`, 256K context window.  
 \* **NL2Repo**: Evaluated with `temperature=1.0`, `top_p=1.0`, 400K context, 48K output.  
 
-> MoziAI-35B fully inherits the excellent agentic coding capabilities from Ornith-1.5-35B-A3B. MoziAI's core differentiation is **deep optimization for financial vertical domains**, significantly outperforming general models in scenarios like financial report analysis, quantitative strategy, risk & compliance, and agent tool calling.
+> MoziAI-35B fully inherits the excellent agentic coding capabilities from Ornith-1.0-35B-A3B. MoziAI's core differentiation is **deep optimization for financial vertical domains**, significantly outperforming general models in scenarios like financial report analysis, quantitative strategy, risk & compliance, and agent tool calling.
 
 ## SEO Keywords
 
-金融AI大模型、AI大模型、本地开源模型、端侧模型、量化编程、MoziSmartBit、智能量化、GGUF量化、MoE模型、本地开源大模型、本地部署、金融AI、工具调用、Agent、llama.cpp、Ollama、GGUF、Uncensored（去审核）、无审查、免审核、自由输出、Q3_K_M、Q4_K_M、Q5_K_M、Q6_K、Q8_0、Ornith-1.5-35B-A3B、Qwen3.5-35B-A3B、Qwen3.6-35B-A3B、金融垂直领域、开源模型。
+金融AI大模型、AI大模型、本地开源模型、端侧模型、量化编程、MoziSmartBit、智能量化、GGUF量化、MoE模型、本地开源大模型、本地部署、金融AI、工具调用、Agent、llama.cpp、Ollama、GGUF、Uncensored（去审核）、无审查、免审核、自由输出、Q3_K_M、Q4_K_M、Q5_K_M、Q6_K、Q8_0、Ornith-1.0-35B-A3B、Qwen3.5-35B-A3B、Qwen3.6-35B-A3B、金融垂直领域、开源模型。
 
 ## License (Important)
 

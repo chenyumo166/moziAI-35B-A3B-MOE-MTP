@@ -42,7 +42,7 @@ pipeline_tag: text-generation
 
 
 
-Nederlands | [English](README.en.md) | [中文](README.md)
+[English](README.en.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | Nederlands | [Italiano](README.it.md) | [Русский](README.ru.md)
 
 
 
@@ -50,7 +50,7 @@ Nederlands | [English](README.en.md) | [中文](README.md)
 
 
 
-MoziAI-35B-A3B-MOE is een lokaal open-source financieel AI multimodaal LLM (ondersteunt visie en tool calling) ontwikkeld door het team van de Chinese financiële invloedspersoon Chen Yumo, fijn-afgestemd/gedistilleerd vanuit het Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** architectuur, MIT-licentie) basismodel. Door middel van de zelf ontwikkelde **MoziSmartBit Intelligente Kwantisatie**-techniek wordt het 35B-parameter MoE-model gecomprimeerd tot ongeveer **15,5 GB**, waarbij een optimaal evenwicht tussen precisie en grootte wordt bereikt met verliesvrije ~99% precisiekwaliteit.
+MoziAI-35B-A3B-MOE is een lokaal open-source financieel AI multimodaal LLM (ondersteunt visie en tool calling) ontwikkeld door het team van de Chinese financiële invloedspersoon Chen Yumo, fijn-afgestemd/gedistilleerd vanuit het Ornith-1.0-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** architectuur, MIT-licentie) basismodel. Door middel van de zelf ontwikkelde **MoziSmartBit Intelligente Kwantisatie**-techniek wordt het 35B-parameter MoE-model gecomprimeerd tot ongeveer **15,5 GB**, waarbij een optimaal evenwicht tussen precisie en grootte wordt bereikt met verliesvrije ~99% precisiekwaliteit.
 
 
 
@@ -102,7 +102,7 @@ Ondersteunt llama.cpp, Ollama, LM Studio en andere mainstream inferentieframewor
 
 
 
-Dit model erft de **Uncensored**-functie van het Ornith-1.5-35B-A3B basismodel, met de volgende voordelen:
+Dit model erft de **Uncensored**-functie van het Ornith-1.0-35B-A3B basismodel, met de volgende voordelen:
 
 
 
@@ -154,7 +154,7 @@ Dit model erft de **Uncensored**-functie van het Ornith-1.5-35B-A3B basismodel, 
 
 |------|-------------|
 
-| Basismodel | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT-licentie) |
+| Basismodel | Ornith-1.0-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT-licentie) |
 
 | Parameters | 35B MoE (256 gerouteerde experts + 1 gedeelde expert, 8 actief per token) |
 
@@ -288,7 +288,7 @@ Gebaseerd op lokale productieconfiguratie (AMD Radeon AI PRO R9700 32GB):
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
 
@@ -408,7 +408,7 @@ Aangezien de GPU-configuraties van gebruikers sterk uiteenlopen, volgen hier aan
 
 # Maak Modelfile aan
 
-FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf
 
 
 
@@ -446,35 +446,33 @@ Zoek `moziAI-35B` in LM Studio of Jan, download de MoziSmartBit-kwantversie.
 
 
 
-MoziAI is fijn-afgestemd vanuit **deepreinforce-ai/Ornith-1.5-35B-A3B**. MoziAI is geoptimaliseerd voor financiële vertaaldomeinen bovenop het basismodel en levert uitstekende prestaties in financiële Q&A, kwantitatieve programmering en tool calling-scenario's. MoziAI-35B algemene mogelijkheden komen overeen met het Ornith-1.5-35B-A3B basismodel.
+MoziAI is fijn-afgestemd vanuit **deepreinforce-ai/Ornith-1.0-35B-A3B**. MoziAI is geoptimaliseerd voor financiële vertaaldomeinen bovenop het basismodel en levert uitstekende prestaties in financiële Q&A, kwantitatieve programmering en tool calling-scenario's. MoziAI-35B algemene mogelijkheden komen overeen met het Ornith-1.0-35B-A3B basismodel.
 
 
 
-| Benchmark | MoziAI-35B (dit model) | Qwen3.6-27B | Gemma4-31B | Gemma4-26B | Qwen3.5-35B | Beschrijving |
-
-|-----------|----------------------|-------------|------------|------------|-------------|-------------|
-
-| Terminal-Bench 2.1 | 64,2 | 59,3 | 42,1 | - | 41,4 | Autonome terminal-coding |
-
-| Terminal-Bench (Claude Code) | 62,8 | 59,3 | - | - | 38,9 | Claude Code-coding |
-
-| SWE-bench Verified | 75,6 | 77,2 | 52,0 | - | 70,0 | Software engineering in de praktijk |
-
-| SWE-bench Pro | 50,4 | 53,5 | 35,7 | - | 44,6 | Complexe software engineering |
-
-| SWE-bench Multilingual | 69,3 | 71,3 | - | - | 60,3 | Meertalige codering |
-
-| NL2Repo | 34,6 | 36,2 | 15,5 | - | 20,5 | Natuurlijke taal naar repository |
-
-| LiveCodeBench v6 | 63,3 | 83,9 | 80,0 | 77,1 | - | Competitief programmeren |
-
-| GPQA Diamond | 88,4 | 87,8 | 84,3 | 82,3 | - | Wetenschappelijk redeneren |
-
-| AIME 2026 Math | 93,3 | 94,1 | 89,2 | 88,3 | - | Wiskundig redeneren |
-
-
-
-> MoziAI-35B algemene benchmarkscores komen overeen met het Ornith-1.5-35B-A3B basismodel. Het financiële vertaaldomein is de kernoptimalisatierichting van MoziAI, met aanzienlijk betere prestaties dan algemene modellen in scenario's zoals financiële rapportanalyse, kwantitatieve strategie, risico & compliance en agent-tool calling. Gemma4- en Qwen3.6-gegevens afkomstig van officiële openbare resultaten.
+| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+|---|---|---|---|---|---|---|
+| **Programmeren** |  |  |  |  |  |  |
+| Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
+| Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
+| SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
+| SWE-bench Pro | 59.6 | 50.4 | 49.5 | 35.7 | 51.2 | 51.6 |
+| SWE-bench Multilingual | 71.4 | 69.3 | 67.2 | 51.7 | - | 69.3 |
+| DeepSWE | 22 | 0 | 0 | - | - | 1 |
+| Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
+| NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
+| SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
+| **Redeneren** |  |  |  |  |  |  |
+| HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
+| HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
+| GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
+| **Agentisch** |  |  |  |  |  |  |
+| MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
+| Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
+| WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
+| BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
+| ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
+> MoziAI-35B algemene benchmarkscores komen overeen met het Ornith-1.0-35B-A3B basismodel. Het financiële vertaaldomein is de kernoptimalisatierichting van MoziAI, met aanzienlijk betere prestaties dan algemene modellen in scenario's zoals financiële rapportanalyse, kwantitatieve strategie, risico & compliance en agent-tool calling. Gemma4- en Qwen3.6-gegevens afkomstig van officiële openbare resultaten.
 
 
 
@@ -524,7 +522,7 @@ Dit model ondersteunt multimodale visie. Het **visieprojectiebestand (mmproj)** 
 
 ```bash
 
-llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 
@@ -552,7 +550,7 @@ Download alle bestanden onder de V3.7-map van HuggingFace / ModelScope:
 
 V3.7/
 
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # Hoofdmodel (vereist)
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf      # Hoofdmodel (vereist)
 
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Visieprojectie (optioneel)
 
@@ -578,7 +576,7 @@ Minimale start (alleen kerndata):
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
@@ -620,7 +618,7 @@ moziAI-35B/
 
 ├── RELEASE_NOTES.md                       # Releasenotities
 
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # Hoofdmodel
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf    # Hoofdmodel
 
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Visieprojectie
 
@@ -638,7 +636,7 @@ Voor het toekomstige upgradeplan, zie [未来升级计划.md](未来升级计划
 
 
 
-financieel AI LLM, lokaal open-source model, eindapparaatmodel, kwant programmering, MoziSmartBit, intelligente kwantisatie, GGUF kwantisatie, MoE-model, lokaal open-source LLM, lokale deployment, financieel AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, geen censuur, vrije output, onbeperkt, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.5-35B-A3B, Qwen3.5, Qwen3.6, financieel vertaaldomein, open-source model
+financieel AI LLM, lokaal open-source model, eindapparaatmodel, kwant programmering, MoziSmartBit, intelligente kwantisatie, GGUF kwantisatie, MoE-model, lokaal open-source LLM, lokale deployment, financieel AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, geen censuur, vrije output, onbeperkt, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.0-35B-A3B, Qwen3.5, Qwen3.6, financieel vertaaldomein, open-source model
 
 
 
@@ -707,4 +705,3 @@ Geleverd "zoals het is" zonder garantie. Modeloutput is uitsluitend ter referent
 
 
 Copyright (c) 2026 Chen Yumo / chenyumo166. Alle rechten voorbehouden.
-

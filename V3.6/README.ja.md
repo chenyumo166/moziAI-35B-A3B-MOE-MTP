@@ -19,7 +19,7 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# MoziAI-35B-V3.6-A3B-MOE-MTP-Uncensored - 無料でローカル展開可能なコンパクトで高性能なマルチモーダルAIモデル
+# moziAI-13.7-35B-A3B-A3B-MOE-MTP-Uncensored - 無料でローカル展開可能なコンパクトで高性能なマルチモーダルAIモデル
 
 Language / 言語選択  
 [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
@@ -398,25 +398,30 @@ LM Studio または Jan で `moziAI-35B` を直接検索し、量子化バージ
 
 ## ベンチマーク評価
 
-MoziAI-35B-V3.6 は **Ornith-1.0-35B**（deepreinforce-ai）をベースにファインチューニングされています。MoziAI は、ベースモデルの優れたエージェントコーディング能力に加え、**金融垂直分野の深度ある最適化**を新たに実装し、金融Q&A、定量プログラミング、ツール呼び出しなどのシーンでより優れたパフォーマンスを発揮します。汎用的な能力は Ornith-1.0-35B ベースモデルと同じです。
+moziAI-13.7-35B-A3B は **Ornith-1.0-35B**（deepreinforce-ai）をベースにファインチューニングされています。MoziAI は、ベースモデルの優れたエージェントコーディング能力に加え、**金融垂直分野の深度ある最適化**を新たに実装し、金融Q&A、定量プログラミング、ツール呼び出しなどのシーンでより優れたパフォーマンスを発揮します。汎用的な能力は Ornith-1.0-35B ベースモデルと同じです。
 
-| ベンチマーク/Benchmark                         | MoziAI-35B-V3.6（本モデル） | Qwen3.5-35B | Qwen3.6-35B | Gemma4-31B | Qwen3.5-397B | 説明             |
-| -------------------------------- | ------------------------- | ----------- | ----------- | ---------- | ------------ | ---------------- |
-| **エージェントコーディング**                   |                           |             |             |            |              |                  |
-| Terminal-Bench 2.1 (Terminus-2)  | 64.2                      | 41.4        | 52.5        | 42.1       | 53.5         |                  |
-| Terminal-Bench 2.1 (Claude Code) | 62.8                      | 38.9        | 49.2        | -          | 48.6         |                  |
-| SWE-bench Verified               | 75.6                      | 70          | 73.4        | 52         | 76.4         |                  |
-| SWE-bench Pro                    | 50.4                      | 44.6        | 49.5        | 35.7       | 51.6         |                  |
-| SWE-bench Multilingual           | 69.3                      | 60.3        | 67.2        | 51.7       | 69.3         |                  |
-| NL2Repo                          | 34.6                      | 20.5        | 29.4        | 15.5       | 36.8         |                  |
-| Claw-eval Avg                    | 69.8                      | 65.4        | 68.7        | 48.5       | 70.7         |                  |
-| SWE Atlas - QnA                  | 37.1                      | 13.2        | 15.5        | -          | 20.4         |                  |
-| SWE Atlas - RF                   | 29.7                      | 10.2        | 11.4        | -          | 18.4         |                  |
-| SWE Atlas - TW                   | 27.8                      | 9.8         | 13.3        | -          | 18.5         |                  |
-| LiveCodeBench v6                 | -                         | -           | 83.9        | 80.0       | -            |                  |
-| GPQA Diamond                     | -                         | -           | 87.8        | 84.3       | -            |                  |
-| AIME 2026 数学                   | -                         | -           | 94.1        | 89.2       | -            |                  |
-
+| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+|---|---|---|---|---|---|---|
+| **コーディング** |  |  |  |  |  |  |
+| Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
+| Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
+| SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
+| SWE-bench Pro | 59.6 | 50.4 | 49.5 | 35.7 | 51.2 | 51.6 |
+| SWE-bench Multilingual | 71.4 | 69.3 | 67.2 | 51.7 | - | 69.3 |
+| DeepSWE | 22 | 0 | 0 | - | - | 1 |
+| Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
+| NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
+| SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
+| **推論** |  |  |  |  |  |  |
+| HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
+| HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
+| GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
+| **エージェント** |  |  |  |  |  |  |
+| MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
+| Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
+| WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
+| BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
+| ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
 \* **Terminal-Bench 2.1 (Terminus-2)**：Harbor/Terminus-2 フレームワークを使用して評価。設定 `parser=json`、`temperature=1.0`、`top_p=1.0`、128K コンテキストウィンドウ。実行ごとに 4 時間のタイムアウト、32 コア 48GB メモリ、結果は 5 回の平均値。  
 \* **Terminal-Bench 2.1 (Claude Code)**：Claude Code 2.1.126 を使用して評価。設定 `parser=json`、`temperature=1.0`、`top_p=1.0`、`max_new_tokens=131072`。結果は 5 回の平均値。  
 \* **SWE-bench Verified, Pro and Multilingual**：OpenHands フレームワークを使用して評価。設定 `temp=1.0`、`top_p=0.95`、256K コンテキストウィンドウ。  
