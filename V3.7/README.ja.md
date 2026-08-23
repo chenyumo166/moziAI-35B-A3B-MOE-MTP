@@ -50,7 +50,7 @@ pipeline_tag: text-generation
 
 
 
-MoziAI-35B-A3B-MOEは、中国の金融インフルエンサー陳雨墨（Chen Yumo）のチームが開発した、ローカルオープンソース金融AIマルチモーダルLLM（visionおよびtool callingをサポート）です。Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** アーキテクチャ、MITライセンス）ベースモデルからファインチューニング/蒸留されています。自社開発の**MoziSmartBit Intelligent Quantization**技術により、5BパラメータのMoEモデルを実*15.5 GB**に圧縮し、ほぼロスレスなど9%の精度品質を維持しながら、精度とサイズの最適バランスを実現しています。
+MoziAI-35B-A3B-MOEは、中国の金融インフルエンサー陳雨墨（Chen Yumo）のチームが開発した、ローカルオープンソース金融AIマルチモーダルLLM（visionおよびtool callingをサポート）です。Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** アーキテクチャ、MITライセンス）ベースモデルからファインチューニング/蒸留されています。自社開発の**MoziSmartBit Intelligent Quantization**技術により、5BパラメータのMoEモデルを実*15.5 GB**に圧縮し、ほぼロスレスなど9%の精度品質を維持しながら、精度とサイズの最適バランスを実現しています。
 
 
 
@@ -102,24 +102,16 @@ llama.cpp、Ollama、LM Studioなど、主要な推論フレームワークを�
 
 
 
-このモデルはOrnith-1.0-35B-A3Bベースモデルから**Uncensored**機能を継承しており、以下の利点があります：
+このモデルはOrnith-1.5-35B-A3Bベースモデルから**Uncensored**機能を継承しており、以下の利点があります：
 
 
 
 | 利点 | 説明 |
-
 |------|------|
-
 | **検閲なし** | 感惹的または議論の的となるコンテンツを含め、あらゆるトピックを拒否しなど|
-
 | **自由な出し* | 安全ポリシーの制限を受けず、あらゆるタイプの応答を生成可能 |
-
 | **完全な情報* | フィルタリングされていない完全な情報を提供し、研究・分析に適している |
-
 | **ローカルプライバシー** | ローカルデプロイにより、データは完全にプライベートでクラウド検閲の影響を受けなど|
-
-
-
 > **ユースケース**: 学術研究、深層分析、自由な議論、制限のないAI会話フ
 
 > **注意**: これはローカルデプロイされたモデルであり、出力コンテンツはユーザーが完全に管理します。コンテンツモデレーションの責任はありません。
@@ -131,71 +123,39 @@ llama.cpp、Ollama、LM Studioなど、主要な推論フレームワークを�
 
 
 | 能力分野 | 説明 |
-
 |----------|------|
-
 | 市場分析 | マクトミクロ経済解説、A/香港/米国語商品/暗号通貨市場のロジット|
-
 | 財務報告 | 主要財務指標の解標の解説、リサーチレポートの要約、バリュエーション＆業績予測のサポーマ|
-
 | リスク＆コンプライアンス | 製品リスク評価、投資助言のコンプライアンス、金融規制ポリシーの解説 |
-
 | クオンツ＆戦略| クオンツ戦略設計、Pyramid（PEL）クオンツ化、バックテストロジック、ファクター構築およびtool calling |
-
 | Tool Calling | リアルタイム配信、データベース、リサーチレポート検索などの金融データソースとの統合 |
-
-
-
 ## 技術仕様
 
 
 
 | 項目 | 仕様 |
-
 |------|------|
-
-| ベースモデル | Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**、MITライセンス） |
-
+| ベースモデル | Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**、MITライセンス） |
 | パラメータ数 | 35B MoE（256個のルーティングエキスパート + 1個の共有エキスパート、トークンあたり8個がアクティブ） |
-
 | 量子化| 自社開発MoziSmartBit Intelligent Quantization + GGUF標準フォーマット |
-
 | コンテキストを| 256K（262,144トークンテ|
-
 | モデルサイズ | 約15.5 GB（MoziSmartBit Uncensored版） |
-
 | 最小VRAM | 20GB以上のVRAMを持つコンシューマGPU（例：RTX 4060 Ti 16G + CPUオフロード）を4 GB推奨（vision + 長コンテキスト使用時に|
-
 | 推論フレームワーマ| llama.cpp / Ollama / LM Studio / Jan |
-
 | 推論速度 | アルゴリズム最適化：AMD R9700 GPUで140+ token/s、AMD MAX+395 CPU iGPUで70+ token/s、ローカルトークン自開|
-
 | 開発チーマ| 陳雨墨チーム |
-
-
-
 ## 量子化フォーマット＆モデルサイズ比較
 
 
 
 | 量子化フォーマット| モデルサイズ | 精度 | 備考|
-
 |-------------------|-------------|------|------|
-
 | **FP16（オリジナルの* | 約70 GB | 100% | オリジナル6bit |
-
 | **MoziSmartBit** | **約15.5 GB** | **約99%** | **MoziAIが採用、最適な量子化スキーマ* |
-
 | Q4_K_M | 約22 GB | 約98% | GGUF標準4bit |
-
 | Q5_K_M | 約24.7 GB | 約99% | 高品質|
-
 | Q6_K | 約18.5 GB | 約99.5% | 近似ロスレス |
-
 | Q8_0 | 約16.9 GB | 約100% | ロスレス |
-
-
-
 > MoziAI V3.7はMoziSmartBit Intelligent Quantizationを採用し、約99%の精度を維持しながら35BパラメータのMoEモデルを実5.5 GB（約4.5倍の圧縮率）に圧縮し、推論品質とコンシューマGPU向けデプロイ可能性のバランスを実現しています。
 
 
@@ -245,41 +205,22 @@ llama.cpp、Ollama、LM Studioなど、主要な推論フレームワークを�
 
 
 | パラメータ | 値 | 説明 |
-
 |-----------|-----|------|
-
 | temperature | 0.6 | 創造性と正確性のバランス |
-
 | top_p | 0.95 | ニュークルサムプリングしきいま|
-
 | top_k | 20 | トランケーションサプリング（V3.7最適化ソ|
-
 | repeat_penalty | 1.05 | 繰り返しペナルテキ|
-
 | presence_penalty | 0 | presenceペナルティなど|
-
 | context_length | 262144 | 256K長コンテキスト|
-
 | batch_size | 2048 | バッチサイズ |
-
 | ubatch_size | 512 | マイクロバッチサイズ |
-
 | flash_attention | auto | 自動Flash Attention |
-
 | kv_cache | q4_0 | KVキャッシュ量子化（kv-unified）|
-
 | poll | 0 | アイドル時GPUポーリングなし、省エネ |
-
 | reasoning | on | 推論チェーン（chain of thought）を有効果|
-
 | reasoning_budget | 400 | 推論予算（トークン数の|
-
 | reasoning_format | deepseek-legacy | 推論フォーマット |
-
 | samplers | top_k;top_p;min_p;temperature;dry;typ_p | サンプラー順序|
-
-
-
 ### llama.cpp起動コマンド
 
 
@@ -288,7 +229,7 @@ llama.cpp、Ollama、LM Studioなど、主要な推論フレームワークを�
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
 
@@ -321,77 +262,44 @@ llama-server \
 
 
 | VRAM | 推奨コンテキスト | KVキャッショ| Visionサポート | 備考|
-
 |------|-----------------|-------------|---------------|------|
-
 | 20 GB | 150K | q4_0 | サポートあり | モデルvision 約16.4GB、実測で200K+vision使用時のVRAM消費は約19.5GB |
-
 | 24 GB | 256Kフル | q4_0 | 完全サポート | Vision+256K長コンテキスト、VRAM消費約20.4GB、ヘッドルーム約3.6GB |
-
 | 32 GB+ | 256Kフル | q4_0 | 完全サポート | Vision+256K長コンテキスト、十分なヘッドルームワ0GB、最適構成|
-
-
-
 **NVIDIA**
 
 
 
 | VRAM | GPUモデル|
-
 |------|-----------|
-
 | 24 GB | RTX 4090 / RTX 3090 Ti |
-
 | 32 GB | RTX 5090 |
-
-
-
 **AMD**
 
 
 
 | VRAM | GPUモデル|
-
 |------|-----------|
-
 | 20 GB | RX 7900 XT |
-
 | 24 GB | RX 7900 XTX |
-
 | 32 GB | Radeon AI PRO R9700 |
-
-
-
 **Intel**
 
 
 
 | VRAM | GPUモデル|
-
 |------|-----------|
-
 | 32 GB | Arc Pro B70 / Arc Pro B65 |
-
 | 24 GB | Arc Pro B60 |
-
 | 16 GB | Arc Pro B50（CPUオフロードが必要な|
-
-
-
 **共有メモリiGPU**
 
 
 
 | VRAM | プロセット|
-
 |------|-----------|
-
 | 128 GB | AMD Ryzen AI Max+ 395（Radeon 8060S iGPU）|
-
 | 128 GB | NVIDIA RTX Spark（Blackwell RTX GPU）|
-
-
-
 > 💡 **ヒンテ*: 上記のVRAM要件を満たしていれば動作します。ブランドやモデルの制限はありません。NVIDIA / AMD / IntelのディスクリートGPU、および上記の28GB統合メモリiGPUをサポートしています。
 
 
@@ -408,7 +316,7 @@ llama-server \
 
 # Modelfileを作成
 
-FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
 
 
 
@@ -446,7 +354,7 @@ LM StudioまたはJanで`moziAI-35B`を検索し、MoziSmartBit量子化版を�
 
 
 
-MoziAIは**deepreinforce-ai/Ornith-1.0-35B-A3B**からファインチューニングされています。MoziAIはベースモデルの上で金融垂直ドメインの最適化が施されており、金融Q&A、クオンツプログラミング、tool callingシナリオにおいて優れた性能を発揮します。MoziAI-35Bの汎用能力はOrnith-1.0-35B-A3Bベースモデルと一致しています。
+MoziAIは**deepreinforce-ai/Ornith-1.5-35B-A3B**からファインチューニングされています。MoziAIはベースモデルの上で金融垂直ドメインの最適化が施されており、金融Q&A、クオンツプログラミング、tool callingシナリオにおいて優れた性能を発揮します。MoziAI-35Bの汎用能力はOrnith-1.5-35B-A3Bベースモデルと一致しています。
 
 
 
@@ -472,7 +380,7 @@ MoziAIは**deepreinforce-ai/Ornith-1.0-35B-A3B**からファインチューニ�
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
 | BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
 | ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
-> MoziAI-35Bの汎用ベンチマークスコアはOrnith-1.0-35B-A3Bベースモデルと一致しています。金融垂直ドメインはMoziAIのコア最適化方向であり、財務報告分析、クオンツ戦略、リスク＆コンプライアンス、エージェントtool callingなどのシナリオで汎用モデルを大幅に上回ります。Gemma4およびQwen3.6のデータは公式公開結果からの引用です。
+> MoziAI-35Bの汎用ベンチマークスコアはOrnith-1.5-35B-A3Bベースモデルと一致しています。金融垂直ドメインはMoziAIのコア最適化方向であり、財務報告分析、クオンツ戦略、リスク＆コンプライアンス、エージェントtool callingなどのシナリオで汎用モデルを大幅に上回ります。Gemma4およびQwen3.6のデータは公式公開結果からの引用です。
 
 
 
@@ -485,19 +393,10 @@ MoziAIは**deepreinforce-ai/Ornith-1.0-35B-A3B**からファインチューニ�
 
 
 | プラットフォーム | URL |
-
 |----------------|-----|
-
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
-
-
-
-
 > 💡 **LM Studio ユーザー**：[LM Studio](https://lmstudio.ai) で`moziAI` を検索し、ワンクリックでダウンロードできます。
 
 > 💡 **ダウンロードのヒンテ*: 上記リンクをクリックしてHuggingFaceリポジトリに移動して*「Files and versions）**タブでV3.7ディレクトリ配下のすべてのファイルをダウンロードしてください（メインモデル、vision射影、チャットテンプレート）をつのファイルすべてを同じディレクトリに配置してくださいま
@@ -522,7 +421,7 @@ MoziAIは**deepreinforce-ai/Ornith-1.0-35B-A3B**からファインチューニ�
 
 ```bash
 
-llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
+llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
 
@@ -550,7 +449,7 @@ HuggingFace / ModelScopeからV3.7ディレクトリ配下のすべてのファ�
 
 V3.7/
 
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf      # メインモデル（必須）
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # メインモデル（必須）
 
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision射影（オプションテ
 
@@ -576,7 +475,7 @@ V3.7/
 
 llama-server \
 
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
@@ -618,7 +517,7 @@ moziAI-35B/
 
 ├── RELEASE_NOTES.md                       # リリースノーマ
 
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf    # メインモデル
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # メインモデル
 
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision射影
 
@@ -636,7 +535,7 @@ moziAI-35B/
 
 
 
-financial AI LLM, ローカルオープンソースモデル, エッジサイドモデル クオンツプログラミンテ MoziSmartBit, インテリジェント量子化 GGUF量子化 MoEモデル ローカルオープンソースLLM, ローカルデプロイ, 金融AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, 検閲なし, 自由出力, 制限なし, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.0-35B-A3B, Qwen3.5, Qwen3.6, 金融垂直ドメイン, オープンソースモデル
+financial AI LLM, ローカルオープンソースモデル, エッジサイドモデル クオンツプログラミンテ MoziSmartBit, インテリジェント量子化 GGUF量子化 MoEモデル ローカルオープンソースLLM, ローカルデプロイ, 金融AI, tool calling, Agent, llama.cpp, Ollama, GGUF, Uncensored, 検閲なし, 自由出力, 制限なし, Q3_K_M, Q4_K_M, Q5_K_M, Q6_K, Q8_0, Ornith-1.5-35B-A3B, Qwen3.5, Qwen3.6, 金融垂直ドメイン, オープンソースモデル
 
 
 

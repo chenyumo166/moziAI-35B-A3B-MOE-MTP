@@ -43,7 +43,6 @@ Da die Modelldatei relativ groß ist (~15,5 GB), werden die Modellgewichte auf m
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 > 💡 **LM Studio Benutzer**: Suchen Sie direkt in [LM Studio](https://lmstudio.ai) nach `moziAI` und laden Sie es mit einem Klick herunter – kein manueller Dateidownload erforderlich.  
 > 💡 **Download-Hinweis**: Klicken Sie auf den obigen Link, um zum HuggingFace-Repository zu gelangen. Laden Sie im Tab **"Files and versions"** alle Dateien aus dem V3.6-Verzeichnis herunter (Hauptmodell, visuelle Projektion, Chat-Vorlage) und stellen Sie sicher, dass sich alle drei Dateien im selben Verzeichnis befinden.
 
@@ -288,7 +287,6 @@ Dieses Modell erbt die Uncensored-Eigenschaft des Basismodells Ornith-1.0-35B-A3
 | Q5_K_M | ~24,7 GB | ~99% | Höhere Genauigkeit |
 | Q6_K | ~28,5 GB | ~99,5% | Fast verlustfrei |
 | Q8_0 | ~36,9 GB | ~100% | Verlustfrei |
-
 > MoziAI V3.6 verwendet die MoziSmartBit Intelligente Quantisierungslösung. Bei Erhaltung von ~99% Genauigkeit wird das MoE-Modell mit 35 Milliarden Parametern auf ca. 15,5 GB komprimiert, mit einem Kompressionsverhältnis von ~4,5x. Es vereint Inferenzqualität und Bereitstellungshürde und eignet sich besser für lokale Bereitstellung auf Consumer-Grafikkarten.
 
 ## MoziSmartBit Intelligente Quantisierungstechnologie
@@ -330,7 +328,6 @@ Basierend auf lokaler Laufzeitkonfiguration (AMD Radeon AI PRO R9700 32GB) sind 
 | reasoning_budget | 400 | Anzahl der Inferenzbudget-Token |
 | reasoning_format | deepseek-legacy | Inferenzformat |
 | samplers | top_k;top_p;temperature;typ_p | Sampler-Reihenfolge |
-
 ### Empfehlungen für verschiedene VRAM-Konfigurationen
 
 Da sich die Grafikkartenkonfigurationen der Benutzer stark unterscheiden, finden Sie hier empfohlene Parameter für verschiedene VRAM-Größen (alle für die MoziSmartBit-Version):
@@ -340,14 +337,12 @@ Da sich die Grafikkartenkonfigurationen der Benutzer stark unterscheiden, finden
 | 20 GB | 128K | q4_0 | Unterstützt | Modell + Bild insgesamt ~16,4 GB, Praxistest: 128K + Bild belegen nur ~19,5 GB VRAM |
 | 24 GB | 256K Vollausstattung | q4_0 | Perfekt unterstützt | Bild + 256K langer Kontext, nur ~20,4 GB VRAM, ~3,6 GB VRAM-Reserve |
 | 32 GB+ | 256K Vollausstattung | q4_0 | Perfekt unterstützt | Bild + 256K langer Kontext, ausreichend VRAM-Reserve ~10 GB, stärkste Konfiguration |
-
 **NVIDIA-Grafikkarten Referenztabelle**
 
 | VRAM | Grafikkartenmodell |
 | ----- | ---------------------- |
 | 24 GB | RTX 4090 / RTX 3090 Ti |
 | 32 GB | RTX 5090 |
-
 **AMD-Grafikkarten Referenztabelle**
 
 | VRAM | Grafikkartenmodell |
@@ -355,7 +350,6 @@ Da sich die Grafikkartenkonfigurationen der Benutzer stark unterscheiden, finden
 | 20 GB | RX 7900 XT |
 | 24 GB | RX 7900 XTX |
 | 32 GB | Radeon AI PRO R9700 |
-
 **Intel-Grafikkarten Referenztabelle**
 
 | VRAM | Grafikkartenmodell |
@@ -363,14 +357,12 @@ Da sich die Grafikkartenkonfigurationen der Benutzer stark unterscheiden, finden
 | 32 GB | Arc Pro B70 / Arc Pro B65 |
 | 24 GB | Arc Pro B60 |
 | 16 GB | Arc Pro B50 (erfordert CPU-Offloading) |
-
 **Integrierte Grafik mit gemeinsamem CPU-Speicher Referenztabelle**
 
 | VRAM | Prozessormodell |
 | ------ | -------------------------------------- |
 | 128 GB | AMD Ryzen AI Max+ 395 (Radeon 8060S integrierte Grafik) |
 | 128 GB | NVIDIA RTX Spark (Blackwell RTX GPU) |
-
 > 💡 **Hinweis**: Solange der VRAM die oben genannten Anforderungen erfüllt, kann es verwendet werden – keine Beschränkung auf Marke oder Modell. Unterstützt NVIDIA / AMD / Intel dedizierte Grafikkarten sowie integrierte Grafik/CPU mit 128 GB einheitlichem Speicher.
 >
 > 💡 **Hinweis**: Je länger der Kontext, desto mehr VRAM wird belegt. Wenn der VRAM nicht ausreicht (OOM), reduzieren Sie schrittweise den Wert des Parameters `-c`. Mit dem Parameter `--fit on` kann llama.cpp die Anzahl der Schichten automatisch an den VRAM anpassen.
@@ -422,10 +414,10 @@ moziAI-13.7-35B-A3B basiert auf dem **Ornith-1.0-35B** (deepreinforce-ai)-Basism
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
 | BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
 | ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
-\* **Terminal-Bench 2.1 (Terminus-2)**: Bewertet mit dem Harbor/Terminus-2-Framework, Konfiguration `parser=json`, `temperature=1.0`, `top_p=1.0`, 128K-Kontextfenster. Jeder Lauf hat ein Timeout von 4 Stunden, 32 Kerne, 48 GB RAM, Ergebnis ist der Durchschnitt von 5 Läufen.  
-\* **Terminal-Bench 2.1 (Claude Code)**: Bewertet mit Claude Code 2.1.126, Konfiguration `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Ergebnis ist der Durchschnitt von 5 Läufen.  
-\* **SWE-bench Verified, Pro und Multilingual**: Bewertet mit dem OpenHands-Framework, Konfiguration `temp=1.0`, `top_p=0.95`, 256K-Kontextfenster.  
-\* **NL2Repo**: Konfiguration `temperature=1.0`, `top_p=1.0`, 400K-Kontext, 48K-Ausgabe.  
+**Terminal-Bench 2.1 (Terminus-2)**: Bewertet mit dem Harbor/Terminus-2-Framework, Konfiguration `parser=json`, `temperature=1.0`, `top_p=1.0`, 128K-Kontextfenster. Jeder Lauf hat ein Timeout von 4 Stunden, 32 Kerne, 48 GB RAM, Ergebnis ist der Durchschnitt von 5 Läufen.  
+**Terminal-Bench 2.1 (Claude Code)**: Bewertet mit Claude Code 2.1.126, Konfiguration `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Ergebnis ist der Durchschnitt von 5 Läufen.  
+**SWE-bench Verified, Pro und Multilingual**: Bewertet mit dem OpenHands-Framework, Konfiguration `temp=1.0`, `top_p=0.95`, 256K-Kontextfenster.  
+**NL2Repo**: Konfiguration `temperature=1.0`, `top_p=1.0`, 400K-Kontext, 48K-Ausgabe.  
 
 > MoziAI-35B erbt vollständig die exzellenten Agent-Coding-Fähigkeiten von Ornith-1.0-35B. Der Kernunterschied von MoziAI liegt in der **tiefen Optimierung im Finanzbereich**. In Szenarien wie Finanzberichtsanalyse, quantitativen Strategien, Risikomanagement & Compliance und Agent-Tool-Aufrufen ist die Leistung deutlich besser als bei allgemeinen Modellen.
 

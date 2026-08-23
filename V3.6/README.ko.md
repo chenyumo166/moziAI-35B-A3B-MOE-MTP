@@ -43,7 +43,6 @@ MoziAI-35B-A3B-MOE는 중국의 금융 분야 인플루언서 천위모(陳雨�
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 > 💡 **LM Studio 사용자**：[LM Studio](https://lmstudio.ai)에서 `moziAI`를 직접 검색하여 원클릭으로 다운로드할 수 있습니다. 수동으로 파일을 다운로드할 필요가 없습니다.  
 > 💡 **다운로드 팁**：위 링크를 클릭해 HuggingFace 리포지토리로 이동한 후 **"Files and versions"** 탭에서 V3.6 디렉토리 내 모든 파일(메인 모델, 시각 프로젝션, 채팅 템플릿)을 다운로드하세요. 세 파일이 같은 디렉토리에 위치하도록 하십시오.
 
@@ -288,7 +287,6 @@ moziAI-35B/
 | Q5_K_M | ~24.7 GB | ~99% | 더 높은 정밀도 |
 | Q6_K | ~28.5 GB | ~99.5% | 거의 무손실 |
 | Q8_0 | ~36.9 GB | ~100% | 무손실 |
-
 > MoziAI V3.6은 MoziSmartBit 인텔리전트 양자화 솔루션을 채택하여 약 99%의 정밀도를 유지하면서 350억 파라미터의 MoE 모델을 약 15.5 GB로 압축, 압축비 약 4.5x로 추론 품질과 배포 장벽의 균형을 맞춰 소비자용 그래픽카드 로컬 배포에 더 적합합니다.
 
 ## MoziSmartBit 인텔리전트 양자화 기술
@@ -330,7 +328,6 @@ moziAI-35B/
 | reasoning_budget | 400 | 추론 예산 토큰 수 |
 | reasoning_format | deepseek-legacy | 추론 형식 |
 | samplers | top_k;top_p;temperature;typ_p | 샘플러 순서 |
-
 ### 다른 VRAM 구성 권장
 
 사용자 그래픽카드 구성이 다양하므로, 아래에 다른 VRAM에서의 권장 파라미터를 제시합니다（모두 MoziSmartBit 버전）：
@@ -340,14 +337,12 @@ moziAI-35B/
 | 20 GB | 128K | q4_0 | 지원 | 모델+시각 합쳐 ~16.4GB, 실측 128K+시각에 VRAM ~19.5GB만 사용 |
 | 24 GB | 256K 풀설정 | q4_0 | 완벽 지원 | 시각+256K장문 컨텍스트, VRAM ~20.4GB 사용, 여유 ~3.6GB |
 | 32 GB+ | 256K 풀설정 | q4_0 | 완벽 지원 | 시각+256K장문 컨텍스트, VRAM 여유 ~10GB로 충분, 최강 구성 |
-
 **NVIDIA 그래픽카드 참고표**
 
 | VRAM | 그래픽카드 모델 |
 | ----- | ---------------------- |
 | 24 GB | RTX 4090 / RTX 3090 Ti |
 | 32 GB | RTX 5090 |
-
 **AMD 그래픽카드 참고표**
 
 | VRAM | 그래픽카드 모델 |
@@ -355,7 +350,6 @@ moziAI-35B/
 | 20 GB | RX 7900 XT |
 | 24 GB | RX 7900 XTX |
 | 32 GB | Radeon AI PRO R9700 |
-
 **Intel 그래픽카드 참고표**
 
 | VRAM | 그래픽카드 모델 |
@@ -363,14 +357,12 @@ moziAI-35B/
 | 32 GB | Arc Pro B70 / Arc Pro B65 |
 | 24 GB | Arc Pro B60 |
 | 16 GB | Arc Pro B50（CPU 오프로드 병용 필요） |
-
 **CPU 공유 메모리 내장그래픽 장치 참고표**
 
 | VRAM | 프로세서 모델 |
 | ------ | -------------------------------------- |
 | 128 GB | AMD Ryzen AI Max+ 395（Radeon 8060S 내장그래픽） |
 | 128 GB | NVIDIA RTX Spark（Blackwell RTX GPU） |
-
 > 💡 **팁**：VRAM이 위 요건을 만족하면 사용 가능하며 브랜드나 모델은 상관없습니다. NVIDIA / AMD / Intel 각 브랜드의 독립 그래픽카드를 지원할 뿐 아니라 128GB 통합 메모리를 탑재한 내장그래픽/CPU도 지원합니다.
 >
 > 💡 **팁**：컨텍스트가 길수록 VRAM 사용량이 많아집니다. VRAM 부족（OOM）이 발생하면 `-c` 파라미터 값을 단계적으로 낮추십시오. `--fit on` 파라미터를 사용하면 llama.cpp가 자동으로 레이어 수를 조정해 VRAM에 적응시킵니다.
@@ -422,10 +414,10 @@ moziAI-13.7-35B-A3B은 **Ornith-1.0-35B**（deepreinforce-ai）기반으로 파�
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
 | BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
 | ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
-\* **Terminal-Bench 2.1 (Terminus-2)**：Harbor/Terminus-2 프레임워크로 평가, 설정 `parser=json`, `temperature=1.0`, `top_p=1.0`, 128K 컨텍스트 윈도우. 실행당 4시간 타임아웃, 32코어 48GB 메모리, 결과는 5회 평균.  
-\* **Terminal-Bench 2.1 (Claude Code)**：Claude Code 2.1.126으로 평가, 설정 `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. 결과는 5회 평균.  
-\* **SWE-bench Verified, Pro and Multilingual**：OpenHands 프레임워크로 평가, 설정 `temp=1.0`, `top_p=0.95`, 256K 컨텍스트 윈도우.  
-\* **NL2Repo**：설정 `temperature=1.0`, `top_p=1.0`, 400K 컨텍스트, 48K 출력.  
+**Terminal-Bench 2.1 (Terminus-2)**：Harbor/Terminus-2 프레임워크로 평가, 설정 `parser=json`, `temperature=1.0`, `top_p=1.0`, 128K 컨텍스트 윈도우. 실행당 4시간 타임아웃, 32코어 48GB 메모리, 결과는 5회 평균.  
+**Terminal-Bench 2.1 (Claude Code)**：Claude Code 2.1.126으로 평가, 설정 `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. 결과는 5회 평균.  
+**SWE-bench Verified, Pro and Multilingual**：OpenHands 프레임워크로 평가, 설정 `temp=1.0`, `top_p=0.95`, 256K 컨텍스트 윈도우.  
+**NL2Repo**：설정 `temperature=1.0`, `top_p=1.0`, 400K 컨텍스트, 48K 출력.  
 
 > MoziAI-35B는 Ornith-1.0-35B의 뛰어난 에이전트 코딩 능력을 완전히 계승하고 있습니다. MoziAI의 핵심 차별화는 **금융 수직 분야 심층 최적화**에 있으며, 재무 분석, 퀀트 전략, 리스크 관리·컴플라이언스, 에이전트 도구 호출 등 시나리오에서 범용 모델보다 성능이 현저히 우수합니다.
 

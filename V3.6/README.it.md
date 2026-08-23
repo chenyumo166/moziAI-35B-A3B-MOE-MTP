@@ -43,7 +43,6 @@ Poiché il file del modello è relativamente grande (~15,5 GB), i pesi del model
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 > 💡 **Utenti di LM Studio**: Puoi cercare direttamente `moziAI` in [LM Studio](https://lmstudio.ai) e scaricarlo con un clic – nessun download manuale di file necessario.  
 > 💡 **Suggerimento per il download**: Clicca sul link sopra per accedere alla repository HuggingFace. Nella scheda **"Files and versions"**, scarica tutti i file dalla directory V3.6 (modello principale, proiezione visiva, modello di chat) e assicurati che tutti e tre i file si trovino nella stessa directory.
 
@@ -288,7 +287,6 @@ Questo modello eredita la caratteristica Uncensored (senza censura) del modello 
 | Q5_K_M | ~24,7 GB | ~99% | Maggiore precisione |
 | Q6_K | ~28,5 GB | ~99,5% | Quasi senza perdite |
 | Q8_0 | ~36,9 GB | ~100% | Senza perdite |
-
 > MoziAI V3.6 utilizza la soluzione di quantizzazione intelligente MoziSmartBit. Mantenendo ~99% di precisione, il modello MoE da 35 miliardi di parametri viene compresso a circa 15,5 GB, con un rapporto di compressione di ~4,5x. Combina qualità di inferenza e soglia di distribuzione, ed è più adatto per la distribuzione locale su schede grafiche consumer.
 
 ## Tecnologia di quantizzazione intelligente MoziSmartBit
@@ -330,7 +328,6 @@ Basandosi sulla configurazione di esecuzione locale (AMD Radeon AI PRO R9700 32G
 | reasoning_budget | 400 | Numero di token del budget di inferenza |
 | reasoning_format | deepseek-legacy | Formato di inferenza |
 | samplers | top_k;top_p;temperature;typ_p | Ordine dei campionatori |
-
 ### Consigli per diverse configurazioni di VRAM
 
 Poiché le configurazioni delle schede grafiche degli utenti variano notevolmente, ecco i parametri consigliati per diverse dimensioni di VRAM (tutti per la versione MoziSmartBit):
@@ -340,14 +337,12 @@ Poiché le configurazioni delle schede grafiche degli utenti variano notevolment
 | 20 GB | 128K | q4_0 | Supportato | Modello + visivo totale ~16,4 GB, test pratico: 128K + visivo occupano solo ~19,5 GB di VRAM |
 | 24 GB | 256K completo | q4_0 | Perfettamente supportato | Visivo + contesto lungo 256K, occupa solo ~20,4 GB di VRAM, ~3,6 GB di riserva VRAM |
 | 32 GB+ | 256K completo | q4_0 | Perfettamente supportato | Visivo + contesto lungo 256K, riserva VRAM sufficiente ~10 GB, configurazione più potente |
-
 **Tabella di riferimento schede grafiche NVIDIA**
 
 | VRAM | Modello scheda grafica |
 | ----- | ---------------------- |
 | 24 GB | RTX 4090 / RTX 3090 Ti |
 | 32 GB | RTX 5090 |
-
 **Tabella di riferimento schede grafiche AMD**
 
 | VRAM | Modello scheda grafica |
@@ -355,7 +350,6 @@ Poiché le configurazioni delle schede grafiche degli utenti variano notevolment
 | 20 GB | RX 7900 XT |
 | 24 GB | RX 7900 XTX |
 | 32 GB | Radeon AI PRO R9700 |
-
 **Tabella di riferimento schede grafiche Intel**
 
 | VRAM | Modello scheda grafica |
@@ -363,14 +357,12 @@ Poiché le configurazioni delle schede grafiche degli utenti variano notevolment
 | 32 GB | Arc Pro B70 / Arc Pro B65 |
 | 24 GB | Arc Pro B60 |
 | 16 GB | Arc Pro B50 (richiede offloading CPU) |
-
 **Tabella di riferimento dispositivi con GPU integrata e memoria condivisa CPU**
 
 | VRAM | Modello processore |
 | ------ | -------------------------------------- |
 | 128 GB | AMD Ryzen AI Max+ 395 (GPU integrata Radeon 8060S) |
 | 128 GB | NVIDIA RTX Spark (GPU RTX Blackwell) |
-
 > 💡 **Suggerimento**: Finché la VRAM soddisfa i requisiti di cui sopra, può essere utilizzato – nessuna restrizione su marca o modello. Supporta schede grafiche dedicate NVIDIA / AMD / Intel, nonché GPU integrate / CPU con 128 GB di memoria unificata.
 >
 > 💡 **Suggerimento**: Più lungo è il contesto, più VRAM viene occupata. Se la VRAM è insufficiente (OOM), ridurre gradualmente il valore del parametro `-c`. Con il parametro `--fit on`, llama.cpp può regolare automaticamente il numero di livelli per adattarsi alla VRAM.
@@ -422,10 +414,10 @@ moziAI-13.7-35B-A3B è basato sul modello base **Ornith-1.0-35B** (deepreinforce
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
 | BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
 | ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
-\* **Terminal-Bench 2.1 (Terminus-2)**: Valutato con il framework Harbor/Terminus-2, configurazione `parser=json`, `temperature=1.0`, `top_p=1.0`, finestra di contesto 128K. Ogni esecuzione ha un timeout di 4 ore, 32 core, 48 GB di RAM, il risultato è la media di 5 esecuzioni.  
-\* **Terminal-Bench 2.1 (Claude Code)**: Valutato con Claude Code 2.1.126, configurazione `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Il risultato è la media di 5 esecuzioni.  
-\* **SWE-bench Verified, Pro e Multilingual**: Valutati con il framework OpenHands, configurazione `temp=1.0`, `top_p=0.95`, finestra di contesto 256K.  
-\* **NL2Repo**: Configurazione `temperature=1.0`, `top_p=1.0`, contesto 400K, output 48K.  
+**Terminal-Bench 2.1 (Terminus-2)**: Valutato con il framework Harbor/Terminus-2, configurazione `parser=json`, `temperature=1.0`, `top_p=1.0`, finestra di contesto 128K. Ogni esecuzione ha un timeout di 4 ore, 32 core, 48 GB di RAM, il risultato è la media di 5 esecuzioni.  
+**Terminal-Bench 2.1 (Claude Code)**: Valutato con Claude Code 2.1.126, configurazione `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Il risultato è la media di 5 esecuzioni.  
+**SWE-bench Verified, Pro e Multilingual**: Valutati con il framework OpenHands, configurazione `temp=1.0`, `top_p=0.95`, finestra di contesto 256K.  
+**NL2Repo**: Configurazione `temperature=1.0`, `top_p=1.0`, contesto 400K, output 48K.  
 
 > MoziAI-35B eredita completamente le eccellenti capacità di codifica degli agenti di Ornith-1.0-35B. La differenza chiave di MoziAI risiede nell'**ottimizzazione approfondita del settore finanziario**. In scenari come l'analisi dei rapporti finanziari, le strategie quantitative, la gestione del rischio e la conformità e le chiamate di strumenti per agenti, le prestazioni sono nettamente migliori rispetto ai modelli generali.
 

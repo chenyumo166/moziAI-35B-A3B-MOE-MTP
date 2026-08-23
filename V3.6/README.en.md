@@ -42,7 +42,6 @@ Due to the large model file size (~15.5 GB), model weights are hosted on multipl
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 > 💡 **LM Studio Users**: You can directly search for `moziAI` in [LM Studio](https://lmstudio.ai) and download with one click, no manual file download required.
 > 💡 **Download Tip**: Click the link above to enter the HuggingFace repository, and download all files in the **V3.6** directory from the **"Files and versions"** tab (main model, vision projection, chat template). Ensure all three files are placed in the same directory.
 
@@ -287,7 +286,6 @@ This model inherits the Uncensored characteristics of the Ornith-1.0-35B-A3B bas
 | Q5_K_M | ~24.7 GB | ~99% | Higher precision |
 | Q6_K | ~28.5 GB | ~99.5% | Near lossless |
 | Q8_0 | ~36.9 GB | ~100% | Lossless |
-
 > MoziAI V3.6 uses MoziSmartBit intelligent quantization, maintaining ~99% precision while compressing the 35-billion-parameter MoE model to approximately 15.5 GB, with a compression ratio of ~4.5x. This balances inference quality and deployment threshold, making it more suitable for local deployment on consumer-grade graphics cards.
 
 ## MoziSmartBit Intelligent Quantization Technology
@@ -329,7 +327,6 @@ Based on local running configuration (AMD Radeon AI PRO R9700 32GB), the recomme
 | reasoning_budget | 400 | Reasoning budget token count |
 | reasoning_format | deepseek-legacy | Reasoning format |
 | samplers | top_k;top_p;temperature;typ_p | Sampler order |
-
 ### Recommendations for Different VRAM Configurations
 
 Due to significant variations in user graphics card configurations, the following are recommended parameters for different VRAM amounts (all for the MoziSmartBit version):
@@ -339,14 +336,12 @@ Due to significant variations in user graphics card configurations, the followin
 | 20 GB | 128K | q4_0 | Supported | Model + vision total ~16.4GB, measured 128K+vision uses only ~19.5GB VRAM |
 | 24 GB | 256K Full | q4_0 | Fully Supported | Vision + 256K long context uses only ~20.4GB VRAM, with ~3.6GB VRAM remaining |
 | 32 GB+ | 256K Full | q4_0 | Fully Supported | Vision + 256K long context, ample ~10GB VRAM remaining, strongest configuration |
-
 **NVIDIA Graphics Card Reference Table**
 
 | VRAM | Graphics Card Models |
 | ----- | ---------------------- |
 | 24 GB | RTX 4090 / RTX 3090 Ti |
 | 32 GB | RTX 5090 |
-
 **AMD Graphics Card Reference Table**
 
 | VRAM | Graphics Card Models |
@@ -354,7 +349,6 @@ Due to significant variations in user graphics card configurations, the followin
 | 20 GB | RX 7900 XT |
 | 24 GB | RX 7900 XTX |
 | 32 GB | Radeon AI PRO R9700 |
-
 **Intel Graphics Card Reference Table**
 
 | VRAM | Graphics Card Models |
@@ -362,14 +356,12 @@ Due to significant variations in user graphics card configurations, the followin
 | 32 GB | Arc Pro B70 / Arc Pro B65 |
 | 24 GB | Arc Pro B60 |
 | 16 GB | Arc Pro B50 (requires CPU offloading) |
-
 **CPU Shared Memory Integrated GPU Device Reference Table**
 
 | VRAM | Processor Models |
 | ------ | -------------------------------------- |
 | 128 GB | AMD Ryzen AI Max+ 395 (Radeon 8060S iGPU) |
 | 128 GB | NVIDIA RTX Spark (Blackwell RTX GPU) |
-
 > 💡 **Tip**: As long as the VRAM meets the above requirements, you can use it regardless of brand or model. It supports NVIDIA / AMD / Intel discrete graphics cards, as well as integrated GPUs/CPUs with 128GB unified memory.
 >
 > 💡 **Tip**: Longer context uses more VRAM. If you encounter out-of-memory (OOM) issues, please gradually reduce the `-c` parameter value. Using the `--fit on` parameter allows llama.cpp to automatically adjust the number of layers to fit your VRAM.
@@ -421,10 +413,10 @@ moziAI-13.7-35B-A3B is fine-tuned based on the **Ornith-1.0-35B** (deepreinforce
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
 | BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
 | ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
-\* **Terminal-Bench 2.1 (Terminus-2)**: Evaluated using the Harbor/Terminus-2 framework, configured with `parser=json`, `temperature=1.0`, `top_p=1.0`, 128K context window. Each run has a 4-hour timeout, 32 cores 48GB RAM, results are the average of 5 runs.
-\* **Terminal-Bench 2.1 (Claude Code)**: Evaluated using Claude Code 2.1.126, configured with `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Results are the average of 5 runs.
-\* **SWE-bench Verified, Pro and Multilingual**: Evaluated using the OpenHands framework, configured with `temp=1.0`, `top_p=0.95`, 256K context window.
-\* **NL2Repo**: Configured with `temperature=1.0`, `top_p=1.0`, 400K context, 48K output.
+**Terminal-Bench 2.1 (Terminus-2)**: Evaluated using the Harbor/Terminus-2 framework, configured with `parser=json`, `temperature=1.0`, `top_p=1.0`, 128K context window. Each run has a 4-hour timeout, 32 cores 48GB RAM, results are the average of 5 runs.
+**Terminal-Bench 2.1 (Claude Code)**: Evaluated using Claude Code 2.1.126, configured with `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Results are the average of 5 runs.
+**SWE-bench Verified, Pro and Multilingual**: Evaluated using the OpenHands framework, configured with `temp=1.0`, `top_p=0.95`, 256K context window.
+**NL2Repo**: Configured with `temperature=1.0`, `top_p=1.0`, 400K context, 48K output.
 
 > MoziAI-35B fully inherits the excellent agent coding capabilities of Ornith-1.0-35B. MoziAI's core differentiation lies in **deep optimization for the financial vertical domain**, significantly outperforming general-purpose models in scenarios such as financial report analysis, quantitative strategies, risk control compliance, and agent tool calling.
 

@@ -43,7 +43,6 @@ Comme le fichier du modèle est relativement volumineux (~15,5 Go), les poids du
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 > 💡 **Utilisateurs de LM Studio** : Vous pouvez rechercher directement `moziAI` dans [LM Studio](https://lmstudio.ai) et le télécharger en un clic, sans avoir à télécharger manuellement de fichiers.  
 > 💡 **Conseil de téléchargement** : Cliquez sur le lien ci-dessus pour accéder au dépôt HuggingFace. Dans l'onglet **"Files and versions"**, téléchargez tous les fichiers du répertoire V3.6 (modèle principal, projection visuelle, modèle de chat) et assurez-vous que les trois fichiers se trouvent dans le même répertoire.
 
@@ -288,7 +287,6 @@ Ce modèle hérite de la caractéristique Uncensored (sans censure) du modèle d
 | Q5_K_M | ~24,7 Go | ~99% | Plus haute précision |
 | Q6_K | ~28,5 Go | ~99,5% | Presque sans perte |
 | Q8_0 | ~36,9 Go | ~100% | Sans perte |
-
 > MoziAI V3.6 utilise la solution de quantification intelligente MoziSmartBit. Tout en conservant ~99% de précision, le modèle MoE de 35 milliards de paramètres est compressé à environ 15,5 Go, avec un taux de compression d'environ 4,5x. Il allie qualité d'inférence et seuil de déploiement, et convient mieux au déploiement local sur carte graphique grand public.
 
 ## Technologie de quantification intelligente MoziSmartBit
@@ -330,7 +328,6 @@ Sur la base de la configuration d'exécution locale (AMD Radeon AI PRO R9700 32 
 | reasoning_budget | 400 | Nombre de tokens du budget d'inférence |
 | reasoning_format | deepseek-legacy | Format d'inférence |
 | samplers | top_k;top_p;temperature;typ_p | Ordre des échantillonneurs |
-
 ### Recommandations pour différentes configurations de VRAM
 
 Étant donné que les configurations de carte graphique des utilisateurs varient considérablement, voici les paramètres recommandés pour différentes tailles de VRAM (tous pour la version MoziSmartBit) :
@@ -340,14 +337,12 @@ Sur la base de la configuration d'exécution locale (AMD Radeon AI PRO R9700 32 
 | 20 Go | 128K | q4_0 | Pris en charge | Modèle + visuel total ~16,4 Go, test pratique : 128K + visuel n'occupe que ~19,5 Go de VRAM |
 | 24 Go | 256K complet | q4_0 | Parfaitement pris en charge | Visuel + contexte long 256K, n'occupe que ~20,4 Go de VRAM, réserve ~3,6 Go de VRAM |
 | 32 Go+ | 256K complet | q4_0 | Parfaitement pris en charge | Visuel + contexte long 256K, réserve de VRAM suffisante ~10 Go, configuration la plus puissante |
-
 **Tableau de référence des cartes graphiques NVIDIA**
 
 | VRAM | Modèle de carte graphique |
 | ----- | ---------------------- |
 | 24 Go | RTX 4090 / RTX 3090 Ti |
 | 32 Go | RTX 5090 |
-
 **Tableau de référence des cartes graphiques AMD**
 
 | VRAM | Modèle de carte graphique |
@@ -355,7 +350,6 @@ Sur la base de la configuration d'exécution locale (AMD Radeon AI PRO R9700 32 
 | 20 Go | RX 7900 XT |
 | 24 Go | RX 7900 XTX |
 | 32 Go | Radeon AI PRO R9700 |
-
 **Tableau de référence des cartes graphiques Intel**
 
 | VRAM | Modèle de carte graphique |
@@ -363,14 +357,12 @@ Sur la base de la configuration d'exécution locale (AMD Radeon AI PRO R9700 32 
 | 32 Go | Arc Pro B70 / Arc Pro B65 |
 | 24 Go | Arc Pro B60 |
 | 16 Go | Arc Pro B50 (nécessite un délestage CPU) |
-
 **Tableau de référence des appareils à puce graphique intégrée avec mémoire partagée CPU**
 
 | VRAM | Modèle de processeur |
 | ------ | -------------------------------------- |
 | 128 Go | AMD Ryzen AI Max+ 395 (puce graphique intégrée Radeon 8060S) |
 | 128 Go | NVIDIA RTX Spark (GPU RTX Blackwell) |
-
 > 💡 **Conseil** : Tant que la VRAM répond aux exigences ci-dessus, elle peut être utilisée – aucune restriction de marque ou de modèle. Prend en charge les cartes graphiques dédiées NVIDIA / AMD / Intel, ainsi que les puces graphiques intégrées / CPU avec 128 Go de mémoire unifiée.
 >
 > 💡 **Conseil** : Plus le contexte est long, plus la VRAM est occupée. Si la VRAM est insuffisante (OOM), réduisez progressivement la valeur du paramètre `-c`. Avec le paramètre `--fit on`, llama.cpp peut ajuster automatiquement le nombre de couches pour s'adapter à la VRAM.
@@ -422,10 +414,10 @@ moziAI-13.7-35B-A3B est affiné à partir du modèle de base **Ornith-1.0-35B** 
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
 | BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
 | ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
-\* **Terminal-Bench 2.1 (Terminus-2)** : Évalué avec le framework Harbor/Terminus-2, configuration `parser=json`, `temperature=1.0`, `top_p=1.0`, fenêtre de contexte 128K. Chaque exécution a un délai d'attente de 4 heures, 32 cœurs, 48 Go de RAM, le résultat est la moyenne de 5 exécutions.  
-\* **Terminal-Bench 2.1 (Claude Code)** : Évalué avec Claude Code 2.1.126, configuration `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Le résultat est la moyenne de 5 exécutions.  
-\* **SWE-bench Verified, Pro et Multilingual** : Évalués avec le framework OpenHands, configuration `temp=1.0`, `top_p=0.95`, fenêtre de contexte 256K.  
-\* **NL2Repo** : Configuration `temperature=1.0`, `top_p=1.0`, contexte 400K, sortie 48K.  
+**Terminal-Bench 2.1 (Terminus-2)** : Évalué avec le framework Harbor/Terminus-2, configuration `parser=json`, `temperature=1.0`, `top_p=1.0`, fenêtre de contexte 128K. Chaque exécution a un délai d'attente de 4 heures, 32 cœurs, 48 Go de RAM, le résultat est la moyenne de 5 exécutions.  
+**Terminal-Bench 2.1 (Claude Code)** : Évalué avec Claude Code 2.1.126, configuration `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Le résultat est la moyenne de 5 exécutions.  
+**SWE-bench Verified, Pro et Multilingual** : Évalués avec le framework OpenHands, configuration `temp=1.0`, `top_p=0.95`, fenêtre de contexte 256K.  
+**NL2Repo** : Configuration `temperature=1.0`, `top_p=1.0`, contexte 400K, sortie 48K.  
 
 > MoziAI-35B hérite complètement des excellentes capacités de codage d'agent d'Ornith-1.0-35B. La différence clé de MoziAI réside dans l'**optimisation approfondie du domaine financier**. Dans des scénarios tels que l'analyse des rapports financiers, les stratégies quantitatives, la gestion des risques et la conformité, et les appels d'outils d'agent, les performances sont nettement supérieures à celles des modèles généraux.
 

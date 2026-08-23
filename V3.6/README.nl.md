@@ -43,7 +43,6 @@ Omdat het modelbestand relatief groot is (~15,5 GB), worden de modelgewichten ge
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 > 💡 **LM Studio gebruikers**: U kunt direct zoeken naar `moziAI` in [LM Studio](https://lmstudio.ai) en het met één klik downloaden – geen handmatige bestandsdownload nodig.  
 > 💡 **Downloadtip**: Klik op de bovenstaande link om naar de HuggingFace-repository te gaan. Download op het tabblad **"Files and versions"** alle bestanden uit de V3.6-map (hoofdmodel, visuele projectie, chat-sjabloon) en zorg ervoor dat alle drie de bestanden in dezelfde map staan.
 
@@ -288,7 +287,6 @@ Dit model erft de Uncensored (ongecensureerde) eigenschap van het basismodel Orn
 | Q5_K_M | ~24,7 GB | ~99% | Hogere precisie |
 | Q6_K | ~28,5 GB | ~99,5% | Bijna zonder verlies |
 | Q8_0 | ~36,9 GB | ~100% | Zonder verlies |
-
 > MoziAI V3.6 maakt gebruik van de MoziSmartBit Intelligente Quantisatieoplossing. Met behoud van ~99% nauwkeurigheid wordt het MoE-model met 35 miljard parameters gecomprimeerd tot ongeveer 15,5 GB, met een compressieverhouding van ~4,5x. Het combineert inferentiekwaliteit en implementatiedrempel, en is beter geschikt voor lokale implementatie op consumentengrafische kaarten.
 
 ## MoziSmartBit Intelligente Quantisatietechnologie
@@ -330,7 +328,6 @@ Op basis van de lokale uitvoeringsconfiguratie (AMD Radeon AI PRO R9700 32GB) wo
 | reasoning_budget | 400 | Aantal inferentiebudget-tokens |
 | reasoning_format | deepseek-legacy | Inferentieformaat |
 | samplers | top_k;top_p;temperature;typ_p | Bemonsteraarvolgorde |
-
 ### Aanbevelingen voor verschillende VRAM-configuraties
 
 Omdat de grafische kaartconfiguraties van gebruikers sterk verschillen, volgen hier de aanbevolen parameters voor verschillende VRAM-groottes (allemaal voor de MoziSmartBit-versie):
@@ -340,14 +337,12 @@ Omdat de grafische kaartconfiguraties van gebruikers sterk verschillen, volgen h
 | 20 GB | 128K | q4_0 | Ondersteund | Model + beeld totaal ~16,4 GB, praktijktest: 128K + beeld bezetten slechts ~19,5 GB VRAM |
 | 24 GB | 256K volledig | q4_0 | Perfect ondersteund | Beeld + 256K lange context, slechts ~20,4 GB VRAM, ~3,6 GB VRAM-reserve |
 | 32 GB+ | 256K volledig | q4_0 | Perfect ondersteund | Beeld + 256K lange context, voldoende VRAM-reserve ~10 GB, sterkste configuratie |
-
 **NVIDIA grafische kaarten referentietabel**
 
 | VRAM | Grafisch kaartmodel |
 | ----- | ---------------------- |
 | 24 GB | RTX 4090 / RTX 3090 Ti |
 | 32 GB | RTX 5090 |
-
 **AMD grafische kaarten referentietabel**
 
 | VRAM | Grafisch kaartmodel |
@@ -355,7 +350,6 @@ Omdat de grafische kaartconfiguraties van gebruikers sterk verschillen, volgen h
 | 20 GB | RX 7900 XT |
 | 24 GB | RX 7900 XTX |
 | 32 GB | Radeon AI PRO R9700 |
-
 **Intel grafische kaarten referentietabel**
 
 | VRAM | Grafisch kaartmodel |
@@ -363,14 +357,12 @@ Omdat de grafische kaartconfiguraties van gebruikers sterk verschillen, volgen h
 | 32 GB | Arc Pro B70 / Arc Pro B65 |
 | 24 GB | Arc Pro B60 |
 | 16 GB | Arc Pro B50 (vereist CPU-offloading) |
-
 **Geïntegreerde grafische kaart met gedeeld CPU-geheugen referentietabel**
 
 | VRAM | Processormodel |
 | ------ | -------------------------------------- |
 | 128 GB | AMD Ryzen AI Max+ 395 (Radeon 8060S geïntegreerde grafische kaart) |
 | 128 GB | NVIDIA RTX Spark (Blackwell RTX GPU) |
-
 > 💡 **Tip**: Zolang de VRAM aan de bovenstaande vereisten voldoet, kan het worden gebruikt – geen beperking op merk of model. Ondersteunt NVIDIA / AMD / Intel speciale grafische kaarten, evenals geïntegreerde grafische kaarten / CPU met 128 GB verenigd geheugen.
 >
 > 💡 **Tip**: Hoe langer de context, hoe meer VRAM wordt bezet. Als de VRAM onvoldoende is (OOM), verlaag dan geleidelijk de waarde van de parameter `-c`. Met de parameter `--fit on` kan llama.cpp het aantal lagen automatisch aanpassen aan de VRAM.
@@ -422,10 +414,10 @@ moziAI-13.7-35B-A3B is gebaseerd op het **Ornith-1.0-35B** (deepreinforce-ai) ba
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
 | BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
 | ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
-\* **Terminal-Bench 2.1 (Terminus-2)**: Geëvalueerd met het Harbor/Terminus-2-framework, configuratie `parser=json`, `temperature=1.0`, `top_p=1.0`, 128K contextvenster. Elke uitvoering heeft een time-out van 4 uur, 32 kernen, 48 GB RAM, resultaat is het gemiddelde van 5 uitvoeringen.  
-\* **Terminal-Bench 2.1 (Claude Code)**: Geëvalueerd met Claude Code 2.1.126, configuratie `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Het resultaat is het gemiddelde van 5 uitvoeringen.  
-\* **SWE-bench Verified, Pro en Multilingual**: Geëvalueerd met het OpenHands-framework, configuratie `temp=1.0`, `top_p=0.95`, 256K contextvenster.  
-\* **NL2Repo**: Configuratie `temperature=1.0`, `top_p=1.0`, 400K context, 48K uitvoer.  
+**Terminal-Bench 2.1 (Terminus-2)**: Geëvalueerd met het Harbor/Terminus-2-framework, configuratie `parser=json`, `temperature=1.0`, `top_p=1.0`, 128K contextvenster. Elke uitvoering heeft een time-out van 4 uur, 32 kernen, 48 GB RAM, resultaat is het gemiddelde van 5 uitvoeringen.  
+**Terminal-Bench 2.1 (Claude Code)**: Geëvalueerd met Claude Code 2.1.126, configuratie `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Het resultaat is het gemiddelde van 5 uitvoeringen.  
+**SWE-bench Verified, Pro en Multilingual**: Geëvalueerd met het OpenHands-framework, configuratie `temp=1.0`, `top_p=0.95`, 256K contextvenster.  
+**NL2Repo**: Configuratie `temperature=1.0`, `top_p=1.0`, 400K context, 48K uitvoer.  
 
 > MoziAI-35B erft volledig de uitstekende agent-coderingsmogelijkheden van Ornith-1.0-35B. Het belangrijkste verschil van MoziAI ligt in de **diepe optimalisatie op financieel gebied**. In scenario's zoals financiële rapportanalyse, kwantitatieve strategieën, risicobeheer & compliance en agent-tool-aanroepen zijn de prestaties duidelijk beter dan bij algemene modellen.
 

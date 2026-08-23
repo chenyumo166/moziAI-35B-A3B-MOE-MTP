@@ -26,7 +26,7 @@ Language / 语言选择
 
 ## Model Introduction
 
-MoziAI-35B-A3B-MOE is a locally deployable open-source multimodal large language model developed by the Chen Yumo team (a Chinese financial KOL), focusing on financial domain enhancement, supporting vision, tool calling, complex long-task capabilities, and consumer GPU deployment. It is fine-tuned based on the Ornith-1.0-35B-A3B (**Qwen3.5-35B-A3B/Qwen3.6-35B-A3B** architecture) base model.
+MoziAI-35B-A3B-MOE is a locally deployable open-source multimodal large language model developed by the Chen Yumo team (a Chinese financial KOL), focusing on financial domain enhancement, supporting vision, tool calling, complex long-task capabilities, and consumer GPU deployment. It is fine-tuned based on the Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B/Qwen3.6-35B-A3B** architecture) base model.
 
 The R&D team's philosophy is to enable powerful local AI large models and agents to enter thousands of households and small and medium-sized enterprises, eliminating the need for expensive AI hardware costs or cloud API costs. Through our self-developed **MoziSmartBit intelligent quantization** technology, we compress the 35B parameter MoE model to approximately **15.5 GB**, achieving an optimal balance between model accuracy and size, with almost 99% accuracy compared to FP16. Although the model has 35 billion parameters overall, it actually only activates 30 billion parameters via MoE sparse expert technology and supports MTP speculative decoding for accelerated inference. Testing shows it can complete local free deployment on a consumer GPU with 20GB VRAM and achieve 140+ tokens/s inference speed, outperforming many cloud-charged AI large models in speed.
 
@@ -43,7 +43,6 @@ Due to the large model size (~15.5 GB), model weights are hosted on multiple com
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 > 💡 **LM Studio Users**: Search for `moziAI` directly in [LM Studio](https://lmstudio.ai) and download with one click, no manual file download required.  
 > 💡 **Download Tip**: Please click the link above to enter the HuggingFace repository, download all files under the V3.7 directory in the **"Files and versions"** tab (main model, vision projection, chat template), ensure all three files are placed in the same directory.
 
@@ -73,7 +72,7 @@ This model uses a dedicated chat template, **failure to load will result in inco
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
@@ -93,7 +92,7 @@ Download all files from the V3.7 directory to your local machine from HuggingFac
 
 ```
 V3.7/
-├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf      # Main model (required)
+├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # Main model (required)
 ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision projection (optional, download if you need vision)
 └── moziAI-V3.7-35B-chat-template.jinja                  # Chat template (required! Missing template causes format errors)
 ```
@@ -108,7 +107,7 @@ Minimal startup (core parameters only):
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf \
+  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
   -c 262144 -ngl 99
 ```
@@ -128,7 +127,7 @@ moziAI-35B-A3B-MOE-MTP-Uncensored/
 ├── LICENSE                # License
 ├── V3.7/                  # V3.7 version (self-contained)
 │   ├── RELEASE_NOTES.md                       # Release notes
-│   ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf    # Main model
+│   ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # Main model
 │   ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
 │   └── moziAI-V3.7-35B-chat-template.jinja   # Chat template
 ```
@@ -153,7 +152,7 @@ moziAI-35B-A3B-MOE-MTP-Uncensored/
 
 ## Uncensored Advantages
 
-This model inherits the Uncensored characteristics from the base model Ornith-1.0-35B-A3B, with the following advantages:
+This model inherits the Uncensored characteristics from the base model Ornith-1.5-35B-A3B, with the following advantages:
 
 | Advantage | Description |
 | ----- | --------------------- |
@@ -161,7 +160,6 @@ This model inherits the Uncensored characteristics from the base model Ornith-1.
 | Free output | Not constrained by security policies, can generate any type of reply |
 | Complete information | Provides unfiltered complete information, suitable for research and analysis scenarios |
 | Local privacy | Local deployment means data is completely private, not subject to cloud review |
-
 **Application Scenarios**: Free commercial use, academic research, in-depth analysis, open discussion, unrestricted AI dialogue  
 **Note**: This model is for local deployment, output content is completely controlled by the user, we do not bear content review responsibility.
 
@@ -174,12 +172,11 @@ This model inherits the Uncensored characteristics from the base model Ornith-1.
 | Risk Control & Compliance | Product risk assessment, investment advice compliance tips, interpretation of financial regulatory policies |
 | Quantitative Strategy | Quantitative strategy idea design, Pyramid (PEL) quantification, backtesting logic, factor construction and tool calling |
 | Tool Calling | Can access real-time market data, databases, research retrieval and other financial data |
-
 ## Technical Specifications
 
 | Item | Parameters |
 | ------ | ---------------------------------------------------------------------------------- |
-| Base Model | Ornith-1.0-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MIT license) |
+| Base Model | Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MIT license) |
 | Parameter Size | 35 billion (35B) MoE architecture, 256 routed experts + 1 shared expert, 8 active per token |
 | Quantization Method | Self-developed MoziSmartBit intelligent quantization algorithm + GGUF standard format |
 | Context Length | 256K (262,144 tokens) |
@@ -188,7 +185,6 @@ This model inherits the Uncensored characteristics from the base model Ornith-1.
 | Inference Framework | llama.cpp / Ollama / LM Studio / Jan |
 | Inference Speed | Through algorithm optimization, AMD R9700 GPU can reach 140+ tokens/s / AMD MAX+395 CPU iGPU can reach 70+ tokens/s, enabling local token free output |
 | Development Team | Chen Yumo Team |
-
 ## Quantization Format and Model Size Comparison
 
 | Quantization Format | Model Size | Accuracy Retention | Description |
@@ -199,7 +195,6 @@ This model inherits the Uncensored characteristics from the base model Ornith-1.
 | Q5_K_M | ~24.7 GB | ~99% | Higher accuracy |
 | Q6_K | ~28.5 GB | ~99.5% | Near-lossless |
 | Q8_0 | ~36.9 GB | ~100% | Lossless |
-
 > MoziAI V3.7 uses the MoziSmartBit intelligent quantization scheme, while maintaining ~99% accuracy, compressing the 35B parameter MoE model to about 15.5 GB, with a compression ratio of ~4.5x, balancing inference quality and deployment threshold, more suitable for local deployment on consumer graphics cards.
 
 ## MoziSmartBit Intelligent Quantization Technology
@@ -241,7 +236,6 @@ Based on local operation configuration (AMD Radeon AI PRO R9700 32GB), the follo
 | reasoning_budget | 400 | Reasoning budget token count |
 | reasoning_format | deepseek-legacy | Reasoning format |
 | samplers | top_k;top_p;min_p;temperature;dry;typ_p | Sampler order |
-
 ### Recommended Configuration for Different VRAM
 
 Due to differences in user graphics card configurations, the following are recommended parameters for different VRAM (all for MoziSmartBit version):
@@ -251,14 +245,12 @@ Due to differences in user graphics card configurations, the following are recom
 | 20 GB | 128K | q4_0 | Supported | Model + vision total ~16.4GB,实测 128K+vision only takes ~19.5GB VRAM |
 | 24 GB | 256K full | q4_0 | Perfect support | Vision + 256K long context, only takes ~20.4GB VRAM, ~3.6GB VRAM remaining |
 | 32 GB+ | 256K full | q4_0 | Perfect support | Vision + 256K long context, ~10GB VRAM remaining, strongest configuration |
-
 **NVIDIA Graphics Card Reference Table**
 
 | VRAM | Graphics Card Model |
 | ----- | ---------------------- |
 | 24 GB | RTX 4090 / RTX 3090 Ti |
 | 32 GB | RTX 5090 |
-
 **AMD Graphics Card Reference Table**
 
 | VRAM | Graphics Card Model |
@@ -266,7 +258,6 @@ Due to differences in user graphics card configurations, the following are recom
 | 20 GB | RX 7900 XT |
 | 24 GB | RX 7900 XTX |
 | 32 GB | Radeon AI PRO R9700 |
-
 **Intel Graphics Card Reference Table**
 
 | VRAM | Graphics Card Model |
@@ -274,14 +265,12 @@ Due to differences in user graphics card configurations, the following are recom
 | 32 GB | Arc Pro B70 / Arc Pro B65 |
 | 24 GB | Arc Pro B60 |
 | 16 GB | Arc Pro B50 (requires CPU offloading) |
-
 **CPU Shared Memory iGPU Device Reference Table**
 
 | VRAM | Processor Model |
 | ------ | -------------------------------------- |
 | 128 GB | AMD Ryzen AI Max+ 395 (Radeon 8060S iGPU) |
 | 128 GB | NVIDIA RTX Spark (Blackwell RTX GPU) |
-
 > 💡 **Tip**: As long as the VRAM meets the above requirements, it can be used, regardless of brand or model, supports NVIDIA / AMD / Intel independent graphics cards, also supports iGPU/CPU with 128GB unified memory.
 >
 > 💡 **Tip**: The longer the context, the more VRAM it occupies. If you run out of VRAM (OOM), please gradually decrease the `-c` parameter value. Use the `--fit on` parameter to let llama.cpp automatically adjust the number of layers to fit VRAM.
@@ -290,7 +279,7 @@ Due to differences in user graphics card configurations, the following are recom
 
 ```bash
 # Create Modelfile
-FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.0.gguf
+FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
 
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
@@ -309,7 +298,7 @@ Search for `moziAI-35B` directly in LM Studio or Jan, select the MoziSmartBit qu
 
 ## Benchmarks
 
-moziAI-13.7-35B-A3B is fine-tuned from **Ornith-1.0-35B-A3B** (deepreinforce-ai). MoziAI adds **financial vertical domain optimization** on top of the excellent agentic coding capabilities of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. General capabilities remain consistent with the Ornith-1.0-35B-A3B base model.
+moziAI-13.7-35B-A3B is fine-tuned from **Ornith-1.5-35B-A3B** (deepreinforce-ai). MoziAI adds **financial vertical domain optimization** on top of the excellent agentic coding capabilities of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. General capabilities remain consistent with the Ornith-1.5-35B-A3B base model.
 
 | Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
@@ -333,16 +322,16 @@ moziAI-13.7-35B-A3B is fine-tuned from **Ornith-1.0-35B-A3B** (deepreinforce-ai)
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
 | BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
 | ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
-\* **Terminal-Bench 2.1 (Terminus-2)**: Evaluated using the Harbor/Terminus-2 framework with `parser=json`, `temperature=1.0`, `top_p=1.0`, and a 128K context window. Each run uses a 4-hour timeout with 32 CPU cores and 48GB RAM, results averaged over 5 runs.  
-\* **Terminal-Bench 2.1 (Claude Code)**: Evaluated using Claude Code 2.1.126 with `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Results averaged over 5 runs.  
-\* **SWE-bench Verified, Pro and Multilingual**: Evaluated using OpenHands harness with `temp=1.0`, `top_p=0.95`, 256K context window.  
-\* **NL2Repo**: Evaluated with `temperature=1.0`, `top_p=1.0`, 400K context, 48K output.  
+**Terminal-Bench 2.1 (Terminus-2)**: Evaluated using the Harbor/Terminus-2 framework with `parser=json`, `temperature=1.0`, `top_p=1.0`, and a 128K context window. Each run uses a 4-hour timeout with 32 CPU cores and 48GB RAM, results averaged over 5 runs.  
+**Terminal-Bench 2.1 (Claude Code)**: Evaluated using Claude Code 2.1.126 with `parser=json`, `temperature=1.0`, `top_p=1.0`, `max_new_tokens=131072`. Results averaged over 5 runs.  
+**SWE-bench Verified, Pro and Multilingual**: Evaluated using OpenHands harness with `temp=1.0`, `top_p=0.95`, 256K context window.  
+**NL2Repo**: Evaluated with `temperature=1.0`, `top_p=1.0`, 400K context, 48K output.  
 
-> MoziAI-35B fully inherits the excellent agentic coding capabilities from Ornith-1.0-35B-A3B. MoziAI's core differentiation is **deep optimization for financial vertical domains**, significantly outperforming general models in scenarios like financial report analysis, quantitative strategy, risk & compliance, and agent tool calling.
+> MoziAI-35B fully inherits the excellent agentic coding capabilities from Ornith-1.5-35B-A3B. MoziAI's core differentiation is **deep optimization for financial vertical domains**, significantly outperforming general models in scenarios like financial report analysis, quantitative strategy, risk & compliance, and agent tool calling.
 
 ## SEO Keywords
 
-金融AI大模型、AI大模型、本地开源模型、端侧模型、量化编程、MoziSmartBit、智能量化、GGUF量化、MoE模型、本地开源大模型、本地部署、金融AI、工具调用、Agent、llama.cpp、Ollama、GGUF、Uncensored（去审核）、无审查、免审核、自由输出、Q3_K_M、Q4_K_M、Q5_K_M、Q6_K、Q8_0、Ornith-1.0-35B-A3B、Qwen3.5-35B-A3B、Qwen3.6-35B-A3B、金融垂直领域、开源模型。
+金融AI大模型、AI大模型、本地开源模型、端侧模型、量化编程、MoziSmartBit、智能量化、GGUF量化、MoE模型、本地开源大模型、本地部署、金融AI、工具调用、Agent、llama.cpp、Ollama、GGUF、Uncensored（去审核）、无审查、免审核、自由输出、Q3_K_M、Q4_K_M、Q5_K_M、Q6_K、Q8_0、Ornith-1.5-35B-A3B、Qwen3.5-35B-A3B、Qwen3.6-35B-A3B、金融垂直领域、开源模型。
 
 ## License (Important)
 

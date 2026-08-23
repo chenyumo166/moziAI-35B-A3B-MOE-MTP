@@ -43,8 +43,6 @@ Due to the large model size (~15.5 GB), weights are hosted on multiple community
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
-
 > 💡 **LM Studio**: You can also search and download directly in [LM Studio](https://lmstudio.ai). Search `moziAI` in the Discover tab and click Download.
 > 💡 **Download Tip**: Click the link above to go to the HuggingFace repository, then go to the **"Files and versions"** tab to download all files under the V3.6 directory (main model, vision projection, chat template). Make sure all three files are placed in the same directory.
 
@@ -161,7 +159,6 @@ This model inherits the **Uncensored** feature from the Ornith-1.0-35B base mode
 | **Free Output** | Unrestricted by safety policies, can generate any type of response |
 | **Complete Information** | Provides unfiltered complete information, suitable for research and analysis |
 | **Local Privacy** | Local deployment means data is fully private and free from cloud censorship |
-
 > **Use Cases**: Academic research, deep analysis, free discussion, unrestricted AI conversation.
 > **Note**: This is a locally deployed model, output content is fully controlled by the user, no content moderation responsibility.
 
@@ -174,7 +171,6 @@ This model inherits the **Uncensored** feature from the Ornith-1.0-35B base mode
 | Risk & Compliance | Product risk assessment, investment advice compliance, financial regulation policy interpretation |
 | Quant & Strategy | Quant strategy design, Pyramid (PEL) quantization, backtesting logic, factor construction and tool calling |
 | Tool Calling | Integration with real-time quotes, databases, research report retrieval and other financial data sources |
-
 ## Technical Specifications
 
 | Item | Specification |
@@ -188,7 +184,6 @@ This model inherits the **Uncensored** feature from the Ornith-1.0-35B base mode
 | Inference Framework | llama.cpp / Ollama / LM Studio / Jan |
 | Inference Speed | Algorithm-optimized: 140+ token/s on AMD R700 GPUs, 70+ token/s on AMD MAX+395 CPU iGPU, local token freedom |
 | Team | Chen Yumo Team |
-
 ## Quantization Format & Model Size Comparison
 
 | Quant Format | Model Size | Precision | Notes |
@@ -199,7 +194,6 @@ This model inherits the **Uncensored** feature from the Ornith-1.0-35B base mode
 | Q5_K_M | ~24.7 GB | ~99% | Higher quality |
 | Q6_K | ~28.5 GB | ~99.5% | Near lossless |
 | Q8_0 | ~36.9 GB | ~100% | Lossless |
-
 > MoziAI V3.6 uses MoziSmartBit Intelligent Quantization, maintaining ~99% precision while compressing the 35B parameter MoE model to ~15.5 GB (~4.5x compression ratio), balancing inference quality with deployment accessibility for consumer GPUs.
 
 ## MoziSmartBit Intelligent Quantization
@@ -241,7 +235,6 @@ Based on local production config (AMD Radeon AI PRO R9700 32GB):
 | reasoning_budget | 400 | Reasoning budget in tokens |
 | reasoning_format | deepseek-legacy | Reasoning format |
 | samplers | top_k;top_p;temperature;typ_p | Sampler order |
-
 ### VRAM Configuration Recommendations
 
 Since user GPU configurations vary widely, here are recommended parameters for different VRAM sizes (all for MoziSmartBit version):
@@ -251,14 +244,12 @@ Since user GPU configurations vary widely, here are recommended parameters for d
 | 20 GB | 128K | q4_0 | Supported | Model+vision ~16.4GB, actual test shows 200K+vision uses ~19.5GB VRAM |
 | 24 GB | 256K full | q4_0 | Full support | Vision+256K long context, uses ~20.4GB VRAM, ~3.6GB headroom |
 | 32 GB+ | 256K full | q4_0 | Full support | Vision+256K long context, sufficient headroom ~10GB, best config |
-
 **NVIDIA**
 
 | VRAM | GPU Model |
 |------|-----------|
 | 24 GB | RTX 4090 / RTX 3090 Ti |
 | 32 GB | RTX 5090 |
-
 **AMD**
 
 | VRAM | GPU Model |
@@ -266,7 +257,6 @@ Since user GPU configurations vary widely, here are recommended parameters for d
 | 20 GB | RX 7900 XT |
 | 24 GB | RX 7900 XTX |
 | 32 GB | Radeon AI PRO R9700 |
-
 **Intel**
 
 | VRAM | GPU Model |
@@ -274,14 +264,12 @@ Since user GPU configurations vary widely, here are recommended parameters for d
 | 32 GB | Arc Pro B70 / Arc Pro B65 |
 | 24 GB | Arc Pro B60 |
 | 16 GB | Arc Pro B50 (requires CPU offload) |
-
 **Shared Memory iGPUs**
 
 | VRAM | Processor |
 |------|-----------|
 | 128 GB | AMD Ryzen AI Max+ 395 (Radeon 8060S iGPU) |
 | 128 GB | NVIDIA RTX Spark (Blackwell RTX GPU) |
-
 > 💡 **Tip**: As long as your VRAM meets the above requirements, it works. No brand or model restrictions. Supports NVIDIA / AMD / Intel discrete GPUs, and also 128GB unified memory iGPUs listed above.
 
 > 💡 **Tip**: Longer context uses more VRAM. If you encounter OOM (out of memory), gradually reduce the `-c` value. Use `--fit on` to let llama.cpp auto-adjust layers to fit your VRAM.

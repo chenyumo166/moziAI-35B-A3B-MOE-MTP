@@ -43,7 +43,6 @@ MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多
 | HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
 | GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
 > 💡 **LM Studio 使用者**：可直接在 [LM Studio](https://lmstudio.ai) 中搜索 `moziAI` 並一鍵下載，無需手動下載文件。  
 > 💡 **下載提示**：請點擊上方連結進入 HuggingFace 倉庫，在 **"Files and versions"** 標籤頁下載 V3.6 目錄下的所有文件（主模型、視覺投影、聊天範本），確保三個文件放在同一目錄下。
 
@@ -289,7 +288,6 @@ moziAI-35B/
 | Q5_K_M | ~24.7 GB | ~99% | 更高精度 |
 | Q6_K | ~28.5 GB | ~99.5% | 近無損 |
 | Q8_0 | ~36.9 GB | ~100% | 無損 |
-
 > MoziAI V3.6 採用 MoziSmartBit 智慧量化方案，在保持 ~99% 精度的同時，將 350 億參數的 MoE 模型壓縮至約 15.5 GB，壓縮比 ~4.5x，兼顧推理品質與部署門檻，更適合消費級顯卡本地部署。
 
 ## MoziSmartBit 智慧量化技術
@@ -331,7 +329,6 @@ moziAI-35B/
 | reasoning_budget | 400 | 推理預算 token 數量 |
 | reasoning_format | deepseek-legacy | 推理格式 |
 | samplers | top_k;top_p;temperature;typ_p | 採樣器順序 |
-
 ### 不同顯存配置推薦
 
 由於用戶顯卡配置差異較大，以下為不同顯存下的推薦參數（均為 MoziSmartBit 版本）：
@@ -341,14 +338,12 @@ moziAI-35B/
 | 20 GB | 128K | q4_0 | 支援 | 模型+視覺共~16.4GB，實測 128K+視覺僅占顯存~19.5GB |
 | 24 GB | 256K 滿配 | q4_0 | 完美支援 | 視覺+256K長上下文,僅占顯存~20.4GB，顯存餘量~3.6GB |
 | 32 GB+ | 256K 滿配 | q4_0 | 完美支援 | 視覺+256K長上下文，顯存餘量充足~10GB，最強配置 |
-
 **NVIDIA 顯卡參考表**
 
 | 顯存 | 顯卡型號 |
 | ----- | ---------------------- |
 | 24 GB | RTX 4090 / RTX 3090 Ti |
 | 32 GB | RTX 5090 |
-
 **AMD 顯卡參考表**
 
 | 顯存 | 顯卡型號 |
@@ -356,7 +351,6 @@ moziAI-35B/
 | 20 GB | RX 7900 XT |
 | 24 GB | RX 7900 XTX |
 | 32 GB | Radeon AI PRO R9700 |
-
 **Intel 顯卡參考表**
 
 | 顯存 | 顯卡型號 |
@@ -364,14 +358,12 @@ moziAI-35B/
 | 32 GB | Arc Pro B70 / Arc Pro B65 |
 | 24 GB | Arc Pro B60 |
 | 16 GB | Arc Pro B50（需搭配 CPU 卸載） |
-
 **CPU共用記憶體核顯 設備參考表**
 
 | 顯存 | 處理器型號 |
 | ------ | -------------------------------------- |
 | 128 GB | AMD Ryzen AI Max+ 395（Radeon 8060S 核顯） |
 | 128 GB | NVIDIA RTX Spark（Blackwell RTX GPU） |
-
 > 💡 **提示**：只要顯存滿足以上要求即可使用，不限品牌型號，支援 NVIDIA / AMD / Intel 各品牌獨立顯卡，也支援帶有 128GB 統一記憶體的核顯/CPU。
 >
 > 💡 **提示**：上下文越長，佔用顯存越多。如果出現顯存不足（OOM），請逐步降低 `-c` 參數值。使用 `--fit on` 參數可讓 llama.cpp 自動調整層數適配顯存。
@@ -423,10 +415,10 @@ moziAI-13.7-35B-A3B 基於 **Ornith-1.0-35B**（deepreinforce-ai）底座微調�
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
 | BrowseComp | 67.6 | 63.5 | 62 | - | - | 78.6 |
 | ClawEval | 72.5 | 69.8 | 68.7 | 48.5 | - | 70.7 |
-\* **Terminal-Bench 2.1 (Terminus-2)**：使用 Harbor/Terminus-2 框架評測，配置 `parser=json`，`temperature=1.0`，`top_p=1.0`，128K 上下文視窗。每次運行 4 小時超時，32 核 48GB 記憶體，結果取 5 次平均。  
-\* **Terminal-Bench 2.1 (Claude Code)**：使用 Claude Code 2.1.126 評測，配置 `parser=json`，`temperature=1.0`，`top_p=1.0`，`max_new_tokens=131072`。結果取 5 次平均。  
-\* **SWE-bench Verified, Pro and Multilingual**：使用 OpenHands 框架評測，配置 `temp=1.0`，`top_p=0.95`，256K 上下文視窗。  
-\* **NL2Repo**：配置 `temperature=1.0`，`top_p=1.0`，400K 上下文，48K 輸出。  
+**Terminal-Bench 2.1 (Terminus-2)**：使用 Harbor/Terminus-2 框架評測，配置 `parser=json`，`temperature=1.0`，`top_p=1.0`，128K 上下文視窗。每次運行 4 小時超時，32 核 48GB 記憶體，結果取 5 次平均。  
+**Terminal-Bench 2.1 (Claude Code)**：使用 Claude Code 2.1.126 評測，配置 `parser=json`，`temperature=1.0`，`top_p=1.0`，`max_new_tokens=131072`。結果取 5 次平均。  
+**SWE-bench Verified, Pro and Multilingual**：使用 OpenHands 框架評測，配置 `temp=1.0`，`top_p=0.95`，256K 上下文視窗。  
+**NL2Repo**：配置 `temperature=1.0`，`top_p=1.0`，400K 上下文，48K 輸出。  
 
 > MoziAI-35B 完整繼承了 Ornith-1.0-35B 優秀的智慧體編碼能力。MoziAI 的核心差異化在於**金融垂直領域深度優化**，在財報分析、量化策略、風控合規、智慧體工具調用等場景下，表現顯著優於通用模型。
 
