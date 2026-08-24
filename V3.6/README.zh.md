@@ -447,6 +447,5 @@ moziAI-13.7-35B-A3B 基于 **Ornith-1.0-35B**（deepreinforce-ai）底座微调�
 - **微博**：[@rimochen](https://weibo.com/rimochen)
 - **E-mail**：263515@qq.com
 
-***
 
 Copyright (c) 2026 陈雨墨 / chenyumo166. All rights reserved.
