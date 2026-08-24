@@ -44,7 +44,7 @@ pipeline_tag: text-generation
 
 
 
-[English](README.md) | 简体中文（当前页） | [繁体中文](V3.7/README.zh-hant.md) | [日本语](V3.7/README.ja.md) | [한국어](V3.7/README.ko.md) | [हिन्दी](V3.7/README.hi.md) | [Deutsch](V3.7/README.de.md) | [Français](V3.7/README.fr.md) | [Nederlands](V3.7/README.nl.md) | [Italiano](V3.7/README.it.md) | [Русский](V3.7/README.ru.md)
+[English](README.en.md) | 简体中文（当前页） | [繁体中文](V3.7/README.zh-hant.md) | [日本语](V3.7/README.ja.md) | [한국어](V3.7/README.ko.md) | [हिन्दी](V3.7/README.hi.md) | [Deutsch](V3.7/README.de.md) | [Français](V3.7/README.fr.md) | [Nederlands](V3.7/README.nl.md) | [Italiano](V3.7/README.it.md) | [Русский](V3.7/README.ru.md)
 
 
 
