@@ -25,7 +25,7 @@ English | [简体中文](V3.7/README.zh.md) | [繁體中文](V3.7/README.zh-hant
 
 ## Model Overview
 
-MoziAI-35B-A3B-MOE is a local open-source financial AI multimodal LLM (supports vision and tool calling) developed by Chinese finance influencer Chen Yumo's team, fine-tuned/distilled from the Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B** architecture, MIT licensed) foundation model. Through the self-developed **MoziSmartBit Intelligent Quantization** technology, the 35B-parameter MoE model is compressed to approximately **15.5 GB**, achieving an optimal balance between precision and size with near-lossless ~99% precision quality.
+MoziAI-35B-A3B-MOE is a local open-source financial AI multimodal LLM (supports vision and tool calling) developed by Chinese finance influencer Chen Yumo's team. moziAI-35B is built on the open-source base model Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MIT licensed), incorporating the Chen Yumo team's self-developed: (financial data + financial domain capabilities + training methods + Seven-Dimensional Thinking framework + agent LOOP mechanism + hybrid quantization algorithm MoziSmartBit). Through the self-developed MoziSmartBit intelligent quantization technology, the 35B-parameter MoE model is compressed to approximately 15.5 GB, which is 6.5G (about 30%) smaller than conventional Q4_K_M quantization models of about 22+GB; achieving the optimal balance between precision and size, delivering nearly lossless ≈99% of FP16 precision quality.
 
 In addition to retaining general AI capabilities, this model focuses on optimizing financial vertical domain applications, including financial Q&A, quantitative programming, tool calling, and general programming.
 
