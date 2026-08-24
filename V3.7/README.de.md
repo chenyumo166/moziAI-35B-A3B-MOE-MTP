@@ -54,7 +54,7 @@ MoziAI-35B-A3B-MOE ist ein lokales Open-Source-finanzielles KI-Multimodal-LLM (u
 
 
 
-Neben der Beibehaltung allgemeiner KI-Fähigkeiten konzentriert sich dieses Modell auf die Optimierung vertikaler Finanzdomänen-Anwendungen, einschließlich Finanz-Q&A, quantitativer Programmierung, Tool Calling und allgemeiner Programmierung.
+Zusätzlich zur Beibehaltung der allgemeinen KI-Fähigkeiten erweitert dieses Modell: Finanzvertikale Domänenanwendungen, Finanz-Q&A, quantitative Programmierung, Tool Calling und allgemeine Programmierung sowie die Sieben-Dimensionale-Denken-Fähigkeit des Modells, den LOOP-Mechanismus und die Kompatibilität mit verschiedenen Agent-Plattformen.
 
 
 

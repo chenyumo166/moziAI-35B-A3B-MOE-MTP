@@ -54,7 +54,7 @@ MoziAI-35B-A3B-MOE è un LLM multimodale finanziario AI open-source locale (supp
 
 
 
-Oltre a mantenere le capacità AI generali, questo modello si concentra sull'ottimizzazione delle applicazioni verticali nel dominio finanziario, includendo Q&A finanziari, programmazione quantitativa, tool calling e programmazione generale.
+Oltre a mantenere le capacità generali dell'IA, questo modello migliora: applicazioni verticali del dominio finanziario, Q&A finanziario, programmazione quantitativa, tool calling e programmazione generale, oltre alla capacità di pensiero a sette dimensioni del modello, al meccanismo LOOP e alla compatibilità con varie piattaforme agent.
 
 
 

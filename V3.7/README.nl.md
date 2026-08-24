@@ -54,7 +54,7 @@ MoziAI-35B-A3B-MOE is een lokaal open-source financieel AI multimodaal LLM (onde
 
 
 
-Naast het behouden van algemene AI-mogelijkheden, richt dit model zich op het optimaliseren van toepassingen in het financiële vertaaldomein, waaronder financiële Q&A, kwantitatieve programmering, tool calling en algemene programmering.
+Naast het behouden van de algemene AI-mogelijkheden, verbetert dit model: financiële verticale domeintoepassingen, financiële Q&A, kwantitatieve programmering, tool calling en algemene programmering, evenals de zeven-dimensionale denkvaardigheid van het model, het LOOP-mechanisme en compatibiliteit met verschillende agentplatforms.
 
 
 
