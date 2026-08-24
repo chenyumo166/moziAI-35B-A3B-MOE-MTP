@@ -94,7 +94,7 @@ MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多
 
 - **推理邏輯增強**：配合推理邏輯（思維鏈）進行訓練，進一步提升推理質量
 
-- **多框架支援*：兼顧llama.cpp、Ollama、LM Studio、Jan 等主流推理框架
+- **多框架支援**：兼顧llama.cpp、Ollama、LM Studio、Jan 等主流推理框架
 
 - **多 Agent 平台支持**：深度適合OpenClaw、Hermes、OpenCode、Cursor、Windsurf、Claude Code、Codex 等國內外主流 AI IDE 與 Agent 框架，原生支持工具調用與多輪任務編排，開箱即可
 

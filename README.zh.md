@@ -90,11 +90,11 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 
 - **视觉理解**：支持多模态视觉，可本地截图进入聊天窗口，模型能夠看懂图片内资讯
 
-- **去审核自由输出*：无内容审查限制，可自由讨论任何话题，不受安全策略約束
+- **去审核自由输出**：无内容审查限制，可自由讨论任何话题，不受安全策略約束
 
 - **推理逻辑增强**：配合推理逻辑（思维链）进行训练，进一步提升推理质量
 
-- **多框架支援*：兼顾llama.cpp、Ollama、LM Studio、Jan 等主流推理框架
+- **多框架支援**：兼顾llama.cpp、Ollama、LM Studio、Jan 等主流推理框架
 
 - **多 Agent 平台支持**：深度适合OpenClaw、Hermes、OpenCode、Cursor、Windsurf、Claude Code、Codex 等国内外主流 AI IDE 与 Agent 框架，原生支持工具调用与多轮任务编排，开箱即可
 
