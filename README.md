@@ -215,9 +215,9 @@ Search `moziAI-35B` in LM Studio or Jan, download the MoziSmartBit quant version
 
 ## Benchmarks
 
-moziAI-13.7-35B-A3B is fine-tuned from **Ornith-1.5-35B-A3B** (deepreinforce-ai). MoziAI adds **financial vertical domain optimization** on top of the excellent agentic coding capabilities of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. General capabilities remain consistent with the Ornith-1.5-35B-A3B base model.
+moziAI-V3.7-35B-A3B is fine-tuned from **Ornith-1.5-35B-A3B** (deepreinforce-ai). MoziAI adds **financial vertical domain optimization** on top of the excellent agentic coding capabilities of the base model, delivering superior performance in financial Q&A, quantitative programming, and tool calling scenarios. General capabilities remain consistent with the Ornith-1.5-35B-A3B base model.
 
-| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+| Benchmark | moziAI-V3.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
 | **Coding** |  |  |  |  |  |  |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
