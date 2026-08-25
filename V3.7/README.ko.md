@@ -651,7 +651,7 @@ MoziAI는 **deepreinforce-ai/Ornith-1.5-35B-A3B**에서 파인튜닝되었습니
 
 
 
-| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+| Benchmark | moziAI-V3.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
 | **코딩** |  |  |  |  |  |  |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |

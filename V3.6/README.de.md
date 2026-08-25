@@ -19,7 +19,7 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# moziAI-13.7-35B-A3B-A3B-MOE-MTP-Uncensored - Kleines aber starkes multimodales KI-Modell für kostenlose lokale Bereitstellung
+# moziAI-V3.6-35B-A3B-A3B-MOE-MTP-Uncensored - Kleines aber starkes multimodales KI-Modell für kostenlose lokale Bereitstellung
 
 Language / Sprache wählen  
 [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
@@ -391,9 +391,9 @@ Suchen Sie direkt in LM Studio oder Jan nach `moziAI-35B` und wählen Sie die Qu
 
 ## Benchmark-Bewertung
 
-moziAI-13.7-35B-A3B basiert auf dem **Ornith-1.0-35B** (deepreinforce-ai)-Basismodell und wurde feinabgestimmt. Aufbauend auf den exzellenten Agent-Coding-Fähigkeiten des Basismodells hat MoziAI eine **tiefe Optimierung im Finanzbereich** hinzugefügt und zeigt bessere Leistung in Szenarien wie Finanz-Q&A, quantitative Programmierung und Tool-Aufrufe. Die allgemeinen Fähigkeiten stimmen mit dem Ornith-1.0-35B-Basismodell überein.
+moziAI-V3.6-35B-A3B basiert auf dem **Ornith-1.0-35B** (deepreinforce-ai)-Basismodell und wurde feinabgestimmt. Aufbauend auf den exzellenten Agent-Coding-Fähigkeiten des Basismodells hat MoziAI eine **tiefe Optimierung im Finanzbereich** hinzugefügt und zeigt bessere Leistung in Szenarien wie Finanz-Q&A, quantitative Programmierung und Tool-Aufrufe. Die allgemeinen Fähigkeiten stimmen mit dem Ornith-1.0-35B-Basismodell überein.
 
-| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+| Benchmark | moziAI-V3.6-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
 | **Programmierung** |  |  |  |  |  |  |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |

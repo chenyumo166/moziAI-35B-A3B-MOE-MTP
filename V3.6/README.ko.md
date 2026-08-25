@@ -19,7 +19,7 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# moziAI-13.7-35B-A3B-A3B-MOE-MTP-Uncensored - 무료 로컬 배포 가능한 작고 강력한 멀티모달 AI 모델
+# moziAI-V3.6-35B-A3B-A3B-MOE-MTP-Uncensored - 무료 로컬 배포 가능한 작고 강력한 멀티모달 AI 모델
 
 Language / 언어 선택  
 [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
@@ -391,9 +391,9 @@ LM Studio 또는 Jan에서 `moziAI-35B`를 직접 검색하고 양자화 버전�
 
 ## 벤치마크 평가
 
-moziAI-13.7-35B-A3B은 **Ornith-1.0-35B**（deepreinforce-ai）기반으로 파인튜닝되었습니다. MoziAI는 베이스 모델의 뛰어난 에이전트 코딩 능력에 더해 **금융 수직 분야 심층 최적화**를 새롭게 추가하여 금융 Q&A, 퀀트 프로그래밍, 도구 호출 등 시나리오에서 더 뛰어난 성능을 발휘합니다. 범용 능력은 Ornith-1.0-35B 베이스 모델과 동일합니다.
+moziAI-V3.6-35B-A3B은 **Ornith-1.0-35B**（deepreinforce-ai）기반으로 파인튜닝되었습니다. MoziAI는 베이스 모델의 뛰어난 에이전트 코딩 능력에 더해 **금융 수직 분야 심층 최적화**를 새롭게 추가하여 금융 Q&A, 퀀트 프로그래밍, 도구 호출 등 시나리오에서 더 뛰어난 성능을 발휘합니다. 범용 능력은 Ornith-1.0-35B 베이스 모델과 동일합니다.
 
-| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+| Benchmark | moziAI-V3.6-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
 | **코딩** |  |  |  |  |  |  |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |

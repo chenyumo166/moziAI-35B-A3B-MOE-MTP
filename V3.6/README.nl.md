@@ -19,7 +19,7 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# moziAI-13.7-35B-A3B-A3B-MOE-MTP-Uncensored - Een klein maar krachtig multimodaal AI-model voor gratis lokale implementatie
+# moziAI-V3.6-35B-A3B-A3B-MOE-MTP-Uncensored - Een klein maar krachtig multimodaal AI-model voor gratis lokale implementatie
 
 Language / Taal  
 [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
@@ -391,9 +391,9 @@ Zoek direct naar `moziAI-35B` in LM Studio of Jan en selecteer de quantisatiever
 
 ## Benchmark-evaluatie
 
-moziAI-13.7-35B-A3B is gebaseerd op het **Ornith-1.0-35B** (deepreinforce-ai) basismodel en is verfijnd. Voortbouwend op de uitstekende agent-coderingsmogelijkheden van het basismodel, heeft MoziAI een **diepe optimalisatie op financieel gebied** toegevoegd en presteert het beter in scenario's zoals financiële Q&A, kwantitatieve programmering en tool-aanroepen. De algemene mogelijkheden komen overeen met die van het Ornith-1.0-35B basismodel.
+moziAI-V3.6-35B-A3B is gebaseerd op het **Ornith-1.0-35B** (deepreinforce-ai) basismodel en is verfijnd. Voortbouwend op de uitstekende agent-coderingsmogelijkheden van het basismodel, heeft MoziAI een **diepe optimalisatie op financieel gebied** toegevoegd en presteert het beter in scenario's zoals financiële Q&A, kwantitatieve programmering en tool-aanroepen. De algemene mogelijkheden komen overeen met die van het Ornith-1.0-35B basismodel.
 
-| Benchmark | moziAI-13.7-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+| Benchmark | moziAI-V3.6-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
 | **Programmeren** |  |  |  |  |  |  |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
