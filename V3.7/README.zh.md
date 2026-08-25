@@ -211,6 +211,7 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 | flash\_attention  | auto                             | 自动 Flash Attention     |
 | kv\_cache         | q4\_0                            | KV 缓存量化（统一 kv-unified）|
 | poll              | 0                                | 闲置不轮任GPU，節能低延遲        |
+| spec\_decoding     | default                           | 推测解码加速（ngram，MoE 最优）    |
 | reasoning         | on                               | 开启推理链（思维链）             |
 | reasoning\_budget | 400                              | 推理预算 token |          |
 | reasoning\_format | deepseek-legacy                  | 推理格式                   |
@@ -236,6 +237,8 @@ llama-server \
   --flash-attn auto \
 
   --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
+
+  --spec-default \
 
   --poll 0 --reasoning on --reasoning-budget 1000 \
 

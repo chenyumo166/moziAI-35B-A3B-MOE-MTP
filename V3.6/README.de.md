@@ -79,6 +79,7 @@ llama-server \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
   --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
+  --spec-default \
   --poll 0 --reasoning on --reasoning-budget 400 \
   --host 0.0.0.0 --port 8080 \
   --temp 0.6 --top-p 0.95 --top-k 20

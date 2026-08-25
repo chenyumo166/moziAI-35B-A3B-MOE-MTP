@@ -79,6 +79,7 @@ llama-server \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
   --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
+  --spec-default \
   --poll 0 --reasoning on --reasoning-budget 1000 \
   --host 0.0.0.0 --port 8080 \
   --temp 0.6 --top-p 0.95 --top-k 20
@@ -232,6 +233,7 @@ Based on local operation configuration (AMD Radeon AI PRO R9700 32GB), the follo
 | flash_attention | auto | Automatic Flash Attention |
 | kv_cache | q4_0 | KV cache quantization (unified kv-unified) |
 | poll | 0 | Idle does not poll GPU, energy saving low latency |
+| Speculative Decoding | default | ngram speculative decoding (optimal for MoE) |
 | reasoning | on | Enable reasoning chain (chain-of-thought) |
 | reasoning_budget | 400 | Reasoning budget token count |
 | reasoning_format | deepseek-legacy | Reasoning format |

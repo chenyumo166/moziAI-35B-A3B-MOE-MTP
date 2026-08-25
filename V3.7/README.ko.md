@@ -443,6 +443,7 @@ llama-server \
 
 
 
+  --spec-default \
   --poll 0 --reasoning on --reasoning-budget 1000 \
 
 

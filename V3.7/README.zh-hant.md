@@ -237,6 +237,7 @@ llama-server \
 
   --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
 
+  --spec-default \
   --poll 0 --reasoning on --reasoning-budget 1000 \
 
   --host 0.0.0.0 --port 8080 \
