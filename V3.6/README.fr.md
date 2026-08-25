@@ -19,7 +19,7 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# moziAI-V3.6-35B-A3B-A3B-MOE-MTP-Uncensored - Un modèle d'IA multimodal petit mais puissant, déployable localement gratuitement
+# moziAI-35B-V3.6-A3B-MOE-MTP-Uncensored - Un modèle d'IA multimodal petit mais puissant, déployable localement gratuitement
 
 Language / Langue  
 [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
@@ -391,9 +391,9 @@ Recherchez directement `moziAI-35B` dans LM Studio ou Jan et sélectionnez la ve
 
 ## Évaluation de référence
 
-moziAI-V3.6-35B-A3B est affiné à partir du modèle de base **Ornith-1.0-35B** (deepreinforce-ai). S'appuyant sur les excellentes capacités de codage d'agent du modèle de base, MoziAI a ajouté une **optimisation approfondie du domaine financier**, offrant de meilleures performances dans des scénarios tels que les questions-réponses financières, la programmation quantitative et les appels d'outils. Les capacités générales sont identiques à celles du modèle de base Ornith-1.0-35B.
+moziAI-35B-V3.6 est affiné à partir du modèle de base **Ornith-1.0-35B** (deepreinforce-ai). S'appuyant sur les excellentes capacités de codage d'agent du modèle de base, MoziAI a ajouté une **optimisation approfondie du domaine financier**, offrant de meilleures performances dans des scénarios tels que les questions-réponses financières, la programmation quantitative et les appels d'outils. Les capacités générales sont identiques à celles du modèle de base Ornith-1.0-35B.
 
-| Benchmark | moziAI-V3.6-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+| Benchmark | moziAI-35B-V3.6 | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
 | **Programmation** |  |  |  |  |  |  |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |

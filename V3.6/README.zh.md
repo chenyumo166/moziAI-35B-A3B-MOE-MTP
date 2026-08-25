@@ -19,7 +19,7 @@ library_name: llama-cpp
 pipeline_tag: text-generation
 ---
 
-# moziAI-V3.6-35B-A3B-A3B-MOE-MTP-Uncensored - 可免费本地部署的小而强的多模态AI模型
+# moziAI-35B-V3.6-A3B-MOE-MTP-Uncensored - 可免费本地部署的小而强的多模态AI模型
 
 Language / 语言选择  
 [简体中文](README.zh.md) | [繁体中文](README.zh-hant.md) | [日本语](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [English](README.en.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
@@ -391,9 +391,9 @@ ollama run moziAI-35B
 
 ## 基准评测
 
-moziAI-V3.6-35B-A3B 基于 **Ornith-1.0-35B**（deepreinforce-ai）底座微调。MoziAI 在底座优秀的智能体编码能力基础上，新增**金融垂直领域深度优化**，在金融问答、量化编程、工具调用等场景下表现更出色。通用能力与 Ornith-1.0-35B 底座保持一致。
+moziAI-35B-V3.6 基于 **Ornith-1.0-35B**（deepreinforce-ai）底座微调。MoziAI 在底座优秀的智能体编码能力基础上，新增**金融垂直领域深度优化**，在金融问答、量化编程、工具调用等场景下表现更出色。通用能力与 Ornith-1.0-35B 底座保持一致。
 
-| Benchmark | moziAI-V3.6-35B-A3B | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
+| Benchmark | moziAI-35B-V3.6 | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
 | **编程** |  |  |  |  |  |  |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
