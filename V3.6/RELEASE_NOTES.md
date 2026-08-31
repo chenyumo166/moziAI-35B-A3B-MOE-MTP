@@ -58,7 +58,7 @@ V3.6 版本目录包含以下文件（版本自包含）：
 | 文件 | 说明 | 大小 |
 |------|------|------|
 | `moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf` | 主模型文件（必选） | ~14.5 GB |
-| `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` | 视觉投影文件（可选，需要视觉能力时加载） | ~903 MB |
+| `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` | 视觉投影文件（可选，需要视觉能力时加载） | ~903 MB |
 | `moziAI-V3.6-35B-chat-template.jinja` | 聊天模板（推荐配合使用） | ~9 KB |
 | `RELEASE_NOTES.md` | 本文件（版本更新说明） | - |
 

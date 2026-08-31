@@ -211,7 +211,7 @@ Basati sulla configurazione di produzione locale (AMD Radeon AI PRO R9700 32GB):
 | top_k | 20 | Truncation sampling (ottimizzato in V3.7) |
 | repeat_penalty | 1.05 | Penalità per ripetizione |
 | presence_penalty | 0 | Nessuna penalità di presenza |
-| context_length | 262144 | Contesto lungo 256K |
+| context_length | 131072 | Contesto lungo 256K |
 | batch_size | 2048 | Dimensione del batch |
 | ubatch_size | 512 | Dimensione del micro-batch |
 | flash_attention | auto | Flash Attention automatico |
@@ -231,11 +231,11 @@ llama-server \
 
   -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99 -t 28 \
+  -c 131072 -ngl 99 -t 28 \
 
   --batch-size 2048 --ubatch-size 512 \
 
@@ -327,7 +327,7 @@ PARAMETER top_p 0.95
 
 PARAMETER top_k 20
 
-PARAMETER num_ctx 262144
+PARAMETER num_ctx 131072
 
 PARAMETER num_gpu 99
 
@@ -412,7 +412,7 @@ Questo modello supporta la vision multimodale. Il **file di vision projection (m
 
 
 
-- **File vision**: `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, precisione BF16)
+- **File vision**: `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` (~903 MB, precisione BF16)
 
 - **Posizionamento**: Nella stessa directory della versione del file modello GGUF
 
@@ -424,7 +424,7 @@ Questo modello supporta la vision multimodale. Il **file di vision projection (m
 
 llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf
 
 ```
 
@@ -452,7 +452,7 @@ V3.7/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # Modello principale (obbligatorio)
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision projection (opzionale)
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # Vision projection (opzionale)
 
 └── moziAI-V3.7-35B-chat-template.jinja                  # Chat template (consigliato)
 
@@ -480,14 +480,29 @@ llama-server \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99
+  -c 131072 -ngl 99
 
 ```
 
 
 
-> Aggiungete `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` per la capacità vision.
+> Aggiungete `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` per la capacità vision.
 
+
+
+### Ollama (Consigliato per principianti)
+
+```bash
+# Download e avvio con un clic
+ollama run chenyumo/moziAI-35B-A3B
+```
+
+> 💡 **Modificare il contesto**: Default 128K. Crea un Modelfile personalizzato:
+> ```
+> FROM chenyumo/moziAI-35B-A3B
+> PARAMETER num_ctx 131072
+> ```
+> Poi: `ollama create my-moziai -f Modelfile && ollama run my-moziai`
 
 
 ### 3. Inizia a Utilizzare
@@ -518,7 +533,7 @@ moziAI-35B/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # Modello principale
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
+├── moziAI-35B-mmproj-BF16-V1.0.gguf # Vision projection
 
 └── moziAI-V3.7-35B-chat-template.jinja   # Chat template
 

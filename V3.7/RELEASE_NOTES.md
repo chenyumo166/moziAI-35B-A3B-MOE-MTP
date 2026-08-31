@@ -58,7 +58,7 @@ V3.7 版本包含以下文件（版本目录内）：
 | 文件 | 说明 | 大小 |
 |------|------|------|
 | `moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf` | 主模型文件，必需 | ~15.5 GB |
-| `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` | 视觉模态文件，可选，需要视觉能力时下载 | ~861 MB |
+| `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` | 视觉模态文件，可选，需要视觉能力时下载 | ~861 MB |
 | `moziAI-V3.7-35B-chat-template.jinja` | 聊天模板文件，本版本更新 | - |
 
 ---

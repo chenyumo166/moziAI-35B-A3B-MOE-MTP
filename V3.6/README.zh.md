@@ -50,7 +50,7 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 
 本模型支持多模态视觉，视觉投影文件（mmproj）已包含在版本目录中：
 
-- **视觉文件**：`moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`（约 903 MB，BF16 精度）
+- **视觉文件**：`mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`（约 903 MB，BF16 精度）
 - **放置位置**：与 GGUF 模型文件放在同一版本目录
 - **加载方式**：启动 llama-server 时通过 `--mmproj` 参数加载
 
@@ -73,7 +73,7 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 ```bash
 llama-server \
   -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
@@ -94,7 +94,7 @@ llama-server \
 ```
 V3.6/
 ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # 主模型（必选）
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # 视觉投影（可选，需视觉能力时下载）
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # 视觉投影（可选，需视觉能力时下载）
 └── moziAI-V3.6-35B-chat-template.jinja                  # 聊天模板（必选！不加载会导致对话格式错误）
 ```
 
@@ -113,7 +113,7 @@ llama-server \
   -c 262144 -ngl 99
 ```
 
-> 需要视觉能力时加上 `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`
+> 需要视觉能力时加上 `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`
 
 ### 3. 开始使用
 
@@ -129,7 +129,7 @@ moziAI-35B/
 ├── V3.6/                  # V3.6 版本（版本自包含）
 │   ├── RELEASE_NOTES.md                       # 版本更新说明
 │   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # 主模型
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # 视觉投影
+│   ├── moziAI-35B-mmproj-BF16-V1.0.gguf # 视觉投影
 │   └── moziAI-V3.6-35B-chat-template.jinja   # 聊天模板
 ```
 

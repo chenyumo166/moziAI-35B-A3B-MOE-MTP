@@ -21,13 +21,13 @@ pipeline_tag: text-generation
 
 # MoziAI-V3.7-35B-A3B-MOE - Free Locally Deployable Small Yet Powerful Multimodal AI
 
-English | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+English | [简体中文](V3.7/README.zh.md) | [繁體中文](V3.7/README.zh-hant.md) | [日本語](V3.7/README.ja.md) | [한국어](V3.7/README.ko.md) | [हिन्दी](V3.7/README.hi.md) | [Deutsch](V3.7/README.de.md) | [Français](V3.7/README.fr.md) | [Nederlands](V3.7/README.nl.md) | [Italiano](V3.7/README.it.md) | [Русский](V3.7/README.ru.md)
 
 ## Model Overview
 
 MoziAI-35B-A3B-MOE is a local open-source financial AI multimodal LLM (supports vision and tool calling) developed by Chinese finance influencer Chen Yumo's team. moziAI-35B is built on the open-source base model Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MIT licensed), incorporating the Chen Yumo team's self-developed: (financial data + financial domain capabilities + training methods + Seven-Dimensional Thinking framework + agent LOOP mechanism + hybrid quantization algorithm MoziSmartBit). Through the self-developed MoziSmartBit intelligent quantization technology, the 35B-parameter MoE model is compressed to approximately 15.5 GB, which is 6.5G (about 30%) smaller than conventional Q4_K_M quantization models of about 22+GB; achieving the optimal balance between precision and size, delivering nearly lossless ≈99% of FP16 precision quality.
 
-In addition to retaining general AI capabilities, this model enhances: financial vertical domain applications, financial Q&A, quantitative programming, tool calling, and general programming, as well as the model's Seven-Dimensional Thinking capability, LOOP mechanism, and compatibility with various agent platforms.
+In addition to retaining the capabilities of general large AI models, this model enhances: financial vertical domain applications, financial Q&A, quantitative programming, tool calling, and general programming, as well as the model's Seven-Dimensional Thinking capability, LOOP mechanism, and compatibility with various agent platforms. It can be deployed for free on consumer-grade graphics cards locally, saving a lot of cloud token costs, enabling 7X24 hours token freedom and ensuring local data privacy and security.
 
 The model developer Chen Yumo frequently uses this model for local financial data analysis, quantitative strategy R&D, market research, article writing, overall project advancement, general programming, and 128K context tasks via openclaw/hermes. It can be deployed locally on consumer-grade GPUs, saving substantial cloud token costs, achieving 7X24 token freedom while ensuring local data privacy and security.
 
@@ -78,7 +78,7 @@ This model inherits the **Uncensored** feature from the Ornith-1.5-35B-A3B base 
 | Base Model | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT licensed) |
 | Parameters | 35B MoE (256 routed experts + 1 shared expert, 8 active per token) |
 | Quantization | Self-developed MoziSmartBit Intelligent Quantization + GGUF standard format |
-| Context Length | 256K (262,144 tokens) |
+| Context Length | 128K (262,144 tokens) |
 | Model Size | ~15.5 GB (MoziSmartBit Uncensored version) |
 | Min VRAM | Consumer GPUs with 20GB+ VRAM (e.g., RTX 4060 Ti 16G with CPU offload), 24 GB recommended (with vision + long context) |
 | Inference Framework | llama.cpp / Ollama / LM Studio / Jan |
@@ -160,8 +160,8 @@ Since user GPU configurations vary widely, here are recommended parameters for d
 | VRAM | Recommended Context | KV Cache | Vision Support | Notes |
 |------|---------------------|----------|----------------|-------|
 | 20 GB | 150K | q4_0 | Supported | Model+vision ~16.4GB, actual test shows 200K+vision uses ~19.5GB VRAM |
-| 24 GB | 256K full | q4_0 | Full support | Vision+128K long context, uses ~20.4GB VRAM, ~3.6GB headroom |
-| 32 GB+ | 256K full | q4_0 | Full support | Vision+128K long context, sufficient headroom ~10GB, best config |
+| 24 GB | 128K full | q4_0 | Full support | Vision+128K long context, uses ~20.4GB VRAM, ~3.6GB headroom |
+| 32 GB+ | 128K full | q4_0 | Full support | Vision+128K long context, sufficient headroom ~10GB, best config |
 **NVIDIA**
 
 | VRAM | GPU Model |
@@ -309,8 +309,8 @@ Open `http://localhost:8080` in your browser to start chatting.
 
 ```
 moziAI-35B/
-├── README.md              # Chinese version
-├── README.en.md           # This file (English)
+├── README.md              # This file (English)
+├── README.zh.md           # Chinese version
 ├── LICENSE                # License
 ├── V3.7/                  # V3.7 version (self-contained)
 │   ├── RELEASE_NOTES.md                       # Release notes

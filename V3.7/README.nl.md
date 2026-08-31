@@ -58,7 +58,7 @@ Naast het behouden van de algemene AI-mogelijkheden, verbetert dit model: financ
 
 
 
-De modelontwikkelaar Chen Yumo gebruikt dit model regelmatig voor lokale financiële gegevensanalyse, kwantitatieve strategie-ontwikkeling, marktonderzoek, artikelen schrijven, algemene projectvoortgang, algemene programmering en 256K context-taken via openclaw/hermes. Het kan lokaal worden gedeployeerd op consumentengrade GPUs, waardoor aanzienlijke cloud-tokenkosten worden bespaard en 7X24 token-vrijheid wordt gerealiseerd terwijl de lokale gegevensprivacy en -beveiliging worden gewaarborgd.
+De modelontwikkelaar Chen Yumo gebruikt dit model regelmatig voor lokale financiële gegevensanalyse, kwantitatieve strategie-ontwikkeling, marktonderzoek, artikelen schrijven, algemene projectvoortgang, algemene programmering en 128K context-taken via openclaw/hermes. Het kan lokaal worden gedeployeerd op consumentengrade GPUs, waardoor aanzienlijke cloud-tokenkosten worden bespaard en 7X24 token-vrijheid wordt gerealiseerd terwijl de lokale gegevensprivacy en -beveiliging worden gewaarborgd.
 
 
 
@@ -192,7 +192,7 @@ Traditionele kwantisatie comprimeert alle delen van het model uniform, wat vaak 
 
 
 
-**vs FP16 origineel (~70 GB)**: ~4,5x compressie, trainings-effectief + minimaal kwantisatieverlies (trainingswinst > kwantisatieverlies), waardoor lokale 256K context-deployment op consumenten-GPU's mogelijk wordt in plaats van professioneel materiaal.
+**vs FP16 origineel (~70 GB)**: ~4,5x compressie, trainings-effectief + minimaal kwantisatieverlies (trainingswinst > kwantisatieverlies), waardoor lokale 128K context-deployment op consumenten-GPU's mogelijk wordt in plaats van professioneel materiaal.
 
 
 
@@ -211,7 +211,7 @@ Gebaseerd op lokale productieconfiguratie (AMD Radeon AI PRO R9700 32GB):
 | top_k | 20 | Truncatie sampling (V3.7 geoptimaliseerd) |
 | repeat_penalty | 1,05 | Herhalingsstraf |
 | presence_penalty | 0 | Geen aanwezigheidsstraf |
-| context_length | 262144 | 256K lange context |
+| context_length | 131072 | 256K lange context |
 | batch_size | 2048 | Batchgrootte |
 | ubatch_size | 512 | Micro-batchgrootte |
 | flash_attention | auto | Automatische Flash Attention |
@@ -231,11 +231,11 @@ llama-server \
 
   -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99 -t 28 \
+  -c 131072 -ngl 99 -t 28 \
 
   --batch-size 2048 --ubatch-size 512 \
 
@@ -327,7 +327,7 @@ PARAMETER top_p 0.95
 
 PARAMETER top_k 20
 
-PARAMETER num_ctx 262144
+PARAMETER num_ctx 131072
 
 PARAMETER num_gpu 99
 
@@ -412,7 +412,7 @@ Dit model ondersteunt multimodale visie. Het **visieprojectiebestand (mmproj)** 
 
 
 
-- **Visiebestand**: `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16-precisie)
+- **Visiebestand**: `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` (~903 MB, BF16-precisie)
 
 - **Plaatsing**: Dezelfde versiemap als het GGUF-modelfbestand
 
@@ -424,7 +424,7 @@ Dit model ondersteunt multimodale visie. Het **visieprojectiebestand (mmproj)** 
 
 llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf
 
 ```
 
@@ -452,7 +452,7 @@ V3.7/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # Hoofdmodel (vereist)
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Visieprojectie (optioneel)
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # Visieprojectie (optioneel)
 
 └── moziAI-V3.7-35B-chat-template.jinja                  # Chatsjabloon (aanbevolen)
 
@@ -480,13 +480,13 @@ llama-server \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99
+  -c 131072 -ngl 99
 
 ```
 
 
 
-> Voeg `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` toe voor visiemogelijkheden.
+> Voeg `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` toe voor visiemogelijkheden.
 
 
 
@@ -520,7 +520,7 @@ moziAI-35B/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # Hoofdmodel
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Visieprojectie
+├── moziAI-35B-mmproj-BF16-V1.0.gguf # Visieprojectie
 
 └── moziAI-V3.7-35B-chat-template.jinja   # Chatsjabloon
 

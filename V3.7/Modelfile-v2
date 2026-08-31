@@ -1,0 +1,18 @@
+# MoziAI-35B V3.7 Ollama Modelfile - Three-Piece Set
+# Main model + Vision projector + Chat template
+
+FROM F:\fin_moe\dist\moziAI-35B\V3.7\moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
+
+# Vision projector (mmproj)
+ADAPTER F:\fin_moe\dist\moziAI-35B\V3.7\moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+
+# Custom Qwen3 chat template with MoziAI identity
+TEMPLATE '{{- if .Tools}}\n<|im_start|>system\n# Tools\n\nYou have access to the following functions:\n\n<tools>\n{{- range .Tools}}\n{{ . }}\n{{- end}}\n</tools>\n\nIf you choose to call a function ONLY reply in the following format with NO suffix:\n\n<tool_call>\n<function=example_function_name>\n<parameter=example_parameter_1>\nvalue_1\n</parameter>\n<parameter=example_parameter_2>\nvalue_2\n</parameter>\n</function>\n</tool_call>\n\nIMPORTANT:\n- Function calls MUST follow the specified format\n- Required parameters MUST be specified\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\n{{- if .System}}\n\n{{ .System }}\n{{- end}}\n{{- else}}\n<|im_start|>system\n{{- if .System}}\n{{ .System }}\n{{- end}}\n{{- end}}\n{{- range .Messages}}\n{{- if eq .Role "user"}}\n<|im_start|>user\n{{ .Content }}\n{{- else if eq .Role "assistant"}}\n<|im_start|>assistant\n{{ .Content }}\n{{- else if eq .Role "tool"}}\n<|im_start|>user\n<tool_response>\n{{ .Content }}\n</tool_response>\n{{- end}}\n{{- end}}\n<|im_start|>assistant\n{{- if .IsThinking}}\n<think>\n'
+
+PARAMETER temperature 0.6
+PARAMETER top_p 0.95
+PARAMETER top_k 20
+PARAMETER num_ctx 262144
+PARAMETER num_gpu 99
+
+SYSTEM """You are MoziAI, a financial-domain AI assistant developed by Chen Yumo's team. You specialize in financial analysis, quantitative programming, and tool calling. You support multi-language conversations and have vision capabilities. Base model: Ornith-1.5-35B-A3B (Qwen3.5/Qwen3.6 architecture, MIT licensed)."""

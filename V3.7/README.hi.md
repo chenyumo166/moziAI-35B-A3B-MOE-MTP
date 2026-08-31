@@ -211,7 +211,7 @@ llama.cpp, Ollama, LM Studio और अन्य प्रमुख इन्फ
 | top_k | 20 | Truncation sampling (V3.7 अनुकूलित) |
 | repeat_penalty | 1.05 | दोहराव दंट|
 | presence_penalty | 0 | कोगउपस्थिति दंटनहीय|
-| context_length | 262144 | 256K लंबा कॉन्टेक्स्र|
+| context_length | 131072 | 256K लंबा कॉन्टेक्स्र|
 | batch_size | 2048 | बै।आकार |
 | ubatch_size | 512 | माइक्र्बै।आकार |
 | flash_attention | auto | ऑटेFlash Attention |
@@ -231,11 +231,11 @@ llama-server \
 
   -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99 -t 28 \
+  -c 131072 -ngl 99 -t 28 \
 
   --batch-size 2048 --ubatch-size 512 \
 
@@ -327,7 +327,7 @@ PARAMETER top_p 0.95
 
 PARAMETER top_k 20
 
-PARAMETER num_ctx 262144
+PARAMETER num_ctx 131072
 
 PARAMETER num_gpu 99
 
@@ -412,7 +412,7 @@ MoziAI **deepreinforce-ai/Ornith-1.5-35B-A3B** से फाइन-ट्यू�
 
 
 
-- **दृष्टि फाइल**: `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16 सटीकता
+- **दृष्टि फाइल**: `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` (~903 MB, BF16 सटीकता
 
 - **रखरखाव**: GGUF मॉडल फाइल के समान संस्कर्निर्देशिका में
 
@@ -424,7 +424,7 @@ MoziAI **deepreinforce-ai/Ornith-1.5-35B-A3B** से फाइन-ट्यू�
 
 llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf
 
 ```
 
@@ -452,7 +452,7 @@ V3.7/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # मुख्रमॉडल (आवश्यक)
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # दृष्टि प्रोजेक्शन (वैकल्पिक)
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # दृष्टि प्रोजेक्शन (वैकल्पिक)
 
 └── moziAI-V3.7-35B-chat-template.jinja                  # चै।टेम्पलेट (अनुशंसित)
 
@@ -480,13 +480,13 @@ llama-server \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99
+  -c 131072 -ngl 99
 
 ```
 
 
 
-> दृष्टि क्षमता के लिक`--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` जोड़ेंट
+> दृष्टि क्षमता के लिक`--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` जोड़ेंट
 
 
 
@@ -520,7 +520,7 @@ moziAI-35B/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # मुख्रमॉडल
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # दृष्टि प्रोजेक्शन
+├── moziAI-35B-mmproj-BF16-V1.0.gguf # दृष्टि प्रोजेक्शन
 
 └── moziAI-V3.7-35B-chat-template.jinja   # चै।टेम्पलेट
 

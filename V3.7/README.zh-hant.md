@@ -205,7 +205,7 @@ MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多
 | top\_k            | 20                               | 截斷採樣          |
 | repeat\_penalty   | 1.05                             | 重複懲罰                   |
 | presence\_penalty | 0                                | 無存在懲罰                 |
-| context\_length   | 262144                           | 256K 長上下文              |
+| context\_length   | 131072                           | 256K 長上下文              |
 | batch\_size       | 2048                             | 批處理大模                 |
 | ubatch\_size      | 512                              | 微批次大模                 |
 | flash\_attention  | auto                             | 自動 Flash Attention     |
@@ -225,11 +225,11 @@ llama-server \
 
   -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99 -t 28 \
+  -c 131072 -ngl 99 -t 28 \
 
   --batch-size 2048 --ubatch-size 512 \
 
@@ -259,8 +259,8 @@ llama-server \
 | 顯存     | 推薦上下文長上| KV 緩存 | 視覺支持 | 說明                                   |
 | ------ | ------- | ----- | ---- | ------------------------------------ |
 | 20 GB  | 150K    | q4\_0 | 支持   | 模型+視覺共\~16.4GB，實現00K+視覺僅佔顯存\~19.5GB |
-| 24 GB  | 256K 滿配 | q4\_0 | 完美支持 | 視覺+256K長上下文,僅佔顯存\~20.4GB，顯存餘量\~3.6GB |
-| 32 GB+ | 256K 滿配 | q4\_0 | 完美支持 | 視覺+256K長上下文，顯存餘量充足\~10GB，最強配置       |
+| 24 GB  | 256K 滿配 | q4\_0 | 完美支持 | 視覺+128K長上下文,僅佔顯存\~20.4GB，顯存餘量\~3.6GB |
+| 32 GB+ | 256K 滿配 | q4\_0 | 完美支持 | 視覺+128K長上下文，顯存餘量充足\~10GB，最強配置       |
 **NVIDIA 顯卡參考表**
 
 
@@ -317,7 +317,7 @@ PARAMETER top_p 0.95
 
 PARAMETER top_k 20
 
-PARAMETER num_ctx 262144
+PARAMETER num_ctx 131072
 
 PARAMETER num_gpu 99
 
@@ -402,7 +402,7 @@ MoziAI 基於 deepreinforce-ai/Ornith-1.5-35B-A3B 底座微調、蒸餾與二次
 
 
 
-- **視覺文件**：`moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`（約 903 MB，BF16 精度優
+- **視覺文件**：`mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`（約 903 MB，BF16 精度優
 
 - **放置位置**：與 GGUF 模型文件放在同一版本目錄下
 
@@ -414,7 +414,7 @@ MoziAI 基於 deepreinforce-ai/Ornith-1.5-35B-A3B 底座微調、蒸餾與二次
 
 llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf
 
 ```
 
@@ -442,7 +442,7 @@ V3.7/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # 主模型（必選擇
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # 視覺投影（可選）
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # 視覺投影（可選）
 
 └── moziAI-V3.7-35B-chat-template.jinja                  # 聊天模板（推薦）
 
@@ -470,13 +470,13 @@ llama-server \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99
+  -c 131072 -ngl 99
 
 ```
 
 
 
-> 需要視覺能力時加上 `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`
+> 需要視覺能力時加上 `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`
 
 
 
@@ -508,7 +508,7 @@ moziAI-35B/
 
 ├  ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # 主模型
 
-├  ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # 視覺投影
+├  ├── moziAI-35B-mmproj-BF16-V1.0.gguf # 視覺投影
 
 ├  └── moziAI-V3.7-35B-chat-template.jinja   # 聊天模板
 

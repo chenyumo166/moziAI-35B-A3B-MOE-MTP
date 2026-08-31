@@ -50,7 +50,7 @@ MoziAI-35B-A3B-MOE は、中国の金融系インフルエンサー陳雨墨チ�
 
 本モデルはマルチモーダル視覚に対応しており、視覚プロジェクションファイル（mmproj）はバージョンディレクトリに含まれています：
 
-- **視覚ファイル**：`moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`（約 903 MB、BF16 精度）
+- **視覚ファイル**：`mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`（約 903 MB、BF16 精度）
 - **配置場所**：GGUF モデルファイルと同じバージョンディレクトリ
 - **読み込み方法**：llama-server 起動時に `--mmproj` パラメータで読み込み
 
@@ -73,7 +73,7 @@ MoziAI-35B-A3B-MOE は、中国の金融系インフルエンサー陳雨墨チ�
 ```bash
 llama-server \
   -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
@@ -94,7 +94,7 @@ HuggingFace / ModelScope から V3.6 ディレクトリ内のすべてのファ�
 ```
 V3.6/
 ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # メインモデル（必須）
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # 視覚プロジェクション（オプション、視覚機能が必要な場合にダウンロード）
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # 視覚プロジェクション（オプション、視覚機能が必要な場合にダウンロード）
 └── moziAI-V3.6-35B-chat-template.jinja                  # チャットテンプレート（必須！読み込まないと対話フォーマットエラーが発生）
 ```
 
@@ -113,7 +113,7 @@ llama-server \
   -c 262144 -ngl 99
 ```
 
-> 視覚機能が必要な場合は `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` を追加してください
+> 視覚機能が必要な場合は `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` を追加してください
 
 ### 3. 使用開始
 
@@ -129,7 +129,7 @@ moziAI-35B/
 ├── V3.6/                  # V3.6 バージョン（バージョン自己完結型）
 │   ├── RELEASE_NOTES.md                       # バージョン更新情報
 │   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # メインモデル
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # 視覚プロジェクション
+│   ├── moziAI-35B-mmproj-BF16-V1.0.gguf # 視覚プロジェクション
 │   └── moziAI-V3.6-35B-chat-template.jinja   # チャットテンプレート
 ```
 

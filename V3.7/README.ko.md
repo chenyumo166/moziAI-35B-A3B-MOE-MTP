@@ -122,7 +122,7 @@ MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(Chen Yumo) 팀이 
 
 
 
-모델 개발한천위모는 이 모델을 로컬 금융 데이전분석, 양적 전략 R&D, 시장 조사, 기사 작성, 전체 프로젝트 진행, 일반 프로그래밍 및 openclaw/hermes를 통한 256K 컨텍스트 작업에자주 사용합니다 소비자등급 GPU에서 로컬 배포 가능하며 상당한 클라우드 토큰 비용자절약하고 로컬 데이전프라이버시와 보안을보장하면서7X24 토큰 자유지달성합니다
+모델 개발한천위모는 이 모델을 로컬 금융 데이전분석, 양적 전략 R&D, 시장 조사, 기사 작성, 전체 프로젝트 진행, 일반 프로그래밍 및 openclaw/hermes를 통한 128K 컨텍스트 작업에자주 사용합니다 소비자등급 GPU에서 로컬 배포 가능하며 상당한 클라우드 토큰 비용자절약하고 로컬 데이전프라이버시와 보안을보장하면서7X24 토큰 자유지달성합니다
 
 
 
@@ -162,7 +162,7 @@ llama.cpp, Ollama, LM Studio 등 기타 주류 추론 프레임워크를 지원�
 
 
 
-- **소비자등급 배포**: 20GB 또는 24GB+ VRAM 소비자 GPU에서 배포 가능 256K 컨텍스트 지원
+- **소비자등급 배포**: 20GB 또는 24GB+ VRAM 소비자 GPU에서 배포 가능 128K 컨텍스트 지원
 
 
 
@@ -358,7 +358,7 @@ llama.cpp, Ollama, LM Studio 등 기타 주류 추론 프레임워크를 지원�
 
 
 
-**FP16 원본(~70 GB) 대형*: ~4.5x 압축, 훈련 효과 + 최소한의 양자화손실(훈련 효과 > 양자화손실), 전문가능하드웨어 대형소비자GPU에서 로컬 256K 컨텍스트 배포 가능
+**FP16 원본(~70 GB) 대형*: ~4.5x 압축, 훈련 효과 + 최소한의 양자화손실(훈련 효과 > 양자화손실), 전문가능하드웨어 대형소비자GPU에서 로컬 128K 컨텍스트 배포 가능
 
 
 
@@ -389,7 +389,7 @@ llama.cpp, Ollama, LM Studio 등 기타 주류 추론 프레임워크를 지원�
 | top_k | 20 | 잘라내기 샘플릿(V3.7 최적화 |
 | repeat_penalty | 1.05 | 반복 페널티|
 | presence_penalty | 0 | presence 페널티없음 |
-| context_length | 262144 | 256K 컨텍스트 |
+| context_length | 131072 | 128K 컨텍스트 |
 | batch_size | 2048 | 배치 크기 |
 | ubatch_size | 512 | 마이크로 배치 크기 |
 | flash_attention | auto | 자동 Flash Attention |
@@ -419,7 +419,7 @@ llama-server \
 
 
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
 
 
 
@@ -427,7 +427,7 @@ llama-server \
 
 
 
-  -c 262144 -ngl 99 -t 28 \
+  -c 131072 -ngl 99 -t 28 \
 
 
 
@@ -483,8 +483,8 @@ llama-server \
 | VRAM | 권장 컨텍스트 | KV 캐시 | 비전 지원| 비고 |
 |------|---------------|---------|-----------|------|
 | 20 GB | 150K | q4_0 | 지원| 모델+비전 ~16.4GB, 실제 테스트에서200K+비전 사용 시 ~19.5GB VRAM 소요 |
-| 24 GB | 256K 풀 | q4_0 | 완전 지원| 비전+256K 컨텍스트, ~20.4GB VRAM 소요, ~3.6GB 여유 |
-| 32 GB+ | 256K 풀 | q4_0 | 완전 지원| 비전+256K 컨텍스트, ~10GB 충분야여유, 최적 구성 |
+| 24 GB | 256K 풀 | q4_0 | 완전 지원| 비전+128K 컨텍스트, ~20.4GB VRAM 소요, ~3.6GB 여유 |
+| 32 GB+ | 256K 풀 | q4_0 | 완전 지원| 비전+128K 컨텍스트, ~10GB 충분야여유, 최적 구성 |
 **NVIDIA**
 
 
@@ -587,7 +587,7 @@ PARAMETER top_k 20
 
 
 
-PARAMETER num_ctx 262144
+PARAMETER num_ctx 131072
 
 
 
@@ -730,7 +730,7 @@ MoziAI는 **deepreinforce-ai/Ornith-1.5-35B-A3B**에서 파인튜닝되었습니
 
 
 
-- **비전 파일**: `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16 정밀도
+- **비전 파일**: `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` (~903 MB, BF16 정밀도
 
 
 
@@ -754,7 +754,7 @@ llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-O
 
 
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf
 
 
 
@@ -810,7 +810,7 @@ V3.7/
 
 
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # 비전 프로젝션 (선택)
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # 비전 프로젝션 (선택)
 
 
 
@@ -866,7 +866,7 @@ llama-server \
 
 
 
-  -c 262144 -ngl 99
+  -c 131072 -ngl 99
 
 
 
@@ -878,7 +878,7 @@ llama-server \
 
 
 
-> 비전 기능력위해 `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`를 추가하세요
+> 비전 기능력위해 `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`를 추가하세요
 
 
 
@@ -942,7 +942,7 @@ moziAI-35B/
 
 
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # 비전 프로젝션
+├── moziAI-35B-mmproj-BF16-V1.0.gguf # 비전 프로젝션
 
 
 

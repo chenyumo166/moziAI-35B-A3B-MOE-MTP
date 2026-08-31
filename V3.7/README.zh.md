@@ -205,7 +205,7 @@ MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多
 | top\_k            | 20                               | 截断採样          |
 | repeat\_penalty   | 1.05                             | 重复懲罰                   |
 | presence\_penalty | 0                                | 无存在懲罰                 |
-| context\_length   | 262144                           | 256K 长上下文              |
+| context\_length   | 131072                           | 256K 长上下文              |
 | batch\_size       | 2048                             | 批处理大模                 |
 | ubatch\_size      | 512                              | 微批次大模                 |
 | flash\_attention  | auto                             | 自动 Flash Attention     |
@@ -226,11 +226,11 @@ llama-server \
 
   -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99 -t 28 \
+  -c 131072 -ngl 99 -t 28 \
 
   --batch-size 2048 --ubatch-size 512 \
 
@@ -319,7 +319,7 @@ PARAMETER top_p 0.95
 
 PARAMETER top_k 20
 
-PARAMETER num_ctx 262144
+PARAMETER num_ctx 131072
 
 PARAMETER num_gpu 99
 
@@ -404,7 +404,7 @@ MoziAI 基于 deepreinforce-ai/Ornith-1.5-35B-A3B 底座微调、蒸馏与二次
 
 
 
-- **视觉文件**：`moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`（約 903 MB，BF16 精度优
+- **视觉文件**：`mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`（約 903 MB，BF16 精度优
 
 - **放置位置**：与 GGUF 模型文件放在同一版本目录下
 
@@ -416,7 +416,7 @@ MoziAI 基于 deepreinforce-ai/Ornith-1.5-35B-A3B 底座微调、蒸馏与二次
 
 llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf
 
 ```
 
@@ -444,7 +444,7 @@ V3.7/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # 主模型（必选择
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # 视觉投影（可选）
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # 视觉投影（可选）
 
 └── moziAI-V3.7-35B-chat-template.jinja                  # 聊天模板（推荐）
 
@@ -472,13 +472,13 @@ llama-server \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99
+  -c 131072 -ngl 99
 
 ```
 
 
 
-> 需要视觉能力时加上 `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`
+> 需要视觉能力时加上 `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`
 
 
 
@@ -510,7 +510,7 @@ moziAI-35B/
 
 ├  ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # 主模型
 
-├  ├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # 视觉投影
+├  ├── moziAI-35B-mmproj-BF16-V1.0.gguf # 视觉投影
 
 ├  └── moziAI-V3.7-35B-chat-template.jinja   # 聊天模板
 

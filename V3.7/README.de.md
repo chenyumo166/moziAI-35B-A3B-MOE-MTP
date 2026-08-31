@@ -211,7 +211,7 @@ Basierend auf lokaler Produktionskonfiguration (AMD Radeon AI PRO R9700 32GB):
 | top_k | 20 | Trunkations-Sampling (V3.7 optimiert) |
 | repeat_penalty | 1,05 | Wiederholungsstrafe |
 | presence_penalty | 0 | Keine Anwesenheitsstrafe |
-| context_length | 262144 | 256K langer Kontext |
+| context_length | 131072 | 256K langer Kontext |
 | batch_size | 2048 | Stapelgröße |
 | ubatch_size | 512 | Mikro-Stapelgröße |
 | flash_attention | auto | Auto Flash Attention |
@@ -231,11 +231,11 @@ llama-server \
 
   -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99 -t 28 \
+  -c 131072 -ngl 99 -t 28 \
 
   --batch-size 2048 --ubatch-size 512 \
 
@@ -327,7 +327,7 @@ PARAMETER top_p 0,95
 
 PARAMETER top_k 20
 
-PARAMETER num_ctx 262144
+PARAMETER num_ctx 131072
 
 PARAMETER num_gpu 99
 
@@ -412,7 +412,7 @@ Dieses Modell unterstützt multimodale Vision. Die **Vision-Projektionsdatei (mm
 
 
 
-- **Vision-Datei**: `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16-Präzision)
+- **Vision-Datei**: `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` (~903 MB, BF16-Präzision)
 
 - **Ablage**: Im selben Versionsverzeichnis wie die GGUF-Modelldatei
 
@@ -424,7 +424,7 @@ Dieses Modell unterstützt multimodale Vision. Die **Vision-Projektionsdatei (mm
 
 llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf
 
 ```
 
@@ -452,7 +452,7 @@ V3.7/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # Hauptmodell (erforderlich)
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision-Projektion (optional)
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # Vision-Projektion (optional)
 
 └── moziAI-V3.7-35B-chat-template.jinja                  # Chat-Template (empfohlen)
 
@@ -480,13 +480,13 @@ llama-server \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99
+  -c 131072 -ngl 99
 
 ```
 
 
 
-> Fügen Sie `--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf` für Vision-Fähigkeit hinzu.
+> Fügen Sie `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` für Vision-Fähigkeit hinzu.
 
 
 
@@ -520,7 +520,7 @@ moziAI-35B/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # Hauptmodell
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision-Projektion
+├── moziAI-35B-mmproj-BF16-V1.0.gguf # Vision-Projektion
 
 └── moziAI-V3.7-35B-chat-template.jinja   # Chat-Template
 

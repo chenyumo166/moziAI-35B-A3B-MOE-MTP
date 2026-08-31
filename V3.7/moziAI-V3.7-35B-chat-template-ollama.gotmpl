@@ -1,0 +1,58 @@
+{{- if .Tools}}
+<|im_start|>system
+# Tools
+
+You have access to the following functions:
+
+<tools>
+{{- range .Tools}}
+{{ . }}
+{{- end}}
+</tools>
+
+If you choose to call a function ONLY reply in the following format with NO suffix:
+
+<tool_call>
+<function=example_function_name>
+<parameter=example_parameter_1>
+value_1
+</parameter>
+<parameter=example_parameter_2>
+value_2
+</parameter>
+</function>
+</tool_call>
+
+IMPORTANT:
+- Function calls MUST follow the specified format
+- Required parameters MUST be specified
+- If there is no function call available, answer the question like normal
+{{- if .System}}
+
+{{ .System }}
+{{- end}}
+{{- else}}
+<|im_start|>system
+{{- if .System}}
+{{ .System }}
+{{- end}}
+{{- end}}
+{{- range .Messages}}
+{{- if eq .Role "user"}}
+<|im_start|>user
+{{ .Content }}
+{{- else if eq .Role "assistant"}}
+<|im_start|>assistant
+{{ .Content }}
+{{- else if eq .Role "tool"}}
+<|im_start|>user
+<tool_response>
+{{ .Content }}
+</tool_response>
+{{- end}}
+{{- end}}
+<|im_start|>assistant
+{{- if .IsThinking}}
+<think>
+
+{{- end}}

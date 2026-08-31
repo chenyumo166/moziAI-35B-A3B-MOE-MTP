@@ -19,7 +19,7 @@
 ```
 V3.6/
 ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf       # 主模型（必选）
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf   # 视觉投影器（可选，需要视觉时加载）
+├── moziAI-35B-mmproj-BF16-V1.0.gguf   # 视觉投影器（可选，需要视觉时加载）
 └── moziAI-V3.6-35B-chat-template.jinja                   # 对话模板（推荐）
 ```
 
@@ -47,7 +47,7 @@ V3.6/
 ```bash
 ./main \
   -m moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template moziAI-V3.6-35B-chat-template.jinja \
   --image path/to/chart.png \
   -p "请分析这张K线图的走势"
@@ -65,7 +65,7 @@ V3.6/
 ```bash
 ./server \
   -m moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template moziAI-V3.6-35B-chat-template.jinja \
   --host 0.0.0.0 \
   --port 8080 \

@@ -50,7 +50,7 @@ Due to the large model size (~15.5 GB), weights are hosted on multiple community
 
 This model supports multimodal vision. The **vision projection file (mmproj)** is included in the version directory:
 
-- **Vision file**: `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` (~903 MB, BF16 precision)
+- **Vision file**: `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` (~903 MB, BF16 precision)
 - **Placement**: Same version directory as the GGUF model file
 - **Loading**: Load with `--mmproj` flag when starting llama-server
 
@@ -73,7 +73,7 @@ This model uses a custom chat template. **Without it, dialogue format errors, br
 ```bash
 llama-server \
   -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
@@ -94,7 +94,7 @@ Download all files under the V3.6 directory from HuggingFace / ModelScope:
 ```
 V3.6/
 ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Main model (required)
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision projection (optional)
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # Vision projection (optional)
 └── moziAI-V3.6-35B-chat-template.jinja                  # Chat template (REQUIRED! Missing this causes dialogue format errors)
 ```
 
@@ -113,7 +113,7 @@ llama-server \
   -c 262144 -ngl 99
 ```
 
-> Add `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` for vision capability.
+> Add `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` for vision capability.
 
 ### 3. Start Using
 
@@ -129,7 +129,7 @@ moziAI-35B/
 ├── V3.6/                  # V3.6 version (self-contained)
 │   ├── RELEASE_NOTES.md                       # Release notes
 │   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Main model
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Vision projection
+│   ├── moziAI-35B-mmproj-BF16-V1.0.gguf # Vision projection
 │   └── moziAI-V3.6-35B-chat-template.jinja   # Chat template
 ```
 

@@ -50,7 +50,7 @@ MoziAI-35B-A3B-MOE चीनी वित्तीय प्रभावशा�
 
 यह मॉडल मल्टीमॉडल विज़न का समर्थन करता है, और विज़न प्रोजेक्शन फ़ाइल (mmproj) संस्करण निर्देशिका में शामिल है：
 
-- **विज़न फ़ाइल**：`moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`（लगभग 903 MB, BF16 सटीकता）
+- **विज़न फ़ाइल**：`mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`（लगभग 903 MB, BF16 सटीकता）
 - **रखने का स्थान**：GGUF मॉडल फ़ाइल के साथ एक ही संस्करण निर्देशिका में
 - **लोड करने का तरीका**：llama-server शुरू करते समय `--mmproj` पैरामीटर के माध्यम से लोड करें
 
@@ -73,7 +73,7 @@ MoziAI-35B-A3B-MOE चीनी वित्तीय प्रभावशा�
 ```bash
 llama-server \
   -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
@@ -94,7 +94,7 @@ HuggingFace / ModelScope से V3.6 निर्देशिका की स�
 ```
 V3.6/
 ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # मुख्य मॉडल（आवश्यक）
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # विज़न प्रोजेक्शन（वैकल्पिक, विज़न क्षमता चाहिए तो डाउनलोड करें）
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # विज़न प्रोजेक्शन（वैकल्पिक, विज़न क्षमता चाहिए तो डाउनलोड करें）
 └── moziAI-V3.6-35B-chat-template.jinja                  # चैट टेम्पलेट（आवश्यक! लोड न करने पर संवाद प्रारूप त्रुटि होगी）
 ```
 
@@ -113,7 +113,7 @@ llama-server \
   -c 262144 -ngl 99
 ```
 
-> विज़न क्षमता चाहिए तो `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` जोड़ें
+> विज़न क्षमता चाहिए तो `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` जोड़ें
 
 ### 3. उपयोग शुरू करें
 
@@ -129,7 +129,7 @@ moziAI-35B/
 ├── V3.6/                  # V3.6 संस्करण（संस्करण स्व-निहित）
 │   ├── RELEASE_NOTES.md                       # संस्करण अद्यतन नोट्स
 │   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # मुख्य मॉडल
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # विज़न प्रोजेक्शन
+│   ├── moziAI-35B-mmproj-BF16-V1.0.gguf # विज़न प्रोजेक्शन
 │   └── moziAI-V3.6-35B-chat-template.jinja   # चैट टेम्पलेट
 ```
 

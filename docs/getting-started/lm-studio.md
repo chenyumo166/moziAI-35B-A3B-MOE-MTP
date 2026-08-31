@@ -36,7 +36,7 @@
 
 LM Studio 支持多模态模型：
 
-1. 确保导入的 mmproj 文件：`moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`
+1. 确保导入的 mmproj 文件：`mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`
 2. 在聊天界面点击图片按钮上传图片
 3. 输入问题发送
 

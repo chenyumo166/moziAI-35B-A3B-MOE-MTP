@@ -34,7 +34,7 @@ Through MoziSmartBit, the 35B MoE model is compressed to **~15.5 GB** (~30% smal
 | **Financial Focus** | Deep optimization for financial Q&A, quantitative programming, tool calling |
 | **MoziSmartBit Quantization** | Self-developed smart quantization, ~15.5 GB with ~99% precision |
 | **Consumer GPU Deploy** | 20GB+ VRAM (e.g., RTX 4060 Ti 16G with CPU offload), 24GB recommended |
-| **256K Context** | Supports long context for complex financial analysis |
+| **128K Context** | Supports long context for complex financial analysis |
 | **Vision Multimodal** | Supports image understanding via mmproj file |
 | **Tool Calling** | Native function calling / agent support |
 | **Uncensored** | Free output without content restrictions |
@@ -60,9 +60,9 @@ Through MoziSmartBit, the 35B MoE model is compressed to **~15.5 GB** (~30% smal
 | VRAM | Context | Vision | Recommended GPUs |
 |------|---------|--------|------------------|
 | 20 GB | 150K | Supported | RX 7900 XT |
-| 24 GB | 256K full | Full support | RTX 4090, RX 7900 XTX |
-| 32 GB+ | 256K full | Full support | RTX 5090, R9700 |
-| 128 GB | 256K full | Full support | AMD Ryzen AI Max+ 395 |
+| 24 GB | 128K full | Full support | RTX 4090, RX 7900 XTX |
+| 32 GB+ | 128K full | Full support | RTX 5090, R9700 |
+| 128 GB | 128K full | Full support | AMD Ryzen AI Max+ 395 |
 
 ---
 
@@ -73,9 +73,9 @@ Through MoziSmartBit, the 35B MoE model is compressed to **~15.5 GB** (~30% smal
 ```bash
 llama-server \
   -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
-  -c 262144 -ngl 99 -t 28 \
+  -c 131072 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
   --flash-attn auto \
   --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
@@ -91,7 +91,7 @@ FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
 PARAMETER top_k 20
-PARAMETER num_ctx 262144
+PARAMETER num_ctx 131072
 
 # Build and run
 ollama create moziAI-35B -f Modelfile

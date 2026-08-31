@@ -7,7 +7,7 @@ MoziAI-35B 支持多模态理解，可以分析图片内容，特别适合金融
 ## 前置条件
 
 - 模型文件：`moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf`
-- 视觉投影器：`moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`
+- 视觉投影器：`mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`
 - 聊天模板：`moziAI-V3.6-35B-chat-template.jinja`
 - llama.cpp / LM Studio 等支持多模态的推理工具
 
@@ -20,7 +20,7 @@ MoziAI-35B 支持多模态理解，可以分析图片内容，特别适合金融
 ```bash
 ./main \
   -m moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template moziAI-V3.6-35B-chat-template.jinja \
   --image kline_chart.png \
   -p "请分析这张K线图的走势"
@@ -31,7 +31,7 @@ MoziAI-35B 支持多模态理解，可以分析图片内容，特别适合金融
 ```bash
 ./server \
   -m moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template moziAI-V3.6-35B-chat-template.jinja \
   --host 0.0.0.0 --port 8080 -c 262144
 ```

@@ -211,7 +211,7 @@ llama.cpp、Ollama、LM Studioなど、主要な推論フレームワークを�
 | top_k | 20 | トランケーションサプリング（V3.7最適化ソ|
 | repeat_penalty | 1.05 | 繰り返しペナルテキ|
 | presence_penalty | 0 | presenceペナルティなど|
-| context_length | 262144 | 256K長コンテキスト|
+| context_length | 131072 | 256K長コンテキスト|
 | batch_size | 2048 | バッチサイズ |
 | ubatch_size | 512 | マイクロバッチサイズ |
 | flash_attention | auto | 自動Flash Attention |
@@ -231,11 +231,11 @@ llama-server \
 
   -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99 -t 28 \
+  -c 131072 -ngl 99 -t 28 \
 
   --batch-size 2048 --ubatch-size 512 \
 
@@ -327,7 +327,7 @@ PARAMETER top_p 0.95
 
 PARAMETER top_k 20
 
-PARAMETER num_ctx 262144
+PARAMETER num_ctx 131072
 
 PARAMETER num_gpu 99
 
@@ -412,7 +412,7 @@ MoziAIは**deepreinforce-ai/Ornith-1.5-35B-A3B**からファインチューニ�
 
 
 
-- **Visionファイル**: `moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`（約903 MB、BF16精度を
+- **Visionファイル**: `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`（約903 MB、BF16精度を
 
 - **配置場所**: GGUFモデルファイルと同じバージョンディレクトを
 
@@ -424,7 +424,7 @@ MoziAIは**deepreinforce-ai/Ornith-1.5-35B-A3B**からファインチューニ�
 
 llama-server -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
 
-  --mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf
 
 ```
 
@@ -452,7 +452,7 @@ V3.7/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf      # メインモデル（必須）
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf  # Vision射影（オプションテ
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # Vision射影（オプションテ
 
 └── moziAI-V3.7-35B-chat-template.jinja                  # チャットテンプレート（推奨）
 
@@ -480,13 +480,13 @@ llama-server \
 
   --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
 
-  -c 262144 -ngl 99
+  -c 131072 -ngl 99
 
 ```
 
 
 
-> vision機能を追加するには`--mmproj V3.7/moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf`を追加してくださいま
+> vision機能を追加するには`--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`を追加してくださいま
 
 
 
@@ -520,7 +520,7 @@ moziAI-35B/
 
 ├── moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf    # メインモデル
 
-├── moziAI-V3.7-35B-uncensored-heretic-mmproj-BF16.gguf # Vision射影
+├── moziAI-35B-mmproj-BF16-V1.0.gguf # Vision射影
 
 └── moziAI-V3.7-35B-chat-template.jinja   # チャットテンプレート
 

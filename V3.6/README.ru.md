@@ -50,7 +50,7 @@ MoziAI-35B-A3B-MOE — это локальная открытая финансо
 
 Модель поддерживает мультимодальное зрение, файл визуальной проекции (mmproj) уже включен в каталог версии:
 
-- **Визуальный файл**： `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` (около 903 МБ, точность BF16)
+- **Визуальный файл**： `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` (около 903 МБ, точность BF16)
 - **Расположение**： поместите в тот же каталог версии, что и файл модели GGUF
 - **Способ загрузки**： загрузите через параметр `--mmproj` при запуске llama-server
 
@@ -73,7 +73,7 @@ MoziAI-35B-A3B-MOE — это локальная открытая финансо
 ```bash
 llama-server \
   -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
@@ -94,7 +94,7 @@ llama-server \
 ```
 V3.6/
 ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Основная модель (обязательно)
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # Визуальная проекция (опционально, скачайте если нужны визуальные возможности)
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # Визуальная проекция (опционально, скачайте если нужны визуальные возможности)
 └── moziAI-V3.6-35B-chat-template.jinja                  # Шаблон чата (обязательно! Без загрузки возникнут ошибки формата диалога)
 ```
 
@@ -113,7 +113,7 @@ llama-server \
   -c 262144 -ngl 99
 ```
 
-> При необходимости визуальных возможностей добавьте `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf`
+> При необходимости визуальных возможностей добавьте `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf`
 
 ### 3. Начните использование
 
@@ -129,7 +129,7 @@ moziAI-35B/
 ├── V3.6/                  # Версия V3.6 (автономная версия)
 │   ├── RELEASE_NOTES.md                       # Примечания к выпуску версии
 │   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Основная модель
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Визуальная проекция
+│   ├── moziAI-35B-mmproj-BF16-V1.0.gguf # Визуальная проекция
 │   └── moziAI-V3.6-35B-chat-template.jinja   # Шаблон чата
 ```
 

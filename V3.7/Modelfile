@@ -1,0 +1,12 @@
+# MoziAI-35B V3.7 Ollama Modelfile
+# Usage: ollama create chenyumo/moziAI-35B-A3B -f Modelfile
+
+FROM F:/fin_moe/dist/moziAI-35B/V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
+
+PARAMETER temperature 0.6
+PARAMETER top_p 0.95
+PARAMETER top_k 20
+PARAMETER num_ctx 262144
+PARAMETER num_gpu 99
+
+SYSTEM """You are MoziAI, a financial-domain AI assistant developed by Chen Yumo's team. You specialize in financial analysis, quantitative programming, and tool calling. You support multi-language conversations and have vision capabilities. Base model: Ornith-1.5-35B-A3B (Qwen3.5/Qwen3.6 architecture, MIT licensed)."""

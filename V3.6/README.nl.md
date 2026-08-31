@@ -50,7 +50,7 @@ Omdat het modelbestand relatief groot is (~15,5 GB), worden de modelgewichten ge
 
 Dit model ondersteunt multimodale beeldverwerking. Het visuele projectiebestand (mmproj) is opgenomen in de versiemap:
 
-- **Visueel bestand**: `moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` (ongeveer 903 MB, BF16-precisie)
+- **Visueel bestand**: `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` (ongeveer 903 MB, BF16-precisie)
 - **Opslaglocatie**: In dezelfde versiemap als het GGUF-modelbestand
 - **Laadmethode**: Laden via de parameter `--mmproj` bij het starten van llama-server
 
@@ -73,7 +73,7 @@ Dit model maakt gebruik van een exclusief chat-sjabloon (chat-template). **Zonde
 ```bash
 llama-server \
   -m V3.6/moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf \
-  --mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf \
+  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.6/moziAI-V3.6-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
   --batch-size 2048 --ubatch-size 512 \
@@ -94,7 +94,7 @@ Download alle bestanden uit de V3.6-map van HuggingFace / ModelScope naar uw lok
 ```
 V3.6/
 ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf      # Hoofdmodel (verplicht)
-├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf  # Visuele projectie (optioneel, downloaden indien nodig)
+├── moziAI-35B-mmproj-BF16-V1.0.gguf  # Visuele projectie (optioneel, downloaden indien nodig)
 └── moziAI-V3.6-35B-chat-template.jinja                  # Chat-sjabloon (verplicht! Zonder laden treden conversatieformaatfouten op)
 ```
 
@@ -113,7 +113,7 @@ llama-server \
   -c 262144 -ngl 99
 ```
 
-> Als u beeldmogelijkheden nodig heeft, voeg dan `--mmproj V3.6/moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf` toe.
+> Als u beeldmogelijkheden nodig heeft, voeg dan `--mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` toe.
 
 ### 3. Beginnen met gebruiken
 
@@ -129,7 +129,7 @@ moziAI-35B/
 ├── V3.6/                  # V3.6 versie (versie-onafhankelijk)
 │   ├── RELEASE_NOTES.md                       # Release-opmerkingen
 │   ├── moziAI-V3.6-Qwen3.6-35B-A3B-Ornith-MoziSmartBit-Q4_K_M-Uncensored.gguf    # Hoofdmodel
-│   ├── moziAI-V3.6-35B-uncensored-heretic-mmproj-BF16.gguf # Visuele projectie
+│   ├── moziAI-35B-mmproj-BF16-V1.0.gguf # Visuele projectie
 │   └── moziAI-V3.6-35B-chat-template.jinja   # Chat-sjabloon
 ```
 
