@@ -64,9 +64,9 @@ Supports llama.cpp, Ollama, LM Studio, Jan and other mainstream inference framew
 
 | Platform | URL |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B/tree/master/V3.8) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
 > ⚠️ **3-file tip**: download all files in the `V3.8/` directory — main model (.gguf), vision projector (mmproj), chat template (.jinja) — into the same folder for 100% best inference.
@@ -75,7 +75,7 @@ Supports llama.cpp, Ollama, LM Studio, Jan and other mainstream inference framew
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 131072 -ngl 99 --host 0.0.0.0 --port 8080

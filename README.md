@@ -141,13 +141,12 @@ MoziAI maintains an active upgrade cadence, staying at the forefront of AI devel
 
 ### 6.1 Download Model Files
 
-Download **all files in the V3.8 directory** from HuggingFace / ModelScope to one local folder:
+Download these **3 files** from HuggingFace / ModelScope to one local folder (main model at **repo root**, vision projector under `mmproj/35B/`, chat template under `V3.8/`):
 
 ```
-V3.8/
-├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← Main model (required, 15.9 GB)
-├── moziAI-35B-mmproj-BF16-V1.0.gguf                        ← Vision projector (required, ~1 GB)
-└── moziAI-V3.8-35B-chat-template.jinja                                        ← Chat template (required, 7-dim thinking + Loop)
+moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← Main model (required, 15.9 GB, repo root)
+mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf                                 ← Vision projector (required, ~1 GB)
+V3.8/moziAI-V3.8-35B-chat-template.jinja                                    ← Chat template (required, 7-dim thinking + Loop)
 ```
 
 | File | Size | Required | Purpose |
@@ -160,7 +159,7 @@ V3.8/
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 131072 -ngl 99 \
@@ -175,14 +174,14 @@ Open `http://localhost:8080` in your browser to start chatting. See Section 9 fo
 
 | Platform | URL |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith/tree/main/V3.8) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
 > 💡 **LM Studio users**: search `moziAI` in [LM Studio](https://lmstudio.ai) to download with one click.
 
-> 💡 **Download tip**: go to the HuggingFace repo above, open the **"Files and versions"** tab, enter the **V3.8 directory** and download all files (main model, vision projector, chat template), keeping all three in the same folder.
+> 💡 **Download tip**: go to the HuggingFace repo above, open the **"Files and versions"** tab, download the main model at the **repo root**, then the vision projector from `mmproj/35B/` and the chat template from `V3.8/`, keeping all three in the same folder.
 
 ---
 
@@ -192,7 +191,7 @@ Open `http://localhost:8080` in your browser to start chatting. See Section 9 fo
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 131072 -ngl 99 \
@@ -203,7 +202,7 @@ llama-server \
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
@@ -316,7 +315,7 @@ ollama run moziAI-35B
 
 ### LM Studio / Jan
 
-Search `moziAI` in LM Studio / Jan and download the Q4\_K\_M quantized version (LM Studio reads root-dir models by default; for legacy versions use "Add from URL" to import V3.8 directory files).
+Search `moziAI` in LM Studio / Jan and download the Q4\_K\_M quantized version (LM Studio reads root-dir models by default; for legacy versions use "Add from URL" to import files from their version directory, e.g. `V3.7/`).
 
 > 💡 Ollama's support for mmproj and chat\_template is limited — prefer llama.cpp for the full feature set.
 

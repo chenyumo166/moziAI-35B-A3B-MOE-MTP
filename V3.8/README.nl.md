@@ -141,20 +141,19 @@ MoziAI houdt een actief update-tempo aan en maakt lokale AI-modellen lichter en 
 
 ### 6.1 Modelbestanden downloaden
 
-Download **alle bestanden in de V3.8-map** van HuggingFace / ModelScope naar dezelfde lokale map:
+Download deze **3 bestanden** van HuggingFace / ModelScope naar dezelfde lokale map (hoofdmodel in de **repo-root**, visieprojector onder `mmproj/35B/`, chat-template onder `V3.8/`):
 
 ```
-V3.8/
-├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← Hoofdmodel (vereist, 15,5 GB)
-├── moziAI-35B-mmproj-BF16-V1.0.gguf                        ← Visieprojector (vereist, ~1 GB)
-└── moziAI-V3.8-35B-chat-template.jinja                                        ← Chat-template (vereist, 7D-denken+LOOP)
+moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← Hoofdmodel (vereist, 15,5 GB)
+moziAI-35B-mmproj-BF16-V1.0.gguf                        ← Visieprojector (vereist, ~1 GB)
+moziAI-V3.8-35B-chat-template.jinja                                        ← Chat-template (vereist, 7D-denken+LOOP)
 ```
 
 ### 6.2 Starten en gebruiken
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 131072 -ngl 99 \
@@ -169,9 +168,9 @@ Open `http://localhost:8080` in de browser. Volledige parameters in Sectie 9.
 
 | Platform | Adres |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith/tree/main/V3.8) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
 > 💡 **LM Studio-gebruikers**: zoek `moziAI` in [LM Studio](https://lmstudio.ai) en download met één klik.
@@ -184,7 +183,7 @@ Open `http://localhost:8080` in de browser. Volledige parameters in Sectie 9.
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 131072 -ngl 99 \
@@ -195,7 +194,7 @@ llama-server \
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \

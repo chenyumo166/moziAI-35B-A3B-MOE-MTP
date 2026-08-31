@@ -141,13 +141,12 @@ moziAI는 활발한 버전 업그레이드를 지속하며 AI 발전에 뒤처�
 
 ### 6.1 모델 파일 다운로드
 
-HuggingFace / ModelScope에서 **V3.8 디렉토리의 모든 파일**을 로컬 같은 폴더에 다운로드:
+HuggingFace / ModelScope에서 **이 3개 파일**을 로컬 같은 폴더에 다운로드 (메인 모델은 **리포지토리 루트**, 비전 프로젝터는 `mmproj/35B/`, 채팅 템플릿은 `V3.8/`):
 
 ```
-V3.8/
-├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← 메인 모델(필수, 15.9 GB)
-├── moziAI-35B-mmproj-BF16-V1.0.gguf                        ← 비전 프로젝터(필수, ~1 GB)
-└── moziAI-V3.8-35B-chat-template.jinja                                        ← 채팅 템플릿(필수, 7차원 사고+Loop 지시)
+moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← 메인 모델(필수, 15.9 GB)
+moziAI-35B-mmproj-BF16-V1.0.gguf                        ← 비전 프로젝터(필수, ~1 GB)
+moziAI-V3.8-35B-chat-template.jinja                                        ← 채팅 템플릿(필수, 7차원 사고+Loop 지시)
 ```
 
 | 파일 | 크기 | 필수 | 역할 |
@@ -160,7 +159,7 @@ V3.8/
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 131072 -ngl 99 \
@@ -175,14 +174,14 @@ llama-server \
 
 | 플랫폼 | 주소 |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith/tree/main/V3.8) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
 > 💡 **LM Studio 사용자**: [LM Studio](https://lmstudio.ai)에서 `moziAI` 검색 후 원클릭 다운로드.
 
-> 💡 **다운로드 팁**: HuggingFace 리포지토리 **"Files and versions"** 탭에서 **V3.8 디렉토리**로 들어가 모든 파일(메인, 비전, 템플릿)을 같은 폴더에 배치하세요.
+> 💡 **다운로드 팁**: HuggingFace 리포지토리 **"Files and versions"** 탭에서 **리포지토리 루트**에서 메인 모델, `mmproj/35B/`에서 비전 프로젝터, `V3.8/`에서 채팅 템플릿을 다운로드해 같은 폴더에 배치하세요.
 
 ---
 
@@ -192,7 +191,7 @@ llama-server \
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 131072 -ngl 99 \
@@ -203,7 +202,7 @@ llama-server \
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
@@ -316,7 +315,7 @@ ollama run moziAI-35B
 
 ### LM Studio / Jan
 
-LM Studio / Jan에서 `moziAI` 검색 후 Q4\_K\_M 양자화 버전 다운로드(LM Studio는 기본적으로 루트 디렉토리 모델을 읽습니다. 이전 버전은 "URL에서 추가"로 V3.8 디렉토리 파일을 가져오세요).
+LM Studio / Jan에서 `moziAI` 검색 후 Q4\_K\_M 양자화 버전 다운로드(LM Studio는 기본적으로 루트 디렉토리 모델을 읽습니다. 이전 버전은 "URL에서 추가"로 해당 버전 디렉토리(예: `V3.7/`)의 파일을 가져오세요).
 
 > 💡 Ollama의 mmproj와 chat\_template 지원은 제한적. 전체 기능은 llama.cpp 권장.
 

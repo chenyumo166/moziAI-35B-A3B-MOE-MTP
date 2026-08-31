@@ -141,13 +141,12 @@ moziAI 会保持活跃的版本升级迭代更新频率，确保紧随未来人�
 
 ### 6.1 下载模型文件
 
-在 HuggingFace / ModelScope 下载 **V3.8 目录下的所有文件**到本地同一目录：
+在 HuggingFace / ModelScope 下载**这 3 个文件**到本地同一目录（主模型在**仓库根目录**，视觉投影在 `mmproj/35B/`，聊天模板在 `V3.8/`）：
 
 ```
-V3.8/
-├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← 主模型（必选，15.9 GB）
-├── moziAI-35B-mmproj-BF16-V1.0.gguf                        ← 视觉投影（必选，~1 GB）
-└── moziAI-V3.8-35B-chat-template.jinja                                        ← 聊天模板（必选，含七维思考+Loop指令）
+moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← 主模型（必选，15.9 GB）
+moziAI-35B-mmproj-BF16-V1.0.gguf                        ← 视觉投影（必选，~1 GB）
+moziAI-V3.8-35B-chat-template.jinja                                        ← 聊天模板（必选，含七维思考+Loop指令）
 ```
 
 | 文件 | 大小 | 必要性 | 作用 |
@@ -160,7 +159,7 @@ V3.8/
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 131072 -ngl 99 \
@@ -175,14 +174,14 @@ llama-server \
 
 | 平台 | 地址 |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith/tree/main/V3.8) |
-| ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
+| ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
 > 💡 **LM Studio 用户**：在 [LM Studio](https://lmstudio.ai) 中搜索 `moziAI` 一键下载，无需手动下载文件。
 
-> 💡 **下载提示**：请点击上方链接进入 HuggingFace 仓库，在 **"Files and versions"** 标签页下进入 **V3.8 目录**下载所有文件（主模型、视觉投影、聊天模板），确保三个文件放在同一目录下。
+> 💡 **下载提示**：请点击上方链接进入 HuggingFace 仓库，在 **"Files and versions"** 标签页，于**仓库根目录**下载主模型，再从 `mmproj/35B/` 下载视觉投影、从 `V3.8/` 下载聊天模板，确保三个文件放在同一目录下。
 
 ---
 
@@ -192,7 +191,7 @@ llama-server \
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 131072 -ngl 99 \
@@ -203,7 +202,7 @@ llama-server \
 
 ```bash
 llama-server \
-  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
   --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
   -c 262144 -ngl 99 -t 28 \
@@ -316,7 +315,7 @@ ollama run moziAI-35B
 
 ### LM Studio / Jan
 
-在 LM Studio / Jan 中搜索 `moziAI`，选择 Q4\_K\_M 量化版本下载即可（LM Studio 默认读取仓库根目录模型，历史版本请使用"从 URL 添加"导入 V3.8 目录文件）。
+在 LM Studio / Jan 中搜索 `moziAI`，选择 Q4\_K\_M 量化版本下载即可（LM Studio 默认读取仓库根目录模型，历史版本请使用"从 URL 添加"导入对应版本目录文件，如 `V3.7/`）。
 
 > 💡 Ollama 的 mmproj 和 chat\_template 支持有限，建议优先使用 llama.cpp 获得完整功能。
 
