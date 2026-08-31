@@ -44,7 +44,7 @@ pipeline_tag: text-generation
 
 
 
-[English](README.en.md) | 简体中文（当前页） | [繁体中文](V3.7/README.zh-hant.md) | [日本语](V3.7/README.ja.md) | [한국어](V3.7/README.ko.md) | [हिन्दी](V3.7/README.hi.md) | [Deutsch](V3.7/README.de.md) | [Français](V3.7/README.fr.md) | [Nederlands](V3.7/README.nl.md) | [Italiano](V3.7/README.it.md) | [Русский](V3.7/README.ru.md)
+[English](README.en.md) | 简体中文（当前页） | [繁体中文](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.7%2FREADME.zh-hant.md?status=1) | [日本语](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.7%2FREADME.ja.md?status=1) | [한국어](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.7%2FREADME.ko.md?status=1) | [हिन्दी](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.7%2FREADME.hi.md?status=1) | [Deutsch](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.7%2FREADME.de.md?status=1) | [Français](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.7%2FREADME.fr.md?status=1) | [Nederlands](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.7%2FREADME.nl.md?status=1) | [Italiano](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.7%2FREADME.it.md?status=1) | [Русский](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.7%2FREADME.ru.md?status=1)
 
 
 
