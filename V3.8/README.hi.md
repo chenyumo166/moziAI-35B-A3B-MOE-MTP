@@ -78,7 +78,7 @@ MoziAI का स्व-विकसित मुख्य अनुमान �
 
 ### 📦 MoziSmartBit स्मार्ट क्वांटाइज़ेशन
 
-स्व-विकसित स्तरीय स्मार्ट क्वांटाइज़ेशन 35 अरब पैरामीटर MoE मॉडल को लगभग **15.5 GB** में संपीड़ित करता है — सामान्य Q4_K_M (~22 GB) से ~6.5 GB (~30%) छोटा, FP16 की **~99%** सटीकता बनाए रखते हुए। पारंपरिक क्वांटाइज़ेशन सभी परतों पर समान सटीकता उपयोग करता है; MoziSmartBit MoE संरचना के लिए स्मार्ट विभेदित रणनीति अपनाता है, Q4_K_M से बेहतर सटीकता। संपीड़न अनुपात **4.5x**।
+स्व-विकसित स्तरीय स्मार्ट क्वांटाइज़ेशन 35 अरब पैरामीटर MoE मॉडल को लगभग **15.9 GB** में संपीड़ित करता है — सामान्य Q4_K_M (~22 GB) से ~6.5 GB (~30%) छोटा, FP16 की **~99%** सटीकता बनाए रखते हुए। पारंपरिक क्वांटाइज़ेशन सभी परतों पर समान सटीकता उपयोग करता है; MoziSmartBit MoE संरचना के लिए स्मार्ट विभेदित रणनीति अपनाता है, Q4_K_M से बेहतर सटीकता। संपीड़न अनुपात **4.5x**।
 
 ### 💰 वित्तीय क्षेत्र फोकस
 
@@ -127,7 +127,7 @@ MoziAI सक्रिय उन्नयन चक्र बनाए रखत
 | पैरामीटर | 35B MoE, 256 रूटिंग विशेषज्ञ + 1 साझा विशेषज्ञ, प्रति token 8 विशेषज्ञ सक्रिय |
 | क्वांटाइज़ेशन | स्व-विकसित MoziSmartBit + GGUF मानक प्रारूप |
 | संदर्भ लंबाई | 256K (262,144 tokens) |
-| मॉडल आकार | ~15.5 GB |
+| मॉडल आकार | ~15.9 GB |
 | न्यूनतम VRAM | **20GB+** डिप्लॉय (CPU ऑफलोड); **24GB+** सहज लंबा संदर्भ; **32GB+** पूर्ण 256K + विज़न |
 | अनुमान फ्रेमवर्क | llama.cpp / Ollama / LM Studio / Jan |
 | अनुमान गति | स्पेक्युलेटिव डिकोडिंग: AMD R9700 **140+ tok/s** / AMD MAX+395 **70+ tok/s** |
@@ -145,7 +145,7 @@ HuggingFace / ModelScope से **V3.8 निर्देशिका की स
 
 ```
 V3.8/
-├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← मुख्य मॉडल (आवश्यक, 15.5 GB)
+├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← मुख्य मॉडल (आवश्यक, 15.9 GB)
 ├── moziAI-35B-mmproj-BF16-V1.0.gguf                        ← विज़न प्रोजेक्टर (आवश्यक, ~1 GB)
 └── moziAI-V3.8-35B-chat-template.jinja                                        ← चैट टेम्पलेट (आवश्यक, 7-आयामी सोच+LOOP)
 ```
@@ -169,9 +169,9 @@ llama-server \
 
 | प्लेटफ़ॉर्म | पता |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith/tree/main/V3.8) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B/tree/master/V3.8) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
 > 💡 **LM Studio उपयोगकर्ता**: [LM Studio](https://lmstudio.ai) में `moziAI` खोजें और एक क्लिक डाउनलोड करें।
@@ -242,13 +242,13 @@ llama-server \
 | प्रारूप | आकार | सटीकता | विवरण |
 | --- | --- | --- | --- |
 | FP16 मूल | ~70 GB | 100% | निःशुल्क हानि, प्रो GPU चाहिए |
-| **MoziSmartBit (यह मॉडल)** | **~15.5 GB** | **~99%** | **स्व-विकसित, सर्वोत्तम सटीकता/आकार** |
+| **MoziSmartBit (यह मॉडल)** | **~15.9 GB** | **~99%** | **स्व-विकसित, सर्वोत्तम सटीकता/आकार** |
 | Q4_K_M | ~22 GB | ~98% | GGUF मानक 4bit |
 | Q5_K_M | ~24.7 GB | ~99% | उच्च सटीकता |
 | Q6_K | ~28.5 GB | ~99.5% | लगभग निःशुल्क हानि |
 | Q8_0 | ~36.9 GB | ~100% | निःशुल्क हानि |
 
-> MoziSmartBit ~99% सटीकता के साथ 35B MoE को 15.5 GB (4.5x) में संपीड़ित करता है, Q4_K_M से ~30% छोटा।
+> MoziSmartBit ~99% सटीकता के साथ 35B MoE को 15.9 GB (4.5x) में संपीड़ित करता है, Q4_K_M से ~30% छोटा।
 
 ---
 

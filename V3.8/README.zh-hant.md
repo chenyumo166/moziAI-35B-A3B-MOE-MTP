@@ -78,7 +78,7 @@ MoziAI 自研的核心推理框架。面對任何任務，模型先輸出 **mozi
 
 ### 📦 MoziSmartBit 智慧量化
 
-自研分層智慧量化，350 億參數 MoE 模型壓縮至約 **15.5 GB**，比常規 Q4_K_M（~22 GB）小約 6.5 GB（~30%），保持 FP16 **~99%** 精度。傳統量化對所有層使用統一精度，MoziSmartBit 針對 MoE 模型結構特點採用智慧差異化策略，精度優於 Q4_K_M。壓縮比達 **4.5x**。
+自研分層智慧量化，350 億參數 MoE 模型壓縮至約 **15.9 GB**，比常規 Q4_K_M（~22 GB）小約 6.5 GB（~30%），保持 FP16 **~99%** 精度。傳統量化對所有層使用統一精度，MoziSmartBit 針對 MoE 模型結構特點採用智慧差異化策略，精度優於 Q4_K_M。壓縮比達 **4.5x**。
 
 ### 💰 金融垂直領域聚焦
 
@@ -127,7 +127,7 @@ moziAI 會保持活躍的版本升級迭代更新頻率，確保緊隨未來人�
 | 參數規模 | 350 億（35B）MoE 架構，256 個路由專家 + 1 個共享專家，每 token 啟動 8 個專家 |
 | 量化方式 | 自研 MoziSmartBit 智慧量化 + GGUF 標準格式 |
 | 上下文長度 | 256K（262,144 tokens） |
-| 模型體積 | ~15.5 GB |
+| 模型體積 | ~15.9 GB |
 | 最低顯存 | **20GB+** 可部署（CPU 卸載）；**24GB+** 流暢長上下文；**32GB+** 完整 256K + 視覺 |
 | 推理框架 | llama.cpp / Ollama / LM Studio / Jan |
 | 推理速度 | 推測解碼下：AMD R9700 顯示卡可達 **140+ token/s** / AMD MAX+395 CPU 內顯可達 **70+ token/s**，實現本地 token 自由輸出 |
@@ -145,14 +145,14 @@ moziAI 會保持活躍的版本升級迭代更新頻率，確保緊隨未來人�
 
 ```
 V3.8/
-├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← 主模型（必選，15.5 GB）
+├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← 主模型（必選，15.9 GB）
 ├── moziAI-35B-mmproj-BF16-V1.0.gguf                        ← 視覺投影（必選，~1 GB）
 └── moziAI-V3.8-35B-chat-template.jinja                                        ← 聊天模板（必選，含七維思考+Loop指令）
 ```
 
 | 文件 | 大小 | 必要性 | 作用 |
 | --- | --- | --- | --- |
-| 主模型 `.gguf` | ~15.5 GB | **必選** | 模型權重，核心推理能力 |
+| 主模型 `.gguf` | ~15.9 GB | **必選** | 模型權重，核心推理能力 |
 | 視覺投影 `mmproj` | ~1 GB | **必選** | 多模態視覺理解，不載入則喪失圖像能力 |
 | 聊天模板 `.jinja` | 微量 | **必選** | 注入 MoziAI 身份 + 七維思考 + LOOP 機制指令 |
 
@@ -175,9 +175,9 @@ llama-server \
 
 | 平台 | 地址 |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith/tree/main/V3.8) |
 | ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B/tree/master/V3.8) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
 > 💡 **LM Studio 使用者**：在 [LM Studio](https://lmstudio.ai) 中搜尋 `moziAI` 一鍵下載，無需手動下載文件。
@@ -250,13 +250,13 @@ llama-server \
 | 格式 | 體積 | 精度 | 說明 |
 | --- | --- | --- | --- |
 | FP16 原始 | ~70 GB | 100% | 無損，需專業顯示卡 |
-| **MoziSmartBit（本模型）** | **~15.5 GB** | **~99%** | **自研智慧量化，精度最優、體積最小** |
+| **MoziSmartBit（本模型）** | **~15.9 GB** | **~99%** | **自研智慧量化，精度最優、體積最小** |
 | Q4_K_M | ~22 GB | ~98% | GGUF 標準 4bit |
 | Q5_K_M | ~24.7 GB | ~99% | 更高精度 |
 | Q6_K | ~28.5 GB | ~99.5% | 近無損 |
 | Q8_0 | ~36.9 GB | ~100% | 無損 |
 
-> MoziSmartBit 在保持約 99% 精度的同時，將 35B MoE 模型壓縮至 15.5 GB（壓縮比 4.5x），比 Q4_K_M 小約 30%，更適合消費級顯示卡本地部署。
+> MoziSmartBit 在保持約 99% 精度的同時，將 35B MoE 模型壓縮至 15.9 GB（壓縮比 4.5x），比 Q4_K_M 小約 30%，更適合消費級顯示卡本地部署。
 
 ---
 

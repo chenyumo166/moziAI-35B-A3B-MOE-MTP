@@ -1,149 +1,109 @@
-# Model Card: MoziAI-35B V3.7
-
-## Model Details
-
-- **Model Name**: MoziAI-35B-A3B-MOE
-- **Model Type**: Mixture of Experts (MoE) Large Language Model with Vision
-- **Total Parameters**: 35B (MoE: 256 routed experts + 1 shared expert, 8 active per token)
-- **Active Parameters**: ~3B
-- **Version**: V3.7
-- **Release Date**: 2026-08-21
-- **Developed by**: Chen Yumo Team (陈雨墨团队)
-- **License**: Custom Restrictive License (free commercial use, no modification/resale)
-- **Format**: GGUF (quantized with MoziSmartBit Intelligent Quantization)
-
+---
+language:
+- en
+- zh
+license: other
+tags:
+- gguf
+- MoE
+- financial-llm
+- MoziSmartBit
+- qwen3.5
+- qwen3.6
+- ornith
+- MoziAI
+- tool-calling
+- uncensored
+- vision
+- MTP
+library_name: llama-cpp
+pipeline_tag: text-generation
 ---
 
-## Model Description
+# MoziAI-35B-V3.8 - A Compact Yet Powerful Multimodal AI for Free Local Deployment
 
-MoziAI-35B-A3B-MOE is a financial-domain specialized MoE large language model developed by Chinese finance influencer Chen Yumo's team. Built on the open-source Ornith-1.5-35B-A3B base (Qwen3.5/Qwen3.6 architecture, MIT licensed), incorporating:
+[English](README.en.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
 
-- Financial vertical domain data and capabilities
-- Seven-Dimensional Thinking framework (七维思考体系)
-- Agent LOOP mechanism
-- **MoziSmartBit Intelligent Quantization** (self-developed)
+## Model Overview
 
-Through MoziSmartBit, the 35B MoE model is compressed to **~15.5 GB** (~30% smaller than Q4_K_M), achieving **~99% of FP16 precision**.
+MoziAI-35B-V3.8 is a locally deployable open-source financial AI multimodal large language model (vision, tool calling and Uncensored support), developed by the team of Chen Yumo, a leading Chinese finance influencer. Built on the open-source base **Ornith-1.5-35B-A3B** (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MoE 35B, MIT license), it integrates the team's self-developed: financial data + financial domain capabilities + training methods + dynamic seven-dimensional thinking system + agent LOOP mechanism + Uncensored characteristic + MoziSmartBit hybrid quantization algorithm.
 
----
+With the self-developed MoziSmartBit smart quantization technology, the 35B-parameter MoE model is compressed to about **15.5 GB** — around 30% smaller than standard Q4_K_M (~22 GB) — achieving an optimal balance between accuracy and size with **~99% FP16 accuracy quality**.
+
+This model significantly lowers the barrier to local deployment, is licensed for **free commercial use**, runs on consumer-grade GPUs with **zero cloud token cost**, enables 7×24 token freedom, and ensures local data privacy and security.
+
+Supports llama.cpp, Ollama, LM Studio, Jan and other mainstream inference frameworks, and is compatible with OpenClaw / Hermes / Cursor / Claude Code / Codex agent platforms.
+
+**Release Date: 2026-09-01** | **Version: V3.8**
 
 ## Key Features
 
-| Feature | Description |
-|---------|-------------|
-| **Financial Focus** | Deep optimization for financial Q&A, quantitative programming, tool calling |
-| **MoziSmartBit Quantization** | Self-developed smart quantization, ~15.5 GB with ~99% precision |
-| **Consumer GPU Deploy** | 20GB+ VRAM (e.g., RTX 4060 Ti 16G with CPU offload), 24GB recommended |
-| **128K Context** | Supports long context for complex financial analysis |
-| **Vision Multimodal** | Supports image understanding via mmproj file |
-| **Tool Calling** | Native function calling / agent support |
-| **Uncensored** | Free output without content restrictions |
-| **Multi-Language** | 201 languages, enhanced Chinese capabilities |
+- **Financial vertical focus**: deep optimization for financial Q&A, quantitative programming and tool calling
+- **Dynamic 7-Dimensional Thinking**: moziAI-Think marker with Level 0/1/2 structured thinking by task complexity
+- **Agent LOOP mechanism**: complex tasks auto-iterate "execute+assess → adjust+verify" with self-validation
+- **MoziSmartBit smart quantization**: 35B MoE compressed to 15.5 GB (4.5x ratio), ~99% accuracy
+- **Uncensored**: no content restrictions, free output, complete information, local privacy
+- **256K long context**: handles huge documents and multi-turn agent tasks
+- **Multimodal vision**: understands screenshots locally
+- **Multilingual**: 201 languages and dialects, optimized Chinese
+- **Inference acceleration**: ngram speculative decoding — 140+ tok/s on R9700 GPU / 70+ tok/s on MAX+395 iGPU (measured)
 
----
+## Technical Specifications
 
-## Quantization Comparison
+| Item | Specification |
+| --- | --- |
+| Base Model | Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MIT) |
+| Parameters | 35B MoE, 256 routing experts + 1 shared expert, 8 experts active per token |
+| Quantization | MoziSmartBit + GGUF standard |
+| Context Length | 256K (262,144 tokens) |
+| Model Size | ~15.5 GB |
+| Min VRAM | 20GB+ deployable (CPU offload); 24GB+ smooth long context; 32GB+ full 256K + vision |
+| Inference Speed | R9700 **140+ tok/s** / MAX+395 **70+ tok/s** (speculative decoding) |
 
-| Format | Size | Precision | Notes |
-|--------|------|-----------|-------|
-| FP16 (original) | ~70 GB | 100% | Original 16bit |
-| **MoziSmartBit** | **~15.5 GB** | **~99%** | **Used by MoziAI, optimal scheme** |
-| Q4_K_M | ~22 GB | ~98% | GGUF standard 4bit |
-| Q5_K_M | ~24.7 GB | ~99% | Higher quality |
-| Q6_K | ~28.5 GB | ~99.5% | Near lossless |
-| Q8_0 | ~36.9 GB | ~100% | Lossless |
+## Downloads
 
----
+| Platform | URL |
+| --- | --- |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B/tree/master/V3.8) |
+| Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
-## Hardware Requirements
+> ⚠️ **3-file tip**: download all files in the `V3.8/` directory — main model (.gguf), vision projector (mmproj), chat template (.jinja) — into the same folder for 100% best inference.
 
-| VRAM | Context | Vision | Recommended GPUs |
-|------|---------|--------|------------------|
-| 20 GB | 150K | Supported | RX 7900 XT |
-| 24 GB | 128K full | Full support | RTX 4090, RX 7900 XTX |
-| 32 GB+ | 128K full | Full support | RTX 5090, R9700 |
-| 128 GB | 128K full | Full support | AMD Ryzen AI Max+ 395 |
-
----
-
-## Quick Start
-
-### llama.cpp
+## Quick Start (llama.cpp)
 
 ```bash
 llama-server \
-  -m V3.7/moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+  -m V3.8/moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
   --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.7/moziAI-V3.7-35B-chat-template.jinja \
-  -c 131072 -ngl 99 -t 28 \
-  --batch-size 2048 --ubatch-size 512 \
-  --flash-attn auto \
-  --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
-  --poll 0 --reasoning on --reasoning-budget 1000 \
-  --host 0.0.0.0 --port 8080
+  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+  -c 131072 -ngl 99 --host 0.0.0.0 --port 8080
 ```
 
-### Ollama
+Open `http://localhost:8080` to start chatting. Full recommended parameters and launch commands: see `V3.8/README.en.md`.
 
-```bash
-# Create Modelfile
-FROM ./moziAI-35B-V3.7-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
-PARAMETER temperature 0.6
-PARAMETER top_p 0.95
-PARAMETER top_k 20
-PARAMETER num_ctx 131072
+## Benchmark Snapshot (Coding / Reasoning / Agentic, same-generation measurements)
 
-# Build and run
-ollama create moziAI-35B -f Modelfile
-ollama run moziAI-35B
-```
+| Domain | Highlights |
+| --- | --- |
+| Coding | SWE-bench Verified **79** / SWE-bench Pro **59.6** / Terminal-Bench 2.1 **67.8-68.5** (clearly above Ornith-1.0 and Qwen3.6-35B-A3B) |
+| Reasoning | GPQA Diamond **89.2** / HLE (tools) **33.4** |
+| Agentic | MCP-Atlas **70.2** / ClawEval **72.5** / Toolathlon-Verified **48.7** |
 
----
+> In the financial vertical (earnings interpretation, quant strategy, risk & compliance, agent tool calling) it significantly outperforms same-size general models. Full 18-item comparison table: section 14 of `V3.8/README.en.md`.
 
-## Intended Uses
+## Uncensored
 
-- Financial analysis and market research
-- Quantitative strategy development (Pyramid/PEL)
-- Code generation and debugging
-- Document analysis and summarization
-- Multimodal chart interpretation
-- General AI assistant tasks
+No content moderation restrictions, free output, complete information, local privacy. Suitable for academic research, deep analysis and free discussion. This is a locally deployed model — output is fully controlled by the user; the model bears no content-moderation responsibility.
 
-## Out-of-Scope Uses
+## License
 
-- Providing financial advice or investment recommendations
-- Automated trading without human supervision
-- Use that violates laws or regulations
-- Generating harmful, illegal, or deceptive content
-
----
-
-## Limitations
-
-1. **Hallucinations**: May generate incorrect information in niche financial topics
-2. **Financial Disclaimer**: Outputs are for informational purposes only, not investment advice
-3. **Knowledge Cutoff**: May not have most recent market events
-4. **Quantization Artifacts**: Slightly reduced quality vs full precision
-
----
-
-## Model Download
-
-| Platform | Link |
-|----------|------|
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-
----
+**Custom restrictive license**: ✅ free commercial use / ❌ no secondary development, resale or sub-licensing / 📋 retain the original copyright notice and credit moziAI-35B. Model output is for reference only and does not constitute investment advice.
 
 ## Contact
 
-- **HuggingFace**: [@chenyumo](https://huggingface.co/chenyumo)
-- **GitHub**: [@chenyumo166](https://github.com/chenyumo166)
-- **Weibo**: [@rimochen](https://weibo.com/rimochen)
-- **E-mail**: 263515@qq.com
+- **HuggingFace**: [@chenyumo](https://huggingface.co/chenyumo) · **GitHub**: [@chenyumo166](https://github.com/chenyumo166)
+- **Weibo**: [@rimochen](https://weibo.com/rimochen) · **E-mail**: 263515@qq.com
 
----
-
-*Last updated: 2026-08-21*
+Copyright (c) 2026 Chen Yumo / chenyumo166. All rights reserved.

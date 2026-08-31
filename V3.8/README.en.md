@@ -78,7 +78,7 @@ Complex tasks automatically enter **moziAI-Loop** iteration mode: **Round 1 exec
 
 ### 📦 MoziSmartBit Smart Quantization
 
-Self-developed layered smart quantization compresses the 35B-parameter MoE model to about **15.5 GB** — about 6.5 GB (~30%) smaller than standard Q4_K_M (~22 GB) while maintaining **~99%** of FP16 accuracy. Traditional quantization applies uniform precision to all layers; MoziSmartBit adopts a smart differentiated strategy for MoE structure, delivering accuracy better than Q4_K_M. Compression ratio: **4.5x**.
+Self-developed layered smart quantization compresses the 35B-parameter MoE model to about **15.9 GB** — about 6.5 GB (~30%) smaller than standard Q4_K_M (~22 GB) while maintaining **~99%** of FP16 accuracy. Traditional quantization applies uniform precision to all layers; MoziSmartBit adopts a smart differentiated strategy for MoE structure, delivering accuracy better than Q4_K_M. Compression ratio: **4.5x**.
 
 ### 💰 Financial Vertical Focus
 
@@ -127,7 +127,7 @@ MoziAI maintains an active upgrade cadence, staying at the forefront of AI devel
 | Parameter Count | 35B MoE architecture, 256 routing experts + 1 shared expert, 8 experts active per token |
 | Quantization | Self-developed MoziSmartBit smart quantization + GGUF standard format |
 | Context Length | 256K (262,144 tokens) |
-| Model Size | ~15.5 GB |
+| Model Size | ~15.9 GB |
 | Minimum VRAM | **20GB+** deployable (CPU offload); **24GB+** smooth long context; **32GB+** full 256K + vision |
 | Inference Frameworks | llama.cpp / Ollama / LM Studio / Jan |
 | Inference Speed | With speculative decoding: **140+ tok/s** on AMD R9700 GPU / **70+ tok/s** on AMD MAX+395 iGPU — token freedom locally |
@@ -145,14 +145,14 @@ Download **all files in the V3.8 directory** from HuggingFace / ModelScope to on
 
 ```
 V3.8/
-├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← Main model (required, 15.5 GB)
+├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← Main model (required, 15.9 GB)
 ├── moziAI-35B-mmproj-BF16-V1.0.gguf                        ← Vision projector (required, ~1 GB)
 └── moziAI-V3.8-35B-chat-template.jinja                                        ← Chat template (required, 7-dim thinking + Loop)
 ```
 
 | File | Size | Required | Purpose |
 | --- | --- | --- | --- |
-| Main model `.gguf` | ~15.5 GB | **Yes** | Model weights, core reasoning |
+| Main model `.gguf` | ~15.9 GB | **Yes** | Model weights, core reasoning |
 | Vision `mmproj` | ~1 GB | **Yes** | Multimodal vision; without it image capability is lost |
 | Chat template `.jinja` | tiny | **Yes** | Injects MoziAI identity + 7-dim thinking + LOOP instructions |
 
@@ -175,9 +175,9 @@ Open `http://localhost:8080` in your browser to start chatting. See Section 9 fo
 
 | Platform | URL |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith/tree/main/V3.8) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B/tree/master/V3.8) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
 > 💡 **LM Studio users**: search `moziAI` in [LM Studio](https://lmstudio.ai) to download with one click.
@@ -250,13 +250,13 @@ Optimized from local testing (AMD Radeon AI PRO R9700 32GB):
 | Format | Size | Accuracy | Notes |
 | --- | --- | --- | --- |
 | FP16 original | ~70 GB | 100% | Lossless, needs pro GPU |
-| **MoziSmartBit (this model)** | **~15.5 GB** | **~99%** | **Self-developed smart quantization, best accuracy per size** |
+| **MoziSmartBit (this model)** | **~15.9 GB** | **~99%** | **Self-developed smart quantization, best accuracy per size** |
 | Q4_K_M | ~22 GB | ~98% | Standard GGUF 4-bit |
 | Q5_K_M | ~24.7 GB | ~99% | Higher accuracy |
 | Q6_K | ~28.5 GB | ~99.5% | Near-lossless |
 | Q8_0 | ~36.9 GB | ~100% | Lossless |
 
-> MoziSmartBit keeps ~99% accuracy while compressing the 35B MoE model to 15.5 GB (4.5x compression), ~30% smaller than Q4_K_M — ideal for consumer GPUs.
+> MoziSmartBit keeps ~99% accuracy while compressing the 35B MoE model to 15.9 GB (4.5x compression), ~30% smaller than Q4_K_M — ideal for consumer GPUs.
 
 ---
 

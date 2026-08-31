@@ -78,7 +78,7 @@ MoziAI 자체 개발 핵심 추론 프레임워크. 모든 작업에 대해 모�
 
 ### 📦 MoziSmartBit 스마트 양자화
 
-자체 개발 계층형 스마트 양자화로 350억 파라미터 MoE 모델을 약 **15.5 GB**로 압축. 일반 Q4_K_M(약 22 GB)보다 약 6.5 GB(약 30%) 작고 FP16의 **약 99%** 정확도를 유지합니다. 기존 양자화는 모든 레이어에 균일 정밀도를 사용하지만, MoziSmartBit은 MoE 구조에 특화된 스마트 차별화 전략으로 Q4_K_M보다 높은 정확도를 제공합니다. 압축비 **4.5x**.
+자체 개발 계층형 스마트 양자화로 350억 파라미터 MoE 모델을 약 **15.9 GB**로 압축. 일반 Q4_K_M(약 22 GB)보다 약 6.5 GB(약 30%) 작고 FP16의 **약 99%** 정확도를 유지합니다. 기존 양자화는 모든 레이어에 균일 정밀도를 사용하지만, MoziSmartBit은 MoE 구조에 특화된 스마트 차별화 전략으로 Q4_K_M보다 높은 정확도를 제공합니다. 압축비 **4.5x**.
 
 ### 💰 금융 수직 영역 집중
 
@@ -127,7 +127,7 @@ moziAI는 활발한 버전 업그레이드를 지속하며 AI 발전에 뒤처�
 | 파라미터 수 | 350억(35B) MoE, 256 라우팅 전문가 + 1 공유 전문가, 토큰당 8 전문가 활성 |
 | 양자화 | 자체 MoziSmartBit 스마트 양자화 + GGUF 표준 형식 |
 | 컨텍스트 길이 | 256K(262,144 tokens) |
-| 모델 크기 | ~15.5 GB |
+| 모델 크기 | ~15.9 GB |
 | 최소 VRAM | **20GB+** 배포 가능(CPU 오프로드); **24GB+** 부드러운 장문맥; **32GB+** 완전 256K + 시각 |
 | 추론 프레임워크 | llama.cpp / Ollama / LM Studio / Jan |
 | 추론 속도 | 투기적 디코딩 시: AMD R9700 GPU **140+ tok/s** / AMD MAX+395 iGPU **70+ tok/s** — 로컬 token 자유 |
@@ -145,14 +145,14 @@ HuggingFace / ModelScope에서 **V3.8 디렉토리의 모든 파일**을 로컬 
 
 ```
 V3.8/
-├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← 메인 모델(필수, 15.5 GB)
+├── moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← 메인 모델(필수, 15.9 GB)
 ├── moziAI-35B-mmproj-BF16-V1.0.gguf                        ← 비전 프로젝터(필수, ~1 GB)
 └── moziAI-V3.8-35B-chat-template.jinja                                        ← 채팅 템플릿(필수, 7차원 사고+Loop 지시)
 ```
 
 | 파일 | 크기 | 필수 | 역할 |
 | --- | --- | --- | --- |
-| 메인 모델 `.gguf` | ~15.5 GB | **필수** | 모델 가중치, 핵심 추론 |
+| 메인 모델 `.gguf` | ~15.9 GB | **필수** | 모델 가중치, 핵심 추론 |
 | 비전 `mmproj` | ~1 GB | **필수** | 멀티모달 시각, 미로드 시 이미지 능력 상실 |
 | 채팅 템플릿 `.jinja` | 미세 | **필수** | MoziAI 아이덴티티 + 7차원 사고 + LOOP 지시 주입 |
 
@@ -175,9 +175,9 @@ llama-server \
 
 | 플랫폼 | 주소 |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-Qwen3.6-35B-A3B-Ornith/tree/main/V3.8) |
 | ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/master/V3.8) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B/tree/master/V3.8) |
+| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored/tree/main/V3.8) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
 
 > 💡 **LM Studio 사용자**: [LM Studio](https://lmstudio.ai)에서 `moziAI` 검색 후 원클릭 다운로드.
@@ -250,13 +250,13 @@ llama-server \
 | 형식 | 크기 | 정확도 | 설명 |
 | --- | --- | --- | --- |
 | FP16 원본 | ~70 GB | 100% | 무손실, 프로 GPU 필요 |
-| **MoziSmartBit(본 모델)** | **~15.5 GB** | **~99%** | **자체 스마트 양자화, 최고 정확도/최소 크기** |
+| **MoziSmartBit(본 모델)** | **~15.9 GB** | **~99%** | **자체 스마트 양자화, 최고 정확도/최소 크기** |
 | Q4_K_M | ~22 GB | ~98% | GGUF 표준 4bit |
 | Q5_K_M | ~24.7 GB | ~99% | 더 높은 정확도 |
 | Q6_K | ~28.5 GB | ~99.5% | 거의 무손실 |
 | Q8_0 | ~36.9 GB | ~100% | 무손실 |
 
-> MoziSmartBit은 약 99% 정확도를 유지하며 35B MoE를 15.5 GB(4.5x 압축)로. Q4_K_M보다 약 30% 작아 소비자 GPU에 최적.
+> MoziSmartBit은 약 99% 정확도를 유지하며 35B MoE를 15.9 GB(4.5x 압축)로. Q4_K_M보다 약 30% 작아 소비자 GPU에 최적.
 
 ---
 
