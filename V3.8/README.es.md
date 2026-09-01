@@ -30,20 +30,20 @@ pipeline_tag: text-generation
 ## 📑 Índice
 
 - [1. Resumen del modelo](#1-resumen-del-modelo)
-- [2. Características del modelo](#2-caracteristicas-del-modelo) — Pensamiento dinámico de siete dimensiones / LOOP / MoziSmartBit / Enfoque financiero
-- [3. Notas de la actualización de versión](#3-notas-de-la-actualizacion-de-version)
+- [2. Características del modelo](#2-características-del-modelo) — Pensamiento dinámico de siete dimensiones / LOOP / MoziSmartBit / Enfoque financiero
+- [3. Notas de la actualización de versión](#3-notas-de-la-actualización-de-versión)
 - [4. Capacidades principales](#4-capacidades-principales-del-sector-financiero)
-- [5. Especificaciones técnicas](#5-especificaciones-tecnicas)
-- [6. ⚡ Inicio rápido](#6--inicio-rapido3-archivos--100-de-activacion-del-mejor-razonamiento) — **Descarga de los 3 archivos**
+- [5. Especificaciones técnicas](#5-especificaciones-técnicas)
+- [6. ⚡ Inicio rápido](#6--inicio-rápido-3-archivos--100--de-activación-del-mejor-razonamiento) — **Descarga de los 3 archivos**
 - [7. Descarga del modelo](#7-descarga-del-modelo)
 - [8. Comandos de inicio](#8-comandos-de-inicio)
-- [9. Parámetros de inferencia recomendados](#9-parametros-de-inferencia-recomendados)
-- [10. Comparativa de formatos de cuantización](#10-comparativa-de-formatos-de-cuantizacion)
-- [11. Aceleración por decodificación especulativa](#11-aceleracion-por-decodificacion-especulativa-caracteristica-importante)
-- [12. Configuración de VRAM](#12-configuracion-de-vram-recomendada)
-- [13. Métodos de despliegue](#13-metodos-de-despliegue)
+- [9. Parámetros de inferencia recomendados](#9-parámetros-de-inferencia-recomendados)
+- [10. Comparativa de formatos de cuantización](#10-comparativa-de-formatos-de-cuantización)
+- [11. Aceleración por decodificación especulativa](#11-aceleración-por-decodificación-especulativa-característica-importante)
+- [12. Configuración de VRAM](#12-configuración-de-vram-recomendada)
+- [13. Métodos de despliegue](#13-métodos-de-despliegue)
 - [14. Evaluaciones comparativas](#14-evaluaciones-comparativas)
-- [15. Optimización Uncensored (sin moderación)](#15-optimizacion-uncensored-sin-moderacion)
+- [15. Optimización Uncensored (sin moderación)](#15-optimización-uncensored-sin-moderación)
 - [16. Licencia](#16-licencia)
 - [17. Contacto](#17-contacto)
 
@@ -85,7 +85,7 @@ Optimización profunda orientada a las preguntas y respuestas financieras, la pr
 
 ### 🛡️ Característica Uncensored (sin moderación)
 
-Sin restricciones de moderación de contenido, salida libre, información completa y privacidad local. Adecuado para escenarios como la investigación académica, el análisis en profundidad y el debate libre. (Consulte la [sección 15](#15-optimizacion-uncensored-sin-moderacion)).
+Sin restricciones de moderación de contenido, salida libre, información completa y privacidad local. Adecuado para escenarios como la investigación académica, el análisis en profundidad y el debate libre. (Consulte la [sección 15](#15-optimización-uncensored-sin-moderación)).
 
 ### 🌐 Otras características
 
@@ -134,7 +134,7 @@ moziAI mantendrá un ritmo activo de actualizaciones de versión, asegurándose 
 
 ---
 
-## 6. ⚡ Inicio rápido (3 archivos = 100 % de activación del mejor razonamiento)
+## 6. ⚡ Inicio rápido 3 archivos = 100 % de activación del mejor razonamiento
 
 > ⚠️ **Aviso clave**: la mejor capacidad de razonamiento de MoziAI requiere **descargar 3 archivos a la vez** — el modelo principal, la proyección de visión y la plantilla de chat. Si falta cualquiera de ellos, se pierde la capacidad correspondiente.
 
@@ -232,7 +232,7 @@ Optimizados según pruebas locales reales (AMD Radeon AI PRO R9700 32GB):
 | min\_p | 0.024 | 0.024 | Filtrado por probabilidad mínima |
 | repeat\_penalty | 1.05 | 1.05 | Penalización por repetición |
 | presence\_penalty | 0 | 0 | Sin penalización por presencia |
-| context\_length | 262144 | 262144 | Contexto largo de 256K |
+| context\_length | 131072 | 262144 | Diario 128K / Complejo 256K (llama.cpp por defecto 128K) |
 | reasoning | on | on | Activa la cadena de razonamiento (chain of thought) |
 | reasoning\_budget | 400 | 1000 | Presupuesto de tokens de razonamiento (mayor en tareas complejas) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Salida del razonamiento en un campo independiente |
@@ -258,7 +258,7 @@ Optimizados según pruebas locales reales (AMD Radeon AI PRO R9700 32GB):
 
 ---
 
-## 11. Aceleración por decodificación especulativa (característica importante)
+## 11. Aceleración por decodificación especulativa característica importante
 
 Este modelo mejora notablemente la velocidad de inferencia mediante la **decodificación especulativa (Speculative Decoding)**, con un **aumento de aproximadamente 1.5-2 veces** frente a tenerla desactivada, según las pruebas locales reales.
 
@@ -351,7 +351,7 @@ MoziAI-35B-V3.8 se desarrolló mediante fine-tuning, destilación y desarrollo s
 
 ---
 
-## 15. Optimización Uncensored (sin moderación)
+## 15. Optimización Uncensored sin moderación
 
 Este modelo hereda la característica Uncensored (sin moderación) del modelo base Ornith-1.5-35B-A3B, con las siguientes ventajas:
 

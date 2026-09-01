@@ -35,16 +35,16 @@ pipeline_tag: text-generation
 - [3. Versionshinweise](#3-versionshinweise)
 - [4. Kernkompetenzen](#4-kernkompetenzen)
 - [5. Technische Spezifikationen](#5-technische-spezifikationen)
-- [6. ⚡ Schnellstart](#6--schnellstart3-dateien--100-beste-inferenz-aktivieren) — **3-Dateien-Paket**
+- [6. ⚡ Schnellstart](#6--schnellstart-3-dateien--100--beste-inferenz) — **3-Dateien-Paket**
 - [7. Modell-Downloads](#7-modell-downloads)
 - [8. Startbefehle](#8-startbefehle)
 - [9. Empfohlene Inferenzparameter](#9-empfohlene-inferenzparameter)
 - [10. Quantisierungsformatvergleich](#10-quantisierungsformatvergleich)
-- [11. Spekulatives Decoding](#11-spekulatives-decoding-beschleunigungschlüsselfunktion)
+- [11. Spekulatives Decoding](#11-spekulatives-decoding-schlüsselfunktion)
 - [12. VRAM-Empfehlungen](#12-vram-empfehlungen)
 - [13. Bereitstellungsmethoden](#13-bereitstellungsmethoden)
 - [14. Benchmarks](#14-benchmarks)
-- [15. Uncensored-Optimierung](#15-uncensoredohne-zensur-optimierung)
+- [15. Uncensored-Optimierung](#15-uncensored-optimierung)
 - [16. Lizenz](#16-lizenz)
 - [17. Kontakt](#17-kontakt)
 
@@ -86,7 +86,7 @@ Tief optimiert für Finanz-Q&A, Quant-Programmierung und Tool-Aufrufe. Der Finan
 
 ### 🛡️ Uncensored-Eigenschaft
 
-Keine Inhaltsbeschränkungen, freie Ausgabe, vollständige Informationen, lokale Privatsphäre. Geeignet für akademische Forschung, Tiefenanalyse, freie Diskussion (siehe [Abschnitt 15](#15-uncensoredohne-zensur-optimierung)).
+Keine Inhaltsbeschränkungen, freie Ausgabe, vollständige Informationen, lokale Privatsphäre. Geeignet für akademische Forschung, Tiefenanalyse, freie Diskussion (siehe [Abschnitt 15](#15-uncensored-optimierung)).
 
 ### 🌐 Weitere Merkmale
 
@@ -135,7 +135,7 @@ MoziAI hält einen aktiven Upgrade-Rhythmus, bleibt an der Spitze der KI-Entwick
 
 ---
 
-## 6. ⚡ Schnellstart (3 Dateien = 100 % beste Inferenz)
+## 6. ⚡ Schnellstart 3 Dateien = 100 % beste Inferenz
 
 > ⚠️ **Wichtig**: Für die beste Inferenz müssen **3 Dateien zusammen** heruntergeladen werden — Hauptmodell, Vision-Projektor, Chat-Template. Fehlt eine, geht die entsprechende Fähigkeit verloren.
 
@@ -225,7 +225,7 @@ Optimiert durch lokale Tests (AMD Radeon AI PRO R9700 32GB):
 | min\_p | 0,024 | 0,024 | Min.-Wahrscheinlichkeitsfilter |
 | repeat\_penalty | 1,05 | 1,05 | Wiederholungsstrafe |
 | presence\_penalty | 0 | 0 | Keine Präsenzstrafe |
-| context\_length | 262144 | 262144 | 256K langer Kontext |
+| context\_length | 131072 | 262144 | Alltag 128K / Komplex 256K (llama.cpp Standard 128K) |
 | reasoning | on | on | Reasoning-Kette (CoT) |
 | reasoning\_budget | 400 | 1000 | Reasoning-Budget (komplex höher) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Reasoning in separatem Feld |
@@ -251,7 +251,7 @@ Optimiert durch lokale Tests (AMD Radeon AI PRO R9700 32GB):
 
 ---
 
-## 11. Spekulatives Decoding (Schlüsselfunktion)
+## 11. Spekulatives Decoding Schlüsselfunktion
 
 Dieses Modell beschleunigt die Inferenz durch **spekulatives Decoding** um **~1,5-2x** (lokal gemessen).
 

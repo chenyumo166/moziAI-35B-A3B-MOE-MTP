@@ -32,9 +32,9 @@ pipeline_tag: text-generation
 - [1. Tổng quan mô hình](#1-tổng-quan-mô-hình)
 - [2. Tính năng chính](#2-tính-năng-chính) — Tư duy bảy chiều động / LOOP / MoziSmartBit / Trọng tâm tài chính
 - [3. Ghi chú nâng cấp phiên bản](#3-ghi-chú-nâng-cấp-phiên-bản)
-- [4. Năng lực cốt lõi](#4-năng-lực-cốt-lõi)
+- [4. Năng lực cốt lõi](#4-năng-lực-cốt-lõi-lĩnh-vực-tài-chính)
 - [5. Thông số kỹ thuật](#5-thông-số-kỹ-thuật)
-- [6. ⚡ Bắt đầu nhanh](#6--bắt-đầu-nhanh3-tệp--100-kích-hoạt-năng-lực-suy-luận-tốt-nhất) — **tải 3 tệp**
+- [6. ⚡ Bắt đầu nhanh](#6--bắt-đầu-nhanh-3-tệp--100-kích-hoạt-năng-lực-suy-luận-tốt-nhất) — **tải 3 tệp**
 - [7. Tải mô hình](#7-tải-mô-hình)
 - [8. Lệnh khởi chạy](#8-lệnh-khởi-chạy)
 - [9. Tham số suy luận được khuyến nghị](#9-tham-số-suy-luận-được-khuyến-nghị)
@@ -134,7 +134,7 @@ moziAI duy trì tần suất nâng cấp phiên bản tích cực, đảm bảo 
 
 ---
 
-## 6. ⚡ Bắt đầu nhanh (3 tệp = 100% kích hoạt năng lực suy luận tốt nhất)
+## 6. ⚡ Bắt đầu nhanh 3 tệp = 100% kích hoạt năng lực suy luận tốt nhất
 
 > ⚠️ **Lưu ý cốt lõi**: Năng lực suy luận tốt nhất của MoziAI yêu cầu **tải đồng thời 3 tệp** — mô hình chính, máy chiếu thị giác, mẫu trò chuyện. Thiếu bất kỳ tệp nào sẽ mất năng lực tương ứng.
 
@@ -232,7 +232,7 @@ llama-server \
 | min\_p | 0,024 | 0,024 | Bộ lọc xác suất tối thiểu |
 | repeat\_penalty | 1,05 | 1,05 | Phạt lặp lại |
 | presence\_penalty | 0 | 0 | Không phạt hiện diện |
-| context\_length | 262144 | 262144 | Ngữ cảnh dài 256K |
+| context\_length | 131072 | 262144 | Hằng ngày 128K / Phức tạp 256K (mặc định llama.cpp 128K) |
 | reasoning | on | on | Bật chuỗi suy luận (CoT) |
 | reasoning\_budget | 400 | 1000 | Ngân sách token suy luận (cao hơn cho tác vụ phức tạp) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Xuất suy luận sang trường riêng |
@@ -258,7 +258,7 @@ llama-server \
 
 ---
 
-## 11. Tăng tốc giải mã suy đoán (Tính năng quan trọng)
+## 11. Tăng tốc giải mã suy đoán Tính năng quan trọng
 
 Mô hình này tăng đáng kể tốc độ suy luận nhờ **Giải mã suy đoán (Speculative Decoding)** — đo cục bộ **nhanh hơn ~1,5-2 lần** so với khi tắt.
 

@@ -135,7 +135,7 @@ A moziAI mantém um ritmo ativo de atualizações e iterações de versão, gara
 
 ---
 
-## 6. ⚡ Início rápido (3 arquivos = 100% da melhor capacidade de inferência)
+## 6. ⚡ Início rápido 3 arquivos = 100% da melhor capacidade de inferência
 
 > ⚠️ **Dica essencial**: a melhor capacidade de inferência da MoziAI exige o download **simultâneo dos 3 arquivos** — modelo principal, projeção visual e template de chat. A ausência de qualquer um deles compromete a capacidade correspondente.
 
@@ -233,7 +233,7 @@ Otimizados com base em testes locais reais (AMD Radeon AI PRO R9700 32GB):
 | min\_p | 0,024 | 0,024 | Filtro de probabilidade mínima |
 | repeat\_penalty | 1,05 | 1,05 | Penalidade de repetição |
 | presence\_penalty | 0 | 0 | Sem penalidade de presença |
-| context\_length | 262144 | 262144 | Contexto longo de 256K |
+| context\_length | 131072 | 262144 | Diário 128K / Complexo 256K (padrão llama.cpp 128K) |
 | reasoning | on | on | Ativa a cadeia de raciocínio (chain-of-thought) |
 | reasoning\_budget | 400 | 1000 | Orçamento de raciocínio em tokens (maior para tarefas complexas) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Raciocínio emitido em campo separado |
@@ -259,7 +259,7 @@ Otimizados com base em testes locais reais (AMD Radeon AI PRO R9700 32GB):
 
 ---
 
-## 11. Aceleração por decodificação especulativa (função importante)
+## 11. Aceleração por decodificação especulativa função importante
 
 Este modelo acelera significativamente a inferência por meio da **decodificação especulativa (Speculative Decoding)** — em testes locais, a velocidade é **cerca de 1,5–2x maior** do que com a função desativada.
 
@@ -352,7 +352,7 @@ O MoziAI-35B-V3.8 foi desenvolvido por meio de fine-tuning, destilação e aprim
 
 ---
 
-## 15. Otimização Uncensored (sem censura)
+## 15. Otimização Uncensored sem censura
 
 Este modelo herda a característica Uncensored (sem censura) do modelo base Ornith-1.5-35B-A3B, com as seguintes vantagens:
 

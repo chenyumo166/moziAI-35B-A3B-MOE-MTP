@@ -35,7 +35,7 @@ English | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [�
 - [3. Version Upgrade Notes](#3-version-upgrade-notes)
 - [4. Core Capabilities](#4-core-capabilities)
 - [5. Technical Specifications](#5-technical-specifications)
-- [6. ⚡ Quick Start](#6--quick-start3-files--100-activate-best-inference) — **3-file download**
+- [6. ⚡ Quick Start](#6--quick-start-3-files--100-best-inference) — **3-file download**
 - [7. Model Downloads](#7-model-downloads)
 - [8. Launch Commands](#8-launch-commands)
 - [9. Recommended Inference Parameters](#9-recommended-inference-parameters)
@@ -135,7 +135,7 @@ MoziAI maintains an active upgrade cadence, staying at the forefront of AI devel
 
 ---
 
-## 6. ⚡ Quick Start (3 Files = 100% Best Inference)
+## 6. ⚡ Quick Start 3 Files = 100% Best Inference
 
 > ⚠️ **Key tip**: Best inference requires downloading **3 files at once** — main model, vision projector, chat template. Missing any one loses the corresponding capability.
 
@@ -233,7 +233,7 @@ Optimized from local testing (AMD Radeon AI PRO R9700 32GB):
 | min\_p | 0.024 | 0.024 | Minimum probability filter |
 | repeat\_penalty | 1.05 | 1.05 | Repetition penalty |
 | presence\_penalty | 0 | 0 | No presence penalty |
-| context\_length | 262144 | 262144 | 256K long context |
+| context\_length | 131072 | 262144 | Daily 128K / Complex 256K (llama.cpp default 128K) |
 | reasoning | on | on | Enable reasoning chain (CoT) |
 | reasoning\_budget | 400 | 1000 | Reasoning budget tokens (higher for complex tasks) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Reasoning in separate field |
@@ -259,7 +259,7 @@ Optimized from local testing (AMD Radeon AI PRO R9700 32GB):
 
 ---
 
-## 11. Speculative Decoding Acceleration (Key Feature)
+## 11. Speculative Decoding Acceleration Key Feature
 
 This model significantly boosts inference speed via **Speculative Decoding** — locally measured **~1.5-2x faster** than disabled.
 

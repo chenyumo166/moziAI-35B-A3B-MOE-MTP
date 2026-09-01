@@ -35,16 +35,16 @@ pipeline_tag: text-generation
 - [3. Versie-updates](#3-versie-updates)
 - [4. Kerncompetenties](#4-kerncompetenties)
 - [5. Technische specificaties](#5-technische-specificaties)
-- [6. ⚡ Snelstart](#6--snelstart3-bestanden--100-beste-inferentie) — **3-bestandenpakket**
+- [6. ⚡ Snelstart](#6--snelstart-3-bestanden--100-beste-inferentie) — **3-bestandenpakket**
 - [7. Modeldownloads](#7-modeldownloads)
 - [8. Startopdrachten](#8-startopdrachten)
 - [9. Aanbevolen inferentieparameters](#9-aanbevolen-inferentieparameters)
 - [10. Kwantisatieformaatvergelijking](#10-kwantisatieformaatvergelijking)
-- [11. Speculatief decoderen versneld](#11-speculatief-decoderen-versneldbelangrijke-functie)
+- [11. Speculatief decoderen versneld](#11-speculatief-decoderen-versneld-belangrijke-functie)
 - [12. VRAM-aanbevelingen](#12-vram-aanbevelingen)
 - [13. Implementatiemethoden](#13-implementatiemethoden)
 - [14. Benchmarks](#14-benchmarks)
-- [15. Uncensored-optimalisatie](#15-uncensoredzonder-censuur-optimalisatie)
+- [15. Uncensored-optimalisatie](#15-uncensored-optimalisatie)
 - [16. Licentie](#16-licentie)
 - [17. Contact](#17-contact)
 
@@ -86,7 +86,7 @@ Diep geoptimaliseerd voor financiële Q&A, kwantprogrammering en tool-calls. Fin
 
 ### 🛡️ Uncensored-eigenschap
 
-Geen inhoudsbeperkingen, vrije output, volledige informatie, lokale privacy (zie [Sectie 15](#15-uncensoredzonder-censuur-optimalisatie)).
+Geen inhoudsbeperkingen, vrije output, volledige informatie, lokale privacy (zie [Sectie 15](#15-uncensored-optimalisatie)).
 
 ### 🌐 Andere kenmerken
 
@@ -135,7 +135,7 @@ MoziAI houdt een actief update-tempo aan en maakt lokale AI-modellen lichter en 
 
 ---
 
-## 6. ⚡ Snelstart (3 bestanden = 100% beste inferentie)
+## 6. ⚡ Snelstart 3 bestanden = 100% beste inferentie
 
 > ⚠️ **Belangrijk**: voor de beste inferentie moeten **3 bestanden samen** worden gedownload — hoofdmodel, visieprojector, chat-template. Ontbreekt er één, gaat de bijbehorende capaciteit verloren.
 
@@ -225,7 +225,7 @@ Geoptimaliseerd door lokale tests (AMD Radeon AI PRO R9700 32GB):
 | min\_p | 0,024 | 0,024 | Minimumkansfilter |
 | repeat\_penalty | 1,05 | 1,05 | Herhalingsstraf |
 | presence\_penalty | 0 | 0 | Geen aanwezigheidsstraf |
-| context\_length | 262144 | 262144 | 256K lange context |
+| context\_length | 131072 | 262144 | Dagelijks 128K / Complex 256K (standaard llama.cpp 128K) |
 | reasoning | on | on | Redeneringsketen (CoT) |
 | reasoning\_budget | 400 | 1000 | Redeneringsbudget (hoger bij complexe taken) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Redenering in apart veld |
@@ -251,7 +251,7 @@ Geoptimaliseerd door lokale tests (AMD Radeon AI PRO R9700 32GB):
 
 ---
 
-## 11. Speculatief decoderen versneld (belangrijke functie)
+## 11. Speculatief decoderen versneld belangrijke functie
 
 Dit model versnelt inferentie via **speculatief decoderen** — **~1,5-2x** sneller (lokaal gemeten).
 

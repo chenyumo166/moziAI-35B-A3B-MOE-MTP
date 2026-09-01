@@ -35,16 +35,16 @@ pipeline_tag: text-generation
 - [3. Notes de mise à jour](#3-notes-de-mise-à-jour)
 - [4. Compétences de base](#4-compétences-de-base)
 - [5. Spécifications techniques](#5-spécifications-techniques)
-- [6. ⚡ Démarrage rapide](#6--démarrage-rapide3-fichiers--100-inférence-optimale) — **Pack 3 fichiers**
+- [6. ⚡ Démarrage rapide](#6--démarrage-rapide-3-fichiers--100--dinférence-optimale) — **Pack 3 fichiers**
 - [7. Téléchargement du modèle](#7-téléchargement-du-modèle)
 - [8. Commandes de lancement](#8-commandes-de-lancement)
 - [9. Paramètres d'inférence recommandés](#9-paramètres-dinférence-recommandés)
 - [10. Comparaison des formats de quantification](#10-comparaison-des-formats-de-quantification)
-- [11. Décodage spéculatif accéléré](#11-décodage-spéculatif-accéléréfonction-clé)
+- [11. Décodage spéculatif accéléré](#11-décodage-spéculatif-accéléré-fonction-clé)
 - [12. Recommandations VRAM](#12-recommandations-vram)
 - [13. Méthodes de déploiement](#13-méthodes-de-déploiement)
 - [14. Benchmarks](#14-benchmarks)
-- [15. Optimisation Uncensored](#15-optimisation-uncensoredsans-censure)
+- [15. Optimisation Uncensored](#15-optimisation-uncensored)
 - [16. Licence](#16-licence)
 - [17. Contact](#17-contact)
 
@@ -86,7 +86,7 @@ Optimisé en profondeur pour Q&A financière, programmation quant et appels d'ou
 
 ### 🛡️ Caractéristique Uncensored
 
-Aucune restriction de contenu, sortie libre, information complète, confidentialité locale (voir [Section 15](#15-optimisation-uncensoredsans-censure)).
+Aucune restriction de contenu, sortie libre, information complète, confidentialité locale (voir [Section 15](#15-optimisation-uncensored)).
 
 ### 🌐 Autres caractéristiques
 
@@ -135,7 +135,7 @@ MoziAI maintient un rythme de mises à jour actif et rend les modèles locaux pl
 
 ---
 
-## 6. ⚡ Démarrage rapide (3 fichiers = 100 % d'inférence optimale)
+## 6. ⚡ Démarrage rapide 3 fichiers = 100 % d'inférence optimale
 
 > ⚠️ **Important** : l'inférence optimale nécessite de **télécharger 3 fichiers ensemble** — modèle principal, projecteur de vision, modèle de chat. S'il en manque un, la capacité correspondante est perdue.
 
@@ -225,7 +225,7 @@ Optimisé par tests locaux (AMD Radeon AI PRO R9700 32 Go) :
 | min\_p | 0,024 | 0,024 | Filtre de probabilité min |
 | repeat\_penalty | 1,05 | 1,05 | Pénalité de répétition |
 | presence\_penalty | 0 | 0 | Aucune pénalité de présence |
-| context\_length | 262144 | 262144 | Contexte long 256K |
+| context\_length | 131072 | 262144 | Quotidien 128K / Complexe 256K (défaut llama.cpp 128K) |
 | reasoning | on | on | Chaîne de raisonnement (CoT) |
 | reasoning\_budget | 400 | 1000 | Budget de raisonnement (plus élevé pour tâches complexes) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Raisonnement dans un champ séparé |
@@ -251,7 +251,7 @@ Optimisé par tests locaux (AMD Radeon AI PRO R9700 32 Go) :
 
 ---
 
-## 11. Décodage spéculatif accéléré (fonction clé)
+## 11. Décodage spéculatif accéléré fonction clé
 
 Ce modèle accélère nettement l'inférence via le **décodage spéculatif** — **~1,5-2x** plus rapide (mesures locales).
 

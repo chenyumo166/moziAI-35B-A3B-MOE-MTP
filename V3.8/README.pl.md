@@ -32,9 +32,9 @@ pipeline_tag: text-generation
 - [1. Przegląd modelu](#1-przegląd-modelu)
 - [2. Kluczowe funkcje](#2-kluczowe-funkcje) — Dynamiczne myślenie siedmiowymiarowe / LOOP / MoziSmartBit / Fokus finansowy
 - [3. Notatki o aktualizacji wersji](#3-notatki-o-aktualizacji-wersji)
-- [4. Kluczowe możliwości](#4-kluczowe-możliwości)
+- [4. Kluczowe możliwości](#4-kluczowe-możliwości-w-domenie-finansowej)
 - [5. Specyfikacja techniczna](#5-specyfikacja-techniczna)
-- [6. ⚡ Szybki start](#6--szybki-start3-pliki--100-aktywacja-najlepszych-możliwości-wnioskowania) — **pobierz 3 pliki**
+- [6. ⚡ Szybki start](#6--szybki-start-3-pliki--100-aktywacji-najlepszych-możliwości-wnioskowania) — **pobierz 3 pliki**
 - [7. Pobieranie modelu](#7-pobieranie-modelu)
 - [8. Polecenia uruchamiania](#8-polecenia-uruchamiania)
 - [9. Zalecane parametry wnioskowania](#9-zalecane-parametry-wnioskowania)
@@ -134,7 +134,7 @@ moziAI utrzymuje aktywną częstotliwość aktualizacji wersji, aby nadążać z
 
 ---
 
-## 6. ⚡ Szybki start (3 pliki = 100% aktywacji najlepszych możliwości wnioskowania)
+## 6. ⚡ Szybki start 3 pliki = 100% aktywacji najlepszych możliwości wnioskowania
 
 > ⚠️ **Kluczowa uwaga**: Najlepsze możliwości wnioskowania MoziAI wymagają **pobrania 3 plików jednocześnie** — modelu głównego, projektora wizyjnego, szablonu czatu. Brak któregokolwiek spowoduje utratę odpowiednich możliwości.
 
@@ -232,7 +232,7 @@ Zoptymalizowane na podstawie lokalnych testów (AMD Radeon AI PRO R9700 32GB):
 | min\_p | 0,024 | 0,024 | Filtr minimalnego prawdopodobieństwa |
 | repeat\_penalty | 1,05 | 1,05 | Kara za powtarzanie |
 | presence\_penalty | 0 | 0 | Brak kary obecności |
-| context\_length | 262144 | 262144 | Długi kontekst 256K |
+| context\_length | 131072 | 262144 | Codziennie 128K / Złożone 256K (domyślnie llama.cpp 128K) |
 | reasoning | on | on | Włącz łańcuch wnioskowania (CoT) |
 | reasoning\_budget | 400 | 1000 | Budżet tokenów wnioskowania (wyższy dla złożonych zadań) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Wnioskowanie w osobnym polu |
@@ -258,7 +258,7 @@ Zoptymalizowane na podstawie lokalnych testów (AMD Radeon AI PRO R9700 32GB):
 
 ---
 
-## 11. Przyspieszenie dekodowania spekulacyjnego (kluczowa funkcja)
+## 11. Przyspieszenie dekodowania spekulacyjnego kluczowa funkcja
 
 Ten model znacząco zwiększa szybkość wnioskowania dzięki **Dekodowaniu Spekulacyjnemu (Speculative Decoding)** — lokalnie zmierzono **~1,5-2x szybciej** niż przy wyłączonym.
 

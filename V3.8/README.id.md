@@ -32,9 +32,9 @@ pipeline_tag: text-generation
 - [1. Ikhtisar Model](#1-ikhtisar-model)
 - [2. Fitur Utama](#2-fitur-utama) — Pemikiran Tujuh Dimensi Dinamis / LOOP / MoziSmartBit / Fokus Finansial
 - [3. Catatan Upgrade Versi](#3-catatan-upgrade-versi)
-- [4. Kemampuan Inti](#4-kemampuan-inti)
+- [4. Kemampuan Inti](#4-kemampuan-inti-domain-finansial)
 - [5. Spesifikasi Teknis](#5-spesifikasi-teknis)
-- [6. ⚡ Mulai Cepat](#6--mulai-cepat3-file--100-aktifkan-kemampuan-inferensi-terbaik) — **unduh 3 file**
+- [6. ⚡ Mulai Cepat](#6--mulai-cepat-3-file--100-aktivasi-kemampuan-inferensi-terbaik) — **unduh 3 file**
 - [7. Unduh Model](#7-unduh-model)
 - [8. Perintah Menjalankan](#8-perintah-menjalankan)
 - [9. Parameter Inferensi yang Direkomendasikan](#9-parameter-inferensi-yang-direkomendasikan)
@@ -43,7 +43,7 @@ pipeline_tag: text-generation
 - [12. Rekomendasi Konfigurasi VRAM](#12-rekomendasi-konfigurasi-vram)
 - [13. Metode Deployment](#13-metode-deployment)
 - [14. Benchmark](#14-benchmark)
-- [15. Optimasi Uncensored](#15-optimasi-uncensored-tanpa-sensor)
+- [15. Optimasi Uncensored](#15-optimasi-uncensored)
 - [16. Lisensi](#16-lisensi)
 - [17. Kontak](#17-kontak)
 
@@ -85,7 +85,7 @@ Optimasi mendalam untuk tanya jawab finansial, pemrograman kuantitatif, dan pema
 
 ### 🛡️ Karakteristik Uncensored
 
-Tanpa batasan penyaringan konten, output bebas, informasi lengkap, privasi lokal. Cocok untuk riset akademis, analisis mendalam, diskusi bebas, dll. (Lihat [Bagian 15](#15-optimasi-uncensored-tanpa-sensor)).
+Tanpa batasan penyaringan konten, output bebas, informasi lengkap, privasi lokal. Cocok untuk riset akademis, analisis mendalam, diskusi bebas, dll. (Lihat [Bagian 15](#15-optimasi-uncensored)).
 
 ### 🌐 Fitur Lainnya
 
@@ -134,7 +134,7 @@ moziAI akan menjaga frekuensi pembaruan versi yang aktif, memastikan mengikuti p
 
 ---
 
-## 6. ⚡ Mulai Cepat (3 File = 100% Aktivasi Kemampuan Inferensi Terbaik)
+## 6. ⚡ Mulai Cepat 3 File = 100% Aktivasi Kemampuan Inferensi Terbaik
 
 > ⚠️ **Poin Penting**: Kemampuan inferensi terbaik MoziAI memerlukan **unduh 3 file sekaligus** — model utama, proyektor visi, template chat. Kehilangan salah satu akan mengurangi kemampuan terkait.
 
@@ -232,7 +232,7 @@ Dioptimalkan dari pengujian lokal (AMD Radeon AI PRO R9700 32GB):
 | min\_p | 0,024 | 0,024 | Filter probabilitas minimum |
 | repeat\_penalty | 1,05 | 1,05 | Penalti pengulangan |
 | presence\_penalty | 0 | 0 | Tanpa penalti kehadiran |
-| context\_length | 262144 | 262144 | Konteks panjang 256K |
+| context\_length | 131072 | 262144 | Harian 128K / Kompleks 256K (default llama.cpp 128K) |
 | reasoning | on | on | Aktifkan rantai penalaran (CoT) |
 | reasoning\_budget | 400 | 1000 | Anggaran token penalaran (lebih tinggi untuk tugas kompleks) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Output penalaran ke field terpisah |
@@ -258,7 +258,7 @@ Dioptimalkan dari pengujian lokal (AMD Radeon AI PRO R9700 32GB):
 
 ---
 
-## 11. Akselerasi Decoding Spekulatif (Fitur Penting)
+## 11. Akselerasi Decoding Spekulatif Fitur Penting
 
 Model ini meningkatkan kecepatan inferensi secara signifikan melalui **Decoding Spekulatif (Speculative Decoding)** — diukur lokal **~1,5-2x lebih cepat** daripada saat dinonaktifkan.
 

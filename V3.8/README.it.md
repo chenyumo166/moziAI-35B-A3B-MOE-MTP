@@ -35,16 +35,16 @@ pipeline_tag: text-generation
 - [3. Note di aggiornamento](#3-note-di-aggiornamento)
 - [4. Competenze principali](#4-competenze-principali)
 - [5. Specifiche tecniche](#5-specifiche-tecniche)
-- [6. ⚡ Avvio rapido](#6--avvio-rapido3-file--100-inferenza-ottimale) — **Pacchetto 3 file**
+- [6. ⚡ Avvio rapido](#6--avvio-rapido-3-file--100-inferenza-ottimale) — **Pacchetto 3 file**
 - [7. Download del modello](#7-download-del-modello)
 - [8. Comandi di avvio](#8-comandi-di-avvio)
 - [9. Parametri di inferenza consigliati](#9-parametri-di-inferenza-consigliati)
 - [10. Confronto formati di quantizzazione](#10-confronto-formati-di-quantizzazione)
-- [11. Decodifica speculativa accelerata](#11-decodifica-speculativa-acceleratafunzione-chiave)
+- [11. Decodifica speculativa accelerata](#11-decodifica-speculativa-accelerata-funzione-chiave)
 - [12. Raccomandazioni VRAM](#12-raccomandazioni-vram)
 - [13. Metodi di deployment](#13-metodi-di-deployment)
 - [14. Benchmark](#14-benchmark)
-- [15. Ottimizzazione Uncensored](#15-ottimizzazione-uncensoredsenza-censura)
+- [15. Ottimizzazione Uncensored](#15-ottimizzazione-uncensored)
 - [16. Licenza](#16-licenza)
 - [17. Contatti](#17-contatti)
 
@@ -86,7 +86,7 @@ Ottimizzato in profondità per Q&A finanziaria, programmazione quant e tool-call
 
 ### 🛡️ Caratteristica Uncensored
 
-Nessuna restrizione sui contenuti, output libero, informazioni complete, privacy locale (vedi [Sezione 15](#15-ottimizzazione-uncensoredsenza-censura)).
+Nessuna restrizione sui contenuti, output libero, informazioni complete, privacy locale (vedi [Sezione 15](#15-ottimizzazione-uncensored)).
 
 ### 🌐 Altre caratteristiche
 
@@ -135,7 +135,7 @@ MoziAI mantiene un ritmo attivo di aggiornamenti e rende i modelli IA locali pi�
 
 ---
 
-## 6. ⚡ Avvio rapido (3 file = 100% inferenza ottimale)
+## 6. ⚡ Avvio rapido 3 file = 100% inferenza ottimale
 
 > ⚠️ **Importante**: l'inferenza ottimale richiede il **download di 3 file insieme** — modello principale, proiettore di visione, template di chat. Se manca uno, la capacità corrispondente è persa.
 
@@ -225,7 +225,7 @@ Ottimizzato con test locali (AMD Radeon AI PRO R9700 32GB):
 | min\_p | 0,024 | 0,024 | Filtro probabilità minima |
 | repeat\_penalty | 1,05 | 1,05 | Penalità di ripetizione |
 | presence\_penalty | 0 | 0 | Nessuna penalità di presenza |
-| context\_length | 262144 | 262144 | Contesto lungo 256K |
+| context\_length | 131072 | 262144 | Quotidiano 128K / Complesso 256K (predefinito llama.cpp 128K) |
 | reasoning | on | on | Catena di ragionamento (CoT) |
 | reasoning\_budget | 400 | 1000 | Budget di ragionamento (più alto per attività complesse) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Ragionamento in campo separato |
@@ -251,7 +251,7 @@ Ottimizzato con test locali (AMD Radeon AI PRO R9700 32GB):
 
 ---
 
-## 11. Decodifica speculativa accelerata (funzione chiave)
+## 11. Decodifica speculativa accelerata funzione chiave
 
 Questo modello accelera l'inferenza con la **decodifica speculativa** — **~1,5-2x** più veloce (misure locali).
 

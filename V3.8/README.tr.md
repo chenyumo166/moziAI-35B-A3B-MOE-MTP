@@ -32,9 +32,9 @@ pipeline_tag: text-generation
 - [1. Modele Genel Bakış](#1-modele-genel-bakış)
 - [2. Temel Özellikler](#2-temel-özellikler) — Dinamik Yedi Boyutlu Düşünme / LOOP / MoziSmartBit / Finans Odağı
 - [3. Sürüm Yükseltme Notları](#3-sürüm-yükseltme-notları)
-- [4. Temel Yetenekler](#4-temel-yetenekler)
+- [4. Temel Yetenekler](#4-finansal-alan-temel-yetenekleri)
 - [5. Teknik Özellikler](#5-teknik-özellikler)
-- [6. ⚡ Hızlı Başlangıç](#6--hızlı-başlangıç3-dosya--100-en-iyi-çıkarım-yeteneğini-etkinleştirin) — **3 dosya indirme**
+- [6. ⚡ Hızlı Başlangıç](#6--hızlı-başlangıç-3-dosya--100-en-i̇yi-çıkarım-yeteneğini-etkinleştirin) — **3 dosya indirme**
 - [7. Model İndirme](#7-model-i̇ndirme)
 - [8. Çalıştırma Komutları](#8-çalıştırma-komutları)
 - [9. Önerilen Çıkarım Parametreleri](#9-önerilen-çıkarım-parametreleri)
@@ -134,7 +134,7 @@ moziAI, gelecekteki yapay zeka gelişimini takip etmek için aktif sürüm yüks
 
 ---
 
-## 6. ⚡ Hızlı Başlangıç (3 Dosya = %100 En İyi Çıkarım Yeteneğini Etkinleştirin)
+## 6. ⚡ Hızlı Başlangıç 3 Dosya = %100 En İyi Çıkarım Yeteneğini Etkinleştirin
 
 > ⚠️ **Temel Not**: MoziAI'nin en iyi çıkarım yeteneği için **3 dosyayı birlikte indirmeniz** gerekir — ana model, görüş projektörü, sohbet şablonu. Herhangi birinin eksik olması ilgili yeteneği kaybettirir.
 
@@ -232,7 +232,7 @@ Yerel testlerden optimize edilmiştir (AMD Radeon AI PRO R9700 32GB):
 | min\_p | 0,024 | 0,024 | Minimum olasılık filtresi |
 | repeat\_penalty | 1,05 | 1,05 | Tekrar cezası |
 | presence\_penalty | 0 | 0 | Varlık cezası yok |
-| context\_length | 262144 | 262144 | 256K uzun bağlam |
+| context\_length | 131072 | 262144 | Günlük 128K / Karmaşık 256K (llama.cpp varsayılan 128K) |
 | reasoning | on | on | Akıl yürütme zincirini etkinleştir (CoT) |
 | reasoning\_budget | 400 | 1000 | Akıl yürütme bütçe tokenleri (karmaşık görevlerde daha yüksek) |
 | reasoning\_format | deepseek-legacy | deepseek-legacy | Akıl yürütmeyi ayrı alanda çıkar |
@@ -258,7 +258,7 @@ Yerel testlerden optimize edilmiştir (AMD Radeon AI PRO R9700 32GB):
 
 ---
 
-## 11. Spekülatif Kod Çözme Hızlandırma (Önemli Özellik)
+## 11. Spekülatif Kod Çözme Hızlandırma Önemli Özellik
 
 Bu model, **Spekülatif Kod Çözme (Speculative Decoding)** ile çıkarım hızını önemli ölçüde artırır — yerel ölçümde kapalı duruma göre **~1,5-2 kat daha hızlı**.
 
