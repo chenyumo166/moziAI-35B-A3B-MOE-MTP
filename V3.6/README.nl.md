@@ -40,9 +40,9 @@ Omdat het modelbestand relatief groot is (~15,5 GB), worden de modelgewichten ge
 
 | Platform | Adres |
 | -------------- | --------------------------------------------------------------------------------------------------------------------- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 > 💡 **LM Studio gebruikers**: U kunt direct zoeken naar `moziAI` in [LM Studio](https://lmstudio.ai) en het met één klik downloaden – geen handmatige bestandsdownload nodig.  
 > 💡 **Downloadtip**: Klik op de bovenstaande link om naar de HuggingFace-repository te gaan. Download op het tabblad **"Files and versions"** alle bestanden uit de V3.6-map (hoofdmodel, visuele projectie, chat-sjabloon) en zorg ervoor dat alle drie de bestanden in dezelfde map staan.
 

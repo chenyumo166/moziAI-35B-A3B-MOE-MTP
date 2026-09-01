@@ -40,9 +40,9 @@ MoziAI-35B-A3B-MOE는 중국의 금융 분야 인플루언서 천위모(陳雨�
 
 | 플랫폼 | 주소 |
 | -------------- | --------------------------------------------------------------------------------------------------------------------- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 > 💡 **LM Studio 사용자**：[LM Studio](https://lmstudio.ai)에서 `moziAI`를 직접 검색하여 원클릭으로 다운로드할 수 있습니다. 수동으로 파일을 다운로드할 필요가 없습니다.  
 > 💡 **다운로드 팁**：위 링크를 클릭해 HuggingFace 리포지토리로 이동한 후 **"Files and versions"** 탭에서 V3.6 디렉토리 내 모든 파일(메인 모델, 시각 프로젝션, 채팅 템플릿)을 다운로드하세요. 세 파일이 같은 디렉토리에 위치하도록 하십시오.
 

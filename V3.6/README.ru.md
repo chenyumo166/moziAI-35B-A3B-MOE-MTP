@@ -40,9 +40,9 @@ MoziAI-35B-A3B-MOE — это локальная открытая финансо
 
 | Платформа | Адрес |
 | -------------- | --------------------------------------------------------------------------------------------------------------------- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 > 💡 **Пользователям LM Studio**： можно напрямую найти `moziAI` в [LM Studio](https://lmstudio.ai) и скачать в один клик, без необходимости ручной загрузки файлов.  
 > 💡 **Совет по загрузке**： нажмите на ссылку выше, чтобы перейти в репозиторий HuggingFace, и на вкладке **"Files and versions"** скачайте все файлы из каталога V3.6 (основная модель, визуальная проекция, шаблон чата). Убедитесь, что все три файла находятся в одном каталоге.
 

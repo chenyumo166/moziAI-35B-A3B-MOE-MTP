@@ -40,9 +40,9 @@ MoziAI-35B-A3B-MOE चीनी वित्तीय प्रभावशा�
 
 | प्लेटफ़ॉर्म | पता |
 | -------------- | --------------------------------------------------------------------------------------------------------------------- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 > 💡 **LM Studio उपयोगकर्ता**：सीधे [LM Studio](https://lmstudio.ai) में `moziAI` खोजें और एक क्लिक में डाउनलोड करें, फ़ाइलों को मैन्युअली डाउनलोड करने की आवश्यकता नहीं है।  
 > 💡 **डाउनलोड सुझाव**：कृपया ऊपर दिए गए लिंक पर क्लिक करके HuggingFace रिपॉजिटरी में प्रवेश करें, **"Files and versions"** टैब में V3.6 निर्देशिका की सभी फ़ाइलें (मुख्य मॉडल, विज़न प्रोजेक्शन, चैट टेम्पलेट) डाउनलोड करें, और सुनिश्चित करें कि तीनों फ़ाइलें एक ही निर्देशिका में रखी गई हैं।
 

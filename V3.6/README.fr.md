@@ -40,9 +40,9 @@ Comme le fichier du modèle est relativement volumineux (~15,5 Go), les poids du
 
 | Plateforme | Adresse |
 | -------------- | --------------------------------------------------------------------------------------------------------------------- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 > 💡 **Utilisateurs de LM Studio** : Vous pouvez rechercher directement `moziAI` dans [LM Studio](https://lmstudio.ai) et le télécharger en un clic, sans avoir à télécharger manuellement de fichiers.  
 > 💡 **Conseil de téléchargement** : Cliquez sur le lien ci-dessus pour accéder au dépôt HuggingFace. Dans l'onglet **"Files and versions"**, téléchargez tous les fichiers du répertoire V3.6 (modèle principal, projection visuelle, modèle de chat) et assurez-vous que les trois fichiers se trouvent dans le même répertoire.
 
