@@ -35,7 +35,7 @@ pipeline_tag: text-generation
 - [3. Notes de mise à jour](#3-notes-de-mise-à-jour)
 - [4. Compétences de base](#4-compétences-de-base)
 - [5. Spécifications techniques](#5-spécifications-techniques)
-- [6. ⚡ Démarrage rapide](#6--démarrage-rapide-3-fichiers--100--dinférence-optimale) — **Pack 3 fichiers**
+- [6. Démarrage rapide](#6-démarrage-rapide-3-fichiers-100-dinférence-optimale) — **Pack 3 fichiers**
 - [7. Téléchargement du modèle](#7-téléchargement-du-modèle)
 - [8. Commandes de lancement](#8-commandes-de-lancement)
 - [9. Paramètres d'inférence recommandés](#9-paramètres-dinférence-recommandés)
@@ -135,7 +135,7 @@ MoziAI maintient un rythme de mises à jour actif et rend les modèles locaux pl
 
 ---
 
-## 6. ⚡ Démarrage rapide 3 fichiers = 100 % d'inférence optimale
+## 6. Démarrage rapide 3 fichiers 100 d'inférence optimale
 
 > ⚠️ **Important** : l'inférence optimale nécessite de **télécharger 3 fichiers ensemble** — modèle principal, projecteur de vision, modèle de chat. S'il en manque un, la capacité correspondante est perdue.
 

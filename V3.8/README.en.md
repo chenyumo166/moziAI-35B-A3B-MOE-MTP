@@ -35,7 +35,7 @@ English | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [�
 - [3. Version Upgrade Notes](#3-version-upgrade-notes)
 - [4. Core Capabilities](#4-core-capabilities)
 - [5. Technical Specifications](#5-technical-specifications)
-- [6. ⚡ Quick Start](#6--quick-start-3-files--100-best-inference) — **3-file download**
+- [6. Quick Start](#6-quick-start-3-files-100-best-inference) — **3-file download**
 - [7. Model Downloads](#7-model-downloads)
 - [8. Launch Commands](#8-launch-commands)
 - [9. Recommended Inference Parameters](#9-recommended-inference-parameters)
@@ -135,7 +135,7 @@ MoziAI maintains an active upgrade cadence, staying at the forefront of AI devel
 
 ---
 
-## 6. ⚡ Quick Start 3 Files = 100% Best Inference
+## 6. Quick Start 3 Files 100 Best Inference
 
 > ⚠️ **Key tip**: Best inference requires downloading **3 files at once** — main model, vision projector, chat template. Missing any one loses the corresponding capability.
 

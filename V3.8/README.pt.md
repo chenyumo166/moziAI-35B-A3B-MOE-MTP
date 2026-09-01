@@ -35,7 +35,7 @@ pipeline_tag: text-generation
 - [3. Notas de atualização](#3-notas-de-atualização)
 - [4. Capacidades principais no domínio financeiro](#4-capacidades-principais-no-domínio-financeiro)
 - [5. Especificações técnicas](#5-especificações-técnicas)
-- [6. ⚡ Início rápido](#6--início-rápido-3-arquivos--100-da-melhor-capacidade-de-inferência) — **Download dos 3 arquivos**
+- [6. Início rápido](#6-início-rápido-3-arquivos-100-da-melhor-capacidade-de-inferência) — **Download dos 3 arquivos**
 - [7. Download do modelo](#7-download-do-modelo)
 - [8. Comandos de inicialização](#8-comandos-de-inicialização)
 - [9. Parâmetros de inferência recomendados](#9-parâmetros-de-inferência-recomendados)
@@ -135,7 +135,7 @@ A moziAI mantém um ritmo ativo de atualizações e iterações de versão, gara
 
 ---
 
-## 6. ⚡ Início rápido 3 arquivos = 100% da melhor capacidade de inferência
+## 6. Início rápido 3 arquivos 100 da melhor capacidade de inferência
 
 > ⚠️ **Dica essencial**: a melhor capacidade de inferência da MoziAI exige o download **simultâneo dos 3 arquivos** — modelo principal, projeção visual e template de chat. A ausência de qualquer um deles compromete a capacidade correspondente.
 

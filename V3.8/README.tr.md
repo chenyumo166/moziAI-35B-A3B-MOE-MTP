@@ -34,7 +34,7 @@ pipeline_tag: text-generation
 - [3. Sürüm Yükseltme Notları](#3-sürüm-yükseltme-notları)
 - [4. Temel Yetenekler](#4-finansal-alan-temel-yetenekleri)
 - [5. Teknik Özellikler](#5-teknik-özellikler)
-- [6. ⚡ Hızlı Başlangıç](#6--hızlı-başlangıç-3-dosya--100-en-i̇yi-çıkarım-yeteneğini-etkinleştirin) — **3 dosya indirme**
+- [6. Hızlı Başlangıç](#6-hızlı-başlangıç-3-dosya-100-en-i̇yi-çıkarım-yeteneğini-etkinleştirin) — **3 dosya indirme**
 - [7. Model İndirme](#7-model-i̇ndirme)
 - [8. Çalıştırma Komutları](#8-çalıştırma-komutları)
 - [9. Önerilen Çıkarım Parametreleri](#9-önerilen-çıkarım-parametreleri)
@@ -134,7 +134,7 @@ moziAI, gelecekteki yapay zeka gelişimini takip etmek için aktif sürüm yüks
 
 ---
 
-## 6. ⚡ Hızlı Başlangıç 3 Dosya = %100 En İyi Çıkarım Yeteneğini Etkinleştirin
+## 6. Hızlı Başlangıç 3 Dosya 100 En İyi Çıkarım Yeteneğini Etkinleştirin
 
 > ⚠️ **Temel Not**: MoziAI'nin en iyi çıkarım yeteneği için **3 dosyayı birlikte indirmeniz** gerekir — ana model, görüş projektörü, sohbet şablonu. Herhangi birinin eksik olması ilgili yeteneği kaybettirir.
 

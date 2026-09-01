@@ -34,7 +34,7 @@ pipeline_tag: text-generation
 - [3. Notas de la actualización de versión](#3-notas-de-la-actualización-de-versión)
 - [4. Capacidades principales](#4-capacidades-principales-del-sector-financiero)
 - [5. Especificaciones técnicas](#5-especificaciones-técnicas)
-- [6. ⚡ Inicio rápido](#6--inicio-rápido-3-archivos--100--de-activación-del-mejor-razonamiento) — **Descarga de los 3 archivos**
+- [6. Inicio rápido](#6-inicio-rápido-3-archivos-100-de-activación-del-mejor-razonamiento) — **Descarga de los 3 archivos**
 - [7. Descarga del modelo](#7-descarga-del-modelo)
 - [8. Comandos de inicio](#8-comandos-de-inicio)
 - [9. Parámetros de inferencia recomendados](#9-parámetros-de-inferencia-recomendados)
@@ -134,7 +134,7 @@ moziAI mantendrá un ritmo activo de actualizaciones de versión, asegurándose 
 
 ---
 
-## 6. ⚡ Inicio rápido 3 archivos = 100 % de activación del mejor razonamiento
+## 6. Inicio rápido 3 archivos 100 de activación del mejor razonamiento
 
 > ⚠️ **Aviso clave**: la mejor capacidad de razonamiento de MoziAI requiere **descargar 3 archivos a la vez** — el modelo principal, la proyección de visión y la plantilla de chat. Si falta cualquiera de ellos, se pierde la capacidad correspondiente.
 

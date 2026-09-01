@@ -34,7 +34,7 @@ pipeline_tag: text-generation
 - [3. Notatki o aktualizacji wersji](#3-notatki-o-aktualizacji-wersji)
 - [4. Kluczowe możliwości](#4-kluczowe-możliwości-w-domenie-finansowej)
 - [5. Specyfikacja techniczna](#5-specyfikacja-techniczna)
-- [6. ⚡ Szybki start](#6--szybki-start-3-pliki--100-aktywacji-najlepszych-możliwości-wnioskowania) — **pobierz 3 pliki**
+- [6. Szybki start](#6-szybki-start-3-pliki-100-aktywacji-najlepszych-możliwości-wnioskowania) — **pobierz 3 pliki**
 - [7. Pobieranie modelu](#7-pobieranie-modelu)
 - [8. Polecenia uruchamiania](#8-polecenia-uruchamiania)
 - [9. Zalecane parametry wnioskowania](#9-zalecane-parametry-wnioskowania)
@@ -134,7 +134,7 @@ moziAI utrzymuje aktywną częstotliwość aktualizacji wersji, aby nadążać z
 
 ---
 
-## 6. ⚡ Szybki start 3 pliki = 100% aktywacji najlepszych możliwości wnioskowania
+## 6. Szybki start 3 pliki 100 aktywacji najlepszych możliwości wnioskowania
 
 > ⚠️ **Kluczowa uwaga**: Najlepsze możliwości wnioskowania MoziAI wymagają **pobrania 3 plików jednocześnie** — modelu głównego, projektora wizyjnego, szablonu czatu. Brak któregokolwiek spowoduje utratę odpowiednich możliwości.
 

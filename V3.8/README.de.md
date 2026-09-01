@@ -35,7 +35,7 @@ pipeline_tag: text-generation
 - [3. Versionshinweise](#3-versionshinweise)
 - [4. Kernkompetenzen](#4-kernkompetenzen)
 - [5. Technische Spezifikationen](#5-technische-spezifikationen)
-- [6. ⚡ Schnellstart](#6--schnellstart-3-dateien--100--beste-inferenz) — **3-Dateien-Paket**
+- [6. Schnellstart](#6-schnellstart-3-dateien-100-beste-inferenz) — **3-Dateien-Paket**
 - [7. Modell-Downloads](#7-modell-downloads)
 - [8. Startbefehle](#8-startbefehle)
 - [9. Empfohlene Inferenzparameter](#9-empfohlene-inferenzparameter)
@@ -135,7 +135,7 @@ MoziAI hält einen aktiven Upgrade-Rhythmus, bleibt an der Spitze der KI-Entwick
 
 ---
 
-## 6. ⚡ Schnellstart 3 Dateien = 100 % beste Inferenz
+## 6. Schnellstart 3 Dateien 100 beste Inferenz
 
 > ⚠️ **Wichtig**: Für die beste Inferenz müssen **3 Dateien zusammen** heruntergeladen werden — Hauptmodell, Vision-Projektor, Chat-Template. Fehlt eine, geht die entsprechende Fähigkeit verloren.
 

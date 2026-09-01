@@ -34,7 +34,7 @@ pipeline_tag: text-generation
 - [3. Catatan Upgrade Versi](#3-catatan-upgrade-versi)
 - [4. Kemampuan Inti](#4-kemampuan-inti-domain-finansial)
 - [5. Spesifikasi Teknis](#5-spesifikasi-teknis)
-- [6. ⚡ Mulai Cepat](#6--mulai-cepat-3-file--100-aktivasi-kemampuan-inferensi-terbaik) — **unduh 3 file**
+- [6. Mulai Cepat](#6-mulai-cepat-3-file-100-aktivasi-kemampuan-inferensi-terbaik) — **unduh 3 file**
 - [7. Unduh Model](#7-unduh-model)
 - [8. Perintah Menjalankan](#8-perintah-menjalankan)
 - [9. Parameter Inferensi yang Direkomendasikan](#9-parameter-inferensi-yang-direkomendasikan)
@@ -134,7 +134,7 @@ moziAI akan menjaga frekuensi pembaruan versi yang aktif, memastikan mengikuti p
 
 ---
 
-## 6. ⚡ Mulai Cepat 3 File = 100% Aktivasi Kemampuan Inferensi Terbaik
+## 6. Mulai Cepat 3 File 100 Aktivasi Kemampuan Inferensi Terbaik
 
 > ⚠️ **Poin Penting**: Kemampuan inferensi terbaik MoziAI memerlukan **unduh 3 file sekaligus** — model utama, proyektor visi, template chat. Kehilangan salah satu akan mengurangi kemampuan terkait.
 

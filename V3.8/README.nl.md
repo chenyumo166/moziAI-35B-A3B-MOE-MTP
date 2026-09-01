@@ -35,7 +35,7 @@ pipeline_tag: text-generation
 - [3. Versie-updates](#3-versie-updates)
 - [4. Kerncompetenties](#4-kerncompetenties)
 - [5. Technische specificaties](#5-technische-specificaties)
-- [6. ⚡ Snelstart](#6--snelstart-3-bestanden--100-beste-inferentie) — **3-bestandenpakket**
+- [6. Snelstart](#6-snelstart-3-bestanden-100-beste-inferentie) — **3-bestandenpakket**
 - [7. Modeldownloads](#7-modeldownloads)
 - [8. Startopdrachten](#8-startopdrachten)
 - [9. Aanbevolen inferentieparameters](#9-aanbevolen-inferentieparameters)
@@ -135,7 +135,7 @@ MoziAI houdt een actief update-tempo aan en maakt lokale AI-modellen lichter en 
 
 ---
 
-## 6. ⚡ Snelstart 3 bestanden = 100% beste inferentie
+## 6. Snelstart 3 bestanden 100 beste inferentie
 
 > ⚠️ **Belangrijk**: voor de beste inferentie moeten **3 bestanden samen** worden gedownload — hoofdmodel, visieprojector, chat-template. Ontbreekt er één, gaat de bijbehorende capaciteit verloren.
 

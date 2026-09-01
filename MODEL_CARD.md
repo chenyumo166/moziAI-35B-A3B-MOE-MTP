@@ -64,10 +64,12 @@ Supports llama.cpp, Ollama, LM Studio, Jan and other mainstream inference framew
 
 | Platform | URL |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
+| HuggingFace | [https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope | [https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
+| GitCode | [https://ai.gitcode.com/chenyumo166/moziAI-35B-A3B-MOE-MTP](https://ai.gitcode.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
+| LM Studio | Search `moziAI` in LM Studio → Download |
 
 > ⚠️ **3-file tip**: download all files in the `V3.8/` directory — main model (.gguf), vision projector (mmproj), chat template (.jinja) — into the same folder for 100% best inference.
 

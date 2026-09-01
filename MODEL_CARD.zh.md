@@ -64,10 +64,12 @@ MoziAI-35B-V3.8 是由中国财经大V陈雨墨团队开发的本地开源金融
 
 | 平台 | 地址 |
 | --- | --- |
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
-| ModelScope（魔搭） | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
-| GitHub | [chenyumo166/moziAI-35B](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
+| HuggingFace | [https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope（魔搭） | [https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
+| GitCode | [https://ai.gitcode.com/chenyumo166/moziAI-35B-A3B-MOE-MTP](https://ai.gitcode.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 | Ollama | `ollama pull chenyumo/moziAI-35B-A3B` |
+| LM Studio | 在 LM Studio 内搜索 `moziAI` → 下载 |
 
 > ⚠️ **三件套提示**：在 `V3.8/` 目录同时下载主模型（.gguf）、视觉投影（mmproj）、聊天模板（.jinja）三个文件到同一目录，才能 100% 激活最佳推理能力。
 
