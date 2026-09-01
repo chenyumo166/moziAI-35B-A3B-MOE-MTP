@@ -24,7 +24,7 @@ pipeline_tag: text-generation
 
 # MoziAI-35B-V3.8 — A Compact Yet Powerful Multimodal AI Model for Free Local Deployment
 
-[English](V3.8/README.en.md) | [简体中文](V3.8/README.zh.md) | [繁體中文](V3.8/README.zh-hant.md) | [日本語](V3.8/README.ja.md) | [한국어](V3.8/README.ko.md) | [हिन्दी](V3.8/README.hi.md) | [Deutsch](V3.8/README.de.md) | [Français](V3.8/README.fr.md) | [Nederlands](V3.8/README.nl.md) | [Italiano](V3.8/README.it.md) | [Русский](V3.8/README.ru.md)
+[English](V3.8/README.en.md) | [简体中文](V3.8/README.zh.md) | [繁體中文](V3.8/README.zh-hant.md) | [日本語](V3.8/README.ja.md) | [한국어](V3.8/README.ko.md) | [हिन्दी](V3.8/README.hi.md) | [Deutsch](V3.8/README.de.md) | [Français](V3.8/README.fr.md) | [Nederlands](V3.8/README.nl.md) | [Italiano](V3.8/README.it.md) | [Русский](V3.8/README.ru.md) | [Español](V3.8/README.es.md) | [Português](V3.8/README.pt.md) | [العربية](V3.8/README.ar.md) | [Bahasa Indonesia](V3.8/README.id.md) | [Türkçe](V3.8/README.tr.md) | [Tiếng Việt](V3.8/README.vi.md) | [Polski](V3.8/README.pl.md)
 
 **Release Date: 2026-09-01** · **Version: V3.8**
 

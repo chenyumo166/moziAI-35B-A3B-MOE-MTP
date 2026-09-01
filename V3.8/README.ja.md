@@ -22,7 +22,7 @@ pipeline_tag: text-generation
 
 # MoziAI-35B-V3.8 — 無料でローカル導入できる小型・高能力のマルチモーダル AI モデル
 
-[English](README.en.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | 日本語 | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+[English](README.en.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | 日本語 | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md) | [Español](README.es.md) | [Português](README.pt.md) | [العربية](README.ar.md) | [Bahasa Indonesia](README.id.md) | [Türkçe](README.tr.md) | [Tiếng Việt](README.vi.md) | [Polski](README.pl.md)
 
 **公開日：2026-09-01** · **バージョン：V3.8**
 
