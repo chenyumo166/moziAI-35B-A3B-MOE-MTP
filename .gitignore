@@ -1,6 +1,2 @@
-# 内部文件 - 不可推送到公开平台
-debug.log
-模型分发操作说明书.md
-tmp_*
-*.pyc
-__pycache__/
+# MS 特有文件（仅 ModelScope 使用）
+README.modelscope.md
