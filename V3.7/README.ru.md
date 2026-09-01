@@ -395,9 +395,9 @@ MoziAI дообучена на базе **deepreinforce-ai/Ornith-1.5-35B-A3B**.
 
 | Платформа | URL |
 |-----------|-----|
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 > 💡 **LM Studio**: Вы также можете найти и скачать модель напрямую в [LM Studio](https://lmstudio.ai). Найдите `moziAI` и нажмите «Скачать».
 
 > 💡 **Совет по скачиванию**: Перейдите по ссылке выше в репозиторий HuggingFace, затем откройте вкладку **«Files and versions»** и скачайте все файлы из директории V3.7 (основная модель, проекция зрения, шаблон чата). Убедитесь, что все три файла размещены в одной директории.

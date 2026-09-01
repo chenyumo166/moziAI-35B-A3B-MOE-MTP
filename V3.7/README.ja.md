@@ -395,9 +395,9 @@ MoziAIは**deepreinforce-ai/Ornith-1.5-35B-A3B**からファインチューニ�
 
 | プラットフォーム | URL |
 |----------------|-----|
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 > 💡 **LM Studio ユーザー**：[LM Studio](https://lmstudio.ai) で`moziAI` を検索し、ワンクリックでダウンロードできます。
 
 > 💡 **ダウンロードのヒンテ*: 上記リンクをクリックしてHuggingFaceリポジトリに移動して*「Files and versions）**タブでV3.7ディレクトリ配下のすべてのファイルをダウンロードしてください（メインモデル、vision射影、チャットテンプレート）をつのファイルすべてを同じディレクトリに配置してくださいま

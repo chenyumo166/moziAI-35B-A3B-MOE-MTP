@@ -395,9 +395,9 @@ MoziAI **deepreinforce-ai/Ornith-1.5-35B-A3B** से फाइन-ट्यू�
 
 | प्लेटफ़ॉर्र| URL |
 |-------------|-----|
-| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored) |
-| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored) |
+| HuggingFace | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| ModelScope | [chenyumo/moziAI-35B-A3B-MOE-MTP](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP) |
+| GitHub | [chenyumo166/moziAI-35B-A3B-MOE-MTP](https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP) |
 > 💡 **LM Studio**: आप [LM Studio](https://lmstudio.ai) मेंसीधे `moziAI` खोजक्डाउनलोगकर सकते हैं।
 
 > 💡 **डाउनलोगसुझान*: ऊप्दिकगए लिंक पर क्लिककरके HuggingFace रिपोज़िटरी पर जाएं, फिक**"Files and versions"** टै।पर जाएं और V3.7 निर्देशिका के सभी फाइलें डाउनलोगकरें (मुख्रमॉडल, दृष्टि प्रोजेक्शन, चै।टेम्पलेट) सुनिश्चिककरें कि तीनोगफाइलें एक ही निर्देशिका मेंरखी गई हैं।

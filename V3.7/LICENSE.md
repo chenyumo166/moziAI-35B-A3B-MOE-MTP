@@ -3,7 +3,7 @@ Version 1.0 - August 10, 2026
 
 Copyright (c) 2026 陈雨墨 (chenyumo166). All rights reserved.
 
-Repository: https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored
+Repository: https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP
 
 
 1. 定义
@@ -42,7 +42,7 @@ Repository: https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored
 4. 使用条件
 
    (a) 保留声明：使用、复制或分发本模型时，必须保留以下版权声明：
-       “MoziAI-35B-A3B-MOE Copyright (c) 2026 陈雨墨 (chenyumo166). 原始仓库：https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored”
+       “MoziAI-35B-A3B-MOE Copyright (c) 2026 陈雨墨 (chenyumo166). 原始仓库：https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP”
 
    (b) 标注来源：在产品或服务中使用本模型时，应在合理范围内标注来源：陈雨墨 / chenyumo166 / moziAI。
 
@@ -89,4 +89,4 @@ Repository: https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored
 
 Copyright (c) 2026 陈雨墨 (chenyumo166). All rights reserved.
 
-For inquiries: https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP-Uncensored
+For inquiries: https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP
