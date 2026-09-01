@@ -28,7 +28,7 @@ pipeline_tag: text-generation
 
 MoziAI-35B-V3.8 is a locally deployable open-source financial AI multimodal large language model (vision, tool calling and Uncensored support), developed by the team of Chen Yumo, a leading Chinese finance influencer. Built on the open-source base **Ornith-1.5-35B-A3B** (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MoE 35B, MIT license), it integrates the team's self-developed: financial data + financial domain capabilities + training methods + dynamic seven-dimensional thinking system + agent LOOP mechanism + Uncensored characteristic + MoziSmartBit hybrid quantization algorithm.
 
-With the self-developed MoziSmartBit smart quantization technology, the 35B-parameter MoE model is compressed to about **15.5 GB** — around 30% smaller than standard Q4_K_M (~22 GB) — achieving an optimal balance between accuracy and size with **~99% FP16 accuracy quality**.
+With the self-developed MoziSmartBit smart quantization technology, the 35B-parameter MoE model is compressed to just **15.9 GB** — around 30% smaller than standard Q4_K_M (~22 GB) — achieving an optimal balance between accuracy and size with **~99% FP16 accuracy quality**.
 
 This model significantly lowers the barrier to local deployment, is licensed for **free commercial use**, runs on consumer-grade GPUs with **zero cloud token cost**, enables 7×24 token freedom, and ensures local data privacy and security.
 
@@ -41,7 +41,7 @@ Supports llama.cpp, Ollama, LM Studio, Jan and other mainstream inference framew
 - **Financial vertical focus**: deep optimization for financial Q&A, quantitative programming and tool calling
 - **Dynamic 7-Dimensional Thinking**: moziAI-Think marker with Level 0/1/2 structured thinking by task complexity
 - **Agent LOOP mechanism**: complex tasks auto-iterate "execute+assess → adjust+verify" with self-validation
-- **MoziSmartBit smart quantization**: 35B MoE compressed to 15.5 GB (4.5x ratio), ~99% accuracy
+- **MoziSmartBit smart quantization**: 35B MoE compressed to 15.9 GB (4.5x ratio), ~99% accuracy
 - **Uncensored**: no content restrictions, free output, complete information, local privacy
 - **256K long context**: handles huge documents and multi-turn agent tasks
 - **Multimodal vision**: understands screenshots locally
@@ -56,7 +56,7 @@ Supports llama.cpp, Ollama, LM Studio, Jan and other mainstream inference framew
 | Parameters | 35B MoE, 256 routing experts + 1 shared expert, 8 experts active per token |
 | Quantization | MoziSmartBit + GGUF standard |
 | Context Length | 256K (262,144 tokens) |
-| Model Size | ~15.5 GB |
+| Model Size | ~15.9 GB |
 | Min VRAM | 20GB+ deployable (CPU offload); 24GB+ smooth long context; 32GB+ full 256K + vision |
 | Inference Speed | R9700 **140+ tok/s** / MAX+395 **70+ tok/s** (speculative decoding) |
 

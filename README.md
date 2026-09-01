@@ -56,7 +56,7 @@ pipeline_tag: text-generation
 
 MoziAI-35B-V3.8 is a locally deployable open-source multimodal AI large model developed by the team of Chen Yumo, a leading Chinese finance influencer. Built on the open-source base **Ornith-1.5-35B-A3B** (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MoE 35B, MIT license), it integrates the team's self-developed financial data + financial domain capabilities + dynamic seven-dimensional thinking framework + agent LOOP reflection and iteration mechanism + Uncensored characteristic + MoziSmartBit hybrid quantization algorithm.
 
-This model lowers the barrier to local deployment for individuals and enterprises, is licensed for **free commercial use**, runs on consumer-grade GPUs, saves cloud token costs to **zero**, enables 7×24 hour token freedom, and ensures local data privacy and security.
+**💡 Size Advantage: only 15.9 GB** — the 35B-parameter MoE model is compressed to just **15.9 GB** via the self-developed MoziSmartBit quantization (about 30% smaller than standard Q4_K_M ~22GB). It fits in a single installer, runs on ordinary consumer GPUs (20GB VRAM+), reduces cloud token costs to **zero**, enables 7×24 hour token freedom, and ensures local data privacy and security. Licensed for **free commercial use** — zero barrier for individuals and enterprises.
 
 ---
 

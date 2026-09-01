@@ -3,6 +3,8 @@ language:
 - zh
 - en
 license: other
+tasks:
+- text-generation
 tags:
 - gguf
 - MoE
@@ -22,7 +24,7 @@ pipeline_tag: text-generation
 
 # MoziAI-35B-V3.8 — 可免费本地部署的小而强的多模态 AI 模型
 
-[English](README.en.md) | 简体中文 | [繁体中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+[English](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.en.md?status=1) | 简体中文（当前页） | [繁体中文](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.zh-hant.md?status=1) | [日本語](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.ja.md?status=1) | [한국어](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.ko.md?status=1) | [हिन्दी](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.hi.md?status=1) | [Deutsch](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.de.md?status=1) | [Français](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.fr.md?status=1) | [Nederlands](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.nl.md?status=1) | [Italiano](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.it.md?status=1) | [Русский](https://modelscope.cn/models/chenyumo/moziAI-35B-A3B-MOE-MTP-Uncensored/file/view/master/V3.8%2FREADME.ru.md?status=1)
 
 **发布日期：2026-09-01** · **版本：V3.8**
 
