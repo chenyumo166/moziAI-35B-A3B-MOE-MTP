@@ -52,7 +52,7 @@ pipeline_tag: text-generation
 
 ## 1. Visão geral do modelo
 
-MoziAI-35B-V3.8 é um grande modelo de IA multimodal open-source para implantação local gratuita, desenvolvido pela equipe de Chen Yumo, influenciador financeiro chinês. Construído sobre o modelo base open-source **Ornith-1.5-35B-A3B** (arquitetura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MoE 35B, licença MIT), integra dados financeiros desenvolvidos internamente + capacidades do domínio financeiro + sistema de pensamento dinâmico de sete dimensões + mecanismo de iteração reflexiva LOOP do agente + característica Uncensored (sem censura) + algoritmo de quantização híbrida MoziSmartBit.
+MoziAI-35B-V3.8 é um grande modelo de IA multimodal open-source para implantação local gratuita, desenvolvido pela equipe de Chen Yumo, influenciador financeiro chinês. Construído sobre o modelo base open-source **Ornith-1.5-35B-A3B** (arquitetura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MoE 35B, licença MIT/Apache-2.0), integra dados financeiros desenvolvidos internamente + capacidades do domínio financeiro + sistema de pensamento dinâmico de sete dimensões + mecanismo de iteração reflexiva LOOP do agente + característica Uncensored (sem censura) + algoritmo de quantização híbrida MoziSmartBit.
 
 **💡 Vantagem de tamanho: apenas 15,9 GB** — O modelo MoE de 35 bilhões de parâmetros é comprimido para **15,9 GB** pela quantização inteligente MoziSmartBit (cerca de 30% menor que o Q4_K_M convencional de ~22 GB). Cabe em um único pacote de instalação: GPUs de consumo (a partir de 20 GB de VRAM) são suficientes para a implantação local, o custo de tokens em nuvem = 0, garantindo 7×24 horas de liberdade de tokens e a privacidade e a segurança dos dados locais. **Uso comercial gratuito** — acesso sem barreiras para pessoas físicas e empresas.
 
@@ -123,7 +123,7 @@ A moziAI mantém um ritmo ativo de atualizações e iterações de versão, gara
 
 | Item | Parâmetro |
 | --- | --- |
-| Modelo base | Ornith-1.5-35B-A3B (arquitetura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, licença MIT) |
+| Modelo base | Ornith-1.5-35B-A3B (arquitetura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, licença MIT/Apache-2.0) |
 | Escala de parâmetros | 35 bilhões (35B) em arquitetura MoE, 256 especialistas roteados + 1 especialista compartilhado, 8 especialistas ativados por token |
 | Quantização | Quantização inteligente MoziSmartBit proprietária + formato padrão GGUF |
 | Comprimento do contexto | 256K (262.144 tokens) |
@@ -391,3 +391,27 @@ Para os termos detalhados, consulte o arquivo [LICENSE](LICENSE).
 - **E-mail**: 263515@qq.com
 
 Copyright (c) 2026 陈雨墨 / chenyumo166. All rights reserved.
+
+---
+<!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
+## 上游许可与归属声明 / Upstream License & Attribution Notice
+
+本模型是**组合作品**，采用分层许可。This model is a **combined work** distributed under layered licensing.
+
+| 组成部分 / Component | 许可 / License |
+|---|---|
+| Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
+| 继承的上游 Qwen 组件 / Inherited Qwen components | **Apache License 2.0** |
+| MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
+
+- 继承的 Qwen 组件在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
+  The inherited Qwen components remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
+- 上游版权、商标与归属声明见 [`NOTICE`](../NOTICE)。
+  Upstream copyright, trademark and attribution notices: [`NOTICE`](../NOTICE).
+- 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。
+  Modifications made by this team to the upstream work: [`MODIFICATIONS.md`](../MODIFICATIONS.md).
+- 本仓库的限制性条款**仅适用于 MoziAI 原创增量部分**。若与上游许可冲突，就上游组件而言以上游许可为准（见 `LICENSE` 第 11 条）。
+  This repository's restrictive terms apply **only to MoziAI's original additions**. Where they conflict with an upstream license, the upstream license prevails for the upstream components (see `LICENSE`, Section 11).
+- "Qwen"、"通义千问" 是阿里巴巴集团的商标。本项目与阿里巴巴集团、Qwen 团队及 Ornith 作者无隶属、赞助或背书关系。
+  "Qwen" and "Tongyi Qianwen" are trademarks of Alibaba Group. This project is not affiliated with, endorsed by or sponsored by Alibaba Group, the Qwen team or the Ornith authors.
+<!-- UPSTREAM-LICENSE-NOTICE:END -->

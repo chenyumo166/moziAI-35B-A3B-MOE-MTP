@@ -51,7 +51,7 @@ pipeline_tag: text-generation
 
 ## 1. Przegląd modelu
 
-MoziAI-35B-V3.8 to lokalnie wdrażalny, otwartoźródłowy multimodalny model AI opracowany przez zespół Chen Yumo, czołowego chińskiego influencera finansowego. Zbudowany na otwartej bazie **Ornith-1.5-35B-A3B** (architektura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MoE 35B, licencja MIT), integruje własne dane finansowe zespołu + możliwości domeny finansowej + dynamiczny siedmiowymiarowy system myślenia + mechanizm iteracyjnej refleksji LOOP agenta + cechę Uncensored + hybrydowy algorytm kwantyzacji MoziSmartBit.
+MoziAI-35B-V3.8 to lokalnie wdrażalny, otwartoźródłowy multimodalny model AI opracowany przez zespół Chen Yumo, czołowego chińskiego influencera finansowego. Zbudowany na otwartej bazie **Ornith-1.5-35B-A3B** (architektura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MoE 35B, licencja MIT/Apache-2.0), integruje własne dane finansowe zespołu + możliwości domeny finansowej + dynamiczny siedmiowymiarowy system myślenia + mechanizm iteracyjnej refleksji LOOP agenta + cechę Uncensored + hybrydowy algorytm kwantyzacji MoziSmartBit.
 
 **💡 Przewaga rozmiaru: tylko 15,9 GB** — model MoE o 35 mld parametrów jest skompresowany do zaledwie **15,9 GB** dzięki autorskiej inteligentnej kwantyzacji MoziSmartBit (około 30% mniejszy niż standardowy Q4_K_M ~22GB). Mieści się w jednym instalatorze, działa na zwykłych kartach konsumenckich (20GB VRAM+), redukuje koszty tokenów chmurowych do **zera**, zapewnia wolność tokenów 7×24 godziny oraz gwarantuje prywatność i bezpieczeństwo danych lokalnych. Licencjonowany do **darmowego użytku komercyjnego** — zero barier dla osób i firm.
 
@@ -122,7 +122,7 @@ moziAI utrzymuje aktywną częstotliwość aktualizacji wersji, aby nadążać z
 
 | Element | Specyfikacja |
 | --- | --- |
-| Model bazowy | Ornith-1.5-35B-A3B (architektura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, licencja MIT) |
+| Model bazowy | Ornith-1.5-35B-A3B (architektura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, licencja MIT/Apache-2.0) |
 | Rozmiar parametrów | 35 mld (35B) architektura MoE, 256 ekspertów routingu + 1 ekspert współdzielony, 8 ekspertów aktywnych na token |
 | Metoda kwantyzacji | Autorska inteligentna kwantyzacja MoziSmartBit + standardowy format GGUF |
 | Długość kontekstu | 256K (262 144 tokenów) |
@@ -390,3 +390,27 @@ Pełne warunki w pliku [LICENSE](LICENSE).
 - **E-mail**: 263515@qq.com
 
 Copyright (c) 2026 陈雨墨 / chenyumo166. All rights reserved.
+
+---
+<!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
+## 上游许可与归属声明 / Upstream License & Attribution Notice
+
+本模型是**组合作品**，采用分层许可。This model is a **combined work** distributed under layered licensing.
+
+| 组成部分 / Component | 许可 / License |
+|---|---|
+| Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
+| 继承的上游 Qwen 组件 / Inherited Qwen components | **Apache License 2.0** |
+| MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
+
+- 继承的 Qwen 组件在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
+  The inherited Qwen components remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
+- 上游版权、商标与归属声明见 [`NOTICE`](../NOTICE)。
+  Upstream copyright, trademark and attribution notices: [`NOTICE`](../NOTICE).
+- 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。
+  Modifications made by this team to the upstream work: [`MODIFICATIONS.md`](../MODIFICATIONS.md).
+- 本仓库的限制性条款**仅适用于 MoziAI 原创增量部分**。若与上游许可冲突，就上游组件而言以上游许可为准（见 `LICENSE` 第 11 条）。
+  This repository's restrictive terms apply **only to MoziAI's original additions**. Where they conflict with an upstream license, the upstream license prevails for the upstream components (see `LICENSE`, Section 11).
+- "Qwen"、"通义千问" 是阿里巴巴集团的商标。本项目与阿里巴巴集团、Qwen 团队及 Ornith 作者无隶属、赞助或背书关系。
+  "Qwen" and "Tongyi Qianwen" are trademarks of Alibaba Group. This project is not affiliated with, endorsed by or sponsored by Alibaba Group, the Qwen team or the Ornith authors.
+<!-- UPSTREAM-LICENSE-NOTICE:END -->
