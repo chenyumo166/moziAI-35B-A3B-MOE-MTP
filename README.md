@@ -3,6 +3,9 @@ language:
 - en
 - zh
 license: other
+license_name: moziai-custom-restricted
+license_link: https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP/blob/main/LICENSE
+# 分层许可：上游组件（Qwen3.5/3.6、Gemma 4）适用 Apache-2.0；Ornith 增量适用其上游声明的 MIT；MoziAI 原创增量适用本仓库定制限制性协议。详见 LICENSE / LICENSE-APACHE / NOTICE
 tasks:
 - text-generation
 tags:
