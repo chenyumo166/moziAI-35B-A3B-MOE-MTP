@@ -52,7 +52,7 @@ pipeline_tag: text-generation
 
 
 
-MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多模態AI大模型（增強金融領域、支持視覺、工具調用、消費級顯卡本地部署），moziAI-35B 基於開源底座 Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架構，MIT 許可），結合陳雨墨團隊自主研發的：（金融數據 + 金融領域能力 + 訓練方法 + 七維思考體系 + 智能體LOOP機制 + 混合量化算法 MoziSmartBit）開發而成。通過自研的 MoziSmartBit 智能量化 技術，將350億參數MoE模型壓縮至約 15.5 GB，比常規Q4_K_M量化約22+GB的模型體積小了6.5G（約30%）；在精度與體積間取得最優平衡，實現幾乎≈FP16 的 99%的精度質量。通過自研的 MoziSmartBit 智能量化 技術，將350億參數MoE模型壓縮至約 15.5 GB，比常規Q4_K_M量化約22+GB的模型體積小了6.5G（約30%）；在精度與體積間取得最優平衡，實現幾乎≈FP16 的 99%的精度質量。
+MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多模態AI大模型（增強金融領域、支持視覺、工具調用、消費級顯卡本地部署），moziAI-35B 基於開源底座 Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架構，MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components) 許可），結合陳雨墨團隊自主研發的：（金融數據 + 金融領域能力 + 訓練方法 + 七維思考體系 + 智能體LOOP機制 + 混合量化算法 MoziSmartBit）開發而成。通過自研的 MoziSmartBit 智能量化 技術，將350億參數MoE模型壓縮至約 15.5 GB，比常規Q4_K_M量化約22+GB的模型體積小了6.5G（約30%）；在精度與體積間取得最優平衡，實現幾乎≈FP16 的 99%的精度質量。通過自研的 MoziSmartBit 智能量化 技術，將350億參數MoE模型壓縮至約 15.5 GB，比常規Q4_K_M量化約22+GB的模型體積小了6.5G（約30%）；在精度與體積間取得最優平衡，實現幾乎≈FP16 的 99%的精度質量。
 
 
 
@@ -135,7 +135,7 @@ MoziAI-35B-A3B-MOE 是由中國財經大V陳雨墨團隊開發的本地開源多
 
 | 項目     | 參數                                                                                 |
 | ------ | ---------------------------------------------------------------------------------- |
-| 底座模型   | Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架構，MIT 許可證                       |
+| 底座模型   | Ornith-1.5-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架構，MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components) 許可證                       |
 | 參數規模   | 350億（35B）MoE 架構建56 個路由專家+ 1 個共享專家，不token 激活 8 個專家                              |
 | 量化方式   | 採用自研 MoziSmartBit 智能量化算法 + GGUF 標準格式                                               |
 | 上下文長上 | 256K（262,144 tokens）                                                             |
@@ -345,7 +345,7 @@ ollama run moziAI-35B
 
 
 
-MoziAI 基於 deepreinforce-ai/Ornith-1.5-35B-A3B 底座微調、蒸餾與二次開發。MoziAI 在底座基礎上針對金融垂直領域優化，在金融問答、量化程式編寫、工具調用等場景下表現更出色。以下為多模型對比（MoziAI-35B 通用能力與底座Ornith-1.5-35B-A3B 一致）底
+MoziAI 基於 ornith-ai/Ornith-1.5-35B-A3B 底座微調、蒸餾與二次開發。MoziAI 在底座基礎上針對金融垂直領域優化，在金融問答、量化程式編寫、工具調用等場景下表現更出色。以下為多模型對比（MoziAI-35B 通用能力與底座Ornith-1.5-35B-A3B 一致）底
 
 
 
@@ -598,3 +598,27 @@ moziAI-35B/
 
 
 Copyright (c) 2026 陳雨墨/ chenyumo166. All rights reserved.
+
+---
+<!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
+## 上游许可与归属声明 / Upstream License & Attribution Notice
+
+本模型是**组合作品**，采用分层许可。This model is a **combined work** distributed under layered licensing.
+
+| 组成部分 / Component | 许可 / License |
+|---|---|
+| Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
+| 继承的上游组件（Qwen3.5/3.6 + Gemma 4） / Inherited upstream components (Qwen3.5/3.6 + Gemma 4) | **Apache License 2.0** |
+| MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
+
+- 继承的上游组件（Qwen3.5/3.6 与 Gemma 4）在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
+  The inherited upstream components (Qwen3.5/3.6 and Gemma 4) remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
+- 上游版权、商标与归属声明见 [`NOTICE`](../NOTICE)。
+  Upstream copyright, trademark and attribution notices: [`NOTICE`](../NOTICE).
+- 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。
+  Modifications made by this team to the upstream work: [`MODIFICATIONS.md`](../MODIFICATIONS.md).
+- 本仓库的限制性条款**仅适用于 MoziAI 原创增量部分**。若与上游许可冲突，就上游组件而言以上游许可为准（见 `LICENSE` 第 11 条）。
+  This repository's restrictive terms apply **only to MoziAI's original additions**. Where they conflict with an upstream license, the upstream license prevails for the upstream components (see `LICENSE`, Section 11).
+- "Qwen"、"通义千问" 是阿里巴巴集团的商标。本项目与阿里巴巴集团、Qwen 团队及 Ornith 作者无隶属、赞助或背书关系。
+  "Qwen" and "Tongyi Qianwen" are trademarks of Alibaba Group. This project is not affiliated with, endorsed by or sponsored by Alibaba Group, the Qwen team or the Ornith authors.
+<!-- UPSTREAM-LICENSE-NOTICE:END -->

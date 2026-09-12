@@ -52,7 +52,7 @@ pipeline_tag: text-generation
 
 ## 1. Modeloverzicht
 
-MoziAI-35B-V3.8 is een lokaal implementeerbaar open-source multimodaal AI-model, ontwikkeld door het team van de Chinese financiële influencer Chen Yumo. Gebaseerd op de open-source basis **Ornith-1.5-35B-A3B** (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B-architectuur, MoE 35B, MIT/Apache-2.0-licentie), integreert het zelf ontwikkelde financiële data + financiële domeincapaciteiten + dynamisch 7-dimensionaal denkkader + agent-LOOP-reflectiemechanisme + Uncensored-eigenschap + MoziSmartBit-hybridekwantisatiealgoritme.
+MoziAI-35B-V3.8 is een lokaal implementeerbaar open-source multimodaal AI-model, ontwikkeld door het team van de Chinese financiële influencer Chen Yumo. Gebaseerd op de open-source basis **Ornith-1.5-35B-A3B** (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B-architectuur, MoE 35B, MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components)-licentie), integreert het zelf ontwikkelde financiële data + financiële domeincapaciteiten + dynamisch 7-dimensionaal denkkader + agent-LOOP-reflectiemechanisme + Uncensored-eigenschap + MoziSmartBit-hybridekwantisatiealgoritme.
 
 **💡 Formaatvoordeel: slechts 15,9 GB** — Het MoE-model met 35 miljard parameters wordt door de eigen MoziSmartBit-kwantificatie gecomprimeerd tot slechts **15,9 GB** (ongeveer 30% kleiner dan standaard Q4_K_M ~22 GB). Past in één installatiepakket, draait op gewone consumenten-GPU's (20GB VRAM+), verlaagt cloud-tokenkosten naar **0**, biedt 7×24 uur token-vrijheid en garandeert lokale dataprivacy. **Gratis commercieel gebruik** — nul drempel.
 
@@ -123,7 +123,7 @@ MoziAI houdt een actief update-tempo aan en maakt lokale AI-modellen lichter en 
 
 | Punt | Specificatie |
 | --- | --- |
-| Basismodel | Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MIT/Apache-2.0) |
+| Basismodel | Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components)) |
 | Parameters | 35B MoE, 256 routing-experts + 1 gedeelde expert, 8 experts actief per token |
 | Kwantisering | MoziSmartBit + GGUF-standaard |
 | Contextlengte | 256K (262.144 tokens) |
@@ -306,7 +306,7 @@ Zoek `moziAI` in LM Studio / Jan en download de Q4\_K\_M-versie (LM Studio leest
 
 ## 14. Benchmarks
 
-MoziAI-35B-V3.8 is verfijnd/gedistilleerd van deepreinforce-ai/Ornith-1.5-35B-A3B. Gegevens uit V3.7-metingen (V3.8 = zelfde basis en trainingssysteem):
+MoziAI-35B-V3.8 is verfijnd/gedistilleerd van ornith-ai/Ornith-1.5-35B-A3B. Gegevens uit V3.7-metingen (V3.8 = zelfde basis en trainingssysteem):
 
 | Benchmark | moziAI-35B-V3.8<br>(dit model) | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
@@ -378,11 +378,11 @@ Copyright (c) 2026 陳雨墨 / chenyumo166. Alle rechten voorbehouden.
 | 组成部分 / Component | 许可 / License |
 |---|---|
 | Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
-| 继承的上游 Qwen 组件 / Inherited Qwen components | **Apache License 2.0** |
+| 继承的上游组件（Qwen3.5/3.6 + Gemma 4） / Inherited upstream components (Qwen3.5/3.6 + Gemma 4) | **Apache License 2.0** |
 | MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
 
-- 继承的 Qwen 组件在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
-  The inherited Qwen components remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
+- 继承的上游组件（Qwen3.5/3.6 与 Gemma 4）在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
+  The inherited upstream components (Qwen3.5/3.6 and Gemma 4) remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
 - 上游版权、商标与归属声明见 [`NOTICE`](../NOTICE)。
   Upstream copyright, trademark and attribution notices: [`NOTICE`](../NOTICE).
 - 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。

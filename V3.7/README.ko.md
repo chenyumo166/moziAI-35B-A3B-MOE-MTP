@@ -106,7 +106,7 @@ pipeline_tag: text-generation
 
 
 
-MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(Chen Yumo) 팀이 개발한 로컬 오픈소스 금융 AI 멀티모달 LLM(비전 및 도구 호출 지원)입니다. moziAI-35B는 오픈소스 베이스 모델 Ornith-1.5-35B-A3B(Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 아키텍처, MIT 라이선스)를 기반으로, 천위모 팀의 자체 개발:(금융 데이터 + 금융 영역 역량 + 훈련 방법 + 7차원 사고 체계 + 에이전트 LOOP 메커니즘 + 하이브리드 양자화 알고리즘 MoziSmartBit)을 결합하여 개발되었습니다. 자체 개발한 MoziSmartBit 지능형 양자화 기술을 통해 350억 파라미터 MoE 모델을 약 15.5 GB로 압축하여, 기존 Q4_K_M 양자화 모델(약 22+GB)보다 6.5G(약 30%) 작습니다. 정밀도와 크기 사이의 최적 균형을 달성하여 거의 무손실인 ≈FP16의 99% 정밀도 품질을 구현합니다.
+MoziAI-35B-A3B-MOE는 중국 금융 인플루언서 천위모(Chen Yumo) 팀이 개발한 로컬 오픈소스 금융 AI 멀티모달 LLM(비전 및 도구 호출 지원)입니다. moziAI-35B는 오픈소스 베이스 모델 Ornith-1.5-35B-A3B(Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 아키텍처, MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components) 라이선스)를 기반으로, 천위모 팀의 자체 개발:(금융 데이터 + 금융 영역 역량 + 훈련 방법 + 7차원 사고 체계 + 에이전트 LOOP 메커니즘 + 하이브리드 양자화 알고리즘 MoziSmartBit)을 결합하여 개발되었습니다. 자체 개발한 MoziSmartBit 지능형 양자화 기술을 통해 350억 파라미터 MoE 모델을 약 15.5 GB로 압축하여, 기존 Q4_K_M 양자화 모델(약 22+GB)보다 6.5G(약 30%) 작습니다. 정밀도와 크기 사이의 최적 균형을 달성하여 거의 무손실인 ≈FP16의 99% 정밀도 품질을 구현합니다.
 
 
 
@@ -261,7 +261,7 @@ llama.cpp, Ollama, LM Studio 등 기타 주류 추론 프레임워크를 지원�
 
 | 항목 | 사양 |
 |------|------|
-| 기본 모델 | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT 라이선스) |
+| 기본 모델 | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components) 라이선스) |
 | 파라미터 | 35B MoE (256개 라우팅전문가 + 1개 공유 전문가, 토큰당 8개 활성) |
 | 양자화| 자체 개발 MoziSmartBit 지원양자화+ GGUF 표준 형식 |
 | 컨텍스트 길이 | 256K (262,144 토큰) |
@@ -643,7 +643,7 @@ LM Studio 또는 Jan에서 `moziAI-35B`를 검색하며 MoziSmartBit 양자화�
 
 
 
-MoziAI는 **deepreinforce-ai/Ornith-1.5-35B-A3B**에서 파인튜닝되었습니다 MoziAI는 기본 모델 위에서금융 수직 영역에 최적화되어 금융 Q&A, 양적 프로그래밍 및 도구 호출 시나리오에서 우수직성능력제공합니다 MoziAI-35B의 일반 기능은 Ornith-1.5-35B-A3B 기본 모델은일치합니다
+MoziAI는 **ornith-ai/Ornith-1.5-35B-A3B**에서 파인튜닝되었습니다 MoziAI는 기본 모델 위에서금융 수직 영역에 최적화되어 금융 Q&A, 양적 프로그래밍 및 도구 호출 시나리오에서 우수직성능력제공합니다 MoziAI-35B의 일반 기능은 Ornith-1.5-35B-A3B 기본 모델은일치합니다
 
 
 
@@ -1111,3 +1111,27 @@ financial AI LLM, 로컬 오픈소스 모델, 엔드사이전모델, 양적 프�
 
 
 Copyright (c) 2026 Chen Yumo / chenyumo166. All rights reserved.
+
+---
+<!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
+## 上游许可与归属声明 / Upstream License & Attribution Notice
+
+本模型是**组合作品**，采用分层许可。This model is a **combined work** distributed under layered licensing.
+
+| 组成部分 / Component | 许可 / License |
+|---|---|
+| Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
+| 继承的上游组件（Qwen3.5/3.6 + Gemma 4） / Inherited upstream components (Qwen3.5/3.6 + Gemma 4) | **Apache License 2.0** |
+| MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
+
+- 继承的上游组件（Qwen3.5/3.6 与 Gemma 4）在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
+  The inherited upstream components (Qwen3.5/3.6 and Gemma 4) remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
+- 上游版权、商标与归属声明见 [`NOTICE`](../NOTICE)。
+  Upstream copyright, trademark and attribution notices: [`NOTICE`](../NOTICE).
+- 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。
+  Modifications made by this team to the upstream work: [`MODIFICATIONS.md`](../MODIFICATIONS.md).
+- 本仓库的限制性条款**仅适用于 MoziAI 原创增量部分**。若与上游许可冲突，就上游组件而言以上游许可为准（见 `LICENSE` 第 11 条）。
+  This repository's restrictive terms apply **only to MoziAI's original additions**. Where they conflict with an upstream license, the upstream license prevails for the upstream components (see `LICENSE`, Section 11).
+- "Qwen"、"通义千问" 是阿里巴巴集团的商标。本项目与阿里巴巴集团、Qwen 团队及 Ornith 作者无隶属、赞助或背书关系。
+  "Qwen" and "Tongyi Qianwen" are trademarks of Alibaba Group. This project is not affiliated with, endorsed by or sponsored by Alibaba Group, the Qwen team or the Ornith authors.
+<!-- UPSTREAM-LICENSE-NOTICE:END -->

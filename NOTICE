@@ -1,0 +1,197 @@
+================================================================
+NOTICE
+================================================================
+
+moziAI-35B-A3B-MOE / MoziAI-35B-A3B-MOE-MTP
+Copyright (c) 2026 Chen Yumo (陈雨墨, chenyumo166). All rights reserved.
+Repository: https://github.com/chenyumo166/moziAI-35B-A3B-MOE-MTP
+
+本文件包含本作品所包含或所依赖的第三方作品的归属声明。
+This file contains attribution notices for third-party works
+included in or relied upon by this product.
+
+----------------------------------------------------------------
+1. 上游模型与许可分层 / Upstream model and license layering
+----------------------------------------------------------------
+
+基底模型 Base model: Ornith-1.5-35B-A3B
+  上游仓库 Upstream repository: ornith-ai/Ornith-1.5-35B-A3B
+  (https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B)
+
+  上游模型卡载明：Ornith-1.5 扩展自 Ornith-1.0，而 Ornith-1.0 系
+  在 Qwen3.5 与 Gemma 4 预训练基座之上，通过继续预训练、中期训练
+  与后训练开发而成。
+  The upstream model card states that Ornith-1.5 extends Ornith-1.0,
+  and that Ornith-1.0 was developed on top of the Qwen3.5 and
+  Gemma 4 pretrained bases with additional continued pre-training,
+  mid-training and post-training.
+
+  (a) Ornith 团队自行新增的后训练 / 继续预训练成果
+      Ornith's own post-training / continued pre-training increment
+      -> 上游模型卡声明为 MIT License
+         (截至本文件出具日，上游仓库未随附 LICENSE 文件)
+         Declared as MIT License on the upstream model card
+         (as of the date of this notice the upstream repository does
+         not ship a LICENSE file).
+
+  (b) Ornith-1.5-35B-A3B 所继承的 Qwen3.5-35B-A3B / Qwen3.6-35B-A3B
+      预训练基底组件
+      The Qwen3.5-35B-A3B / Qwen3.6-35B-A3B pretrained base components
+      inherited by Ornith-1.5-35B-A3B
+      -> Apache License, Version 2.0
+
+  (c) 经 Ornith-1.0 血统继承的 Gemma 4 组件
+      The Gemma 4 components inherited through the Ornith-1.0 lineage
+      -> Apache License, Version 2.0
+         (Gemma 4 以 Apache License 2.0 发布，见
+          https://ai.google.dev/gemma/apache_2 ；Gemma Terms of Use
+          适用于 Gemma 1–3n，不适用于 Gemma 4)
+         (Gemma 4 is released under the Apache License 2.0, see
+          https://ai.google.dev/gemma/apache_2 ; the Gemma Terms of
+          Use apply to Gemma 1–3n and not to Gemma 4)
+
+重要 / IMPORTANT:
+  上述 (b)、(c) 项上游组件并不会因为 (a) 项采用 MIT 许可、
+  也不会因为本仓库的 MoziAI 自定义限制性许可，而发生重新授权、
+  再许可、豁免或变更。该等组件在任何时候均持续受
+  Apache License, Version 2.0 约束。
+
+  The upstream components in (b) and (c) above are NOT relicensed,
+  sublicensed, exempted or otherwise modified by the MIT License
+  applied to the Ornith increment in (a), nor by the MoziAI Custom
+  Restricted License used by this repository. Those components remain
+  governed by the Apache License, Version 2.0 at all times.
+
+----------------------------------------------------------------
+2. 上游版权与归属声明 / Upstream copyright and attribution
+----------------------------------------------------------------
+
+本模型的若干部分源自 Qwen 系列模型。
+Portions of this model are derived from the Qwen series of models.
+
+  Copyright (c) Alibaba Cloud / Qwen team. All rights reserved.
+  Licensed under the Apache License, Version 2.0.
+  A copy of the Apache License 2.0 is provided in LICENSE-APACHE.
+  https://huggingface.co/Qwen
+
+本模型的若干部分经 Ornith 血统源自 Gemma 4。
+Portions of this model are derived, through the Ornith lineage,
+from Gemma 4.
+
+  Copyright (c) Google LLC. All rights reserved.
+  Licensed under the Apache License, Version 2.0.
+  A copy of the Apache License 2.0 is provided in LICENSE-APACHE.
+  https://ai.google.dev/gemma
+
+本模型的若干部分源自 Ornith-1.5-35B-A3B。
+Portions of this model are derived from Ornith-1.5-35B-A3B.
+
+  Copyright (c) the Ornith authors. All rights reserved.
+  https://huggingface.co/ornith-ai
+
+----------------------------------------------------------------
+3. 商标 / Trademarks
+----------------------------------------------------------------
+
+"Qwen"、"通义千问"、"Tongyi Qianwen" 是阿里巴巴集团的商标。
+"Qwen", "Tongyi Qianwen" are trademarks of Alibaba Cloud / Alibaba Group.
+"Gemma" is a trademark of Google LLC.
+
+本项目与阿里巴巴集团、Qwen 团队、Ornith 作者及 Google LLC
+无隶属、赞助或背书关系。上述名称的使用仅为描述来源与归属，
+不代表任何形式的背书。
+
+This project is not affiliated with, endorsed by, sponsored by or
+approved by Alibaba Group, the Qwen team, the Ornith authors or
+Google LLC. These names are used solely for the descriptive and
+attribution purposes permitted by Apache License 2.0, Section 6,
+and do not imply any endorsement.
+
+----------------------------------------------------------------
+4. MoziAI 团队原创贡献 / MoziAI original contributions
+----------------------------------------------------------------
+
+以下内容为 MoziAI 团队原创成果，适用《MoziAI-35B-A3B-MOE
+定制限制性许可协议》（见 LICENSE 文件）：
+
+The following are original contributions of the MoziAI team and are
+licensed under the MoziAI-35B-A3B-MOE Custom Restricted License
+Agreement (see LICENSE):
+
+  - 金融领域训练数据与继续训练 / financial-domain data & continued training
+  - 动态七维思考体系 / dynamic seven-dimensional thinking framework
+  - 智能体 LOOP 反思迭代机制 / agent LOOP reflection mechanism
+  - Uncensored 优化 / Uncensored optimization
+  - MoziSmartBit 混合量化算法 / MoziSmartBit hybrid quantization
+  - 对话模板、文档与脚本 / chat templates, documentation and scripts
+
+----------------------------------------------------------------
+5. 许可对照表 / Layered license map
+----------------------------------------------------------------
+
+  上游组件（Qwen3.5/3.6 + Gemma 4）
+  Upstream components (Qwen3.5/3.6 + Gemma 4) ... Apache License, Version 2.0
+  Ornith 自研增量 / Ornith increment ........... MIT License（上游模型卡声明
+                                                 / declared on the upstream
+                                                 model card）
+  MoziAI 原创增量 / MoziAI additions ........... MoziAI Custom Restricted License
+  本分发整体 / this distribution as a whole .... 须同时满足以上全部
+                                                must satisfy all of the above
+
+若本仓库《定制限制性许可协议》的任何条款与 Apache License 2.0
+（适用于继承的上游组件）相冲突，就该等组件而言，
+以 Apache License 2.0 为准。
+
+To the extent any term of the MoziAI Custom Restricted License
+conflicts with the Apache License, Version 2.0 as applied to the
+inherited upstream components, the Apache License, Version 2.0
+prevails with respect to those components.
+
+----------------------------------------------------------------
+6. 核实说明 / Verification note
+----------------------------------------------------------------
+
+本节记录 MoziAI 团队对上游许可的实际核实结果（核实日期 2026-09-13）：
+This section records the MoziAI team's actual verification of the
+upstream licenses (verified 2026-09-13):
+
+  - Qwen3.5-35B-A3B：仓库内 LICENSE 文件为 Apache License 2.0；
+    模型卡 frontmatter 标注 license: apache-2.0。
+    The LICENSE file in the Qwen3.5-35B-A3B repository is the Apache
+    License 2.0; the model card frontmatter declares apache-2.0.
+  - Qwen3.6-35B-A3B：模型卡 frontmatter 标注 license: apache-2.0。
+    The Qwen3.6-35B-A3B model card declares apache-2.0.
+  - Gemma 4：Google 官方页面（ai.google.dev/gemma/apache_2）载明
+    Gemma 4 适用 Apache License 2.0；Gemma Terms of Use 明确
+    "For Gemma 4 terms, see the Gemma 4 license"，即 Gemma 1–3n
+    适用的限制性条款不适用于 Gemma 4。
+    Google's official page (ai.google.dev/gemma/apache_2) states that
+    Gemma 4 is licensed under the Apache License 2.0; the Gemma Terms
+    of Use state "For Gemma 4 terms, see the Gemma 4 license", i.e.
+    the restrictive terms applying to Gemma 1–3n do not apply to
+    Gemma 4.
+  - ornith-ai/Ornith-1.5-35B-A3B：模型卡 frontmatter 标注
+    license: mit，但截至核实日该仓库未随附 LICENSE 文件。
+    The model card declares license: mit, but as of the verification
+    date the repository does not ship a LICENSE file.
+
+各上游组件的权威许可文本，以该上游仓库内实际随附的许可文件
+（或上游权利人的官方许可页面）为准。
+The authoritative license text for each upstream component is the
+license file actually shipped in that upstream repository (or the
+upstream rights holder's official license page).
+
+----------------------------------------------------------------
+7. 修改声明 / Statement of modification
+----------------------------------------------------------------
+
+本作品是基于 Ornith-1.5-35B-A3B（其自身继承 Qwen3.5-35B-A3B /
+Qwen3.6-35B-A3B 预训练基底，并经 Ornith-1.0 血统继承 Gemma 4 组件）
+的修改版本。MoziAI 团队对原始作品进行了修改。详见 MODIFICATIONS.md。
+
+This product is a modified version of Ornith-1.5-35B-A3B (which itself
+inherits the Qwen3.5-35B-A3B / Qwen3.6-35B-A3B pretrained base and,
+through the Ornith-1.0 lineage, Gemma 4 components). Changes were made
+by the MoziAI team. See MODIFICATIONS.md.
+
+================================================================

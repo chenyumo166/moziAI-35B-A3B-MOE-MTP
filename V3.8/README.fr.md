@@ -52,7 +52,7 @@ pipeline_tag: text-generation
 
 ## 1. Présentation du modèle
 
-MoziAI-35B-V3.8 est un grand modèle IA multimodal open-source déployable localement, développé par l'équipe de Chen Yumo, influenceur financier chinois. Basé sur le modèle de base open-source **Ornith-1.5-35B-A3B** (architecture Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MoE 35B, licence MIT/Apache-2.0), il intègre les données financières auto-développées + capacités financières + cadre de pensée dynamique à 7 dimensions + mécanisme itératif LOOP d'agent + caractéristique Uncensored + algorithme de quantification hybride MoziSmartBit.
+MoziAI-35B-V3.8 est un grand modèle IA multimodal open-source déployable localement, développé par l'équipe de Chen Yumo, influenceur financier chinois. Basé sur le modèle de base open-source **Ornith-1.5-35B-A3B** (architecture Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MoE 35B, licence MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components)), il intègre les données financières auto-développées + capacités financières + cadre de pensée dynamique à 7 dimensions + mécanisme itératif LOOP d'agent + caractéristique Uncensored + algorithme de quantification hybride MoziSmartBit.
 
 **💡 Avantage de taille : seulement 15,9 Go** — Le modèle MoE de 35 milliards de paramètres est compressé à seulement **15,9 Go** grâce à la quantification MoziSmartBit maison (environ 30 % plus petit que le Q4_K_M standard ~22 Go). Tient dans un seul installeur, fonctionne sur GPU grand public (20 Go de VRAM+), réduit les coûts cloud à **0**, offre une liberté de tokens 7×24 et garantit la confidentialité des données locales. **Usage commercial gratuit** — aucune barrière.
 
@@ -123,7 +123,7 @@ MoziAI maintient un rythme de mises à jour actif et rend les modèles locaux pl
 
 | Point | Spécification |
 | --- | --- |
-| Modèle de base | Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MIT/Apache-2.0) |
+| Modèle de base | Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components)) |
 | Paramètres | 35B MoE, 256 experts de routage + 1 expert partagé, 8 experts actifs par token |
 | Quantification | MoziSmartBit + format GGUF standard |
 | Longueur de contexte | 256K (262 144 tokens) |
@@ -306,7 +306,7 @@ Cherchez `moziAI` dans LM Studio / Jan et téléchargez la version Q4\_K\_M (LM 
 
 ## 14. Benchmarks
 
-MoziAI-35B-V3.8 est affiné/distillé depuis deepreinforce-ai/Ornith-1.5-35B-A3B. Données issues des mesures V3.7 (V3.8 = même base et même système d'entraînement) :
+MoziAI-35B-V3.8 est affiné/distillé depuis ornith-ai/Ornith-1.5-35B-A3B. Données issues des mesures V3.7 (V3.8 = même base et même système d'entraînement) :
 
 | Benchmark | moziAI-35B-V3.8<br>(ce modèle) | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
@@ -378,11 +378,11 @@ Copyright (c) 2026 陳雨墨 / chenyumo166. Tous droits réservés.
 | 组成部分 / Component | 许可 / License |
 |---|---|
 | Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
-| 继承的上游 Qwen 组件 / Inherited Qwen components | **Apache License 2.0** |
+| 继承的上游组件（Qwen3.5/3.6 + Gemma 4） / Inherited upstream components (Qwen3.5/3.6 + Gemma 4) | **Apache License 2.0** |
 | MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
 
-- 继承的 Qwen 组件在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
-  The inherited Qwen components remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
+- 继承的上游组件（Qwen3.5/3.6 与 Gemma 4）在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
+  The inherited upstream components (Qwen3.5/3.6 and Gemma 4) remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
 - 上游版权、商标与归属声明见 [`NOTICE`](../NOTICE)。
   Upstream copyright, trademark and attribution notices: [`NOTICE`](../NOTICE).
 - 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。

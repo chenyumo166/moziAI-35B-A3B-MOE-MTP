@@ -12,24 +12,32 @@ Copyright (c) 2026 陈雨墨 (chenyumo166). All rights reserved.
 Section 0  Scope and Upstream Precedence (IMPORTANT)
 ================================================================
 
-本模型是组合作品（combined work），由下列三部分构成：
+本模型是组合作品（combined work），由下列四部分构成：
 
   (a) 上游 Ornith 自研增量部分；
   (b) 由 (a) 继承的 Qwen3.5 / Qwen3.6 原生预训练基底组件；
-  (c) MoziAI 团队原创增量部分。
+  (c) 由 (a) 经 Ornith-1.0 血统继承的 Gemma 4 组件；
+  (d) MoziAI 团队原创增量部分。
 
-本协议仅适用于上述 (c) 项，即 MoziAI 团队原创增量部分。
+本协议仅适用于上述 (d) 项，即 MoziAI 团队原创增量部分。
 
-对于 (a) 与 (b) 项，其许可状态由各自上游权利人以各自的许可文件
+对于 (a)、(b)、(c) 项，其许可状态由各自上游权利人以各自的许可文件
 确定。本协议不改变、不限制、不豁免、亦不重新授权该等上游许可：
 
   (a) Ornith 自研增量部分
-      —— 以其上游仓库实际随附的许可文件为准；
+      —— 以其上游仓库实际随附的许可文件为准
+         （截至 2026-09-13，上游模型卡声明为 MIT License；
+         上游仓库未随附 LICENSE 文件）；
   (b) Qwen 基底组件
       —— Apache License, Version 2.0
-         （全文见本仓库 LICENSE-APACHE 文件）。
+         （全文见本仓库 LICENSE-APACHE 文件）；
+  (c) Gemma 4 组件
+      —— Apache License, Version 2.0
+         （Gemma 4 以 Apache 2.0 发布，见
+         https://ai.google.dev/gemma/apache_2 ；
+         全文见本仓库 LICENSE-APACHE 文件）。
 
-若本协议任何条款与 (a) 或 (b) 项的上游许可相冲突，就该等上游
+若本协议任何条款与 (a)、(b) 或 (c) 项的上游许可相冲突，就该等上游
 组件而言，以上游许可为准，本协议相应条款对该等组件不适用。
 详见本仓库 NOTICE 与 MODIFICATIONS.md 文件。
 
@@ -50,8 +58,8 @@ Section 0  Scope and Upstream Precedence (IMPORTANT)
   1.4 "商业使用" 是指将本模型用于任何商业目的，包括但不限于
       产品服务、内部工具、商业研究等。
 
-  1.5 "上游组件" 是指第 0 条 (a)、(b) 两项所描述的上游作品，
-      包括 Ornith 自研增量部分与 Qwen 原生基底组件。
+  1.5 "上游组件" 是指第 0 条 (a)、(b)、(c) 三项所描述的上游作品，
+      包括 Ornith 自研增量部分、Qwen 原生基底组件与 Gemma 4 组件。
 
 
 ================================================================
@@ -93,7 +101,7 @@ Section 0  Scope and Upstream Precedence (IMPORTANT)
 
   3.2 上游组件的例外（重要）：
 
-      本条 3.1 的各项限制，对第 0 条 (a)、(b) 两项所述的上游组件
+      本条 3.1 的各项限制，对第 0 条 (a)、(b)、(c) 三项所述的上游组件
       均不适用。被许可人就上游组件所享有的复制、修改、创建衍生
       作品、分发、再许可等权利，由该等上游许可直接授予，
       本协议不得解释为对其施加任何额外限制。
@@ -134,13 +142,18 @@ Section 0  Scope and Upstream Precedence (IMPORTANT)
   (c) 上游权利归属（重要）：
 
       本模型的基底模型为 Ornith-1.5-35B-A3B，该模型自身继承
-      Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 预训练基底。
+      Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 预训练基底，并经
+      Ornith-1.0 血统继承 Gemma 4 组件。
 
         (i)  Ornith 自研增量部分的著作权归 Ornith 作者所有，
              其许可以上游仓库实际随附的许可文件为准；
 
         (ii) 继承的 Qwen 基底组件的著作权归 Alibaba Cloud /
              Qwen 团队所有，依 Apache License, Version 2.0 授权，
+             全文见本仓库 LICENSE-APACHE 文件；
+
+        (iii) 经 Ornith-1.0 血统继承的 Gemma 4 组件的著作权归
+             Google LLC 所有，依 Apache License, Version 2.0 授权，
              全文见本仓库 LICENSE-APACHE 文件。
 
       上述上游组件的许可不会因本协议而失效、豁免或被变更，

@@ -50,7 +50,7 @@ pipeline_tag: text-generation
 
 
 
-MoziAI-35B-A3B-MOE चीनी वित्तीय प्रभावशाली चेन युमो की टीम द्वारा विकसित एक स्थानीय ओपन-सोर्स वित्तीय AI मल्टीमॉडल LLM (दृष्टि और टूल कॉलिंग का समर्थन करता है) है। moziAI-35B ओपन-सोर्स बेस मॉडल Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B आर्किटेक्चर, MIT लाइसेंस) पर आधारित है, जिसमें चेन युमो टीम के स्व-विकसित: (वित्तीय डेटा + वित्तीय डोमेन क्षमताएं + प्रशिक्षण विधियां + सात-आयामी सोच प्रणाली + एजेंट LOOP तंत्र + हाइब्रिड क्वांटिज़ेशन एल्गोरिदम MoziSmartBit) शामिल हैं। स्व-विकसित MoziSmartBit इंटेलिजेंट क्वांटिज़ेशन तकनीक के माध्यम से, 350 अरब पैरामीटर वाला MoE मॉडल लगभग 15.5 GB में संपीड़ित होता है, जो पारंपरिक Q4_K_M क्वांटिज़ेशन मॉडल (लगभग 22+GB) से 6.5G (लगभग 30%) छोटा है; सटीकता और आकार के बीच इष्टतम संतुलन प्राप्त करता है, लगभग हानिरहित ≈FP16 की 99% सटीकता गुणवत्ता प्रदान करता है।
+MoziAI-35B-A3B-MOE चीनी वित्तीय प्रभावशाली चेन युमो की टीम द्वारा विकसित एक स्थानीय ओपन-सोर्स वित्तीय AI मल्टीमॉडल LLM (दृष्टि और टूल कॉलिंग का समर्थन करता है) है। moziAI-35B ओपन-सोर्स बेस मॉडल Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B आर्किटेक्चर, MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components) लाइसेंस) पर आधारित है, जिसमें चेन युमो टीम के स्व-विकसित: (वित्तीय डेटा + वित्तीय डोमेन क्षमताएं + प्रशिक्षण विधियां + सात-आयामी सोच प्रणाली + एजेंट LOOP तंत्र + हाइब्रिड क्वांटिज़ेशन एल्गोरिदम MoziSmartBit) शामिल हैं। स्व-विकसित MoziSmartBit इंटेलिजेंट क्वांटिज़ेशन तकनीक के माध्यम से, 350 अरब पैरामीटर वाला MoE मॉडल लगभग 15.5 GB में संपीड़ित होता है, जो पारंपरिक Q4_K_M क्वांटिज़ेशन मॉडल (लगभग 22+GB) से 6.5G (लगभग 30%) छोटा है; सटीकता और आकार के बीच इष्टतम संतुलन प्राप्त करता है, लगभग हानिरहित ≈FP16 की 99% सटीकता गुणवत्ता प्रदान करता है।
 
 
 
@@ -135,7 +135,7 @@ llama.cpp, Ollama, LM Studio और अन्य प्रमुख इन्फ
 
 | आइटम | विनिर्दें|
 |--------|----------|
-| बेंमॉडल | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT लाइसेंट |
+| बेंमॉडल | Ornith-1.5-35B-A3B (**Qwen3.5-35B-A3B / Qwen3.6-35B-A3B**, MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components) लाइसेंट |
 | पैरामीटर | 35B MoE (256 रूटेंएक्सपर्ट्स + 1 शेयर्ड एक्सपर्ट, प्रताटोकन 8 सक्रिय) |
 | क्वांटाइजेशन | स्रविकसित MoziSmartBit Intelligent Quantization + GGUF मानक प्रारूल|
 | कॉन्टेक्स्रलंबान| 256K (262,144 टोकन) |
@@ -355,7 +355,7 @@ LM Studio या Jan में`moziAI-35B` खोजें MoziSmartBit क्�
 
 
 
-MoziAI **deepreinforce-ai/Ornith-1.5-35B-A3B** से फाइन-ट्यूलकिया गयाहै।MoziAI बेंमॉडल के ऊप्वित्तीयऊर्ध्वाधाक्षेत्रोगके लिकअनुकूलित है, वित्तीयप्रश्नोत्ता मात्रात्मक प्रोग्रामिंग और टूलकॉलिंग परिदृश्यों मेंउत्कृष्ट प्रदर्शन प्रदान करता है।MoziAI-35B की सामान्रक्षमताएँ Ornith-1.5-35B-A3B बेंमॉडल के सानसंगत हैं।
+MoziAI **ornith-ai/Ornith-1.5-35B-A3B** से फाइन-ट्यूलकिया गयाहै।MoziAI बेंमॉडल के ऊप्वित्तीयऊर्ध्वाधाक्षेत्रोगके लिकअनुकूलित है, वित्तीयप्रश्नोत्ता मात्रात्मक प्रोग्रामिंग और टूलकॉलिंग परिदृश्यों मेंउत्कृष्ट प्रदर्शन प्रदान करता है।MoziAI-35B की सामान्रक्षमताएँ Ornith-1.5-35B-A3B बेंमॉडल के सानसंगत हैं।
 
 
 
@@ -605,3 +605,27 @@ moziAI-35B/
 
 
 Copyright (c) 2026 चेंयुमो / chenyumo166. सर्वाधिकार सुरक्षिता
+
+---
+<!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
+## 上游许可与归属声明 / Upstream License & Attribution Notice
+
+本模型是**组合作品**，采用分层许可。This model is a **combined work** distributed under layered licensing.
+
+| 组成部分 / Component | 许可 / License |
+|---|---|
+| Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
+| 继承的上游组件（Qwen3.5/3.6 + Gemma 4） / Inherited upstream components (Qwen3.5/3.6 + Gemma 4) | **Apache License 2.0** |
+| MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
+
+- 继承的上游组件（Qwen3.5/3.6 与 Gemma 4）在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
+  The inherited upstream components (Qwen3.5/3.6 and Gemma 4) remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
+- 上游版权、商标与归属声明见 [`NOTICE`](../NOTICE)。
+  Upstream copyright, trademark and attribution notices: [`NOTICE`](../NOTICE).
+- 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。
+  Modifications made by this team to the upstream work: [`MODIFICATIONS.md`](../MODIFICATIONS.md).
+- 本仓库的限制性条款**仅适用于 MoziAI 原创增量部分**。若与上游许可冲突，就上游组件而言以上游许可为准（见 `LICENSE` 第 11 条）。
+  This repository's restrictive terms apply **only to MoziAI's original additions**. Where they conflict with an upstream license, the upstream license prevails for the upstream components (see `LICENSE`, Section 11).
+- "Qwen"、"通义千问" 是阿里巴巴集团的商标。本项目与阿里巴巴集团、Qwen 团队及 Ornith 作者无隶属、赞助或背书关系。
+  "Qwen" and "Tongyi Qianwen" are trademarks of Alibaba Group. This project is not affiliated with, endorsed by or sponsored by Alibaba Group, the Qwen team or the Ornith authors.
+<!-- UPSTREAM-LICENSE-NOTICE:END -->

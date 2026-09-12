@@ -26,7 +26,7 @@ Language / 语言选择
 
 ## 模型简介
 
-MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多模态AI大模型（增强金融领域、支持视觉、工具调用、消费级显卡本地部署），moziAI-35B 基于开源底座 Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架构，MIT 许可），结合陈雨墨团队自主研发的：（金融数据 + 金融领域能力 + 训练方法 + 七维思考体系 + 智能体LOOP机制 + 混合量化算法 MoziSmartBit）开发而成。通过自研的 MoziSmartBit 智能量化 技术，将350亿参数MoE模型压缩至约 15.5 GB，比常规Q4_K_M量化约22+GB的模型体积小了6.5G（约30%）；在精度与体积间取得最优平衡，实现几乎≈FP16 的 99%的精度质量。
+MoziAI-35B-A3B-MOE 是由中国财经大V陈雨墨团队开发的本地开源多模态AI大模型（增强金融领域、支持视觉、工具调用、消费级显卡本地部署），moziAI-35B 基于开源底座 Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架构，MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components) 许可），结合陈雨墨团队自主研发的：（金融数据 + 金融领域能力 + 训练方法 + 七维思考体系 + 智能体LOOP机制 + 混合量化算法 MoziSmartBit）开发而成。通过自研的 MoziSmartBit 智能量化 技术，将350亿参数MoE模型压缩至约 15.5 GB，比常规Q4_K_M量化约22+GB的模型体积小了6.5G（约30%）；在精度与体积间取得最优平衡，实现几乎≈FP16 的 99%的精度质量。
 
 本模型研发团队的理念就是让综合能力强大的本地AI大模型智能体可走入千家万户与中小企业，不再需要支付高昂的AI硬件成本或云端API成本。通过自研的**MoziSmartBit 智能量化** 技术，将 350 亿参数的 MoE 模型压缩至约 **15.5 GB**，在模型精度与体积间取得最优平衡，实现几乎≈FP16 的 99% 的精度质量。本模型具有350亿参数，但是采用MOE稀疏专家技术而获得只调用30亿参数并支持MTP推测解码的加速推理能力，实测可在20G显存的家用消费级显卡完成本地免费部署也可拥有140+ token/s的推理速度，推理速度优于众多云端收费AI大模型。
 
@@ -241,7 +241,7 @@ moziAI-35B/
 <tbody>
 <tr>
 <td>底座模型</td>
-<td>Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架构，MIT 许可证）</td>
+<td>Ornith-1.0-35B-A3B（Qwen3.5-35B-A3B / Qwen3.6-35B-A3B 架构，MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components) 许可证）</td>
 </tr>
 <tr>
 <td>参数规模</td>
@@ -391,7 +391,7 @@ ollama run moziAI-35B
 
 ## 基准评测
 
-moziAI-35B-V3.6 基于 **Ornith-1.0-35B**（deepreinforce-ai）底座微调。MoziAI 在底座优秀的智能体编码能力基础上，新增**金融垂直领域深度优化**，在金融问答、量化编程、工具调用等场景下表现更出色。通用能力与 Ornith-1.0-35B 底座保持一致。
+moziAI-35B-V3.6 基于 **Ornith-1.0-35B**（ornith-ai）底座微调。MoziAI 在底座优秀的智能体编码能力基础上，新增**金融垂直领域深度优化**，在金融问答、量化编程、工具调用等场景下表现更出色。通用能力与 Ornith-1.0-35B 底座保持一致。
 
 | Benchmark | moziAI-35B-V3.6 | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
@@ -450,3 +450,27 @@ moziAI-35B-V3.6 基于 **Ornith-1.0-35B**（deepreinforce-ai）底座微调。Mo
 
 
 Copyright (c) 2026 陈雨墨 / chenyumo166. All rights reserved.
+
+---
+<!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
+## 上游许可与归属声明 / Upstream License & Attribution Notice
+
+本模型是**组合作品**，采用分层许可。This model is a **combined work** distributed under layered licensing.
+
+| 组成部分 / Component | 许可 / License |
+|---|---|
+| Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
+| 继承的上游组件（Qwen3.5/3.6 + Gemma 4） / Inherited upstream components (Qwen3.5/3.6 + Gemma 4) | **Apache License 2.0** |
+| MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
+
+- 继承的上游组件（Qwen3.5/3.6 与 Gemma 4）在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
+  The inherited upstream components (Qwen3.5/3.6 and Gemma 4) remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
+- 上游版权、商标与归属声明见 [`NOTICE`](../NOTICE)。
+  Upstream copyright, trademark and attribution notices: [`NOTICE`](../NOTICE).
+- 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。
+  Modifications made by this team to the upstream work: [`MODIFICATIONS.md`](../MODIFICATIONS.md).
+- 本仓库的限制性条款**仅适用于 MoziAI 原创增量部分**。若与上游许可冲突，就上游组件而言以上游许可为准（见 `LICENSE` 第 11 条）。
+  This repository's restrictive terms apply **only to MoziAI's original additions**. Where they conflict with an upstream license, the upstream license prevails for the upstream components (see `LICENSE`, Section 11).
+- "Qwen"、"通义千问" 是阿里巴巴集团的商标。本项目与阿里巴巴集团、Qwen 团队及 Ornith 作者无隶属、赞助或背书关系。
+  "Qwen" and "Tongyi Qianwen" are trademarks of Alibaba Group. This project is not affiliated with, endorsed by or sponsored by Alibaba Group, the Qwen team or the Ornith authors.
+<!-- UPSTREAM-LICENSE-NOTICE:END -->

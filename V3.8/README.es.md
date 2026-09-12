@@ -51,7 +51,7 @@ pipeline_tag: text-generation
 
 ## 1. Resumen del modelo
 
-MoziAI-35B-V3.8 es un gran modelo de IA multimodal de código abierto y despliegue local, desarrollado por el equipo de Chen Yumo, destacada figura del sector financiero chino. Se basa en el modelo base de código abierto **Ornith-1.5-35B-A3B** (arquitectura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MoE 35B, licencia MIT/Apache-2.0) y combina los datos financieros desarrollados por el propio equipo, las capacidades del ámbito financiero, el sistema de pensamiento dinámico de siete dimensiones, el mecanismo iterativo de reflexión LOOP de agentes, la característica Uncensored (sin moderación) y el algoritmo de cuantización híbrida MoziSmartBit.
+MoziAI-35B-V3.8 es un gran modelo de IA multimodal de código abierto y despliegue local, desarrollado por el equipo de Chen Yumo, destacada figura del sector financiero chino. Se basa en el modelo base de código abierto **Ornith-1.5-35B-A3B** (arquitectura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MoE 35B, licencia MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components)) y combina los datos financieros desarrollados por el propio equipo, las capacidades del ámbito financiero, el sistema de pensamiento dinámico de siete dimensiones, el mecanismo iterativo de reflexión LOOP de agentes, la característica Uncensored (sin moderación) y el algoritmo de cuantización híbrida MoziSmartBit.
 
 **💡 Ventaja de tamaño: solo 15.9 GB** — el modelo MoE de 35 000 millones de parámetros se comprime mediante la cuantización inteligente patentada MoziSmartBit hasta **15.9 GB** (aproximadamente un 30 % más pequeño que el Q4_K_M convencional de ~22 GB). Cabe en un único paquete de instalación, puede desplegarse localmente en tarjetas gráficas de consumo general (a partir de 20 GB de VRAM), el coste de tokens en la nube es 0, lo que garantiza tokens ilimitados 7×24 horas y asegura la privacidad y seguridad de los datos locales. Con licencia de **uso comercial gratuito**, tanto particulares como empresas pueden utilizarlo sin ninguna barrera de entrada.
 
@@ -122,7 +122,7 @@ moziAI mantendrá un ritmo activo de actualizaciones de versión, asegurándose 
 
 | Elemento | Parámetro |
 | --- | --- |
-| Modelo base | Ornith-1.5-35B-A3B (arquitectura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, licencia MIT/Apache-2.0) |
+| Modelo base | Ornith-1.5-35B-A3B (arquitectura Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, licencia MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components)) |
 | Tamaño de parámetros | 35 000 millones (35B), arquitectura MoE, 256 expertos de enrutamiento + 1 experto compartido, 8 expertos activados por token |
 | Método de cuantización | Cuantización inteligente patentada MoziSmartBit + formato estándar GGUF |
 | Longitud de contexto | 256K (262,144 tokens) |
@@ -322,7 +322,7 @@ Busque `moziAI` en LM Studio / Jan y descargue la versión cuantizada Q4\_K\_M (
 
 ## 14. Evaluaciones comparativas
 
-MoziAI-35B-V3.8 se desarrolló mediante fine-tuning, destilación y desarrollo secundario sobre el modelo base deepreinforce-ai/Ornith-1.5-35B-A3B, con el sector financiero vertical como principal dirección de optimización. A continuación se presenta la comparación entre varios modelos (las capacidades generales de MoziAI coinciden con las del modelo base Ornith-1.5-35B-A3B; los datos proceden de las pruebas reales de la versión V3.7, ya que V3.8 y V3.7 comparten el mismo modelo base y el mismo sistema de entrenamiento):
+MoziAI-35B-V3.8 se desarrolló mediante fine-tuning, destilación y desarrollo secundario sobre el modelo base ornith-ai/Ornith-1.5-35B-A3B, con el sector financiero vertical como principal dirección de optimización. A continuación se presenta la comparación entre varios modelos (las capacidades generales de MoziAI coinciden con las del modelo base Ornith-1.5-35B-A3B; los datos proceden de las pruebas reales de la versión V3.7, ya que V3.8 y V3.7 comparten el mismo modelo base y el mismo sistema de entrenamiento):
 
 | Benchmark | moziAI-35B-V3.8<br>(este modelo) | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
@@ -400,11 +400,11 @@ Copyright (c) 2026 陈雨墨 / chenyumo166. All rights reserved.
 | 组成部分 / Component | 许可 / License |
 |---|---|
 | Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
-| 继承的上游 Qwen 组件 / Inherited Qwen components | **Apache License 2.0** |
+| 继承的上游组件（Qwen3.5/3.6 + Gemma 4） / Inherited upstream components (Qwen3.5/3.6 + Gemma 4) | **Apache License 2.0** |
 | MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
 
-- 继承的 Qwen 组件在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
-  The inherited Qwen components remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
+- 继承的上游组件（Qwen3.5/3.6 与 Gemma 4）在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](../LICENSE-APACHE)。
+  The inherited upstream components (Qwen3.5/3.6 and Gemma 4) remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](../LICENSE-APACHE).
 - 上游版权、商标与归属声明见 [`NOTICE`](../NOTICE)。
   Upstream copyright, trademark and attribution notices: [`NOTICE`](../NOTICE).
 - 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](../MODIFICATIONS.md)。

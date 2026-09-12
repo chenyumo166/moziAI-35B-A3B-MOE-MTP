@@ -26,7 +26,7 @@ pipeline_tag: text-generation
 
 ## Model Overview
 
-MoziAI-35B-V3.8 is a locally deployable open-source financial AI multimodal large language model (vision, tool calling and Uncensored support), developed by the team of Chen Yumo, a leading Chinese finance influencer. Built on the open-source base **Ornith-1.5-35B-A3B** (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MoE 35B, MIT/Apache-2.0 license), it integrates the team's self-developed: financial data + financial domain capabilities + training methods + dynamic seven-dimensional thinking system + agent LOOP mechanism + Uncensored characteristic + MoziSmartBit hybrid quantization algorithm.
+MoziAI-35B-V3.8 is a locally deployable open-source financial AI multimodal large language model (vision, tool calling and Uncensored support), developed by the team of Chen Yumo, a leading Chinese finance influencer. Built on the open-source base **Ornith-1.5-35B-A3B** (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B architecture, MoE 35B, MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components) license), it integrates the team's self-developed: financial data + financial domain capabilities + training methods + dynamic seven-dimensional thinking system + agent LOOP mechanism + Uncensored characteristic + MoziSmartBit hybrid quantization algorithm.
 
 With the self-developed MoziSmartBit smart quantization technology, the 35B-parameter MoE model is compressed to just **15.9 GB** — around 30% smaller than standard Q4_K_M (~22 GB) — achieving an optimal balance between accuracy and size with **~99% FP16 accuracy quality**.
 
@@ -52,7 +52,7 @@ Supports llama.cpp, Ollama, LM Studio, Jan and other mainstream inference framew
 
 | Item | Specification |
 | --- | --- |
-| Base Model | Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MIT/Apache-2.0) |
+| Base Model | Ornith-1.5-35B-A3B (Qwen3.5-35B-A3B / Qwen3.6-35B-A3B, MIT + Apache-2.0 (Qwen3.5/3.6 & Gemma 4 components)) |
 | Parameters | 35B MoE, 256 routing experts + 1 shared expert, 8 experts active per token |
 | Quantization | MoziSmartBit + GGUF standard |
 | Context Length | 256K (262,144 tokens) |
@@ -101,7 +101,7 @@ No content moderation restrictions, free output, complete information, local pri
 
 ## License
 
-**Layered licensing**: ✅ free commercial use, copying and distribution / ❌ secondary development, resale, or sub-licensing **of MoziAI's original additions only** (upstream components retain their original Apache 2.0 / MIT licenses) / 📋 retain all upstream copyright notices ([`NOTICE`](NOTICE)) and this license. See [`LICENSE`](LICENSE), [`LICENSE-APACHE`](LICENSE-APACHE), [`NOTICE`](NOTICE), and [`MODIFICATIONS.md`](MODIFICATIONS.md). Model output is for reference only and does not constitute investment advice.
+**Layered licensing**: ✅ free commercial use, copying and distribution / ❌ secondary development, resale, or sub-licensing **of MoziAI's original additions only** (upstream components (Qwen3.5/3.6, Gemma 4, Ornith increment) retain their original licenses) / 📋 retain all upstream copyright notices ([`NOTICE`](NOTICE)) and this license. See [`LICENSE`](LICENSE), [`LICENSE-APACHE`](LICENSE-APACHE), [`NOTICE`](NOTICE), and [`MODIFICATIONS.md`](MODIFICATIONS.md). Model output is for reference only and does not constitute investment advice.
 
 ## Contact
 
@@ -119,11 +119,11 @@ Copyright (c) 2026 Chen Yumo / chenyumo166. All rights reserved.
 | 组成部分 / Component | 许可 / License |
 |---|---|
 | Ornith 自研增量 / Ornith increment | 以上游仓库实际随附的许可文件为准 / per the upstream repository |
-| 继承的上游 Qwen 组件 / Inherited Qwen components | **Apache License 2.0** |
+| 继承的上游组件（Qwen3.5/3.6 + Gemma 4） / Inherited upstream components (Qwen3.5/3.6 + Gemma 4) | **Apache License 2.0** |
 | MoziAI 原创增量 / MoziAI additions | **MoziAI Custom Restricted License** |
 
-- 继承的 Qwen 组件在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](LICENSE-APACHE)。
-  The inherited Qwen components remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](LICENSE-APACHE).
+- 继承的上游组件（Qwen3.5/3.6 与 Gemma 4）在任何时候均持续受 **Apache License 2.0** 约束；本仓库的限制性许可、以及适用于 Ornith 增量的宽松许可，均不构成对该等组件的重新授权、再许可或变更。许可全文见 [`LICENSE-APACHE`](LICENSE-APACHE)。
+  The inherited upstream components (Qwen3.5/3.6 and Gemma 4) remain governed by the **Apache License, Version 2.0** at all times. Neither this repository's restrictive license nor any permissive license applied to the Ornith increment relicenses, sublicenses or otherwise modifies them. Full text: [`LICENSE-APACHE`](LICENSE-APACHE).
 - 上游版权、商标与归属声明见 [`NOTICE`](NOTICE)。
   Upstream copyright, trademark and attribution notices: [`NOTICE`](NOTICE).
 - 本团队对上游作品所做的修改见 [`MODIFICATIONS.md`](MODIFICATIONS.md)。
