@@ -84,7 +84,7 @@ This statement only records the MoziAI team's modifications. It does
 
 - 继承自上游（Qwen3.5/3.6 与 Gemma 4）的组件持续受 **Apache License, Version 2.0**
   约束，见 `LICENSE-APACHE`。
-- Ornith 自研增量适用上游声明的 **MIT License**，不受本仓库限制性许可影响。
+- Ornith 自研增量适用上游声明的 **MIT License**，不受本仓库许可条件影响。
 - 上游版权、商标与归属声明见 `NOTICE`。
 - 详细许可分层见 `NOTICE` 第 5 节。
 
@@ -102,3 +102,12 @@ original upstream work (as required to be retained by Apache License
 ---
 
 *本文件最后更新：2026-09-13 / Last updated: 2026-09-13*
+
+---
+
+<!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
+## License
+
+License: see the **[MoziAI Model License](LICENSE.en.md)** (English v2.0). This model contains upstream components governed by the **Apache License 2.0** (Qwen3.5/3.6, Gemma 4). Upstream copyright and attribution notices: [`NOTICE`](NOTICE); modifications made by this team: [`MODIFICATIONS.md`](MODIFICATIONS.md).
+<!-- UPSTREAM-LICENSE-NOTICE:END -->
+
