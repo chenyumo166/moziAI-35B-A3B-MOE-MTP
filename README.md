@@ -3,8 +3,10 @@ language:
 - en
 - zh
 license: other
-license_name: moziai-custom-restricted
+license_name: moziai-model-license
 license_link: https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP/blob/main/LICENSE
+base_model: ornith-ai/Ornith-1.5-35B-A3B
+base_model_relation: finetune
 # 许可：MoziAI 模型许可协议（见 LICENSE / LICENSE.en.md）｜本模型含 Apache-2.0 上游组件（Qwen3.5/3.6、Gemma 4）｜详见 NOTICE
 tasks:
 - text-generation
