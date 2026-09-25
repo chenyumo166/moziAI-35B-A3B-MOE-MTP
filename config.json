@@ -127,7 +127,7 @@
   "base_model": "Qwen3.6-35B-A3B-Ornith-1.5",
   "moziAI": {
     "model_name": "moziAI-35B-A3B-MOE-MTP",
-    "version": "V3.7",
+    "version": "V3.8",
     "quantization": "MoziSmartBit hybrid (GGUF, llama.cpp)",
     "context_length": 262144,
     "architecture": "Qwen3.6-35B-A3B MoE (256 experts, 8 active) + hybrid attention"

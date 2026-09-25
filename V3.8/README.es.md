@@ -143,9 +143,9 @@ moziAI mantendrá un ritmo activo de actualizaciones de versión, asegurándose 
 Descargue **estos 3 archivos** de HuggingFace / ModelScope a un mismo directorio local (el modelo principal está en la **raíz del repositorio**, la proyección de visión en `mmproj/35B/` y la plantilla de chat en `V3.8/`):
 
 ```
-moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← Modelo principal (obligatorio, 15.9 GB)
-moziAI-35B-mmproj-BF16-V1.0.gguf                        ← Proyección de visión (obligatorio, ~1 GB)
-moziAI-V3.8-35B-chat-template.jinja                                        ← Plantilla de chat (obligatoria, incluye las instrucciones de pensamiento de siete dimensiones + Loop)
+moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf ← Modelo principal (obligatorio, 15.9 GB)
+moziAI-35B-mmproj-BF16-V1.0.gguf ← Proyección de visión (obligatorio, ~1 GB)
+moziAI-V3.8-35B-chat-template.jinja ← Plantilla de chat (obligatoria, incluye las instrucciones de pensamiento de siete dimensiones + Loop)
 ```
 
 | Archivo | Tamaño | Necesidad | Función |
@@ -158,11 +158,11 @@ moziAI-V3.8-35B-chat-template.jinja                                        ← P
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 131072 -ngl 99 \
-  --host 0.0.0.0 --port 8080
+ -m./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 131072 -ngl 99 \
+ --host 0.0.0.0 --port 8080
 ```
 
 Abra `http://localhost:8080` en el navegador para comenzar la conversación. Consulte la sección 9 para ver los parámetros recomendados completos.
@@ -190,30 +190,30 @@ Abra `http://localhost:8080` en el navegador para comenzar la conversación. Con
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 131072 -ngl 99 \
-  --host 0.0.0.0 --port 8080
+ -m./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 131072 -ngl 99 \
+ --host 0.0.0.0 --port 8080
 ```
 
 ### Inicio recomendado completo
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 262144 -ngl 99 -t 28 \
-  --batch-size 2048 --ubatch-size 512 \
-  --flash-attn auto \
-  --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
-  --poll 0 \
-  --reasoning on --reasoning-format deepseek-legacy \
-  --spec-default \
-  --host 0.0.0.0 --port 8080 \
-  --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.024 \
-  --repeat-penalty 1.05 --presence-penalty 0
+ -m./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 262144 -ngl 99 -t 28 \
+ --batch-size 2048 --ubatch-size 512 \
+ --flash-attn auto \
+ --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
+ --poll 0 \
+ --reasoning on --reasoning-format deepseek-legacy \
+ --spec-default \
+ --host 0.0.0.0 --port 8080 \
+ --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.024 \
+ --repeat-penalty 1.05 --presence-penalty 0
 ```
 
 > 💡 Si la VRAM es insuficiente: reduzca `-c` (p. ej., 131072) o añada `--fit on` para que llama.cpp adapte la VRAM automáticamente.
@@ -300,7 +300,7 @@ Según las pruebas del modelo MoziSmartBit (modelo + visión: ~16.4 GB en total)
 
 ```bash
 cat > Modelfile << 'EOF'
-FROM ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
+FROM./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
 PARAMETER top_k 20
@@ -314,7 +314,7 @@ ollama run moziAI-35B
 
 ### LM Studio / Jan
 
-Busque `moziAI` en LM Studio / Jan y descargue la versión cuantizada Q4\_K\_M (LM Studio lee por defecto los modelos de la raíz del repositorio; para las versiones anteriores, use «Agregar desde URL» para importar los archivos del directorio de la versión correspondiente, como `V3.7/`).
+Busque `moziAI` en LM Studio / Jan y descargue la versión cuantizada Q4\_K\_M.
 
 > 💡 Ollama ofrece un soporte limitado para mmproj y chat\_template; se recomienda usar preferentemente llama.cpp para obtener la funcionalidad completa.
 
@@ -326,7 +326,7 @@ MoziAI-35B-V3.8 se desarrolló mediante fine-tuning, destilación y desarrollo s
 
 | Benchmark | moziAI-35B-V3.8<br>(este modelo) | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
-| **Pruebas de programación** |  |  |  |  |  |  |
+| **Pruebas de programación** | | | | | | |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
 | Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
 | SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
@@ -336,11 +336,11 @@ MoziAI-35B-V3.8 se desarrolló mediante fine-tuning, destilación y desarrollo s
 | Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
 | NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
 | SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
-| **Pruebas de razonamiento** |  |  |  |  |  |  |
+| **Pruebas de razonamiento** | | | | | | |
 | HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
 | HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
 | GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
-| **Pruebas de agente** |  |  |  |  |  |  |
+| **Pruebas de agente** | | | | | | |
 | MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
 | Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |

@@ -144,9 +144,9 @@ moziAI は活発なバージョンアップを継続し、AI の発展に追随�
 HuggingFace / ModelScope で**この 3 ファイル**をローカルの同一フォルダにダウンロード（メインモデルは**リポジトリルート**、ビジョンプロジェクターは `mmproj/35B/`、チャットテンプレートは `V3.8/`）：
 
 ```
-moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← メインモデル（必須、15.9 GB）
-moziAI-35B-mmproj-BF16-V1.0.gguf                        ← ビジョンプロジェクター（必須、~1 GB）
-moziAI-V3.8-35B-chat-template.jinja                                        ← チャットテンプレート（必須、7次元思考+Loop指令）
+moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf ← メインモデル（必須、15.9 GB）
+moziAI-35B-mmproj-BF16-V1.0.gguf ← ビジョンプロジェクター（必須、~1 GB）
+moziAI-V3.8-35B-chat-template.jinja ← チャットテンプレート（必須、7次元思考+Loop指令）
 ```
 
 | ファイル | サイズ | 必須 | 役割 |
@@ -159,11 +159,11 @@ moziAI-V3.8-35B-chat-template.jinja                                        ← �
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 131072 -ngl 99 \
-  --host 0.0.0.0 --port 8080
+ -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 131072 -ngl 99 \
+ --host 0.0.0.0 --port 8080
 ```
 
 ブラウザで `http://localhost:8080` を開いて会話を開始。完全な推奨パラメータは第9節を参照。
@@ -191,30 +191,30 @@ llama-server \
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 131072 -ngl 99 \
-  --host 0.0.0.0 --port 8080
+ -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 131072 -ngl 99 \
+ --host 0.0.0.0 --port 8080
 ```
 
 ### 完全推奨起動
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 262144 -ngl 99 -t 28 \
-  --batch-size 2048 --ubatch-size 512 \
-  --flash-attn auto \
-  --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
-  --poll 0 \
-  --reasoning on --reasoning-format deepseek-legacy \
-  --spec-default \
-  --host 0.0.0.0 --port 8080 \
-  --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.024 \
-  --repeat-penalty 1.05 --presence-penalty 0
+ -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 262144 -ngl 99 -t 28 \
+ --batch-size 2048 --ubatch-size 512 \
+ --flash-attn auto \
+ --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
+ --poll 0 \
+ --reasoning on --reasoning-format deepseek-legacy \
+ --spec-default \
+ --host 0.0.0.0 --port 8080 \
+ --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.024 \
+ --repeat-penalty 1.05 --presence-penalty 0
 ```
 
 > 💡 VRAM 不足時：`-c` を下げる（例：131072）、または `--fit on` を追加して llama.cpp に VRAM 適合させる。
@@ -315,7 +315,7 @@ ollama run moziAI-35B
 
 ### LM Studio / Jan
 
-LM Studio / Jan で `moziAI` を検索し、Q4\_K\_M 量子化版をダウンロード（LM Studio はデフォルトでルートディレクトリのモデルを読み込みます。以前のバージョンは「URLから追加」で対応するバージョンディレクトリ（例：`V3.7/`）のファイルをインポートしてください）。
+LM Studio / Jan で `moziAI` を検索し、Q4\_K\_M 量子化版をダウンロード（LM Studio はデフォルトでルートディレクトリのモデルを読み込みます。以前のバージョンは「URLから追加」で対応するバージョンディレクトリのファイルをインポートしてください）。
 
 > 💡 Ollama の mmproj と chat\_template サポートは限定的。フル機能には llama.cpp を推奨。
 
@@ -327,7 +327,7 @@ MoziAI-35B-V3.8 は ornith-ai/Ornith-1.5-35B-A3B ベースを微調整・蒸留�
 
 | Benchmark | moziAI-35B-V3.8<br>（本モデル） | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
-| **コーディング** |  |  |  |  |  |  |
+| **コーディング** | | | | | | |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
 | Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
 | SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
@@ -337,11 +337,11 @@ MoziAI-35B-V3.8 は ornith-ai/Ornith-1.5-35B-A3B ベースを微調整・蒸留�
 | Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
 | NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
 | SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
-| **推論** |  |  |  |  |  |  |
+| **推論** | | | | | | |
 | HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
 | HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
 | GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
-| **エージェント** |  |  |  |  |  |  |
+| **エージェント** | | | | | | |
 | MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
 | Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |

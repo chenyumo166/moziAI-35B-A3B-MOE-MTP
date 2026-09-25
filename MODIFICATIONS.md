@@ -61,7 +61,7 @@ The MoziAI team made the following changes to the original work:
 | `moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf` | 由上游权重**修改**（继续训练 + 重新量化） |
 | `mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf` | **新增** |
 | `V3.8/moziAI-V3.8-35B-chat-template.jinja` | **新增** |
-| 历史版本 `V3.6/`、`V3.7/` 下的权重与模板 | 同样为对上游的**修改** |
+| 历史版本 V3.6 / V3.7 的权重与模板 | 同样为对上游的**修改** |
 
 ### 文档 / Documentation
 

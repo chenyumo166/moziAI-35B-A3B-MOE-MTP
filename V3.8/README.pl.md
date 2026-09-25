@@ -143,9 +143,9 @@ moziAI utrzymuje aktywną częstotliwość aktualizacji wersji, aby nadążać z
 Pobierz **te 3 pliki** z HuggingFace / ModelScope do tego samego katalogu lokalnego (model główny w **katalogu głównym repozytorium**, projektor wizyjny w `mmproj/35B/`, szablon czatu w `V3.8/`):
 
 ```
-moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← Model główny (wymagany, 15,9 GB)
-moziAI-35B-mmproj-BF16-V1.0.gguf                        ← Projektor wizyjny (wymagany, ~1 GB)
-moziAI-V3.8-35B-chat-template.jinja                                        ← Szablon czatu (wymagany, zawiera instrukcje myślenia+Loop)
+moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf ← Model główny (wymagany, 15,9 GB)
+moziAI-35B-mmproj-BF16-V1.0.gguf ← Projektor wizyjny (wymagany, ~1 GB)
+moziAI-V3.8-35B-chat-template.jinja ← Szablon czatu (wymagany, zawiera instrukcje myślenia+Loop)
 ```
 
 | Plik | Rozmiar | Wymóg | Funkcja |
@@ -158,11 +158,11 @@ moziAI-V3.8-35B-chat-template.jinja                                        ← S
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 131072 -ngl 99 \
-  --host 0.0.0.0 --port 8080
+ -m./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 131072 -ngl 99 \
+ --host 0.0.0.0 --port 8080
 ```
 
 Otwórz `http://localhost:8080` w przeglądarce, aby rozpocząć rozmowę. Pełne zalecane parametry w Sekcji 9.
@@ -190,30 +190,30 @@ Otwórz `http://localhost:8080` w przeglądarce, aby rozpocząć rozmowę. Pełn
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 131072 -ngl 99 \
-  --host 0.0.0.0 --port 8080
+ -m./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 131072 -ngl 99 \
+ --host 0.0.0.0 --port 8080
 ```
 
 ### Pełne zalecane uruchomienie
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 262144 -ngl 99 -t 28 \
-  --batch-size 2048 --ubatch-size 512 \
-  --flash-attn auto \
-  --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
-  --poll 0 \
-  --reasoning on --reasoning-format deepseek-legacy \
-  --spec-default \
-  --host 0.0.0.0 --port 8080 \
-  --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.024 \
-  --repeat-penalty 1.05 --presence-penalty 0
+ -m./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 262144 -ngl 99 -t 28 \
+ --batch-size 2048 --ubatch-size 512 \
+ --flash-attn auto \
+ --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
+ --poll 0 \
+ --reasoning on --reasoning-format deepseek-legacy \
+ --spec-default \
+ --host 0.0.0.0 --port 8080 \
+ --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.024 \
+ --repeat-penalty 1.05 --presence-penalty 0
 ```
 
 > 💡 Jeśli VRAM jest ograniczone: obniż `-c` (np. 131072) lub dodaj `--fit on`, aby llama.cpp automatycznie dopasował VRAM.
@@ -300,7 +300,7 @@ Zmierzono na wersji MoziSmartBit (model + widzenie łącznie ~16,4 GB):
 
 ```bash
 cat > Modelfile << 'EOF'
-FROM ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
+FROM./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf
 PARAMETER temperature 0.6
 PARAMETER top_p 0.95
 PARAMETER top_k 20
@@ -314,7 +314,7 @@ ollama run moziAI-35B
 
 ### LM Studio / Jan
 
-Wyszukaj `moziAI` w LM Studio / Jan i wybierz wersję kwantyzacji Q4\_K\_M do pobrania (LM Studio domyślnie czyta model z katalogu głównego repozytorium; dla wersji historycznych użyj \"dodaj z URL\", aby zaimportować pliki z odpowiedniego katalogu wersji, np. `V3.7/`).
+Wyszukaj `moziAI` w LM Studio / Jan i wybierz wersję kwantyzacji Q4\_K\_M do pobrania.
 
 > 💡 Wsparcie Ollama dla mmproj i chat\_template jest ograniczone; zaleca się najpierw użycie llama.cpp dla pełnej funkcjonalności.
 
@@ -326,7 +326,7 @@ MoziAI-35B-V3.8 opiera się na fine-tuningu, destylacji i wtórnym rozwoju bazy 
 
 | Benchmark | moziAI-35B-V3.8<br>(ten model) | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
-| **Testy programowania** |  |  |  |  |  |  |
+| **Testy programowania** | | | | | | |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
 | Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
 | SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
@@ -336,11 +336,11 @@ MoziAI-35B-V3.8 opiera się na fine-tuningu, destylacji i wtórnym rozwoju bazy 
 | Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
 | NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
 | SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
-| **Testy wnioskowania** |  |  |  |  |  |  |
+| **Testy wnioskowania** | | | | | | |
 | HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
 | HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
 | GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
-| **Testy agentów** |  |  |  |  |  |  |
+| **Testy agentów** | | | | | | |
 | MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
 | Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |

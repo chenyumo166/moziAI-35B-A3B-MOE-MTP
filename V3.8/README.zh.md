@@ -144,9 +144,9 @@ moziAI 会保持活跃的版本升级迭代更新频率，确保紧随未来人�
 在 HuggingFace / ModelScope 下载**这 3 个文件**到本地同一目录（主模型在**仓库根目录**，视觉投影在 `mmproj/35B/`，聊天模板在 `V3.8/`）：
 
 ```
-moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf  ← 主模型（必选，15.9 GB）
-moziAI-35B-mmproj-BF16-V1.0.gguf                        ← 视觉投影（必选，~1 GB）
-moziAI-V3.8-35B-chat-template.jinja                                        ← 聊天模板（必选，含七维思考+Loop指令）
+moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf ← 主模型（必选，15.9 GB）
+moziAI-35B-mmproj-BF16-V1.0.gguf ← 视觉投影（必选，~1 GB）
+moziAI-V3.8-35B-chat-template.jinja ← 聊天模板（必选，含七维思考+Loop指令）
 ```
 
 | 文件 | 大小 | 必要性 | 作用 |
@@ -159,11 +159,11 @@ moziAI-V3.8-35B-chat-template.jinja                                        ← �
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 131072 -ngl 99 \
-  --host 0.0.0.0 --port 8080
+ -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 131072 -ngl 99 \
+ --host 0.0.0.0 --port 8080
 ```
 
 浏览器打开 `http://localhost:8080` 即可开始对话。完整推荐参数见第 9 节。
@@ -191,30 +191,30 @@ llama-server \
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 131072 -ngl 99 \
-  --host 0.0.0.0 --port 8080
+ -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 131072 -ngl 99 \
+ --host 0.0.0.0 --port 8080
 ```
 
 ### 完整推荐启动
 
 ```bash
 llama-server \
-  -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
-  --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
-  --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
-  -c 262144 -ngl 99 -t 28 \
-  --batch-size 2048 --ubatch-size 512 \
-  --flash-attn auto \
-  --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
-  --poll 0 \
-  --reasoning on --reasoning-format deepseek-legacy \
-  --spec-default \
-  --host 0.0.0.0 --port 8080 \
-  --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.024 \
-  --repeat-penalty 1.05 --presence-penalty 0
+ -m ./moziAI-35B-V3.8-MOE-MTP-Q4_K_M-Uncensored-Qwen3.6-35B-A3B-Ornith-1.5.gguf \
+ --mmproj mmproj/35B/moziAI-35B-mmproj-BF16-V1.0.gguf \
+ --chat-template-file V3.8/moziAI-V3.8-35B-chat-template.jinja \
+ -c 262144 -ngl 99 -t 28 \
+ --batch-size 2048 --ubatch-size 512 \
+ --flash-attn auto \
+ --cache-type-k q4_0 --cache-type-v q4_0 --kv-unified \
+ --poll 0 \
+ --reasoning on --reasoning-format deepseek-legacy \
+ --spec-default \
+ --host 0.0.0.0 --port 8080 \
+ --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.024 \
+ --repeat-penalty 1.05 --presence-penalty 0
 ```
 
 > 💡 显存不足时：降低 `-c`（如 131072），或加 `--fit on` 让 llama.cpp 自动适配显存。
@@ -315,7 +315,7 @@ ollama run moziAI-35B
 
 ### LM Studio / Jan
 
-在 LM Studio / Jan 中搜索 `moziAI`，选择 Q4\_K\_M 量化版本下载即可（LM Studio 默认读取仓库根目录模型，历史版本请使用"从 URL 添加"导入对应版本目录文件，如 `V3.7/`）。
+在 LM Studio / Jan 中搜索 `moziAI`，选择 Q4\_K\_M 量化版本下载即可。
 
 > 💡 Ollama 的 mmproj 和 chat\_template 支持有限，建议优先使用 llama.cpp 获得完整功能。
 
@@ -327,7 +327,7 @@ MoziAI-35B-V3.8 基于 ornith-ai/Ornith-1.5-35B-A3B 底座微调、蒸馏与二�
 
 | Benchmark | moziAI-35B-V3.8<br>（本模型） | Ornith-1.0-35B-A3B | Qwen3.6-35B-A3B | Gemma-4-31B | Muse-Glimmer-30B | Qwen3.5-397B |
 |---|---|---|---|---|---|---|
-| **编程测试** |  |  |  |  |  |  |
+| **编程测试** | | | | | | |
 | Terminal-Bench 2.1 (Terminus-2) | 67.8 | 64.2 | 52.5 | 42.1 | 51.7 | 53.5 |
 | Terminal-Bench 2.1 (Claude Code) | 68.5 | 62.8 | 49.2 | - | - | 48.6 |
 | SWE-bench Verified | 79 | 75.6 | 73.4 | 52 | 76 | 76.4 |
@@ -337,11 +337,11 @@ MoziAI-35B-V3.8 基于 ornith-ai/Ornith-1.5-35B-A3B 底座微调、蒸馏与二�
 | Frontier-Bench v0.1 | 5.1 | 1.4 | 1.4 | - | - | 1.4 |
 | NL2Repo | 46.2 | 34.6 | 29.4 | 15.5 | - | 36.8 |
 | SWE Atlas - QnA | 39.8 | 37.1 | 15.5 | - | - | 20.4 |
-| **推理测试** |  |  |  |  |  |  |
+| **推理测试** | | | | | | |
 | HLE (no tools) | 25.6 | 20.8 | 21.4 | 19.5 | 22 | 28.7 |
 | HLE (with tools) | 33.4 | 30.1 | 28.9 | 26.5 | - | 48.3 |
 | GPQA Diamond | 89.2 | 86.2 | 86 | 84.3 | 83.5 | 88.4 |
-| **代理测试** |  |  |  |  |  |  |
+| **代理测试** | | | | | | |
 | MCP-Atlas | 70.2 | 64.4 | 62.8 | 55 | 75.5 | 72.3 |
 | Toolathlon-Verified | 48.7 | 42.4 | 41.7 | 40.8 | - | 38.3 |
 | WideSearch | 67.8 | 63.4 | 60.1 | 54.2 | - | 74 |
