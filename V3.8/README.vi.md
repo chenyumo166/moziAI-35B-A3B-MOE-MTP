@@ -378,7 +378,7 @@ Mô hình này sử dụng **giấy phép hạn chế tùy chỉnh**:
 
 Mô hình được cung cấp \"nguyên trạng\" không kèm bất kỳ bảo hành nào. Đầu ra mô hình chỉ để tham khảo và không cấu thành lời khuyên đầu tư. Người dùng tự chịu mọi rủi ro.
 
-Xem tệp [LICENSE](LICENSE) để biết điều khoản đầy đủ.
+Xem tệp [LICENSE](../LICENSE) để biết điều khoản đầy đủ.
 
 ---
 

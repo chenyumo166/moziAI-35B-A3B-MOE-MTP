@@ -379,7 +379,7 @@ Este modelo utiliza uma **licença restritiva personalizada**:
 
 Este modelo é fornecido "no estado em que se encontra" (as is), sem garantias de qualquer tipo. As saídas do modelo têm caráter apenas informativo e não constituem recomendação de investimento. O usuário assume integralmente os riscos decorrentes do uso.
 
-Para os termos detalhados, consulte o arquivo [LICENSE](LICENSE).
+Para os termos detalhados, consulte o arquivo [LICENSE](../LICENSE).
 
 ---
 

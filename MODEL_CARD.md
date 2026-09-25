@@ -22,7 +22,7 @@ pipeline_tag: text-generation
 
 # MoziAI-35B-V3.8 - A Compact Yet Powerful Multimodal AI for Free Local Deployment
 
-[English](README.en.md) | [简体中文](README.zh.md) | [繁體中文](README.zh-hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [हिन्दी](README.hi.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Nederlands](README.nl.md) | [Italiano](README.it.md) | [Русский](README.ru.md)
+[English](V3.8/README.en.md) | [简体中文](V3.8/README.zh.md) | [繁體中文](V3.8/README.zh-hant.md) | [日本語](V3.8/README.ja.md) | [한국어](V3.8/README.ko.md) | [हिन्दी](V3.8/README.hi.md) | [Deutsch](V3.8/README.de.md) | [Français](V3.8/README.fr.md) | [Nederlands](V3.8/README.nl.md) | [Italiano](V3.8/README.it.md) | [Русский](V3.8/README.ru.md)
 
 ## Model Overview
 

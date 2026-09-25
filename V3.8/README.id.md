@@ -378,7 +378,7 @@ Model ini menggunakan **lisensi restriktif kustom**:
 
 Model disediakan "sebagaimana adanya" tanpa jaminan apa pun. Output model hanya untuk referensi dan tidak merupakan saran investasi. Pengguna menanggung semua risiko.
 
-Lihat file [LICENSE](LICENSE) untuk ketentuan lengkap.
+Lihat file [LICENSE](../LICENSE) untuk ketentuan lengkap.
 
 ---
 
