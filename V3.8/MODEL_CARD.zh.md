@@ -99,8 +99,8 @@ llama-server \
 
 ## 许可证
 
-许可协议：见 **《MoziAI 模型许可协议》**（[`../LICENSE`](../LICENSE)，中文版 v2.0）。
-本模型包含受 **Apache License 2.0** 约束的上游组件（Qwen3.5/3.6、Gemma 4）；上游归属见 [`../NOTICE`](../NOTICE)，修改声明见 [`../MODIFICATIONS.md`](../MODIFICATIONS.md)。
+许可协议：**Apache License 2.0**（官方英文原文 [`../LICENSE`](../LICENSE)，中文说明 [`../LICENSE.zh-CN.md`](../LICENSE.zh-CN.md)）。
+本模型整体依 Apache-2.0 分发（上游 Qwen3.5/3.6 与 Gemma 4 同为 Apache-2.0；Ornith 增量 MIT，声明已保留）；归属见 [`../NOTICE`](../NOTICE)，修改声明见 [`../MODIFICATIONS.md`](../MODIFICATIONS.md)。
 ## 联系方式
 
 - **HuggingFace**：[@chenyumo](https://huggingface.co/chenyumo) · **GitHub**：[@chenyumo166](https://github.com/chenyumo166)
@@ -110,9 +110,12 @@ Copyright (c) 2026 陈雨墨 / chenyumo166. All rights reserved.
 
 ---
 
+
 <!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
 ## 许可 / License
 
-许可协议：见 **[《MoziAI 模型许可协议》](../LICENSE)**（中文版 v2.0）。本模型包含受 **Apache License 2.0** 约束的上游组件（Qwen3.5/3.6、Gemma 4）；上游版权与归属声明见 [`../NOTICE`](../NOTICE)，本团队对上游作品的修改见 [`../MODIFICATIONS.md`](../MODIFICATIONS.md)。
+许可协议：**Apache License 2.0**。官方英文原文见 [`../LICENSE`](../LICENSE)，中文说明见 [`../LICENSE.zh-CN.md`](../LICENSE.zh-CN.md)。
+本模型整体依 Apache-2.0 分发；上游组件（Qwen3.5/3.6 与 Gemma 4）同为 Apache-2.0，Ornith 增量依其上游模型卡声明的 MIT（相关声明已保留）。上游归属见 [`../NOTICE`](../NOTICE)，修改声明见 [`../MODIFICATIONS.md`](../MODIFICATIONS.md)。
 <!-- UPSTREAM-LICENSE-NOTICE:END -->
+
 

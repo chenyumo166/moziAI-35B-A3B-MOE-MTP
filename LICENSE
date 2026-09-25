@@ -1,136 +1,201 @@
-================================================================
-MoziAI 模型许可协议 / MoziAI Model License
-版本 2.0 | 2026-09-13
-适用模型：MoziAI-35B-A3B-MOE-MTP（moziAI-35B-V3.8）
-================================================================
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
 
-第 0 条  适用范围与上游优先规则（重要，请先阅读）
-================================================================
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
-本模型是组合作品（combined work），由下列四部分构成：
+   1. Definitions.
 
-  (a) 上游 Ornith 自研增量部分；
-  (b) 由 (a) 继承的 Qwen3.5 / Qwen3.6 原生预训练基底组件；
-  (c) 由 (a) 经 Ornith-1.0 血统继承的 Gemma 4 组件；
-  (d) MoziAI 团队原创增量部分。
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
 
-本协议仅适用于上述 (d) 项，即 MoziAI 团队原创增量部分。
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
 
-(a)、(b)、(c) 三项组件的许可状态由各自上游权利人确定。本协议不改变、
-不限制、不豁免该等上游许可，也不对其施加任何额外条件：
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
 
-  (a) Ornith 自研增量部分
-      —— 以其上游仓库实际随附的许可文件为准
-         （上游模型卡声明为 MIT，仓库未随附 LICENSE 文件）；
-  (b) Qwen 基底组件
-      —— Apache License, Version 2.0（全文见 LICENSE-APACHE）；
-  (c) Gemma 4 组件
-      —— Apache License, Version 2.0（全文见 LICENSE-APACHE）。
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
 
-若本协议任何条款与上述上游许可相冲突，就该等上游组件而言，
-以上游许可为准，本协议相应条款对该等组件不适用。
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
 
-上游版权、商标与归属声明见 NOTICE 文件；
-本团队对上游作品所做的修改见 MODIFICATIONS.md 文件。
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
 
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
 
-================================================================
-第 1 条  定义
-================================================================
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
 
-1.1 "本模型" 是指 MoziAI-35B-A3B-MOE（moziAI-35B-V3.8）中由 MoziAI 团队
-    原创贡献的部分，包括金融领域训练数据与继续训练成果、动态七维思考
-    体系、智能体 LOOP 反思迭代机制、MoziSmartBit 混合量化算法、
-    对话模板、文档与随附脚本；不包括第 0 条 (a)、(b)、(c) 项上游组件。
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
 
-1.2 "许可人" 是指本模型的著作权人，即 MoziAI 团队。
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
 
-1.3 "被许可人" 是指依本协议获得本模型副本的任何个人或组织。
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
 
-1.4 "上游组件" 是指第 0 条 (a)、(b)、(c) 三项所描述的作品。
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
 
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
 
-================================================================
-第 2 条  授权
-================================================================
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
 
-在遵守第 3 条的前提下，许可人授予被许可人一项全球范围、免费、
-非独占的著作权许可，包括：
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
 
-  (a) 使用与运行：运行、部署本模型用于任何目的，包括商业目的；
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
 
-  (b) 复制与分发：复制、下载、存储、分发本模型及其副本；
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
 
-  (c) 修改与二次开发：修改、翻译、改编、合并、微调、蒸馏、重新训练
-      本模型，以及基于本模型创建衍生作品；
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
 
-  (d) 商业利用：将本模型或衍生成果用于商业产品与服务，包括收取费用、
-      转售或以其他方式再分发；
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
 
-  (e) 再许可：就本模型向下游授予从属许可（sublicense）。
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
 
-  分发本模型或其衍生作品时，必须随附本协议（LICENSE）、
-  Apache License 2.0 全文（LICENSE-APACHE）、NOTICE 与
-  MODIFICATIONS.md 文件。
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
 
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
 
-================================================================
-第 3 条  条件
-================================================================
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
 
-3.1 保留声明：不得移除或隐藏本协议、LICENSE-APACHE、NOTICE、
-    MODIFICATIONS.md 文件及版权声明。
+   END OF TERMS AND CONDITIONS
 
-3.2 不得虚假陈述：不得声称本模型由阿里巴巴集团、通义千问 / Qwen 团队、
-    Ornith 作者或 Google LLC 官方发布、授权或背书；不得以
-    "MoziAI 官方""MoziAI 授权""经 MoziAI 认证"等名义作虚假陈述或
-    暗示背书。本条为商标与来源识别之要求，不构成对第 2 条所授权利的
-    限制。
+   APPENDIX: How to apply the Apache License to your work.
 
-3.3 上游组件例外：本协议不对上游组件施加任何额外条件；被许可人就
-    上游组件所享有的权利，由该等上游许可直接授予。
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
 
+   Copyright [yyyy] [name of copyright owner]
 
-================================================================
-第 4 条  商标
-================================================================
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
 
-"MoziAI""墨子AI""chenyumo166" 等名称与标识归 MoziAI 团队所有。
-"Qwen""通义千问""Tongyi Qianwen" 是阿里巴巴集团的商标；
-"Gemma" 是 Google LLC 的商标。本协议不授予任何商标许可。
+       http://www.apache.org/licenses/LICENSE-2.0
 
-
-================================================================
-第 5 条  无担保与责任限制
-================================================================
-
-本模型按"现状"（AS IS）提供，不附带任何明示或默示担保。许可人不对
-因使用本模型所产生的任何直接或间接损失承担责任。模型输出仅供参考，
-不构成投资建议。
-
-
-================================================================
-第 6 条  终止
-================================================================
-
-被许可人违反第 3 条时，本协议自动终止；在被许可人停止相关行为并按
-许可人要求删除相关副本后，授权可重新生效。本协议终止不影响被许可人
-依上游许可就上游组件所享有的权利。
-
-
-================================================================
-第 7 条  其他
-================================================================
-
-7.1 本协议某一条款被认定无效或不可执行，不影响其余条款的效力。
-
-7.2 本协议以中文、英文两种文本发布，两种文本具有同等效力；
-    如有歧义，以中文文本为准。
-
-7.3 就上游组件而言，本协议任何条款均不得解释为限制、剥夺或替代
-    被许可人依上游许可所享有的任何权利。
-
-
-================================================================
-Copyright (c) 2026 Chen Yumo (陈雨墨, chenyumo166). All rights reserved.
-================================================================
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.

@@ -555,8 +555,8 @@ financial AI LLM, local open source model, end-side model, quant programming, Mo
 
 ## Licenza (Importante)
 
-License: see the **MoziAI Model License** ([`../LICENSE.en.md`](../LICENSE.en.md), English v2.0).
-This model contains upstream components governed by the **Apache License 2.0** (Qwen3.5/3.6, Gemma 4); attribution: [`../NOTICE`](../NOTICE); modifications: [`../MODIFICATIONS.md`](../MODIFICATIONS.md).
+License: **Apache License 2.0** ([`../LICENSE`](../LICENSE); Chinese note [`../LICENSE.zh-CN.md`](../LICENSE.zh-CN.md)).
+Distributed as a whole under Apache-2.0 (upstream Qwen3.5/3.6 and Gemma 4 likewise Apache-2.0; Ornith increment MIT, notices retained). Attribution: [`../NOTICE`](../NOTICE); modifications: [`../MODIFICATIONS.md`](../MODIFICATIONS.md).
 ## Disclaimer
 
 
@@ -587,9 +587,12 @@ Copyright (c) 2026 Chen Yumo / chenyumo166. Tutti i diritti riservati.
 
 ---
 
+
 <!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
 ## License
 
-License: see the **[MoziAI Model License](../LICENSE.en.md)** (English v2.0). This model contains upstream components governed by the **Apache License 2.0** (Qwen3.5/3.6, Gemma 4). Upstream copyright and attribution notices: [`../NOTICE`](../NOTICE); modifications made by this team: [`../MODIFICATIONS.md`](../MODIFICATIONS.md).
+License: **Apache License 2.0** — authoritative text: [`../LICENSE`](../LICENSE) (Chinese note: [`../LICENSE.zh-CN.md`](../LICENSE.zh-CN.md)).
+This model is distributed as a whole under Apache-2.0; upstream components (Qwen3.5/3.6 and Gemma 4) are Apache-2.0 and the Ornith increment is MIT as declared upstream (notices retained). Attribution: [`../NOTICE`](../NOTICE); modifications: [`../MODIFICATIONS.md`](../MODIFICATIONS.md).
 <!-- UPSTREAM-LICENSE-NOTICE:END -->
+
 

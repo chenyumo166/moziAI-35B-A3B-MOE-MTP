@@ -2,12 +2,11 @@
 language:
 - en
 - zh
-license: other
-license_name: moziai-model-license
+license: apache-2.0
 license_link: https://huggingface.co/chenyumo/moziAI-35B-A3B-MOE-MTP/blob/main/LICENSE
 base_model: ornith-ai/Ornith-1.5-35B-A3B
 base_model_relation: finetune
-# 许可：MoziAI 模型许可协议（见 LICENSE / LICENSE.en.md）｜本模型含 Apache-2.0 上游组件（Qwen3.5/3.6、Gemma 4）｜详见 NOTICE
+# 许可：Apache License 2.0（英文原文见 LICENSE，中文说明见 LICENSE.zh-CN.md）｜上游 Qwen/Gemma 组件同为 Apache-2.0、Ornith 增量 MIT｜归属见 NOTICE
 tasks:
 - text-generation
 tags:
@@ -378,8 +377,8 @@ This model inherits the Uncensored characteristic of the Ornith-1.5-35B-A3B base
 
 ## 16. License
 
-License: see the **MoziAI Model License** ([`LICENSE.en.md`](LICENSE.en.md), English v2.0).
-This model contains upstream components governed by the **Apache License 2.0** (Qwen3.5/3.6, Gemma 4); attribution: [`NOTICE`](NOTICE); modifications: [`MODIFICATIONS.md`](MODIFICATIONS.md).
+License: **Apache License 2.0** ([`LICENSE`](LICENSE); Chinese note [`LICENSE.zh-CN.md`](LICENSE.zh-CN.md)).
+Distributed as a whole under Apache-2.0 (upstream Qwen3.5/3.6 and Gemma 4 likewise Apache-2.0; Ornith increment MIT, notices retained). Attribution: [`NOTICE`](NOTICE); modifications: [`MODIFICATIONS.md`](MODIFICATIONS.md).
 ## 17. Contact
 
 - **HuggingFace**: [@chenyumo](https://huggingface.co/chenyumo)
@@ -391,9 +390,12 @@ Copyright (c) 2026 Chen Yumo / chenyumo166. All rights reserved.
 
 ---
 
+
 <!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
 ## License
 
-License: see the **[MoziAI Model License](LICENSE.en.md)** (English v2.0). This model contains upstream components governed by the **Apache License 2.0** (Qwen3.5/3.6, Gemma 4). Upstream copyright and attribution notices: [`NOTICE`](NOTICE); modifications made by this team: [`MODIFICATIONS.md`](MODIFICATIONS.md).
+License: **Apache License 2.0** — authoritative text: [`LICENSE`](LICENSE) (Chinese note: [`LICENSE.zh-CN.md`](LICENSE.zh-CN.md)).
+This model is distributed as a whole under Apache-2.0; upstream components (Qwen3.5/3.6 and Gemma 4) are Apache-2.0 and the Ornith increment is MIT as declared upstream (notices retained). Attribution: [`NOTICE`](NOTICE); modifications: [`MODIFICATIONS.md`](MODIFICATIONS.md).
 <!-- UPSTREAM-LICENSE-NOTICE:END -->
+
 

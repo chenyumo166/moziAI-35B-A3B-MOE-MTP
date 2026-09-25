@@ -71,7 +71,7 @@ The MoziAI team made the following changes to the original work:
 | `MODEL_CARD.md`、`MODEL_CARD.zh.md` | **新增/改写** |
 | `V3.8/README.*.md`（18 种语言） | **新增/改写** |
 | `docs/**` | **新增** |
-| `LICENSE`、`LICENSE-APACHE`、`NOTICE` | **新增/改写** |
+| `LICENSE`（Apache 2.0 全文）、`NOTICE`、`LICENSE.zh-CN.md` | **新增/改写** |
 
 ---
 
@@ -83,7 +83,7 @@ This statement only records the MoziAI team's modifications. It does
 **not** alter the license status of any upstream component.
 
 - 继承自上游（Qwen3.5/3.6 与 Gemma 4）的组件持续受 **Apache License, Version 2.0**
-  约束，见 `LICENSE-APACHE`。
+  约束，见 `LICENSE`。
 - Ornith 自研增量适用上游声明的 **MIT License**，不受本仓库许可条件影响。
 - 上游版权、商标与归属声明见 `NOTICE`。
 - 详细许可分层见 `NOTICE` 第 5 节。
@@ -105,9 +105,12 @@ original upstream work (as required to be retained by Apache License
 
 ---
 
+
 <!-- UPSTREAM-LICENSE-NOTICE:BEGIN -->
 ## License
 
-License: see the **[MoziAI Model License](LICENSE.en.md)** (English v2.0). This model contains upstream components governed by the **Apache License 2.0** (Qwen3.5/3.6, Gemma 4). Upstream copyright and attribution notices: [`NOTICE`](NOTICE); modifications made by this team: [`MODIFICATIONS.md`](MODIFICATIONS.md).
+License: **Apache License 2.0** — authoritative text: [`LICENSE`](LICENSE) (Chinese note: [`LICENSE.zh-CN.md`](LICENSE.zh-CN.md)).
+This model is distributed as a whole under Apache-2.0; upstream components (Qwen3.5/3.6 and Gemma 4) are Apache-2.0 and the Ornith increment is MIT as declared upstream (notices retained). Attribution: [`NOTICE`](NOTICE); modifications: [`MODIFICATIONS.md`](MODIFICATIONS.md).
 <!-- UPSTREAM-LICENSE-NOTICE:END -->
+
 
