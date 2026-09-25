@@ -3,3 +3,6 @@ README.modelscope.md
 
 # 备份文件（勿提交）
 *.bak*
+
+# MS 上传缓存（内部状态，勿提交）
+.ms_upload_cache
